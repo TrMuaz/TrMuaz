@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Israk Mikraj Lesson</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #38bdf8;
+            --accent-dark: #0284c7;
+            --text-light: #f1f5f9;
+            --text-muted: #cbd5e1;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: var(--accent);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .quranic-verse {
+            background: rgba(56, 189, 248, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-tabs button {
+            padding: 12px 24px;
+            border: none;
+            background: var(--secondary);
+            color: var(--text-light);
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .nav-tabs button:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        .nav-tabs button.active {
+            background: var(--accent);
+            color: var(--primary);
+            border-color: var(--accent);
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-size: 2em;
+            color: var(--accent);
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            color: var(--accent);
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            padding-left: 50px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 0 3px var(--accent);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% + 20px);
+            background: var(--accent);
+            opacity: 0.3;
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .timeline-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .timeline-desc {
+            color: var(--text-muted);
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .significance-card {
+            background: var(--secondary);
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .significance-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
+
+        .significance-card h4 {
+            color: var(--accent);
+            font-size: 1.2em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            font-size: 1.5em;
+        }
+
+        .significance-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .key-points {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid var(--success);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .key-points h4 {
+            color: var(--success);
+            margin-bottom: 15px;
+        }
+
+        .key-points ul {
+            list-style-position: inside;
+            color: var(--text-muted);
+        }
+
+        .key-points li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .fact-box {
+            background: var(--secondary);
+            border: 2px solid var(--accent);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .fact-label {
+            color: var(--text-muted);
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .fact-value {
+            color: var(--accent);
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid var(--secondary);
+            color: var(--text-muted);
+        }
+
+        .arabic-text {
+            color: var(--accent);
+            font-size: 1.1em;
+            direction: rtl;
+            text-align: right;
+            font-style: italic;
+            margin: 15px 0;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .nav-tabs {
+                gap: 8px;
+            }
+
+            .nav-tabs button {
+                padding: 10px 16px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌙 Israk & Mikraj 🌙</h1>
+            <p class="subtitle">The Miraculous Night Journey of Prophet Muhammad (Peace be upon him)</p>
+            <div class="quranic-verse">
+                <strong>Surah Al-Isra', Verse 1:</strong><br>
+                "Exalted is He who took His Servant by night from al-Masjid al-Haram to al-Masjid al-Aqsa, whose surroundings We have blessed, to show him of Our signs. Indeed, He is the Hearing, the Seeing."
+            </div>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="switchTab('timeline')">Timeline</button>
+            <button class="tab-btn" onclick="switchTab('significance')">Significance</button>
+            <button class="tab-btn" onclick="switchTab('facts')">Key Facts</button>
+            <button class="tab-btn" onclick="switchTab('lessons')">Lessons</button>
+        </div>
+
+        <!-- TIMELINE SECTION -->
+        <div id="timeline" class="content-section active">
+            <h2>Event Timeline</h2>
+            <p style="margin-bottom: 30px; color: var(--text-muted);">
+                The journey of Israk & Mikraj occurred in a single miraculous night, approximately in 621 CE, about a year before the Prophet's Hijrah to Madinah.
+            </p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-title">The Year of Sadness (Preceding Events)</div>
+                    <div class="timeline-desc">
+                        Before this miraculous journey, Prophet Muhammad (ﷺ) faced immense challenges. He lost his beloved wife Sayyidatina Khadijah and his protective uncle Abu Talib. He was also rejected and mistreated by the people of Taif, who threw stones at him. The Quraysh boycotted him and his companions, making life extremely difficult.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-title">Journey Begins - Night Departure from Makkah</div>
+                    <div class="timeline-desc">
+                        While sleeping in Umm Hani's house, Angel Jibril (Gabriel) arrived and awakened the Prophet. He brought the Buraq—a miraculous winged creature, smaller than a mule and larger than a donkey, with a human face and the wings of a bird. The Prophet was taken to Masjidil Haram (the Grand Mosque in Makkah).
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-title">The Purification at Zamzam</div>
+                    <div class="timeline-desc">
+                        Before the journey, Angel Jibril performed a special purification. He opened the Prophet's chest and washed his heart with water from the well of Zamzam, filling it with faith, certainty, wisdom, and knowledge.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-title">Al-Isra: Journey to Jerusalem</div>
+                    <div class="timeline-desc">
+                        The Prophet mounted the Buraq with Angel Jibril. They traveled through the night from Makkah to Baitul Maqdis (Jerusalem), approximately 1,200 kilometers, completing this journey in just a few hours—what would normally take months of travel. He dismounted at Masjid Al-Aqsa and led the prophets (Ibrahim, Musa, Isa, and others) in prayer.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-title">Al-Mikraj: Ascension to the Heavens</div>
+                    <div class="timeline-desc">
+                        From the sacred stone (Muallak) in Jerusalem, the Prophet ascended to the heavens with Angel Jibril. He journeyed through the seven heavens, meeting the great prophets in each:
+                        <ul style="margin-left: 20px; margin-top: 10px; color: var(--text-muted);">
+                            <li><strong>First Heaven:</strong> Prophet Adam</li>
+                            <li><strong>Second Heaven:</strong> Prophets Yahya (John) and Isa (Jesus)</li>
+                            <li><strong>Third Heaven:</strong> Prophet Yusuf (Joseph)</li>
+                            <li><strong>Fourth Heaven:</strong> Prophet Idris</li>
+                            <li><strong>Fifth Heaven:</strong> Prophet Harun (Aaron)</li>
+                            <li><strong>Sixth Heaven:</strong> Prophet Musa (Moses)</li>
+                            <li><strong>Seventh Heaven:</strong> Prophet Ibrahim (Abraham)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-title">Direct Communion with Allah</div>
+                    <div class="timeline-desc">
+                        The Prophet ascended to Sidratul Muntaha (the Lote Tree of the Utmost Boundary), where he met Allah directly. Initially, Muslims were commanded to pray 50 times a day. Upon advice from Prophet Musa, the Prophet negotiated with Allah multiple times until the obligation was reduced to 5 daily prayers—with the reward still equivalent to 50.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-title">Visions of Paradise and Hell</div>
+                    <div class="timeline-desc">
+                        The Prophet was shown various scenes during the journey, including visions of paradise and the consequences of actions in the hellfire. He witnessed the deeds of people, including stories of those who were punished for backbiting, eating riba (interest), and other sins.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-title">Return to Makkah</div>
+                    <div class="timeline-desc">
+                        The Prophet returned to Makkah before dawn, descending back through the heavens. He arrived home in less than the time it takes for a candle to burn out. On the way back, he saw caravans heading toward Makkah, which he would later describe as proof of the journey. He slept for only a brief moment before dawn broke.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-title">Sharing the News & Public Reaction</div>
+                    <div class="timeline-desc">
+                        The next morning, the Prophet told his cousin Umm Hani about the journey. When he shared it with Abu Jahl and others, they mocked him severely. Some said he was mad; others called him a magician. However, his trusted companion Abu Bakar believed immediately without doubt, earning him the title "As-Siddiq" (The Truthful).
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIGNIFICANCE SECTION -->
+        <div id="significance" class="content-section">
+            <h2>Spiritual Significance</h2>
+
+            <div class="significance-card">
+                <h4><span class="icon">🙏</span> The Gift of Five Daily Prayers</h4>
+                <p>
+                    The most direct practical result of Israk & Mikraj is the establishment of the five daily prayers (Salah). This is one of the Five Pillars of Islam and was commanded directly by Allah to the Prophet at Sidratul Muntaha. Muslims fulfill this obligation with the spiritual reward equivalent to 50 prayers daily—a mercy from Allah. Without Israk & Mikraj, we would have been obligated to pray 50 times a day instead of five!
+                </p>
+            </div>
+
+            <div class="significance-card">
+                <h4><span class="icon">⭐</span> Validation of Prophet Muhammad's Status</h4>
+                <p>
+                    Israk & Mikraj demonstrated to the world that Prophet Muhammad (ﷺ) is the chosen Messenger of Allah. This miraculous journey affirmed his prophethood and elevated his status as the final messenger. It proved that Allah had specific plans for him and honored him in ways no other human has been honored—being brought into direct communion with Allah.
+                </p>
+            </div>
+
+            <div class="significance-card">
+                <h4><span class="icon">💪</span> Divine Comfort During Trials</h4>
+                <p>
+                    This journey came at the most difficult time in the Prophet's life—the "Year of Sadness" when he lost his wife and uncle. It was a sign of Allah's mercy and compassion. Allah rewarded the Prophet's steadfastness with this incredible honor. This event strengthened his faith and resolve to continue the mission of Islam despite overwhelming opposition.
+                </p>
+            </div>
+
+            <div class="significance-card">
+                <h4><span class="icon">🌍</span> Connection Between Makkah and Jerusalem</h4>
+                <p>
+                    Israk & Mikraj established the spiritual connection between Makkah and Baitul Maqdis (Jerusalem), both recognized as Holy Cities in Islam. It validated Al-Aqsa Mosque as a sacred sanctuary and connected the Muslim community to the legacy of all previous prophets, creating continuity in the divine message.
+                </p>
+            </div>
+
+            <div class="significance-card">
+                <h4><span class="icon">✨</span> Direct Divine Guidance</h4>
+                <p>
+                    Unlike other commandments that came through Angel Jibril, the instruction to establish prayers came directly from Allah. This shows the supreme importance of Salah in Islamic practice. The direct nature of this command emphasizes the direct relationship between Allah and His servants through prayer.
+                </p>
+            </div>
+
+            <div class="significance-card">
+                <h4><span class="icon">📖</span> Demonstration of Divine Power</h4>
+                <p>
+                    The entire event demonstrates Allah's absolute power and command over creation. A journey of over 1,200 kilometers in minutes shows that the laws of nature are under Allah's control. This was a powerful testament to Allah's infinite capabilities and a reminder to humanity of His supremacy.
+                </p>
+            </div>
+
+            <div class="key-points">
+                <h4>Core Teachings from Israk & Mikraj</h4>
+                <ul>
+                    <li><strong>Faith Under Pressure:</strong> The Prophet's unwavering faith despite ridicule and mockery teaches us to maintain belief even when others doubt.</li>
+                    <li><strong>Allah's Mercy:</strong> This event occurred at the Prophet's lowest point, showing that Allah's compassion comes when we need it most.</li>
+                    <li><strong>Spiritual Connection:</strong> Direct communication with Allah through prayer is the core of Islamic spirituality—the essence of what Salah represents.</li>
+                    <li><strong>Unity of Prophets:</strong> Meeting previous prophets emphasizes the unity of the divine message across all of history.</li>
+                    <li><strong>Negotiation and Mercy:</strong> The reduction of prayers from 50 to 5 while maintaining the reward shows Allah's understanding of human limitations and His desire for ease, not hardship.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- KEY FACTS SECTION -->
+        <div id="facts" class="content-section">
+            <h2>Key Facts & Details</h2>
+
+            <div class="facts-grid">
+                <div class="fact-box">
+                    <div class="fact-label">Approximate Date</div>
+                    <div class="fact-value">27 Rajab, 621 CE</div>
+                </div>
+                <div class="fact-box">
+                    <div class="fact-label">Time Before Hijrah</div>
+                    <div class="fact-value">~1 Year</div>
+                </div>
+                <div class="fact-box">
+                    <div class="fact-label">Journey Duration</div>
+                    <div class="fact-value">Less Than a Night</div>
+                </div>
+                <div class="fact-box">
+                    <div class="fact-label">Distance Traveled</div>
+                    <div class="fact-value">~1,200+ km</div>
+                </div>
+                <div class="fact-box">
+                    <div class="fact-label">Starting Point</div>
+                    <div class="fact-value">Makkah (Masjidil Haram)</div>
+                </div>
+                <div class="fact-box">
+                    <div class="fact-label">Destination</div>
+                    <div class="fact-value">Jerusalem → Heavens</div>
+                </div>
+                <div class="fact-box">
+                    <div class="fact-label">Heavens Visited</div>
+                    <div class="fact-value">Seven Heavens</div>
+                </div>
+                <div class="fact-box">
+                    <div class="fact-label">Original Prayer Obligation</div>
+                    <div class="fact-value">50 Times Daily</div>
+                </div>
+                <div class="fact-box">
+                    <div class="fact-label">Final Prayer Obligation</div>
+                    <div class="fact-value">5 Times Daily</div>
+                </div>
+            </div>
+
+            <h3>Important Details</h3>
+
+            <p style="margin-top: 20px; color: var(--text-muted);">
+                <strong>The Buraq:</strong> The Prophet rode on the Buraq, a miraculous creature described in Islamic texts. It had the face of a human, the tail of a donkey, the wings of a bird, and was faster than light itself.
+            </p>
+
+            <p style="margin-top: 15px; color: var(--text-muted);">
+                <strong>The Prophets Met:</strong> During the ascension, the Prophet met seven great prophets—Adam, Yahya, Isa, Yusuf, Idris, Harun, Musa, and finally Ibrahim at the highest level, with Sidratul Muntaha being the boundary beyond which no creation can go.
+            </p>
+
+            <p style="margin-top: 15px; color: var(--text-muted);">
+                <strong>The Night Journey & Ascension:</strong> While sometimes discussed as one event, Islamic scholars often distinguish between Al-Isra (the night journey to Jerusalem) and Al-Mikraj (the ascension to the heavens), though they happened in the same miraculous night.
+            </p>
+
+            <p style="margin-top: 15px; color: var(--text-muted);">
+                <strong>Quranic References:</strong> The event is mentioned in Surah Al-Isra' (17:1) and described in detail in Surah An-Najm (53:13-18). Hadith collections provide extensive accounts of the journey.
+            </p>
+        </div>
+
+        <!-- LESSONS SECTION -->
+        <div id="lessons" class="content-section">
+            <h2>Important Lessons</h2>
+
+            <div class="significance-card">
+                <h4><span class="icon">🤝</span> Trust in Allah During Difficulty</h4>
+                <p>
+                    The Prophet endured rejection, loss, and pain yet never wavered. He trusted Allah completely. This teaches us that when facing hardships, we should strengthen our connection with Allah through prayer and maintain unwavering faith. Allah honors those who persist in faith.
+                </p>
+            </div>
+
+            <div class="significance-card">
+                <h4><span class="icon">🕋</span> The Centrality of Prayer</h4>
+                <p>
+                    That Allah commanded prayers directly—not through an angel—shows the supreme importance of Salah. Prayer is our direct line of communication with the Divine. The fact that it was the most important commandment from this miraculous event emphasizes that prayer is the pillar of faith.
+                </p>
+            </div>
+
+            <div class="significance-card">
+                <h4><span class="icon">⚖️</span> Allah's Mercy and Balance</h4>
+                <p>
+                    The reduction of prayers from 50 to 5, while maintaining the full reward, demonstrates Allah's perfect balance between expectations and human capability. Allah knows our limits and provides ease. As stated in the Quran, "Allah intends for you ease and not difficulty" (Surah Al-Baqarah 2:185).
+                </p>
+            </div>
+
+            <div class="significance-card">
+                <h4><span class="icon">💫</span> The Reality Beyond the Physical</h4>
+                <p>
+                    Israk & Mikraj reminds us that reality extends beyond what we can see and understand. The spiritual dimension of existence is real and profound. Our actions have consequences in the spiritual realm, and our ultimate accountability is to Allah.
+                </p>
+            </div>
+
+            <div class="significance-card">
+                <h4><span class="icon">👥</span> Courage to Face Mockery</h4>
+                <p>
+                    The Prophet faced ridicule from the Quraysh for sharing this miraculous journey. Yet he spoke truth regardless of how foolish others thought him. This teaches us to speak truth with conviction, even when facing opposition or ridicule from society.
+                </p>
+            </div>
+
+            <div class="significance-card">
+                <h4><span class="icon">🌟</span> Honor Comes with Sacrifice</h4>
+                <p>
+                    The Prophet was honored with this miraculous journey after suffering loss and rejection. This shows that honor and divine favor are earned through steadfastness, sacrifice, and unwavering commitment to truth—not through ease or comfort.
+                </p>
+            </div>
+
+            <div class="key-points">
+                <h4>Reflections for Students</h4>
+                <ul>
+                    <li>How does the Prophet's patience during "The Year of Sadness" inspire you to face your own challenges?</li>
+                    <li>Why do you think Allah emphasized the importance of prayer by making it the central gift of Israk & Mikraj?</li>
+                    <li>How can we apply the lesson of Divine mercy in the reduction of prayers to our own lives?</li>
+                    <li>What does the Prophet's courage in declaring this miraculous journey teach us about standing for truth?</li>
+                    <li>How does understanding the spiritual dimension of existence change your perspective on daily life?</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 Islamic Education Resource | Lesson on Israk & Mikraj</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                "Indeed, Allah is with the patient" — Surah Al-Baqarah 2:153
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
