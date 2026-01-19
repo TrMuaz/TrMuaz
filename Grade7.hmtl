@@ -1,1 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Grade 7 Islamic Studies - Lesson Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* ---------- BASE PAGE STYLES ---------- */
+    :root {
+      --bg-cream: #fcfcf9;
+      --turquoise: #208095;
+      --soft-brown: #8a6b4f;
+      --light-border: #d7d7cf;
+      --text-main: #222222;
+      --text-muted: #666666;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-main);
+      line-height: 1.4;
+    }
+
+    .page-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      padding: 12px 16px 18px;
+      border-radius: 10px;
+      border: 1px solid var(--light-border);
+      background-color: #ffffff;
+      margin-bottom: 18px;
+    }
+
+    header h1 {
+      margin: 0 0 4px;
+      font-size: 1.4rem;
+      color: var(--turquoise);
+    }
+
+    header p {
+      margin: 2px 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      margin-top: 8px;
+      font-size: 0.9rem;
+    }
+
+    .meta-item span.label {
+      font-weight: 600;
+      color: var(--soft-brown);
+    }
+
+    /* ---------- GRID LAYOUT ---------- */
+    .grid-notes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .note-card {
+      background-color: #ffffff;
+      border-radius: 10px;
+      border: 1px solid var(--light-border);
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      min-height: 140px;
+      transition: box-shadow 0.15s ease, transform 0.15s ease;
+    }
+
+    .note-card:hover {
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+      transform: translateY(-1px);
+    }
+
+    .note-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--turquoise);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .note-title small {
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .note-body {
+      font-size: 0.9rem;
+      flex: 1;
+      white-space: pre-wrap; /* so you can type line breaks */
+    }
+
+    .note-footer {
+      margin-top: 6px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      border-top: 1px dashed var(--light-border);
+      padding-top: 4px;
+    }
+
+    /* ---------- SECTION LABELS ---------- */
+    .section-label {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--soft-brown);
+      margin: 16px 2px 8px;
+    }
+
+    /* ---------- SPECIAL ROW (FULL WIDTH) ---------- */
+    .note-card.full-width {
+      grid-column: 1 / -1;
+    }
+
+    /* ---------- PRINT STYLES ---------- */
+    @media print {
+      body {
+        background-color: #ffffff;
+      }
+      .page-wrapper {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        border: none;
+        border-bottom: 1px solid #aaa;
+        border-radius: 0;
+      }
+      .note-card {
+        box-shadow: none !important;
+        transform: none !important;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- ===== HEADER / BASIC INFO ===== -->
+    <header>
+      <h1>Grade 7 Islamic Studies</h1>
+      <p>Lesson Notes Grid – Editable template for teacher use</p>
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="label">Topic:</span>
+          <span><!-- e.g. Faith in Allah (Iman) --></span>
+        </div>
+        <div class="meta-item">
+          <span class="label">Week:</span>
+          <span><!-- e.g. Week 3 --></span>
+        </div>
+        <div class="meta-item">
+          <span class="label">Class:</span>
+          <span><!-- e.g. 7A / 7B --></span>
+        </div>
+        <div class="meta-item">
+          <span class="label">Teacher:</span>
+          <span><!-- e.g. Tr. Muaz --></span>
+        </div>
+        <div class="meta-item">
+          <span class="label">Date:</span>
+          <span><!-- e.g. 19 Jan 2026 --></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== LEARNING GOALS ===== -->
+    <div class="section-label">Learning goals</div>
+    <div class="grid-notes">
+      <div class="note-card">
+        <div class="note-title">Objectives (English)</div>
+        <div class="note-body">
+<!-- Type lesson objectives here -->
+• Students can define the key concept.
+• Students can give one simple example from daily life.
+        </div>
+      </div>
+
+      <div class="note-card">
+        <div class="note-title">Objectives (Arabic / Quran)</div>
+        <div class="note-body">
+<!-- Type related verse / hadeeth focus here -->
+Ayah / Hadeeth:
+____________________________________
+Key Arabic terms:
+____________________________________
+        </div>
+      </div>
+
+      <div class="note-card">
+        <div class="note-title">Objectives (Student language)</div>
+        <div class="note-body">
+<!-- Use for Chinese / Malay translation of main goals -->
+• 简单目标 1：
+• 简单目标 2：
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== CONTENT & EXPLANATION ===== -->
+    <div class="section-label">Core content</div>
+    <div class="grid-notes">
+      <div class="note-card full-width">
+        <div class="note-title">Key points / story line</div>
+        <div class="note-body">
+<!-- Long explanation or story outline -->
+1.
+2.
+3.
+        </div>
+      </div>
+
+      <div class="note-card">
+        <div class="note-title">Key vocabulary</div>
+        <div class="note-body">
+<!-- Short list of important terms -->
+• Term (English) – meaning
+• كَلِمَة (Arabic) – meaning
+• 中文词 – meaning
+        </div>
+        <div class="note-footer">Use this to build glossary later.</div>
+      </div>
+
+      <div class="note-card">
+        <div class="note-title">Examples from daily life</div>
+        <div class="note-body">
+<!-- Classroom-friendly examples -->
+• At home:
+• In school:
+• With friends:
+        </div>
+      </div>
+
+      <div class="note-card">
+        <div class="note-title">Misconceptions / notes</div>
+        <div class="note-body">
+<!-- Notes about weak areas / common mistakes -->
+• Possible confusion:
+• Simple correction:
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== ACTIVITIES & ASSESSMENT ===== -->
+    <div class="section-label">Activities & assessment</div>
+    <div class="grid-notes">
+      <div class="note-card">
+        <div class="note-title">Starter activity</div>
+        <div class="note-body">
+<!-- Short warm-up -->
+Time:
+Materials:
+Steps:
+        </div>
+      </div>
+
+      <div class="note-card">
+        <div class="note-title">Main activity (group / pair)</div>
+        <div class="note-body">
+<!-- Main task description -->
+Group work / pair work:
+Instructions:
+Differentiation:
+        </div>
+      </div>
+
+      <div class="note-card">
+        <div class="note-title">Individual task</div>
+        <div class="note-body">
+<!-- Written work / worksheet -->
+Task:
+Support for weak students:
+Extension for strong students:
+        </div>
+      </div>
+
+      <div class="note-card">
+        <div class="note-title">Assessment & reflection</div>
+        <div class="note-body">
+<!-- How you check understanding -->
+• Quick check:
+• Exit ticket / short Q&amp;A:
+• Reflection question:
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== TEACHER REFLECTION ===== -->
+    <div class="section-label">Teacher reflection</div>
+    <div class="grid-notes">
+      <div class="note-card full-width">
+        <div class="note-title">Notes after lesson</div>
+        <div class="note-body">
+<!-- After teaching, write notes here -->
+What went well:
+
+What to improve:
+
+Students who need follow-up:
+        </div>
+      </div>
+    </div>
+
+    <footer style="margin-top: 10px; font-size: 0.8rem; color: #888888;">
+      Grade 7 Islamic Studies | Lesson notes grid template
+    </footer>
+  </div>
+</body>
+</html>
 
