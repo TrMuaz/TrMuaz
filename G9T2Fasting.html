@@ -406,8 +406,10 @@
 
         <!-- Navigation Tabs -->
         <div class="tab-container">
-            <button class="tab-btn active" onclick="showTab('definition')">Definition</button>
-            <button class="tab-btn" onclick="showTab('types')">Types of Fasting</button>
+            <button class="tab-btn active" onclick="showTab(event, 'definition')">Definition</button>
+            <button class="tab-btn" onclick="showTab(event, 'types')">Types of Fasting</button>
+            <button class="tab-btn" onclick="showTab(event, 'conditions')">Conditions to Fast</button>
+            <button class="tab-btn" onclick="showTab(event, 'exemptions')">Exemption from Fasting</button>
         </div>
 
         <!-- Definition Section -->
@@ -469,75 +471,76 @@
             </div>
 
             <!-- Sunnah (Recommended) -->
-<button class="collapsible" onclick="toggleCollapse(this)">
-    <span>🟢 Sunnah (Recommended Fasting)</span>
-    <span class="collapse-icon">▼</span>
-</button>
-<div class="collapse-content">
-    <!-- Yearly Fasting Gallery -->
-    <h3>Yearly Fasting:</h3>
-    <div class="gallery">
-        <div class="gallery-card">
-            <div class="gallery-icon" style="background: linear-gradient(135deg, #1e7c34 0%, #2d9d47 100%);">🕊️</div>
-            <div class="gallery-content">
-                <h3>Ashura</h3>
-                <p>The 10th of Muharram, highly recommended to fast it, along with the 9th or 11th.</p>
-            </div>
-        </div>
-        <div class="gallery-card">
-            <div class="gallery-icon" style="background: linear-gradient(135deg, #2c6b8f 0%, #3498db 100%);">🕋</div>
-            <div class="gallery-content">
-                <h3>Day of Arafah</h3>
-                <p>The 9th of Dhul-Hijjah, the day before Eid al-Adha, with great rewards for those not performing Hajj.</p>
-            </div>
-        </div>
-        <div class="gallery-card">
-            <div class="gallery-icon" style="background: linear-gradient(135deg, #8b5a3c 0%, #d4a574 100%);">6️⃣</div>
-            <div class="gallery-content">
-                <h3>Six Days of Shawwal</h3>
-                <p>Any six days after Eid al-Fitr in Shawwal, completing the reward of fasting the whole year.</p>
-            </div>
-        </div>
-        <div class="gallery-card">
-            <div class="gallery-icon" style="background: linear-gradient(135deg, #7b2d26 0%, #9d3a35 100%);">📅</div>
-            <div class="gallery-content">
-                <h3>Month of Sha'ban</h3>
-                <p>Fasting frequently in Sha'ban, the month before Ramadan, as practiced by the Prophet.</p>
-            </div>
-        </div>
-    </div>
+            <button class="collapsible" onclick="toggleCollapse(this)">
+                <span>🟢 Sunnah (Recommended Fasting)</span>
+                <span class="collapse-icon">▼</span>
+            </button>
+            <div class="collapse-content">
+                <!-- Yearly Fasting Gallery -->
+                <h3>Yearly Fasting:</h3>
+                <div class="gallery">
+                    <div class="gallery-card">
+                        <div class="gallery-icon" style="background: linear-gradient(135deg, #1e7c34 0%, #2d9d47 100%);">🕊️</div>
+                        <div class="gallery-content">
+                            <h3>Ashura</h3>
+                            <p>The 10th of Muharram, highly recommended to fast it, along with the 9th or 11th.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-card">
+                        <div class="gallery-icon" style="background: linear-gradient(135deg, #2c6b8f 0%, #3498db 100%);">🕋</div>
+                        <div class="gallery-content">
+                            <h3>Day of Arafah</h3>
+                            <p>The 9th of Dhul-Hijjah, the day before Eid al-Adha, with great rewards for those not performing Hajj.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-card">
+                        <div class="gallery-icon" style="background: linear-gradient(135deg, #8b5a3c 0%, #d4a574 100%);">6️⃣</div>
+                        <div class="gallery-content">
+                            <h3>Six Days of Shawwal</h3>
+                            <p>Any six days after Eid al-Fitr in Shawwal, completing the reward of fasting the whole year.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-card">
+                        <div class="gallery-icon" style="background: linear-gradient(135deg, #7b2d26 0%, #9d3a35 100%);">📅</div>
+                        <div class="gallery-content">
+                            <h3>Month of Sha'ban</h3>
+                            <p>Fasting frequently in Sha'ban, the month before Ramadan, as practiced by the Prophet.</p>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Monthly Fasting Gallery -->
-    <h3>Monthly Fasting:</h3>
-    <div class="gallery">
-        <div class="gallery-card">
-            <div class="gallery-icon" style="background: linear-gradient(135deg, #6b2e24 0%, #8b3d31 100%);">🌕</div>
-            <div class="gallery-content">
-                <h3>White Days (13, 14, 15)</h3>
-                <p>Fasting on the 13th, 14th, and 15th of each lunar month, known as Ayyam al-Beed.</p>
-            </div>
-        </div>
-        <div class="gallery-card">
-            <div class="gallery-icon" style="background: linear-gradient(135deg, #5a2823 0%, #7a3730 100%);">3️⃣</div>
-            <div class="gallery-content">
-                <h3>Any Three Days</h3>
-                <p>Alternatively, fasting any three days in each lunar month is also recommended.</p>
-            </div>
-        </div>
-    </div>
+                <!-- Monthly Fasting Gallery -->
+                <h3>Monthly Fasting:</h3>
+                <div class="gallery">
+                    <div class="gallery-card">
+                        <div class="gallery-icon" style="background: linear-gradient(135deg, #6b2e24 0%, #8b3d31 100%);">🌕</div>
+                        <div class="gallery-content">
+                            <h3>White Days (13, 14, 15)</h3>
+                            <p>Fasting on the 13th, 14th, and 15th of each lunar month, known as Ayyam al-Beed.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-card">
+                        <div class="gallery-icon" style="background: linear-gradient(135deg, #5a2823 0%, #7a3730 100%);">3️⃣</div>
+                        <div class="gallery-content">
+                            <h3>Any Three Days</h3>
+                            <p>Alternatively, fasting any three days in each lunar month is also recommended.</p>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Weekly Fasting Gallery -->
-    <h3>Weekly Fasting:</h3>
-    <div class="gallery">
-        <div class="gallery-card">
-            <div class="gallery-icon" style="background: linear-gradient(135deg, #1e7c34 0%, #2d9d47 100%);">📆</div>
-            <div class="gallery-content">
-                <h3>Mondays and Thursdays</h3>
-                <p>Highly recommended days for voluntary fasting each week.</p>
+                <!-- Weekly Fasting Gallery -->
+                <h3>Weekly Fasting:</h3>
+                <div class="gallery">
+                    <div class="gallery-card">
+                        <div class="gallery-icon" style="background: linear-gradient(135deg, #1e7c34 0%, #2d9d47 100%);">📆</div>
+                        <div class="gallery-content">
+                            <h3>Mondays and Thursdays</h3>
+                            <p>Highly recommended days for voluntary fasting each week.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
+
             <!-- Mubah (Permissible) -->
             <button class="collapsible" onclick="toggleCollapse(this)">
                 <span>🟡 Mubah (Permissible Fasting)</span>
@@ -574,6 +577,116 @@
             </div>
         </div>
 
+        <!-- Conditions for Being Required to Fast Section -->
+        <div id="conditions" class="content-section">
+            <button class="collapsible" onclick="toggleCollapse(this)">
+                <span>🧾 Conditions for Being Required to Fast</span>
+                <span class="collapse-icon">▼</span>
+            </button>
+            <div class="collapse-content active">
+                <div class="gallery">
+                    <div class="gallery-card">
+                        <div class="gallery-icon" style="background: linear-gradient(135deg, #1e7c34 0%, #2d9d47 100%);">☪️</div>
+                        <div class="gallery-content">
+                            <h3>To Be a Muslim</h3>
+                            <p>Only Muslims are required to fast. Non-Muslims are not accountable for fasting in Ramadan.</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-card">
+                        <div class="gallery-icon" style="background: linear-gradient(135deg, #8b5a3c 0%, #d4a574 100%);">🧒</div>
+                        <div class="gallery-content">
+                            <h3>To Reach Puberty</h3>
+                            <p>Fasting becomes compulsory after puberty. Parents should gently train children from an early age, for example with half-day fasts, but they cannot force them.</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-card">
+                        <div class="gallery-icon" style="background: linear-gradient(135deg, #2c6b8f 0%, #3498db 100%);">🧠</div>
+                        <div class="gallery-content">
+                            <h3>Mentally Sane</h3>
+                            <p>The person must be of sound mind to be accountable for fasting.</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-card">
+                        <div class="gallery-icon" style="background: linear-gradient(135deg, #7b2d26 0%, #9d3a35 100%);">💪</div>
+                        <div class="gallery-content">
+                            <h3>Physically Able</h3>
+                            <p>The person must be physically able to fast without serious harm.</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-card">
+                        <div class="gallery-icon" style="background: linear-gradient(135deg, #6b2e24 0%, #8b3d31 100%);">🏠</div>
+                        <div class="gallery-content">
+                            <h3>Resident, Not Traveller</h3>
+                            <p>The obligation applies to a resident. A traveller has a concession to break the fast and make it up later.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exemption from Fasting Section -->
+        <div id="exemptions" class="content-section">
+            <button class="collapsible" onclick="toggleCollapse(this)">
+                <span>🛡️ Exemption from Fasting</span>
+                <span class="collapse-icon">▼</span>
+            </button>
+            <div class="collapse-content active">
+                <div class="gallery">
+                    <div class="gallery-card">
+                        <div class="gallery-icon" style="background: linear-gradient(135deg, #5a2823 0%, #7a3730 100%);">🚗</div>
+                        <div class="gallery-content">
+                            <h3>Journey (Musafir/Safar)</h3>
+                            <p>A traveller (generally 89 km or more) is allowed to break the fast and must make up the missed days (qada) later.</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-card">
+                        <div class="gallery-icon" style="background: linear-gradient(135deg, #8b0000 0%, #c41e3a 100%);">🏥</div>
+                        <div class="gallery-content">
+                            <h3>Sickness</h3>
+                            <p>If fasting worsens the illness or delays recovery, the person may break the fast and make it up later.</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-card">
+                        <div class="gallery-icon" style="background: linear-gradient(135deg, #8b5a3c 0%, #d4a574 100%);">🤰</div>
+                        <div class="gallery-content">
+                            <h3>Pregnancy</h3>
+                            <p>If fasting is feared to harm the mother or the baby, she may break the fast, following the relevant rulings for making up or compensating.</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-card">
+                        <div class="gallery-icon" style="background: linear-gradient(135deg, #2c6b8f 0%, #3498db 100%);">🍼</div>
+                        <div class="gallery-content">
+                            <h3>Breastfeeding</h3>
+                            <p>If fasting may harm the mother or the nursing baby, she may break the fast, with the applicable make-up or compensation.</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-card">
+                        <div class="gallery-icon" style="background: linear-gradient(135deg, #7b2d26 0%, #9d3a35 100%);">👴</div>
+                        <div class="gallery-content">
+                            <h3>Weakness / Old Age</h3>
+                            <p>The very elderly or permanently weak who cannot fast are exempt and follow the ruling for fidyah where applicable.</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-card">
+                        <div class="gallery-icon" style="background: linear-gradient(135deg, #6b2e24 0%, #8b3d31 100%);">⚔️</div>
+                        <div class="gallery-content">
+                            <h3>Jihaad in Battle</h3>
+                            <p>If fasting is feared to weaken a person in active battle, they may break the fast according to the rulings of scholars.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Footer -->
         <div class="footer">
             <p>📚 Islamic Studies Lesson Hub | Sawm (Fasting) Module</p>
@@ -583,7 +696,7 @@
 
     <script>
         // Tab Navigation
-        function showTab(tabName) {
+        function showTab(event, tabName) {
             const sections = document.querySelectorAll('.content-section');
             sections.forEach(section => section.classList.remove('active'));
             
