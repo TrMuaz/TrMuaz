@@ -317,6 +317,7 @@
             <button class="tab-btn" onclick="switchTab('significance')">Significance</button>
             <button class="tab-btn" onclick="switchTab('facts')">Key Facts</button>
             <button class="tab-btn" onclick="switchTab('lessons')">Lessons</button>
+            <button class="tab-btn" onclick="switchTab('quiz')">Quiz</button>
         </div>
 
         <!-- TIMELINE SECTION -->
@@ -426,15 +427,14 @@
                 </p>
             </div>
 
-<div class="significance-card">
-    <h4><span class="icon">🕊️</span> Test of Faith in Miracles</h4>
-    <p>
-        The Isra' and Mi'raj was a clear test of faith for people, as it described a miraculous journey beyond normal human experience. 
-        It called believers to trust in Allah's unlimited power and in the truthfulness of the Prophet Muhammad ﷺ, even when the event seemed impossible to the human mind. 
-        This miracle separates sincere believers from those who only accept what fits their limited understanding, reminding us that true iman includes belief in the unseen and in Allah's extraordinary signs.
-    </p>
-</div>
-
+            <div class="significance-card">
+                <h4><span class="icon">🕊️</span> Test of Faith in Miracles</h4>
+                <p>
+                    The Isra' and Mi'raj was a clear test of faith for people, as it described a miraculous journey beyond normal human experience. 
+                    It called believers to trust in Allah's unlimited power and in the truthfulness of the Prophet Muhammad ﷺ, even when the event seemed impossible to the human mind. 
+                    This miracle separates sincere believers from those who only accept what fits their limited understanding, reminding us that true iman includes belief in the unseen and in Allah's extraordinary signs.
+                </p>
+            </div>
 
             <div class="key-points">
                 <h4>Core Teachings from Israk & Mikraj</h4>
@@ -561,6 +561,15 @@
             </div>
         </div>
 
+        <!-- QUIZ SECTION -->
+        <div id="quiz" class="content-section">
+            <h2>Quiz: Israk & Mikraj</h2>
+            <p style="margin-bottom: 20px; color: var(--text-muted);">
+                Please complete the quiz below to test your understanding of the lesson.
+            </p>
+            <iframe width="640px" height="480px" src="https://forms.office.com/r/cQAiCz5VJ9?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen></iframe>
+        </div>
+
         <footer>
             <p>© 2026 Islamic Education Resource | Lesson on Israk & Mikraj</p>
             <p style="margin-top: 10px; font-size: 0.9em;">
@@ -571,22 +580,17 @@
 
     <script>
         function switchTab(tabName) {
-            // Hide all sections
             const sections = document.querySelectorAll('.content-section');
             sections.forEach(section => {
                 section.classList.remove('active');
             });
 
-            // Remove active class from all buttons
             const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(button => {
                 button.classList.remove('active');
             });
 
-            // Show selected section
             document.getElementById(tabName).classList.add('active');
-
-            // Add active class to clicked button
             event.target.classList.add('active');
         }
     </script>
