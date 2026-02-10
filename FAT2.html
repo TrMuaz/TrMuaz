@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasting in Ramadan - Interactive Lesson</title>
+    <style>
+        :root {
+            --color-bg-base: #ffffff;
+            --color-bg-elevated: #f8fafc;
+            --color-bg-surface: #e0f2fe;
+            --color-text-primary: #1e293b;
+            --color-text-secondary: #475569;
+            --color-primary: #0284c7;
+            --color-primary-hover: #0369a1;
+            --color-accent: #f59e0b;
+            --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background: var(--color-bg-base);
+            color: var(--color-text-primary);
+            line-height: 1.8;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--color-bg-elevated);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        h1 {
+            color: var(--color-primary);
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--color-text-secondary);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .bilingual {
+            margin: 20px 0;
+            padding: 20px;
+            background: var(--color-bg-surface);
+            border-radius: 12px;
+            border-left: 4px solid var(--color-primary);
+        }
+
+        .english {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin-bottom: 8px;
+        }
+
+        .chinese {
+            font-size: 1.1rem;
+            color: var(--color-accent);
+            margin-bottom: 5px;
+        }
+
+        .pinyin {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+            font-style: italic;
+        }
+
+        .section {
+            margin: 30px 0;
+        }
+
+        .section-title {
+            color: var(--color-primary);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--color-bg-surface);
+        }
+
+        .glossary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .glossary-item {
+            background: var(--color-bg-surface);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 3px solid var(--color-accent);
+        }
+
+        .glossary-word {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--color-primary);
+            margin-bottom: 8px;
+        }
+
+        .glossary-chinese {
+            font-size: 1.1rem;
+            color: var(--color-accent);
+            margin-bottom: 5px;
+        }
+
+        .glossary-pinyin {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            font-style: italic;
+        }
+
+        .interactive-btn {
+            background: var(--color-primary);
+            color: var(--color-bg-base);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+        }
+
+        .interactive-btn:hover {
+            background: var(--color-primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4);
+        }
+
+        .quiz-container {
+            background: var(--color-bg-surface);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .quiz-container.active {
+            display: block;
+        }
+
+        .quiz-question {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--color-text-primary);
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .quiz-option {
+            background: #ffffff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #cbd5e1;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--color-primary);
+            transform: translateX(5px);
+        }
+
+        .quiz-option.correct {
+            background: #10b981;
+            border-color: #10b981;
+        }
+
+        .quiz-option.wrong {
+            background: #ef4444;
+            border-color: #ef4444;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback.correct {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .feedback.wrong {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        .icon {
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌙 Fasting in Ramadan 斋月斋戒</h1>
+        <p class="subtitle">An Interactive Lesson</p>
+
+        <!-- Introduction Section -->
+        <div class="section">
+            <h2 class="section-title"><span class="icon">📖</span>What is Ramadan?</h2>
+            
+            <div class="bilingual">
+                <div class="english">Ramadan is the ninth month of the Islamic calendar.</div>
+                <div class="chinese">斋月是伊斯兰历的第九个月。</div>
+                <div class="pinyin">Zhāiyuè shì yīsīlán lì de dì jiǔ gè yuè.</div>
+            </div>
+
+            <div class="bilingual">
+                <div class="english">It is a special and holy month for Muslims.</div>
+                <div class="chinese">对穆斯林来说，这是一个特殊而神圣的月份。</div>
+                <div class="pinyin">Duì mùsīlín lái shuō, zhè shì yí gè tèshū ér shénshèng de yuèfèn.</div>
+            </div>
+
+            <div class="bilingual">
+                <div class="english">During Ramadan, Muslims fast from sunrise to sunset.</div>
+                <div class="chinese">在斋月期间，穆斯林从日出到日落禁食。</div>
+                <div class="pinyin">Zài zhāiyuè qījiān, mùsīlín cóng rìchū dào rìluò jìnshí.</div>
+            </div>
+        </div>
+
+        <!-- What is Fasting Section -->
+        <div class="section">
+            <h2 class="section-title"><span class="icon">🍽️</span>What is Fasting?</h2>
+            
+            <div class="bilingual">
+                <div class="english">Fasting means not eating or drinking during the day.</div>
+                <div class="chinese">斋戒意味着白天不吃不喝。</div>
+                <div class="pinyin">Zhāijiè yìwèizhe báitiān bù chī bù hē.</div>
+            </div>
+
+            <div class="bilingual">
+                <div class="english">Muslims wake up early before sunrise to eat a meal called Suhur.</div>
+                <div class="chinese">穆斯林在日出前很早起床吃一顿叫做封斋饭的饭。</div>
+                <div class="pinyin">Mùsīlín zài rìchū qián hěn zǎo qǐchuáng chī yí dùn jiàozuò fēngzhāi fàn de fàn.</div>
+            </div>
+
+            <div class="bilingual">
+                <div class="english">They cannot eat or drink anything until the sun sets.</div>
+                <div class="chinese">他们直到太阳落山才能吃喝任何东西。</div>
+                <div class="pinyin">Tāmen zhídào tàiyáng luòshān cái néng chīhē rènhé dōngxi.</div>
+            </div>
+
+            <div class="bilingual">
+                <div class="english">After sunset, they break their fast with a meal called Iftar.</div>
+                <div class="chinese">日落后，他们用一顿叫做开斋饭的饭来开斋。</div>
+                <div class="pinyin">Rìluò hòu, tāmen yòng yí dùn jiàozuò kāizhāi fàn de fàn lái kāizhāi.</div>
+            </div>
+        </div>
+
+        <!-- Why Muslims Fast Section -->
+        <div class="section">
+            <h2 class="section-title"><span class="icon">💫</span>Why Do Muslims Fast?</h2>
+            
+            <div class="bilingual">
+                <div class="english">Fasting is one of the Five Pillars of Islam.</div>
+                <div class="chinese">斋戒是伊斯兰教五大支柱之一。</div>
+                <div class="pinyin">Zhāijiè shì yīsīlán jiào wǔ dà zhīzhù zhī yī.</div>
+            </div>
+
+            <div class="bilingual">
+                <div class="english">It helps Muslims become closer to God.</div>
+                <div class="chinese">它帮助穆斯林更接近真主。</div>
+                <div class="pinyin">Tā bāngzhù mùsīlín gèng jiējìn zhēnzhǔ.</div>
+            </div>
+
+            <div class="bilingual">
+                <div class="english">Fasting teaches patience and self-control.</div>
+                <div class="chinese">斋戒教导耐心和自我控制。</div>
+                <div class="pinyin">Zhāijiè jiàodǎo nàixīn hé zìwǒ kòngzhì.</div>
+            </div>
+
+            <div class="bilingual">
+                <div class="english">It reminds Muslims to be grateful for what they have.</div>
+                <div class="chinese">它提醒穆斯林对他们所拥有的心存感激。</div>
+                <div class="pinyin">Tā tíxǐng mùsīlín duì tāmen suǒ yǒngyǒu de xīn cún gǎnjī.</div>
+            </div>
+
+            <div class="bilingual">
+                <div class="english">Fasting helps Muslims understand how poor people feel when they are hungry.</div>
+                <div class="chinese">斋戒帮助穆斯林理解穷人挨饿时的感受。</div>
+                <div class="pinyin">Zhāijiè bāngzhù mùsīlín lǐjiě qióngrén áiè shí de gǎnshòu.</div>
+            </div>
+        </div>
+
+        <!-- What Muslims Do Section -->
+        <div class="section">
+            <h2 class="section-title"><span class="icon">🕌</span>What Else Do Muslims Do in Ramadan?</h2>
+            
+            <div class="bilingual">
+                <div class="english">Muslims pray more during Ramadan.</div>
+                <div class="chinese">穆斯林在斋月期间祷告更多。</div>
+                <div class="pinyin">Mùsīlín zài zhāiyuè qījiān dǎogào gèng duō.</div>
+            </div>
+
+            <div class="bilingual">
+                <div class="english">They read the Quran, the holy book of Islam.</div>
+                <div class="chinese">他们阅读《古兰经》，伊斯兰教的圣书。</div>
+                <div class="pinyin">Tāmen yuèdú 《gǔlánjīng》, yīsīlán jiào de shèngshū.</div>
+            </div>
+
+            <div class="bilingual">
+                <div class="english">Muslims give charity to help poor people.</div>
+                <div class="chinese">穆斯林施舍来帮助穷人。</div>
+                <div class="pinyin">Mùsīlín shīshě lái bāngzhù qióngrén.</div>
+            </div>
+
+            <div class="bilingual">
+                <div class="english">Families and friends gather together for Iftar meals.</div>
+                <div class="chinese">家人和朋友聚在一起吃开斋饭。</div>
+                <div class="pinyin">Jiārén hé péngyǒu jù zài yìqǐ chī kāizhāi fàn.</div>
+            </div>
+
+            <div class="bilingual">
+                <div class="english">At the end of Ramadan, Muslims celebrate Eid al-Fitr.</div>
+                <div class="chinese">在斋月结束时，穆斯林庆祝开斋节。</div>
+                <div class="pinyin">Zài zhāiyuè jiéshù shí, mùsīlín qìngzhù kāizhāi jié.</div>
+            </div>
+        </div>
+
+        <!-- Glossary Section -->
+        <div class="section">
+            <h2 class="section-title"><span class="icon">📚</span>Glossary - Important Words 词汇表</h2>
+            
+            <div class="glossary-grid">
+                <div class="glossary-item">
+                    <div class="glossary-word">Ramadan</div>
+                    <div class="glossary-chinese">斋月</div>
+                    <div class="glossary-pinyin">Zhāiyuè</div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-word">Fasting</div>
+                    <div class="glossary-chinese">斋戒 / 禁食</div>
+                    <div class="glossary-pinyin">Zhāijiè / Jìnshí</div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-word">Muslim</div>
+                    <div class="glossary-chinese">穆斯林</div>
+                    <div class="glossary-pinyin">Mùsīlín</div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-word">Suhur</div>
+                    <div class="glossary-chinese">封斋饭 (黎明前的饭)</div>
+                    <div class="glossary-pinyin">Fēngzhāi fàn (límíng qián de fàn)</div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-word">Iftar</div>
+                    <div class="glossary-chinese">开斋饭 (日落后的饭)</div>
+                    <div class="glossary-pinyin">Kāizhāi fàn (rìluò hòu de fàn)</div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-word">Sunrise</div>
+                    <div class="glossary-chinese">日出</div>
+                    <div class="glossary-pinyin">Rìchū</div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-word">Sunset</div>
+                    <div class="glossary-chinese">日落</div>
+                    <div class="glossary-pinyin">Rìluò</div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-word">Pray / Prayer</div>
+                    <div class="glossary-chinese">祈祷 / 祷告</div>
+                    <div class="glossary-pinyin">Qídǎo / Dǎogào</div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-word">Quran</div>
+                    <div class="glossary-chinese">古兰经</div>
+                    <div class="glossary-pinyin">Gǔlánjīng</div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-word">Charity</div>
+                    <div class="glossary-chinese">慈善 / 施舍</div>
+                    <div class="glossary-pinyin">Císhàn / Shīshě</div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-word">Eid al-Fitr</div>
+                    <div class="glossary-chinese">开斋节</div>
+                    <div class="glossary-pinyin">Kāizhāi jié</div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-word">Holy</div>
+                    <div class="glossary-chinese">神圣的</div>
+                    <div class="glossary-pinyin">Shénshèng de</div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-word">Patience</div>
+                    <div class="glossary-chinese">耐心</div>
+                    <div class="glossary-pinyin">Nàixīn</div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-word">Self-control</div>
+                    <div class="glossary-chinese">自我控制</div>
+                    <div class="glossary-pinyin">Zìwǒ kòngzhì</div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-word">Grateful</div>
+                    <div class="glossary-chinese">感激的</div>
+                    <div class="glossary-pinyin">Gǎnjī de</div>
+                </div>
+
+                <div class="glossary-item">
+                    <div class="glossary-word">Five Pillars of Islam</div>
+                    <div class="glossary-chinese">伊斯兰教五大支柱</div>
+                    <div class="glossary-pinyin">Yīsīlán jiào wǔ dà zhīzhù</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Quiz Section -->
+        <div class="section">
+            <h2 class="section-title"><span class="icon">✏️</span>Test Your Knowledge 测试你的知识</h2>
+            <p style="color: var(--color-text-secondary); margin-bottom: 15px;">
+                Click the button to start the quiz! 点击按钮开始测验！(Diǎnjī ànniǔ kāishǐ cèyàn!)
+            </p>
+            <button class="interactive-btn" onclick="showQuiz()">Start Quiz 开始测验</button>
+            <button class="interactive-btn" onclick="resetQuiz()" style="background: var(--color-bg-surface);">Reset 重置</button>
+
+            <div class="quiz-container" id="quizContainer">
+                <div class="quiz-question">
+                    <strong>Question 问题:</strong> What is the meal called that Muslims eat before sunrise?<br>
+                    <span style="color: var(--color-accent);">穆斯林在日出前吃的饭叫什么？(Mùsīlín zài rìchū qián chī de fàn jiào shénme?)</span>
+                </div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">
+                        Iftar 开斋饭
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">
+                        Suhur 封斋饭
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">
+                        Breakfast 早餐
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">
+                        Dinner 晚餐
+                    </div>
+                </div>
+                <div class="feedback" id="feedback"></div>
+            </div>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="section">
+            <h2 class="section-title"><span class="icon">📝</span>Summary 总结</h2>
+            
+            <div class="bilingual">
+                <div class="english">Ramadan is a special month for Muslims around the world.</div>
+                <div class="chinese">斋月对全世界的穆斯林来说是一个特殊的月份。</div>
+                <div class="pinyin">Zhāiyuè duì quán shìjiè de mùsīlín lái shuō shì yí gè tèshū de yuèfèn.</div>
+            </div>
+
+            <div class="bilingual">
+                <div class="english">Fasting helps them grow spiritually and become better people.</div>
+                <div class="chinese">斋戒帮助他们精神成长，成为更好的人。</div>
+                <div class="pinyin">Zhāijiè bāngzhù tāmen jīngshén chéngzhǎng, chéngwéi gèng hǎo de rén.</div>
+            </div>
+
+            <div class="bilingual">
+                <div class="english">It is a time of prayer, charity, and family.</div>
+                <div class="chinese">这是一个祈祷、慈善和家庭团聚的时刻。</div>
+                <div class="pinyin">Zhè shì yí gè qídǎo, císhàn hé jiātíng tuánjù de shíkè.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showQuiz() {
+            const quizContainer = document.getElementById('quizContainer');
+            quizContainer.classList.add('active');
+        }
+
+        function checkAnswer(element, isCorrect) {
+            const options = document.querySelectorAll('.quiz-option');
+            const feedback = document.getElementById('feedback');
+            
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+            });
+
+            if (isCorrect) {
+                element.classList.add('correct');
+                feedback.className = 'feedback show correct';
+                feedback.innerHTML = '✓ Correct! 正确！(Zhèngquè!) Suhur is the pre-dawn meal. 封斋饭是黎明前的饭。';
+            } else {
+                element.classList.add('wrong');
+                feedback.className = 'feedback show wrong';
+                feedback.innerHTML = '✗ Try again! 再试一次！(Zài shì yí cì!) The correct answer is Suhur. 正确答案是封斋饭。';
+                
+                options.forEach(opt => {
+                    if (opt.textContent.includes('Suhur')) {
+                        opt.classList.add('correct');
+                    }
+                });
+            }
+        }
+
+        function resetQuiz() {
+            const options = document.querySelectorAll('.quiz-option');
+            const feedback = document.getElementById('feedback');
+            
+            options.forEach(opt => {
+                opt.classList.remove('correct', 'wrong');
+                opt.style.pointerEvents = 'auto';
+            });
+            
+            feedback.className = 'feedback';
+            feedback.innerHTML = '';
+        }
+    </script>
+</body>
+</html>
