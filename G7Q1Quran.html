@@ -249,6 +249,18 @@
                 ⏱️ Timed Quiz | 计时测验<br>
                 🎯 4 Choices Each | 每题4个选项
             </p>
+            
+            <div style="margin-top: 30px;">
+                <div style="margin-bottom: 15px;">
+                    <label for="studentName" style="display: block; margin-bottom: 5px; font-weight: 600; color: #D2691E;">Your Name | 你的名字:</label>
+                    <input type="text" id="studentName" placeholder="Enter your name 输入名字" style="width: 100%; padding: 12px; border: 2px solid #FFD9A0; border-radius: 10px; font-size: 1rem; font-family: 'Nunito', sans-serif;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label for="studentClass" style="display: block; margin-bottom: 5px; font-weight: 600; color: #D2691E;">Your Class | 你的班级:</label>
+                    <input type="text" id="studentClass" placeholder="Enter your class 输入班级" style="width: 100%; padding: 12px; border: 2px solid #FFD9A0; border-radius: 10px; font-size: 1rem; font-family: 'Nunito', sans-serif;">
+                </div>
+            </div>
+            
             <button class="start-btn" onclick="startQuiz()">🚀 Start Quiz! 开始测验！</button>
         </div>
         
@@ -288,7 +300,10 @@
             
             <div class="feedback" id="feedback"></div>
             
-            <button class="restart-btn" onclick="restartQuiz()">🔄 Try Again! 再试一次！</button>
+            <div id="submissionStatus" style="margin-top: 20px; padding: 15px; border-radius: 10px; display: none;"></div>
+            
+            <button class="restart-btn" id="submitBtn" onclick="submitResults()">📧 Submit Results 提交成绩</button>
+            <button class="restart-btn" onclick="restartQuiz()" style="margin-top: 15px;">🔄 Try Again! 再试一次！</button>
         </div>
     </div>
     
@@ -541,8 +556,18 @@
         let timeLeft = 30;
         let timer = null;
         let selectedAnswer = null;
+        let studentName = '';
+        let studentClass = '';
         
         function startQuiz() {
+            studentName = document.getElementById('studentName').value.trim();
+            studentClass = document.getElementById('studentClass').value.trim();
+            
+            if (!studentName || !studentClass) {
+                alert('Please enter your name and class! 请输入你的名字和班级！');
+                return;
+            }
+            
             document.getElementById('startScreen').classList.add('hidden');
             document.getElementById('quizScreen').classList.remove('hidden');
             loadQuestion();
@@ -705,6 +730,36 @@
             
             document.getElementById('resultEmoji').textContent = emoji;
             document.getElementById('feedback').innerHTML = `<strong>${feedback}</strong><br>${feedbackChinese}`;
+        }
+        
+        function submitResults() {
+            const percentage = Math.round((score / questions.length) * 100);
+            const timestamp = new Date().toLocaleString('en-MY', { timeZone: 'Asia/Kuala_Lumpur' });
+            
+            // Create email content
+            const subject = encodeURIComponent(`Quiz Results - ${studentName}`);
+            const body = encodeURIComponent(
+                `Student Name: ${studentName}\n` +
+                `Class: ${studentClass}\n` +
+                `Score: ${score}/${questions.length}\n` +
+                `Percentage: ${percentage}%\n` +
+                `Date & Time: ${timestamp}\n\n` +
+                `Quran Themes Quiz - 古兰经主题测验`
+            );
+            
+            // Open email client
+            window.location.href = `mailto:mu'az@iis.edu.my?subject=${subject}&body=${body}`;
+            
+            // Show confirmation
+            const statusDiv = document.getElementById('submissionStatus');
+            statusDiv.style.display = 'block';
+            statusDiv.style.background = 'linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%)';
+            statusDiv.style.border = '2px solid #28a745';
+            statusDiv.style.color = '#155724';
+            statusDiv.innerHTML = '<strong>✅ Email opened! Please send the email.</strong><br>电子邮件已打开！请发送邮件。';
+            
+            document.getElementById('submitBtn').disabled = true;
+            document.getElementById('submitBtn').style.opacity = '0.5';
         }
         
         function restartQuiz() {
