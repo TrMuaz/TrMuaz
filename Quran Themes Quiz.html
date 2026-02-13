@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quran Themes Quiz | 古兰经主题测验</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Nunito:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFE8CC 100%);
+            color: #5D4E37;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-family: 'Bubblegum Sans', cursive;
+            text-align: center;
+            color: #D2691E;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #8B6F47;
+            margin-bottom: 30px;
+        }
+        
+        .start-screen, .quiz-screen, .result-screen {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 8px 20px rgba(210, 105, 30, 0.2);
+            border: 3px solid #FFD9A0;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .start-btn, .next-btn, .restart-btn {
+            font-family: 'Bubblegum Sans', cursive;
+            background: linear-gradient(135deg, #D2691E 0%, #FFB366 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0 6px 12px rgba(210, 105, 30, 0.3);
+            transition: all 0.3s ease;
+            display: block;
+            margin: 30px auto 0;
+        }
+        
+        .start-btn:hover, .next-btn:hover, .restart-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(210, 105, 30, 0.4);
+        }
+        
+        .start-btn:active, .next-btn:active, .restart-btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .progress-bar {
+            background: #FFE8CC;
+            height: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #D2691E 0%, #FFB366 100%);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .question-info {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #8B6F47;
+            font-weight: 600;
+        }
+        
+        .question-card {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFE8CC 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border: 2px solid #FFD9A0;
+        }
+        
+        .question-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #D2691E;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .question-chinese {
+            font-size: 1.1rem;
+            color: #8B6F47;
+            line-height: 1.5;
+        }
+        
+        .options {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .option-btn {
+            background: white;
+            border: 3px solid #FFD9A0;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #5D4E37;
+            font-weight: 600;
+        }
+        
+        .option-btn:hover {
+            background: #FFF9E6;
+            transform: translateX(5px);
+            border-color: #FFB366;
+        }
+        
+        .option-btn.selected {
+            background: #FFE8CC;
+            border-color: #D2691E;
+        }
+        
+        .option-btn.correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+        
+        .option-btn.wrong {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+        
+        .option-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        
+        .timer {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #D2691E;
+            margin-bottom: 20px;
+            font-family: 'Bubblegum Sans', cursive;
+        }
+        
+        .score-display {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .score-big {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #D2691E;
+            font-family: 'Bubblegum Sans', cursive;
+        }
+        
+        .score-text {
+            font-size: 1.3rem;
+            color: #8B6F47;
+            margin-top: 10px;
+        }
+        
+        .feedback {
+            background: linear-gradient(135deg, #FFE8CC 0%, #FFD9A0 100%);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            border: 2px solid #FFB366;
+        }
+        
+        .emoji-big {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+        
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #5D4E37;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .question-text {
+                font-size: 1.1rem;
+            }
+            
+            .option-btn {
+                font-size: 1rem;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Quran Themes Quiz</h1>
+        <p class="subtitle">《古兰经》主题测验</p>
+        
+        <!-- Start Screen -->
+        <div id="startScreen" class="start-screen">
+            <div class="emoji-big">📚</div>
+            <p class="intro-text">
+                <strong>Welcome! 欢迎！</strong><br><br>
+                Test your knowledge about the 5 main themes of the Quran!<br>
+                测试你对古兰经五大主题的了解！<br><br>
+                📝 20 Questions | 20个问题<br>
+                ⏱️ Timed Quiz | 计时测验<br>
+                🎯 4 Choices Each | 每题4个选项
+            </p>
+            <button class="start-btn" onclick="startQuiz()">🚀 Start Quiz! 开始测验！</button>
+        </div>
+        
+        <!-- Quiz Screen -->
+        <div id="quizScreen" class="quiz-screen hidden">
+            <div class="progress-bar">
+                <div id="progressFill" class="progress-fill"></div>
+            </div>
+            
+            <div class="question-info">
+                <span id="questionNumber">Question 1/20</span> | 
+                <span id="currentScore">Score: 0</span>
+            </div>
+            
+            <div class="timer" id="timer">⏰ Time: 30s</div>
+            
+            <div class="question-card">
+                <div class="question-text" id="questionText"></div>
+                <div class="question-chinese" id="questionChinese"></div>
+            </div>
+            
+            <div class="options" id="optionsContainer"></div>
+            
+            <button class="next-btn hidden" id="nextBtn" onclick="nextQuestion()">Next Question ➡️</button>
+        </div>
+        
+        <!-- Result Screen -->
+        <div id="resultScreen" class="result-screen hidden">
+            <div class="emoji-big" id="resultEmoji">🎉</div>
+            <div class="score-display">
+                <div class="score-big" id="finalScore">0/20</div>
+                <div class="score-text">
+                    <span id="percentage">0%</span> Correct!<br>
+                    <span id="percentageChinese">正确率</span>
+                </div>
+            </div>
+            
+            <div class="feedback" id="feedback"></div>
+            
+            <button class="restart-btn" onclick="restartQuiz()">🔄 Try Again! 再试一次！</button>
+        </div>
+    </div>
+    
+    <script>
+        const questions = [
+            {
+                question: 'Quran Theme: What is the main idea of "Belief (Aqidah)"?',
+                chinese: '信仰主题：信仰（阿奇达）的主要内容是什么？',
+                options: [
+                    'Knowing there is only one Allah 只信唯一的真主',
+                    'Doing business 做生意',
+                    'Playing sports 运动',
+                    'Traveling to many countries 去很多国家旅行'
+                ],
+                correct: 0,
+                time: 30
+            },
+            {
+                question: 'Which one shows "Tawheed" (Oneness of Allah)?',
+                chinese: '哪一项表示"认主独一"？',
+                options: [
+                    'Believing Allah has no partners 相信真主没有伙伴',
+                    'Believing many gods exist 相信有很多神',
+                    'Only believing in money 只相信金钱',
+                    'Only believing in people 只相信人类'
+                ],
+                correct: 0,
+                time: 30
+            },
+            {
+                question: 'Who brings the messages (wahy) from Allah to the prophets?',
+                chinese: '谁把真主的启示带给先知？',
+                options: [
+                    'Angels 天使',
+                    'Teachers 老师',
+                    'Parents 父母',
+                    'Friends 朋友'
+                ],
+                correct: 0,
+                time: 30
+            },
+            {
+                question: 'Which book is the final holy book from Allah?',
+                chinese: '哪一本是来自真主的最后一本经典？',
+                options: [
+                    'Quran 古兰经',
+                    'Torah 陶拉特',
+                    'Bible 引支勒',
+                    'Newspaper 报纸'
+                ],
+                correct: 0,
+                time: 25
+            },
+            {
+                question: '"Judgment Day" means what?',
+                chinese: '"复生日"（审判日）是什么意思？',
+                options: [
+                    'The day all people stand before Allah 所有人站在真主面前的一天',
+                    'The day of school holiday 学校假日',
+                    'The day of exam only 只是考试日',
+                    'The day we play games all day 整天玩游戏的日子'
+                ],
+                correct: 0,
+                time: 30
+            },
+            {
+                question: 'Which is a main idea of "Worship & Spirituality"?',
+                chinese: '哪一项是"功修与灵性"的主要内容？',
+                options: [
+                    'Prayer, fasting, charity 礼拜、斋戒、施舍',
+                    'Watching movies 看电影',
+                    'Eating a lot 吃很多',
+                    'Playing games 玩游戏'
+                ],
+                correct: 0,
+                time: 30
+            },
+            {
+                question: 'How many pillars of Islam are there?',
+                chinese: '伊斯兰有多少个支柱？',
+                options: [
+                    '5',
+                    '2',
+                    '3',
+                    '10'
+                ],
+                correct: 0,
+                time: 20
+            },
+            {
+                question: 'Which action is part of worship (ibadah)?',
+                chinese: '哪个行为是功修的一部分？',
+                options: [
+                    'Making salah (prayer) 做礼拜',
+                    'Being lazy 什么都不做',
+                    'Lying to friends 对朋友说谎',
+                    'Wasting food 浪费食物'
+                ],
+                correct: 0,
+                time: 25
+            },
+            {
+                question: '"Halal and haram" in Quran give us what?',
+                chinese: '古兰经中的"清真与禁戒"给我们什么？',
+                options: [
+                    'Rules for what is allowed and not allowed 关于允许与禁止的生活规则',
+                    'Maps for travel 旅游地图',
+                    'Math formulas 数学公式',
+                    'Game cheats 游戏秘籍'
+                ],
+                correct: 0,
+                time: 25
+            },
+            {
+                question: 'Which is an example of good character (akhlaq)?',
+                chinese: '哪一个是好品德的例子？',
+                options: [
+                    'Telling the truth 说真话',
+                    'Stealing money 偷钱',
+                    'Bullying classmates 欺负同学',
+                    'Cheating in exam 考试作弊'
+                ],
+                correct: 0,
+                time: 25
+            },
+            {
+                question: 'What does Quran teach about being thankful?',
+                chinese: '古兰经怎样教导我们感恩？',
+                options: [
+                    'Say "Alhamdulillah" and remember Allah 说"赞主清净"，记念真主',
+                    'Complain every day 每天抱怨',
+                    'Forget all blessings 忘记所有恩典',
+                    'Only thank people, not Allah 只谢人不谢真主'
+                ],
+                correct: 0,
+                time: 30
+            },
+            {
+                question: 'Stories of prophets in the Quran help us to do what?',
+                chinese: '古兰经中的先知故事帮助我们做什么？',
+                options: [
+                    'Learn lessons and be better people 学到教训，成为更好的人',
+                    'Know how to cook 学做饭',
+                    'Know many sports rules 学运动规则',
+                    'Know all country flags 认识国旗'
+                ],
+                correct: 0,
+                time: 30
+            },
+            {
+                question: 'Which is a prophet mentioned in the Quran?',
+                chinese: '以下哪位是在古兰经中提到的先知？',
+                options: [
+                    'Prophet Musa 先知穆萨',
+                    'Alexander the Great 亚历山大大帝',
+                    'Confucius 孔子',
+                    'A famous singer 一位歌手'
+                ],
+                correct: 0,
+                time: 25
+            },
+            {
+                question: 'Which sentence is true about reading the Quran?',
+                chinese: '关于诵读古兰经，哪一句是正确的？',
+                options: [
+                    'Every letter gives 10 rewards 每个字母都有十倍回赐',
+                    'There is no reward at all 完全没有回赐',
+                    'Only scholars get reward 只有学者有回赐',
+                    'Only Arabs get reward 只有阿拉伯人有回赐'
+                ],
+                correct: 0,
+                time: 30
+            },
+            {
+                question: 'Reading Quran makes the heart…',
+                chinese: '诵读古兰经会让心灵怎样？',
+                options: [
+                    'Clean and peaceful 更干净、更安宁',
+                    'More angry 更生气',
+                    'Always proud and arrogant 更骄傲',
+                    'Full of jealousy 充满嫉妒'
+                ],
+                correct: 0,
+                time: 25
+            },
+            {
+                question: 'Which benefit is from reading Quran?',
+                chinese: '哪一项是诵读古兰经的益处？',
+                options: [
+                    'Feeling calm and less stress 感到平静，减少压力',
+                    'Always feeling empty 总是觉得空虚',
+                    'Forget Allah more 常常忘记真主',
+                    'Hate doing good 厌恶行善'
+                ],
+                correct: 0,
+                time: 25
+            },
+            {
+                question: 'What did the Prophet ﷺ say about people who learn and teach the Quran?',
+                chinese: '先知ﷺ对学习并教导古兰经的人怎么说？',
+                options: [
+                    'They are the best people 他们是最优秀的人',
+                    'They are the worst people 他们是最差的人',
+                    'They get no reward at all 他们没有回赐',
+                    'Only old people can do it 只有老人可以做'
+                ],
+                correct: 0,
+                time: 30
+            },
+            {
+                question: 'Where do angels come when Quran is recited?',
+                chinese: '当人们诵读古兰经时，天使会到哪里？',
+                options: [
+                    'To the place where it is read 到诵读古兰经的地方',
+                    'To the cinema 去电影院',
+                    'To the shopping mall 去商场',
+                    'To the football field 去球场'
+                ],
+                correct: 0,
+                time: 25
+            },
+            {
+                question: 'What happens to a home where Quran is read often?',
+                chinese: '经常诵读古兰经的家会怎样？',
+                options: [
+                    'It has more barakah (blessing) 有更多白拉卡（祝福）',
+                    'It becomes very dark 变得很黑暗',
+                    'It has no blessing 没有祝福',
+                    'It becomes a haunted house 变成鬼屋'
+                ],
+                correct: 0,
+                time: 25
+            },
+            {
+                question: 'Why should we teach others Quran after we learn it?',
+                chinese: '为什么我们学了古兰经要教给别人？',
+                options: [
+                    'We get continuous rewards 我们会得到不断延续的善功',
+                    'So we can show off 这样可以炫耀',
+                    'So people will fear us 这样别人会怕我们',
+                    'So we can be famous 这样可以出名'
+                ],
+                correct: 0,
+                time: 30
+            }
+        ];
+        
+        let currentQuestion = 0;
+        let score = 0;
+        let timeLeft = 30;
+        let timer = null;
+        let selectedAnswer = null;
+        
+        function startQuiz() {
+            document.getElementById('startScreen').classList.add('hidden');
+            document.getElementById('quizScreen').classList.remove('hidden');
+            loadQuestion();
+        }
+        
+        function loadQuestion() {
+            const q = questions[currentQuestion];
+            selectedAnswer = null;
+            
+            document.getElementById('questionNumber').textContent = `Question ${currentQuestion + 1}/20`;
+            document.getElementById('currentScore').textContent = `Score: ${score}`;
+            document.getElementById('questionText').textContent = q.question;
+            document.getElementById('questionChinese').textContent = q.chinese;
+            
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            q.options.forEach((option, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.textContent = option;
+                btn.onclick = () => selectAnswer(index);
+                optionsContainer.appendChild(btn);
+            });
+            
+            document.getElementById('nextBtn').classList.add('hidden');
+            
+            timeLeft = q.time;
+            updateTimer();
+            startTimer();
+            
+            updateProgress();
+        }
+        
+        function selectAnswer(index) {
+            if (selectedAnswer !== null) return;
+            
+            selectedAnswer = index;
+            clearInterval(timer);
+            
+            const buttons = document.querySelectorAll('.option-btn');
+            buttons.forEach((btn, i) => {
+                btn.disabled = true;
+                if (i === questions[currentQuestion].correct) {
+                    btn.classList.add('correct');
+                } else if (i === selectedAnswer) {
+                    btn.classList.add('wrong');
+                }
+            });
+            
+            if (selectedAnswer === questions[currentQuestion].correct) {
+                score++;
+                document.getElementById('currentScore').textContent = `Score: ${score}`;
+            }
+            
+            document.getElementById('nextBtn').classList.remove('hidden');
+        }
+        
+        function nextQuestion() {
+            currentQuestion++;
+            
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+        
+        function startTimer() {
+            timer = setInterval(() => {
+                timeLeft--;
+                updateTimer();
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    if (selectedAnswer === null) {
+                        selectAnswer(-1);
+                    }
+                }
+            }, 1000);
+        }
+        
+        function updateTimer() {
+            document.getElementById('timer').textContent = `⏰ Time: ${timeLeft}s`;
+        }
+        
+        function updateProgress() {
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+        
+        function showResults() {
+            clearInterval(timer);
+            document.getElementById('quizScreen').classList.add('hidden');
+            document.getElementById('resultScreen').classList.remove('hidden');
+            
+            const percentage = Math.round((score / questions.length) * 100);
+            
+            document.getElementById('finalScore').textContent = `${score}/${questions.length}`;
+            document.getElementById('percentage').textContent = `${percentage}%`;
+            
+            let emoji = '🎉';
+            let feedback = '';
+            let feedbackChinese = '';
+            
+            if (percentage >= 90) {
+                emoji = '🌟';
+                feedback = 'Excellent! You know the Quran themes very well!';
+                feedbackChinese = '太棒了！你对古兰经主题非常了解！';
+            } else if (percentage >= 70) {
+                emoji = '👏';
+                feedback = 'Great job! Keep learning about the Quran!';
+                feedbackChinese = '做得很好！继续学习古兰经！';
+            } else if (percentage >= 50) {
+                emoji = '📚';
+                feedback = 'Good try! Read the Quran themes again!';
+                feedbackChinese = '不错的尝试！再读一次古兰经主题！';
+            } else {
+                emoji = '💪';
+                feedback = 'Keep trying! You can do better!';
+                feedbackChinese = '继续努力！你可以做得更好！';
+            }
+            
+            document.getElementById('resultEmoji').textContent = emoji;
+            document.getElementById('feedback').innerHTML = `<strong>${feedback}</strong><br>${feedbackChinese}`;
+        }
+        
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            selectedAnswer = null;
+            
+            document.getElementById('resultScreen').classList.add('hidden');
+            document.getElementById('startScreen').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
+
