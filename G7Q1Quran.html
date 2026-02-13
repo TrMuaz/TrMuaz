@@ -567,13 +567,43 @@
                 [shuffledIndices[i], shuffledIndices[j]] = [shuffledIndices[j], shuffledIndices[i]];
             }
             
-            shuffledIndices.forEach((originalIndex) => {
+            let newCorrectIndex = -1;
+            shuffledIndices.forEach((originalIndex, newIndex) => {
+                if (originalIndex === q.correct) {
+                    newCorrectIndex = newIndex;
+                }
                 const btn = document.createElement('button');
                 btn.className = 'option-btn';
                 btn.textContent = q.options[originalIndex];
-                btn.onclick = () => selectAnswer(originalIndex);
+                btn.dataset.index = newIndex;
+                btn.onclick = () => selectAnswer(newIndex, newCorrectIndex);
                 optionsContainer.appendChild(btn);
             });
+
+        function selectAnswer(index, correctIndex) {
+            if (selectedAnswer !== null) return;
+            
+            selectedAnswer = index;
+            clearInterval(timer);
+            
+            const buttons = document.querySelectorAll('.option-btn');
+            buttons.forEach((btn) => {
+                btn.disabled = true;
+                const btnIndex = parseInt(btn.dataset.index);
+                if (btnIndex === correctIndex) {
+                    btn.classList.add('correct');
+                } else if (btnIndex === selectedAnswer) {
+                    btn.classList.add('wrong');
+                }
+            });
+            
+            if (selectedAnswer === correctIndex) {
+                score++;
+                document.getElementById('currentScore').textContent = `Score: ${score}`;
+            }
+            
+            document.getElementById('nextBtn').classList.remove('hidden');
+        }
             
             document.getElementById('nextBtn').classList.add('hidden');
             
@@ -688,4 +718,3 @@
     </script>
 </body>
 </html>
-
