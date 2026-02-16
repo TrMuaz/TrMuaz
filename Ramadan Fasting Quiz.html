@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramadan Fasting Quiz</title>
+    <style>
+        :root {
+            --color-bg-base: #0f172a;
+            --color-bg-surface: #1e293b;
+            --color-text-primary: #f1f5f9;
+            --color-text-secondary: #cbd5e1;
+            --color-primary: #38bdf8;
+            --color-primary-hover: #0ea5e9;
+            --color-success: #10b981;
+            --color-error: #ef4444;
+            --color-warning: #f59e0b;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --color-bg-base: #ffffff;
+                --color-bg-surface: #f1f5f9;
+                --color-text-primary: #0f172a;
+                --color-text-secondary: #475569;
+                --color-primary: #0284c7;
+                --color-primary-hover: #0369a1;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--color-bg-base);
+            color: var(--color-text-primary);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--color-primary);
+            font-size: 2rem;
+        }
+
+        .quiz-card {
+            background: var(--color-bg-surface);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .question-number {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+        }
+
+        .timer {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .timer.warning {
+            color: var(--color-warning);
+        }
+
+        .timer.danger {
+            color: var(--color-error);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .option {
+            background: var(--color-bg-base);
+            border: 2px solid transparent;
+            padding: 15px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .option:hover:not(.disabled) {
+            border-color: var(--color-primary);
+            transform: translateX(5px);
+        }
+
+        .option.selected {
+            border-color: var(--color-primary);
+            background: rgba(56, 189, 248, 0.1);
+        }
+
+        .option.correct {
+            border-color: var(--color-success);
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .option.wrong {
+            border-color: var(--color-error);
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .option.disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: var(--color-primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--color-bg-base);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--color-primary);
+            transition: width 0.3s ease;
+        }
+
+        .results {
+            text-align: center;
+        }
+
+        .score {
+            font-size: 3rem;
+            color: var(--color-primary);
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .score-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .score-item {
+            background: var(--color-bg-base);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .score-label {
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .score-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .start-screen {
+            text-align: center;
+        }
+
+        .start-screen h2 {
+            margin-bottom: 20px;
+            color: var(--color-text-primary);
+        }
+
+        .start-screen p {
+            color: var(--color-text-secondary);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .quiz-card {
+                padding: 20px;
+            }
+
+            .question-text {
+                font-size: 1.1rem;
+            }
+
+            .score {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌙 Ramadan Fasting Quiz</h1>
+
+        <div id="startScreen" class="quiz-card start-screen">
+            <h2>Test Your Knowledge!</h2>
+            <p>This quiz contains 30 questions about Ramadan fasting, including niyyah, suhoor, iftaar, Taraweeh, Laylatul Qadr, and I'tikaf.</p>
+            <p>Each question has a time limit. Answer carefully and may Allah bless your learning journey!</p>
+            <button class="btn btn-primary" onclick="startQuiz()">Start Quiz</button>
+        </div>
+
+        <div id="quizScreen" class="hidden">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+
+            <div class="quiz-card">
+                <div class="question-header">
+                    <span class="question-number" id="questionNumber">Question 1 of 30</span>
+                    <div class="timer" id="timer">
+                        <span>⏱️</span>
+                        <span id="timeLeft">30</span>s
+                    </div>
+                </div>
+
+                <div class="question-text" id="questionText"></div>
+
+                <div class="options" id="optionsContainer"></div>
+
+                <div class="navigation">
+                    <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>Next Question</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="resultsScreen" class="quiz-card results hidden">
+            <h2>Quiz Complete! 🎉</h2>
+            <div class="score" id="finalScore">0%</div>
+            
+            <div class="score-details">
+                <div class="score-item">
+                    <div class="score-label">Correct Answers</div>
+                    <div class="score-value" style="color: var(--color-success);" id="correctCount">0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">Wrong Answers</div>
+                    <div class="score-value" style="color: var(--color-error);" id="wrongCount">0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">Total Questions</div>
+                    <div class="score-value" id="totalCount">30</div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" onclick="restartQuiz()">Try Again</button>
+        </div>
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "When must the niyyah (intention) for fasting be made?",
+                options: ["Only at midnight exactly", "After Maghrib and before Fajr", "During Fajr prayer", "After eating suhoor"],
+                correct: 2,
+                timeLimit: 30
+            },
+            {
+                question: "Where should the intention for fasting be?",
+                options: ["On the tongue only", "Written on paper", "In your heart for Allah", "Said loudly to people"],
+                correct: 3,
+                timeLimit: 30
+            },
+            {
+                question: "What is the MINIMUM requirement for suhoor?",
+                options: ["A full meal with rice", "At least one sip of water", "Three dates", "Must skip it entirely"],
+                correct: 2,
+                timeLimit: 25
+            },
+            {
+                question: "What food is recommended to eat at suhoor?",
+                options: ["Fish", "Bread", "Dates", "Only milk"],
+                correct: 3,
+                timeLimit: 25
+            },
+            {
+                question: "When must we stop eating and drinking for suhoor?",
+                options: ["At Dhuhr time", "After Fajr time starts", "Before Fajr time begins", "After sunrise"],
+                correct: 3,
+                timeLimit: 25
+            },
+            {
+                question: "When should a fasting person break the fast?",
+                options: ["At Dhuhr time", "At Asr time", "At Maghrib (sunset)", "After Isha"],
+                correct: 3,
+                timeLimit: 25
+            },
+            {
+                question: "What is the best food to break the fast with?",
+                options: ["Meat and rice", "Dates and water", "Only fruits", "Only soup"],
+                correct: 2,
+                timeLimit: 25
+            },
+            {
+                question: "What should we do about breaking the fast at Maghrib?",
+                options: ["Delay as long as possible", "Break fast quickly", "Wait until midnight", "Skip if not hungry"],
+                correct: 2,
+                timeLimit: 25
+            },
+            {
+                question: "What is the dua meaning: \"O Allah, for You I have fasted and with Your provision I have broken my fast\"?",
+                options: ["Asking for money", "Asking for health only", "Showing that fasting and food are for Allah", "Asking to become famous"],
+                correct: 3,
+                timeLimit: 40
+            },
+            {
+                question: "\"The thirst is gone, the veins are moistened, and the reward is confirmed, if Allah wills\" is said when?",
+                options: ["Before suhoor", "During Dhuhr", "After breaking the fast", "Before going to sleep"],
+                correct: 3,
+                timeLimit: 30
+            },
+            {
+                question: "What is Taraweeh prayer?",
+                options: ["Eid prayer", "A special night prayer in Ramadan", "Funeral prayer", "Friday prayer"],
+                correct: 2,
+                timeLimit: 25
+            },
+            {
+                question: "What is the status of Taraweeh prayer?",
+                options: ["Fard (obligatory)", "Makruh (disliked)", "Highly recommended", "Haram"],
+                correct: 3,
+                timeLimit: 25
+            },
+            {
+                question: "What is the MINIMUM number of rakaat for Taraweeh?",
+                options: ["1 rakaat", "2 rakaat", "4 rakaat", "8 rakaat"],
+                correct: 2,
+                timeLimit: 25
+            },
+            {
+                question: "What was the Prophet's way of praying at night in Ramadan?",
+                options: ["4 rakaat only", "20 rakaat only", "8 rakaat + 3 Witr", "2 rakaat only"],
+                correct: 3,
+                timeLimit: 30
+            },
+            {
+                question: "How can Taraweeh be performed?",
+                options: ["Only in the mosque", "Only at home", "Only by imams", "Alone or in group (jamaah)"],
+                correct: 4,
+                timeLimit: 25
+            },
+            {
+                question: "When is Taraweeh usually prayed?",
+                options: ["After Fajr", "After Dhuhr", "After Isha prayer in Ramadan", "After Asr"],
+                correct: 3,
+                timeLimit: 25
+            },
+            {
+                question: "What is Laylatul Qadr also called in English?",
+                options: ["Night of Food", "Night of Power", "Night of Travel", "Night of Eid"],
+                correct: 2,
+                timeLimit: 25
+            },
+            {
+                question: "What happened in Laylatul Qadr according to Surah Al-Qadr?",
+                options: ["The Kaabah was built", "The Qur'an was sent down", "The first mosque was built", "Fasting was made compulsory"],
+                correct: 2,
+                timeLimit: 30
+            },
+            {
+                question: "Laylatul Qadr is better than how long?",
+                options: ["Ten days", "One year", "One month", "A thousand months"],
+                correct: 4,
+                timeLimit: 30
+            },
+            {
+                question: "The reward of Laylatul Qadr is about how many years of worship?",
+                options: ["8 years", "18 years", "83 years", "3 years"],
+                correct: 3,
+                timeLimit: 30
+            },
+            {
+                question: "When do we look for Laylatul Qadr?",
+                options: ["First 10 nights of Ramadan", "Middle 10 nights of Ramadan", "Last 10 nights of Ramadan", "Any night in Shaaban"],
+                correct: 3,
+                timeLimit: 25
+            },
+            {
+                question: "Which nights are especially hoped to be Laylatul Qadr?",
+                options: ["Even nights", "Only 30th night", "Only 1st night", "Odd nights: 21st, 23rd, 25th, 27th, 29th"],
+                correct: 4,
+                timeLimit: 40
+            },
+            {
+                question: "What is I'tikaf?",
+                options: ["Fasting without food", "Giving charity", "Staying in the mosque for worship", "Going for Hajj"],
+                correct: 3,
+                timeLimit: 30
+            },
+            {
+                question: "What is the status of I'tikaf?",
+                options: ["Fard in Ramadan", "Sunnah (recommended)", "Haram in Ramadan", "Only for women"],
+                correct: 2,
+                timeLimit: 25
+            },
+            {
+                question: "When is the best time to do I'tikaf?",
+                options: ["First 10 days of Ramadan", "Middle 10 days of Ramadan", "Last 10 days of Ramadan", "First 10 days of Dhul Hijjah"],
+                correct: 3,
+                timeLimit: 25
+            },
+            {
+                question: "What is the main purpose of I'tikaf?",
+                options: ["To sell things in the mosque", "To sleep more", "To seek Laylatul Qadr", "To avoid fasting"],
+                correct: 3,
+                timeLimit: 25
+            },
+            {
+                question: "What should a person focus on during I'tikaf?",
+                options: ["Games and chatting", "Business calls", "Social media", "Worship and staying away from worldly things"],
+                correct: 4,
+                timeLimit: 30
+            },
+            {
+                question: "What is the meaning of \"suhoor\" in Ramadan?",
+                options: ["Evening snack", "Pre-dawn meal before fasting", "Meal after fasting", "Friday lunch"],
+                correct: 2,
+                timeLimit: 25
+            },
+            {
+                question: "What is the meaning of \"Iftaar\" in Ramadan?",
+                options: ["Starting the fast", "Ending the fast at sunset", "Extra prayer", "Charity"],
+                correct: 2,
+                timeLimit: 25
+            },
+            {
+                question: "What did Prophet Muhammad (peace be upon him) say about suhoor?",
+                options: ["Skip it if you can", "It has no benefit", "Take suhoor, there is blessing in it", "Only scholars need it"],
+                correct: 3,
+                timeLimit: 30
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let timeLeft = 0;
+        let timerInterval = null;
+        let selectedAnswer = null;
+
+        function startQuiz() {
+            document.getElementById('startScreen').classList.add('hidden');
+            document.getElementById('quizScreen').classList.remove('hidden');
+            currentQuestionIndex = 0;
+            score = 0;
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            if (currentQuestionIndex >= quizData.length) {
+                showResults();
+                return;
+            }
+
+            const question = quizData[currentQuestionIndex];
+            selectedAnswer = null;
+            
+            document.getElementById('questionNumber').textContent = `Question ${currentQuestionIndex + 1} of ${quizData.length}`;
+            document.getElementById('questionText').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option';
+                optionDiv.textContent = option;
+                optionDiv.onclick = () => selectAnswer(index + 1);
+                optionsContainer.appendChild(optionDiv);
+            });
+
+            document.getElementById('nextBtn').disabled = true;
+            
+            const progressPercent = ((currentQuestionIndex) / quizData.length) * 100;
+            document.getElementById('progressBar').style.width = progressPercent + '%';
+
+            startTimer(question.timeLimit);
+        }
+
+        function startTimer(seconds) {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+            }
+
+            timeLeft = seconds;
+            updateTimerDisplay();
+
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    autoSelectWrong();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const timerEl = document.getElementById('timer');
+            const timeLeftEl = document.getElementById('timeLeft');
+            timeLeftEl.textContent = timeLeft;
+
+            timerEl.classList.remove('warning', 'danger');
+            if (timeLeft <= 5) {
+                timerEl.classList.add('danger');
+            } else if (timeLeft <= 10) {
+                timerEl.classList.add('warning');
+            }
+        }
+
+        function selectAnswer(answerNumber) {
+            if (selectedAnswer !== null) return;
+
+            selectedAnswer = answerNumber;
+            const question = quizData[currentQuestionIndex];
+            const options = document.querySelectorAll('.option');
+
+            clearInterval(timerInterval);
+
+            options.forEach((option, index) => {
+                option.classList.add('disabled');
+                
+                if (index + 1 === question.correct) {
+                    option.classList.add('correct');
+                }
+                
+                if (index + 1 === selectedAnswer && selectedAnswer !== question.correct) {
+                    option.classList.add('wrong');
+                }
+            });
+
+            if (selectedAnswer === question.correct) {
+                score++;
+            }
+
+            document.getElementById('nextBtn').disabled = false;
+        }
+
+        function autoSelectWrong() {
+            if (selectedAnswer === null) {
+                selectedAnswer = -1;
+                const options = document.querySelectorAll('.option');
+                const question = quizData[currentQuestionIndex];
+
+                options.forEach((option, index) => {
+                    option.classList.add('disabled');
+                    if (index + 1 === question.correct) {
+                        option.classList.add('correct');
+                    }
+                });
+
+                document.getElementById('nextBtn').disabled = false;
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            loadQuestion();
+        }
+
+        function showResults() {
+            clearInterval(timerInterval);
+            document.getElementById('quizScreen').classList.add('hidden');
+            document.getElementById('resultsScreen').classList.remove('hidden');
+
+            const percentage = Math.round((score / quizData.length) * 100);
+            document.getElementById('finalScore').textContent = percentage + '%';
+            document.getElementById('correctCount').textContent = score;
+            document.getElementById('wrongCount').textContent = quizData.length - score;
+            document.getElementById('totalCount').textContent = quizData.length;
+        }
+
+        function restartQuiz() {
+            document.getElementById('resultsScreen').classList.add('hidden');
+            document.getElementById('startScreen').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
