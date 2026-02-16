@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌙 Ramadan Fasting Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', 'Comic Sans MS', sans-serif;
+            background: linear-gradient(135deg, #FFF8F0 0%, #FFE8D6 100%);
+            color: #4A3933;
+            padding: 20px;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #FFD4A3 0%, #FFA07A 100%);
+            border-radius: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(255, 160, 122, 0.3);
+        }
+
+        h1 {
+            font-size: 2.8em;
+            color: #fff;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #fff;
+            margin-top: 10px;
+        }
+
+        .pinyin {
+            font-size: 1.1em;
+            color: #FFE8D6;
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: #FFFFFF;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .card:nth-child(1) { border-top: 6px solid #FFB6C1; }
+        .card:nth-child(2) { border-top: 6px solid #FFD4A3; }
+        .card:nth-child(3) { border-top: 6px solid #B0E0E6; }
+        .card:nth-child(4) { border-top: 6px solid #DDA0DD; }
+        .card:nth-child(5) { border-top: 6px solid #F0E68C; }
+        .card:nth-child(6) { border-top: 6px solid #98D8C8; }
+
+        .card-icon {
+            font-size: 4em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #FF8C69;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .card-chinese {
+            font-size: 1.4em;
+            color: #6B8E23;
+            text-align: center;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .card-pinyin {
+            font-size: 1em;
+            color: #8B7355;
+            text-align: center;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .content-item {
+            margin: 20px 0;
+            padding: 15px;
+            background: #FFF8F0;
+            border-radius: 15px;
+            border-left: 5px solid #FFB6C1;
+        }
+
+        .english {
+            font-size: 1.15em;
+            font-weight: 600;
+            color: #4A3933;
+            margin-bottom: 8px;
+        }
+
+        .chinese-text {
+            font-size: 1.1em;
+            color: #6B8E23;
+            margin-bottom: 5px;
+        }
+
+        .pinyin-text {
+            font-size: 0.95em;
+            color: #8B7355;
+            font-style: italic;
+        }
+
+        .arabic {
+            font-size: 1.8em;
+            color: #8B4513;
+            text-align: center;
+            margin: 20px 0;
+            font-weight: 600;
+            direction: rtl;
+            line-height: 2;
+        }
+
+        .transliteration {
+            font-size: 1.1em;
+            color: #D2691E;
+            text-align: center;
+            font-style: italic;
+            margin: 10px 0;
+        }
+
+        .translation {
+            font-size: 1.05em;
+            color: #4A3933;
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .quran-verse {
+            background: linear-gradient(135deg, #E6F3FF 0%, #FFF0F5 100%);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 20px 0;
+            border: 3px solid #B0E0E6;
+        }
+
+        .highlight {
+            background: #FFFACD;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 5px solid #FFD700;
+        }
+
+        .emoji {
+            font-size: 1.3em;
+            margin-right: 8px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin: 12px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        li:before {
+            content: "🌟";
+            position: absolute;
+            left: 0;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            .subtitle { font-size: 1.2em; }
+            .gallery { grid-template-columns: 1fr; }
+            .card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌙 Fundamentals of Ramadan Fasting 🌙</h1>
+            <div class="subtitle">斋月斋戒基础知识</div>
+            <div class="pinyin">Zhāi yuè zhāi jiè jī chǔ zhī shì</div>
+        </header>
+
+        <div class="gallery">
+            <!-- Card 1: Niyyah -->
+            <div class="card">
+                <div class="card-icon">🕌</div>
+                <div class="card-title">1. Niyyah (Intention)</div>
+                <div class="card-chinese">尼亚特（意念）</div>
+                <div class="card-pinyin">Ní yà tè (yì niàn)</div>
+                
+                <div class="content-item">
+                    <div class="english"><span class="emoji">⏰</span>When to make intention?</div>
+                    <div class="chinese-text">什么时候做意念？</div>
+                    <div class="pinyin-text">Shén me shí hòu zuò yì niàn?</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="english">After Maghrib and before Fajr (dawn)</div>
+                    <div class="chinese-text">在昏礼之后和晨礼之前</div>
+                    <div class="pinyin-text">Zài hūn lǐ zhī hòu hé chén lǐ zhī qián</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="english">The intention is in your heart to fast for Allah</div>
+                    <div class="chinese-text">在心中为真主而斋戒的意念</div>
+                    <div class="pinyin-text">Zài xīn zhōng wèi zhēn zhǔ ér zhāi jiè de yì niàn</div>
+                </div>
+            </div>
+
+            <!-- Card 2: Suhoor -->
+            <div class="card">
+                <div class="card-icon">🌅</div>
+                <div class="card-title">2. Suhoor (Pre-Dawn Meal)</div>
+                <div class="card-chinese">苏胡尔（封斋饭）</div>
+                <div class="card-pinyin">Sū hú ěr (fēng zhāi fàn)</div>
+
+                <div class="highlight">
+                    <div class="english"><span class="emoji">💧</span>Minimum: One sip of water</div>
+                    <div class="chinese-text">最低要求：至少喝一口水</div>
+                    <div class="pinyin-text">Zuì dī yāo qiú: zhì shǎo hē yī kǒu shuǐ</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="english"><span class="emoji">🍯</span>Recommended: Eat dates</div>
+                    <div class="chinese-text">建议：吃椰枣</div>
+                    <div class="pinyin-text">Jiàn yì: chī yē zǎo</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="english"><span class="emoji">📖</span>Prophet's saying:</div>
+                    <div class="chinese-text">先知（愿主福安之）说：</div>
+                    <div class="pinyin-text">Xiān zhī (yuàn zhǔ fú ān zhī) shuō:</div>
+                    <div class="english" style="margin-top: 10px;">"Take suhoor, there is blessing in it"</div>
+                    <div class="chinese-text">"要吃封斋饭，其中有福分"</div>
+                    <div class="pinyin-text">"Yào chī fēng zhāi fàn, qí zhōng yǒu fú fèn"</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="english"><span class="emoji">⏰</span>Stop eating before Fajr time</div>
+                    <div class="chinese-text">在晨礼时间到来之前停止吃喝</div>
+                    <div class="pinyin-text">Zài chén lǐ shí jiān dào lái zhī qián tíng zhǐ chī hē</div>
+                </div>
+            </div>
+
+            <!-- Card 3: Iftaar -->
+            <div class="card">
+                <div class="card-icon">🌙</div>
+                <div class="card-title">3. Iftaar (Breaking the Fast)</div>
+                <div class="card-chinese">伊夫塔尔（开斋）</div>
+                <div class="card-pinyin">Yī fū tǎ ěr (kāi zhāi)</div>
+
+                <div class="content-item">
+                    <div class="english"><span class="emoji">🌆</span>When? At Maghrib (sunset)</div>
+                    <div class="chinese-text">什么时候？昏礼时间（日落时）</div>
+                    <div class="pinyin-text">Shén me shí hòu? Hūn lǐ shí jiān (rì luò shí)</div>
+                </div>
+
+                <div class="highlight">
+                    <div class="english"><span class="emoji">🍯</span>Best food: Dates and water</div>
+                    <div class="chinese-text">最好的食物：椰枣和水</div>
+                    <div class="pinyin-text">Zuì hǎo de shí wù: yē zǎo hé shuǐ</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="english"><span class="emoji">⚡</span>Do not delay! Break fast quickly</div>
+                    <div class="chinese-text">不要拖延！立即开斋</div>
+                    <div class="pinyin-text">Bù yào tuō yán! Lì jí kāi zhāi</div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #FFE8D6 0%, #FFF0F5 100%); padding: 25px; border-radius: 20px; margin-top: 20px;">
+                    <div class="english" style="text-align: center; font-size: 1.3em; color: #FF6347; margin-bottom: 15px;">
+                        <span class="emoji">📿</span>Dua for Breaking Fast
+                    </div>
+                    <div class="chinese-text" style="text-align: center; font-size: 1.2em; margin-bottom: 15px;">开斋祈祷词</div>
+                    <div class="pinyin-text" style="text-align: center; margin-bottom: 20px;">Kāi zhāi qí dǎo cí</div>
+
+                    <div class="arabic">اللَّهُمَّ لَكَ صُمْتُ وَعَلَى رِزْقِكَ أَفْطَرْتُ</div>
+                    <div class="transliteration">Allahumma laka sumtu wa 'ala rizqika aftartu</div>
+                    <div class="translation">"O Allah, for You I have fasted and with Your provision I have broken my fast"</div>
+                    <div class="chinese-text" style="text-align: center;">"主啊，我为你而斋戒，用你的给养而开斋"</div>
+                    <div class="pinyin-text" style="text-align: center;">Zhǔ ā, wǒ wèi nǐ ér zhāi jiè, yòng nǐ de jǐ yǎng ér kāi zhāi</div>
+
+                    <div style="margin-top: 25px;">
+                        <div class="arabic">ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الأَجْرُ إِنْ شَاءَ اللَّهُ</div>
+                        <div class="transliteration">Dhahaba azh-zhama' wabtallatil 'urooq wa thabatal ajru insha Allah</div>
+                        <div class="translation">"The thirst is gone, the veins are moistened, and the reward is confirmed, if Allah wills"</div>
+                        <div class="chinese-text" style="text-align: center;">"口渴已消失，血脉已滋润，回赐已确定，如真主意欲"</div>
+                        <div class="pinyin-text" style="text-align: center;">Kǒu kě yǐ xiāo shī, xuè mài yǐ zī rùn, huí cì yǐ què dìng, rú zhēn zhǔ yì yù</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Taraweeh -->
+            <div class="card">
+                <div class="card-icon">🤲</div>
+                <div class="card-title">4. Taraweeh Prayer</div>
+                <div class="card-chinese">台拉威赫拜功</div>
+                <div class="card-pinyin">Tái lā wēi hè bài gōng</div>
+
+                <div class="highlight">
+                    <div class="english"><span class="emoji">⭐</span>Status: Highly recommended!</div>
+                    <div class="chinese-text">地位：强烈推荐！</div>
+                    <div class="pinyin-text">Dì wèi: qiáng liè tuī jiàn!</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="english">Minimum: 2 rakaat (no maximum)</div>
+                    <div class="chinese-text">最少：两拜（没有上限）</div>
+                    <div class="pinyin-text">Zuì shǎo: liǎng bài (méi yǒu shàng xiàn)</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="english"><span class="emoji">🕌</span>Prophet's way: 8 rakaat + 3 Witr</div>
+                    <div class="chinese-text">先知的方式：8拜 + 3拜威特尔</div>
+                    <div class="pinyin-text">Xiān zhī de fāng shì: 8 bài + 3 bài wēi tè ěr</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="english">Can pray alone or in group (jamaah)</div>
+                    <div class="chinese-text">可以单独礼或集体礼</div>
+                    <div class="pinyin-text">Kě yǐ dān dú lǐ huò jí tǐ lǐ</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="english"><span class="emoji">🌙</span>When? After Isha prayer in Ramadan</div>
+                    <div class="chinese-text">什么时候？在宵礼之后的斋月夜晚</div>
+                    <div class="pinyin-text">Shén me shí hòu? Zài xiāo lǐ zhī hòu de zhāi yuè yè wǎn</div>
+                </div>
+            </div>
+
+            <!-- Card 5: Laylatul Qadr -->
+            <div class="card">
+                <div class="card-icon">⭐</div>
+                <div class="card-title">5. Laylatul Qadr (Night of Power)</div>
+                <div class="card-chinese">盖德尔夜（权力之夜）</div>
+                <div class="card-pinyin">Gài dé ěr yè (quán lì zhī yè)</div>
+
+                <div class="quran-verse">
+                    <div class="arabic" style="font-size: 1.6em; line-height: 2.2;">
+                        إِنَّآ أَنزَلْنَٰهُ فِى لَيْلَةِ ٱلْقَدْرِ ﴿١﴾<br>
+                        وَمَآ أَدْرَىٰكَ مَا لَيْلَةُ ٱلْقَدْرِ ﴿٢﴾<br>
+                        لَيْلَةُ ٱلْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ ﴿٣﴾
+                    </div>
+                    <div class="translation" style="margin-top: 20px; font-size: 1.1em;">
+                        "Indeed, We sent the Qur'an down during the Night of Decree. And what can make you know what is the Night of Decree? The Night of Decree is better than a thousand months."
+                    </div>
+                    <div class="chinese-text" style="text-align: center; font-size: 1.1em; margin-top: 10px;">
+                        "我在那高贵的夜间确已降示它，你怎能知道那高贵的夜间是什么？那高贵的夜间，胜过一千个月。"
+                    </div>
+                    <div class="pinyin-text" style="text-align: center;">
+                        Wǒ zài nà gāo guì de yè jiān què yǐ jiàng shì tā, nǐ zěn néng zhī dào nà gāo guì de yè jiān shì shén me? Nà gāo guì de yè jiān, shèng guò yī qiān gè yuè.
+                    </div>
+                    <div style="text-align: center; margin-top: 15px; color: #8B4513; font-weight: 600;">
+                        (Surah Al-Qadr, 97:1-3)
+                    </div>
+                </div>
+
+                <div class="highlight">
+                    <div class="english"><span class="emoji">✨</span>Better than 1000 months (83 years!)</div>
+                    <div class="chinese-text">胜过1000个月（83年！）</div>
+                    <div class="pinyin-text">Shèng guò 1000 gè yuè (83 nián!)</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="english"><span class="emoji">📅</span>When? Last 10 nights of Ramadan</div>
+                    <div class="chinese-text">什么时候？斋月最后10个夜晚</div>
+                    <div class="pinyin-text">Shén me shí hòu? Zhāi yuè zuì hòu 10 gè yè wǎn</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="english">Especially odd nights: 21st, 23rd, 25th, 27th, 29th</div>
+                    <div class="chinese-text">特别是单数夜晚：第21、23、25、27、29夜</div>
+                    <div class="pinyin-text">Tè bié shì dān shù yè wǎn: dì 21, 23, 25, 27, 29 yè</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="english"><span class="emoji">🎁</span>Worship brings huge rewards!</div>
+                    <div class="chinese-text">功修带来巨大的回赐！</div>
+                    <div class="pinyin-text">Gōng xiū dài lái jù dà de huí cì!</div>
+                </div>
+            </div>
+
+            <!-- Card 6: I'tikaf -->
+            <div class="card">
+                <div class="card-icon">🕋</div>
+                <div class="card-title">6. I'tikaf (Spiritual Retreat)</div>
+                <div class="card-chinese">伊提卡夫（坐静）</div>
+                <div class="card-pinyin">Yī tí kǎ fū (zuò jìng)</div>
+
+                <div class="content-item">
+                    <div class="english"><span class="emoji">🕌</span>What is it? Staying in the mosque</div>
+                    <div class="chinese-text">是什么？在清真寺中隔离</div>
+                    <div class="pinyin-text">Shì shén me? Zài qīng zhēn sì zhōng gé lí</div>
+                </div>
+
+                <div class="highlight">
+                    <div class="english"><span class="emoji">⭐</span>Status: Sunnah (recommended)</div>
+                    <div class="chinese-text">地位：圣行（推荐的）</div>
+                    <div class="pinyin-text">Dì wèi: shèng xíng (tuī jiàn de)</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="english"><span class="emoji">📅</span>Best time: Last 10 days of Ramadan</div>
+                    <div class="chinese-text">最佳时间：斋月最后10天</div>
+                    <div class="pinyin-text">Zuì jiā shí jiān: zhāi yuè zuì hòu 10 tiān</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="english"><span class="emoji">🎯</span>Purpose: To seek Laylatul Qadr</div>
+                    <div class="chinese-text">目的：寻求盖德尔夜</div>
+                    <div class="pinyin-text">Mù dì: xún qiú gài dé ěr yè</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="english">Focus fully on worship, away from worldly things</div>
+                    <div class="chinese-text">全心全意地崇拜，远离世俗事务</div>
+                    <div class="pinyin-text">Quán xīn quán yì de chóng bài, yuǎn lí shì sú shì wù</div>
+                </div>
+            </div>
+        </div>
+
+        <footer style="text-align: center; padding: 30px; background: #FFD4A3; border-radius: 20px; margin-top: 40px;">
+            <div style="font-size: 1.3em; color: #fff; font-weight: 700;">
+                🌙 May Allah accept our fasting! 🌙
+            </div>
+            <div style="font-size: 1.2em; color: #fff; margin-top: 10px;">
+                愿真主接受我们的斋戒！
+            </div>
+            <div style="font-size: 1em; color: #FFE8D6; margin-top: 5px; font-style: italic;">
+                Yuàn zhēn zhǔ jiē shòu wǒ men de zhāi jiè!
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+
