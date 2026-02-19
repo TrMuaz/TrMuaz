@@ -51,11 +51,11 @@
       color: #666666;
     }
 
-    /* GRID GALLERY */
+    /* UNIFIED GRID GALLERY */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
       margin-bottom: 30px;
     }
 
@@ -72,7 +72,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 160px;
+      min-height: 180px;
       position: relative;
       overflow: hidden;
     }
@@ -108,11 +108,12 @@
       font-size: 1.1rem;
       font-weight: 600;
       color: var(--turquoise);
-      margin: 0 0 6px;
+      margin: 0 0 8px;
+      line-height: 1.4;
     }
 
     .card-subtitle {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: #888888;
       margin: 0;
     }
@@ -139,24 +140,29 @@
   <div class="container">
     <header>
       <h1>📚 Grade 9 Islamic Studies</h1>
-      <p>Lesson Notes & Resources Gallery</p>
+      <p>Lesson Notes &amp; Resources Gallery</p>
     </header>
 
     <div class="gallery-grid">
       <!-- CARD 1 -->
       <a href="G9T1Hadeeth3.html" class="gallery-card">
-        <div class="card-icon">🕌</div>
-        <h3 class="card-title">Topic 1: Hadeeth: Taqwa, Repentance, Good Character</h3>
-        <p class="card-subtitle">The Night Journey</p>
+        <div class="card-icon">📖</div>
+        <h3 class="card-title">Topic 1: Hadeeth</h3>
+        <p class="card-subtitle">Taqwa, Repentance, Good Character</p>
       </a>
-    </div>
-    
-    <div class="gallery-grid">
+
       <!-- CARD 2 -->
       <a href="G9T2Fasting.html" class="gallery-card">
+        <div class="card-icon">🌙</div>
+        <h3 class="card-title">Topic 2: Sawm</h3>
+        <p class="card-subtitle">The Spiritual Journey of Fasting</p>
+      </a>
+
+      <!-- CARD 3 - Add more topics as needed -->
+      <a href="#" class="gallery-card" style="opacity: 0.6; pointer-events: none;">
         <div class="card-icon">🕌</div>
-        <h3 class="card-title">Topic 2: Sawm (Fasting)</h3>
-        <p class="card-subtitle">The Spiritual Journey</p>
+        <h3 class="card-title">Topic 3: Coming Soon</h3>
+        <p class="card-subtitle">More lessons to be added</p>
       </a>
     </div>
     
