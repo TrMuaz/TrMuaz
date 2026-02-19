@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tafseer Surah An-Nasr - Interactive Lesson</title>
+    <style>
+        :root {
+            --color-primary: #20736d;
+            --color-primary-light: #2d9b8f;
+            --color-secondary: #d4af37;
+            --color-bg: #f8f9fa;
+            --color-surface: #ffffff;
+            --color-text: #2c3e50;
+            --color-text-light: #6c757d;
+            --color-accent: #e8f5e9;
+            --color-border: #dee2e6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #e8f5e9 0%, #f0f7f1 100%);
+            color: var(--color-text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(32, 115, 109, 0.2);
+        }
+
+        .arabic-title {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .tab-nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .tab-btn {
+            flex: 1;
+            min-width: 140px;
+            padding: 12px 20px;
+            background: var(--color-bg);
+            border: 2px solid var(--color-border);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            color: var(--color-text);
+        }
+
+        .tab-btn:hover {
+            background: var(--color-accent);
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+
+        .tab-btn.active {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--color-primary);
+        }
+
+        .card h3 {
+            color: var(--color-primary);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            font-size: 1.5rem;
+        }
+
+        .verse-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #f0f7f1 100%);
+            border: 2px solid var(--color-primary);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .arabic {
+            font-size: 2rem;
+            line-height: 2.2;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .transliteration {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .translation {
+            font-size: 1.05rem;
+            color: var(--color-text);
+            font-weight: 500;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .info-item {
+            background: var(--color-accent);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid var(--color-primary);
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--color-primary);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 1.05rem;
+            color: var(--color-text);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--color-primary);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--color-secondary);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--color-primary);
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 5px;
+        }
+
+        .key-point {
+            background: #fff8dc;
+            border-left: 4px solid var(--color-secondary);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .key-point strong {
+            color: var(--color-secondary);
+        }
+
+        .interactive-box {
+            background: white;
+            border: 2px dashed var(--color-primary);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 12px;
+            border: 2px solid var(--color-border);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+            margin-top: 10px;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .btn {
+            background: var(--color-primary);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: var(--color-primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(32, 115, 109, 0.3);
+        }
+
+        .quiz-option {
+            background: var(--color-bg);
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid var(--color-border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            background: var(--color-accent);
+            border-color: var(--color-primary);
+        }
+
+        .quiz-option.selected {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        .quiz-option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .quiz-option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .feedback {
+            background: var(--color-accent);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid var(--color-primary);
+        }
+
+        .word-meaning {
+            display: inline-block;
+            background: var(--color-accent);
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            border: 2px solid var(--color-primary);
+        }
+
+        .word-arabic {
+            color: var(--color-primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .word-english {
+            color: var(--color-text);
+            margin-left: 8px;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #fff8dc 0%, #ffeaa7 100%);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .arabic-title {
+                font-size: 2.2rem;
+            }
+
+            header h1 {
+                font-size: 1.4rem;
+            }
+
+            .tab-btn {
+                min-width: 120px;
+                font-size: 0.85rem;
+            }
+
+            .arabic {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="arabic-title">سُورَةُ النَّصْرِ</div>
+            <h1>Tafseer Surah An-Nasr</h1>
+            <p>The Divine Support &amp; Victory</p>
+        </header>
+
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="showTab('overview')">Overview</button>
+            <button class="tab-btn" onclick="showTab('verses')">Verses &amp; Translation</button>
+            <button class="tab-btn" onclick="showTab('tafseer')">Detailed Tafseer</button>
+            <button class="tab-btn" onclick="showTab('lessons')">Key Lessons</button>
+            <button class="tab-btn" onclick="showTab('reflection')">Reflection</button>
+            <button class="tab-btn" onclick="showTab('quiz')">Quiz</button>
+        </div>
+
+        <div id="overview" class="tab-content active">
+            <div class="card">
+                <h3><span class="icon">📖</span>Introduction to Surah An-Nasr</h3>
+                <p>Surah An-Nasr is the 110th chapter of the Qur'an and one of its shortest, containing only 3 verses. Despite its brevity, it carries profound meaning about victory, humility, and the completion of the Prophet's mission.</p>
+                
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Revelation</div>
+                        <div class="info-value">Madani</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Number of Verses</div>
+                        <div class="info-value">3 Ayat</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Order of Revelation</div>
+                        <div class="info-value">114th (Last Complete Surah)</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">When Revealed</div>
+                        <div class="info-value">10 AH / 632 CE</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><span class="icon">📅</span>Historical Context</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-title">6 AH - Treaty of Hudaybiyyah</div>
+                        <p>A peace treaty between Muslims and Quraysh that seemed like a setback but was actually a great victory</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">8 AH - Conquest of Makkah (Fath Makkah)</div>
+                        <p>The Prophet ﷺ peacefully entered Makkah with 10,000 companions. The Quraysh surrendered without major bloodshed</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">9 AH - Year of Delegations</div>
+                        <p>Arab tribes came in large numbers to accept Islam after witnessing the conquest of Makkah</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">10 AH - Farewell Pilgrimage</div>
+                        <p>During this Hajj, Surah An-Nasr was revealed, signaling the completion of the Prophet's mission</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><span class="icon">🎯</span>Themes of the Surah</h3>
+                <ul>
+                    <li><strong>Divine Victory:</strong> Allah's help and support in achieving victory</li>
+                    <li><strong>Mass Conversion:</strong> People entering Islam in large numbers</li>
+                    <li><strong>Humility in Success:</strong> Glorifying Allah after achieving victory</li>
+                    <li><strong>Seeking Forgiveness:</strong> The importance of istighfar</li>
+                    <li><strong>Mission Completion:</strong> Indication of the Prophet's approaching departure</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="verses" class="tab-content">
+            <div class="card">
+                <h3><span class="icon">📝</span>Complete Text with Translation</h3>
+                
+                <div class="verse-box">
+                    <div class="arabic">إِذَا جَآءَ نَصْرُ ٱللَّهِ وَٱلْفَتْحُ</div>
+                    <div class="transliteration">Idha jaa-a nasrullahi wal-fath</div>
+                    <div class="translation">"When the help of Allah comes and the conquest (victory)"</div>
+                </div>
+
+                <div class="verse-box">
+                    <div class="arabic">وَرَأَيْتَ ٱلنَّاسَ يَدْخُلُونَ فِى دِينِ ٱللَّهِ أَفْوَاجًا</div>
+                    <div class="transliteration">Wa ra-aita an-nasa yadkhuluna fee dini Allahi afwaja</div>
+                    <div class="translation">"And you see the people entering into the religion of Allah in multitudes (crowds)"</div>
+                </div>
+
+                <div class="verse-box">
+                    <div class="arabic">فَسَبِّحْ بِحَمْدِ رَبِّكَ وَٱسْتَغْفِرْهُ ۚ إِنَّهُۥ كَانَ تَوَّابًۢا</div>
+                    <div class="transliteration">Fa-sabbih bi-hamdi rabbika wastaghfirh, innahu kana tawwaba</div>
+                    <div class="translation">"Then glorify the praises of your Lord and seek His forgiveness. Indeed, He is the Accepter of repentance."</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><span class="icon">📚</span>Key Vocabulary</h3>
+                <div>
+                    <span class="word-meaning">
+                        <span class="word-arabic">نَصْر</span>
+                        <span class="word-english">Help, Aid, Support</span>
+                    </span>
+                    <span class="word-meaning">
+                        <span class="word-arabic">فَتْح</span>
+                        <span class="word-english">Victory, Conquest, Opening</span>
+                    </span>
+                    <span class="word-meaning">
+                        <span class="word-arabic">أَفْوَاجًا</span>
+                        <span class="word-english">In crowds, In multitudes</span>
+                    </span>
+                    <span class="word-meaning">
+                        <span class="word-arabic">سَبِّحْ</span>
+                        <span class="word-english">Glorify, Declare Allah's perfection</span>
+                    </span>
+                    <span class="word-meaning">
+                        <span class="word-arabic">اسْتَغْفِرْ</span>
+                        <span class="word-english">Seek forgiveness</span>
+                    </span>
+                    <span class="word-meaning">
+                        <span class="word-arabic">تَوَّاب</span>
+                        <span class="word-english">The Accepter of Repentance</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div id="tafseer" class="tab-content">
+            <div class="card">
+                <h3><span class="icon">🔍</span>Verse 1: When the Help of Allah Comes</h3>
+                <div class="verse-box">
+                    <div class="arabic">إِذَا جَآءَ نَصْرُ ٱللَّهِ وَٱلْفَتْحُ</div>
+                </div>
+                
+                <div class="key-point">
+                    <strong>Understanding Nasr (نَصْر):</strong> In classical Arabic, <em>nasr</em> means to provide aid and assistance, not just victory. It emphasizes that success comes through Allah's divine support, not merely human effort.
+                </div>
+
+                <div class="key-point">
+                    <strong>Understanding Fath (فَتْح):</strong> Literally means "opening." It refers to the Conquest of Makkah in 8 AH, when the city peacefully surrendered. This was the ultimate victory that the Prophet ﷺ had been working toward for 23 years.
+                </div>
+
+                <p><strong>Tafseer:</strong> This verse speaks about the momentous Conquest of Makkah. After years of persecution, exile, and struggle, Allah granted the Muslims victory. The Prophet ﷺ entered his hometown not as a vengeful conqueror, but as a humble servant of Allah, forgiving even his worst enemies. This set the standard for how Muslims should behave in victory.</p>
+            </div>
+
+            <div class="card">
+                <h3><span class="icon">🔍</span>Verse 2: People Entering Islam in Multitudes</h3>
+                <div class="verse-box">
+                    <div class="arabic">وَرَأَيْتَ ٱلنَّاسَ يَدْخُلُونَ فِى دِينِ ٱللَّهِ أَفْوَاجًا</div>
+                </div>
+
+                <div class="key-point">
+                    <strong>Afwajan (أَفْوَاجًا) - In Crowds:</strong> This word paints a picture of large groups coming one after another, like waves. It describes the mass conversions after the Conquest of Makkah.
+                </div>
+
+                <p><strong>Tafseer:</strong> After the Conquest of Makkah, Arab tribes recognized that Islam was divinely supported. They had been waiting to see who would win the conflict between the Prophet ﷺ and the Quraysh. When Makkah fell peacefully, delegations came from all over Arabia to embrace Islam. The Year of Delegations (9 AH) witnessed this phenomenon—entire tribes accepting Islam together.</p>
+
+                <p><strong>Historical Significance:</strong> Before the conquest, Islam spread slowly through individual conversions. After Makkah's peaceful surrender, Islam transformed from a persecuted minority faith into the unifying force of the Arabian Peninsula within just two years.</p>
+            </div>
+
+            <div class="card">
+                <h3><span class="icon">🔍</span>Verse 3: Glorify Allah and Seek Forgiveness</h3>
+                <div class="verse-box">
+                    <div class="arabic">فَسَبِّحْ بِحَمْدِ رَبِّكَ وَٱسْتَغْفِرْهُ ۚ إِنَّهُۥ كَانَ تَوَّابًۢا</div>
+                </div>
+
+                <div class="key-point">
+                    <strong>The Response to Victory:</strong> When you achieve success, don't become arrogant. Instead, glorify Allah and seek His forgiveness. This teaches the proper etiquette of victory.
+                </div>
+
+                <p><strong>Tafseer:</strong> This verse instructs the Prophet ﷺ—and all believers—on how to respond to success:</p>
+                <ol>
+                    <li><strong>Sabbih (سَبِّحْ):</strong> Glorify Allah, declare His perfection, say "SubhanAllah"</li>
+                    <li><strong>Bi-hamdi (بِحَمْدِ):</strong> With His praise, say "Alhamdulillah"</li>
+                    <li><strong>Istaghfir (اسْتَغْفِرْ):</strong> Seek His forgiveness, say "Astaghfirullah"</li>
+                </ol>
+
+                <p><strong>The Prophet's Understanding:</strong> The Companions understood this surah differently than the Prophet ﷺ. They saw it as celebrating future victories. But the Prophet ﷺ understood it as a signal that his mission was complete and his time was near.</p>
+
+                <div class="key-point">
+                    <strong>Hadith Insight:</strong> After this surah was revealed, the Prophet ﷺ frequently recited: <em>"SubhanAllahi wa bihamdihi, astaghfirullaha wa atubu ilayh"</em> (Glory be to Allah and all praise, I seek Allah's forgiveness and repent to Him). When asked why, he explained this was the sign mentioned in the surah indicating his mission's completion.
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><span class="icon">💡</span>Umar's Understanding</h3>
+                <p>Sayyiduna Umar ibn Al-Khattab (RA) once asked the senior Companions what they understood from Surah An-Nasr. They replied it was about future victories and conquests. Then he asked Ibn Abbas (RA), who was much younger, for his interpretation.</p>
+                
+                <p>Ibn Abbas (RA) replied: <span class="highlight">"It indicates the termination of the life of Muhammad ﷺ. Through it, he was informed of the nearness of his death."</span></p>
+
+                <p>Umar (RA) confirmed: "I know nothing about it except what you have said." This shows the depth of Ibn Abbas's understanding and how the Prophet ﷺ himself understood this surah as marking the completion of his earthly mission.</p>
+            </div>
+        </div>
+
+        <div id="lessons" class="tab-content">
+            <div class="card">
+                <h3><span class="icon">🎓</span>Key Lessons from Surah An-Nasr</h3>
+                
+                <div class="key-point">
+                    <strong>1. All Victory Comes from Allah</strong>
+                    <p>Success and victory are not achieved by human effort alone. It is Allah's help (nasr) that brings about true victory (fath). We must always attribute our achievements to Allah's support, not our own abilities.</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>2. Humility in Success</strong>
+                    <p>When you achieve success—whether in exams, sports, career, or any field—the correct response is humility, not arrogance. Glorify Allah, thank Him, and seek His forgiveness. This is the prophetic model of dealing with success.</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>3. The Etiquette of Victory</strong>
+                    <p>The Prophet ﷺ entered Makkah with his head bowed in humility, not raised in pride. He forgave those who had persecuted him for years. This teaches us how to behave when we "win"—with mercy, forgiveness, and grace.</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>4. Constant Istighfar (Seeking Forgiveness)</strong>
+                    <p>Even when things are going well, keep seeking Allah's forgiveness. The Prophet ﷺ, despite being sinless, increased his istighfar after this surah was revealed. If he did this, how much more should we?</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>5. Everything Has a Completion</strong>
+                    <p>This surah marked the completion of the Prophet's mission. It reminds us that every task, every phase of life, has a completion. We should strive to complete our missions with excellence and prepare for transitions.</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>6. Tawhid in Success</strong>
+                    <p>Attributing success to Allah alone is the essence of Tawhid (Islamic monotheism). When Allah grants us success, we don't say "I did it" but rather "Alhamdulillah, all praise is due to Allah."</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>7. The Power of Divine Support</strong>
+                    <p>With Allah's support, small numbers can overcome large forces, and seemingly impossible goals can be achieved. The Muslims were outnumbered and outresourced, yet they prevailed because of Allah's nasr.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><span class="icon">🌟</span>Practical Applications</h3>
+                <ul>
+                    <li><strong>After achieving good grades:</strong> Say Alhamdulillah and make dua for continued success</li>
+                    <li><strong>When winning a competition:</strong> Thank Allah and remain humble with opponents</li>
+                    <li><strong>After completing a project:</strong> Seek Allah's forgiveness for any shortcomings</li>
+                    <li><strong>Daily dhikr:</strong> Include "SubhanAllahi wa bihamdihi, Astaghfirullah" in your routine</li>
+                    <li><strong>In leadership:</strong> Remember the Prophet's humility when entering Makkah</li>
+                    <li><strong>When making dua:</strong> Always acknowledge that success comes only from Allah</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="reflection" class="tab-content">
+            <div class="card">
+                <h3><span class="icon">💭</span>Personal Reflection</h3>
+                <p>Take time to reflect deeply on the meanings and lessons of Surah An-Nasr. Use this space to write your thoughts, insights, and commitments.</p>
+            </div>
+
+            <div class="card">
+                <div class="interactive-box">
+                    <h4>Reflection Question 1:</h4>
+                    <p>Think of a time when you achieved success (academic, sports, personal). How did you respond? Did you thank Allah and remain humble, or did you become proud? What would you do differently now after learning about Surah An-Nasr?</p>
+                    <textarea id="reflection1" placeholder="Write your reflection here..."></textarea>
+                    <button class="btn" onclick="saveReflection(1)">Save Reflection</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="interactive-box">
+                    <h4>Reflection Question 2:</h4>
+                    <p>The Prophet ﷺ forgave the people of Makkah who had persecuted him for years. Is there someone you need to forgive? How can you apply the lesson of mercy in victory to your own life?</p>
+                    <textarea id="reflection2" placeholder="Write your reflection here..."></textarea>
+                    <button class="btn" onclick="saveReflection(2)">Save Reflection</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="interactive-box">
+                    <h4>Reflection Question 3:</h4>
+                    <p>After this surah was revealed, the Prophet ﷺ increased his remembrance of Allah and seeking forgiveness. What three specific actions will you take to increase your dhikr and istighfar in daily life?</p>
+                    <textarea id="reflection3" placeholder="Write your reflection here..."></textarea>
+                    <button class="btn" onclick="saveReflection(3)">Save Reflection</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="interactive-box">
+                    <h4>Memorization Commitment:</h4>
+                    <p>Write out the three verses of Surah An-Nasr from memory (in Arabic, transliteration, or translation). This will help reinforce your memorization.</p>
+                    <textarea id="memorization" placeholder="Write the surah from memory..."></textarea>
+                    <button class="btn" onclick="saveReflection('memorization')">Save My Work</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="quiz" class="tab-content">
+            <div class="card">
+                <h3><span class="icon">✅</span>Knowledge Check Quiz</h3>
+                <p>Test your understanding of Surah An-Nasr. Click on your answer choice.</p>
+            </div>
+
+            <div class="card">
+                <h4>Question 1: When was Surah An-Nasr revealed?</h4>
+                <div class="quiz-option" onclick="checkAnswer(1, 'A', false)">A) Before the migration to Madinah</div>
+                <div class="quiz-option" onclick="checkAnswer(1, 'B', false)">B) During the Battle of Badr</div>
+                <div class="quiz-option" onclick="checkAnswer(1, 'C', true)">C) During the Farewell Pilgrimage in 10 AH</div>
+                <div class="quiz-option" onclick="checkAnswer(1, 'D', false)">D) After the Battle of Uhud</div>
+                <div id="feedback1" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4>Question 2: What does the word "nasr" (نَصْر) primarily mean?</h4>
+                <div class="quiz-option" onclick="checkAnswer(2, 'A', false)">A) Victory only</div>
+                <div class="quiz-option" onclick="checkAnswer(2, 'B', true)">B) Help, aid, and support</div>
+                <div class="quiz-option" onclick="checkAnswer(2, 'C', false)">C) Conquest of land</div>
+                <div class="quiz-option" onclick="checkAnswer(2, 'D', false)">D) Fighting in battle</div>
+                <div id="feedback2" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4>Question 3: What event does "al-fath" (الفَتْح) refer to in this surah?</h4>
+                <div class="quiz-option" onclick="checkAnswer(3, 'A', false)">A) Battle of Badr</div>
+                <div class="quiz-option" onclick="checkAnswer(3, 'B', true)">B) Conquest of Makkah</div>
+                <div class="quiz-option" onclick="checkAnswer(3, 'C', false)">C) Treaty of Hudaybiyyah</div>
+                <div class="quiz-option" onclick="checkAnswer(3, 'D', false)">D) Battle of Khandaq</div>
+                <div id="feedback3" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4>Question 4: What does "afwajan" (أَفْوَاجًا) mean?</h4>
+                <div class="quiz-option" onclick="checkAnswer(4, 'A', false)">A) One by one</div>
+                <div class="quiz-option" onclick="checkAnswer(4, 'B', false)">B) Slowly and gradually</div>
+                <div class="quiz-option" onclick="checkAnswer(4, 'C', true)">C) In crowds and multitudes</div>
+                <div class="quiz-option" onclick="checkAnswer(4, 'D', false)">D) With difficulty</div>
+                <div id="feedback4" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4>Question 5: What are the three actions commanded in verse 3?</h4>
+                <div class="quiz-option" onclick="checkAnswer(5, 'A', false)">A) Fight, pray, and fast</div>
+                <div class="quiz-option" onclick="checkAnswer(5, 'B', true)">B) Glorify Allah with praise and seek forgiveness</div>
+                <div class="quiz-option" onclick="checkAnswer(5, 'C', false)">C) Give charity, pray, and make hajj</div>
+                <div class="quiz-option" onclick="checkAnswer(5, 'D', false)">D) Read Quran, memorize, and teach</div>
+                <div id="feedback5" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4>Question 6: What did the Prophet ﷺ understand this surah to signify?</h4>
+                <div class="quiz-option" onclick="checkAnswer(6, 'A', false)">A) More battles to come</div>
+                <div class="quiz-option" onclick="checkAnswer(6, 'B', false)">B) Need to expand to other countries</div>
+                <div class="quiz-option" onclick="checkAnswer(6, 'C', true)">C) Completion of his mission and nearness of his death</div>
+                <div class="quiz-option" onclick="checkAnswer(6, 'D', false)">D) Time to appoint a successor</div>
+                <div id="feedback6" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4>Question 7: What is the main lesson about how to behave in success?</h4>
+                <div class="quiz-option" onclick="checkAnswer(7, 'A', false)">A) Celebrate and be proud of your achievement</div>
+                <div class="quiz-option" onclick="checkAnswer(7, 'B', true)">B) Remain humble, thank Allah, and seek forgiveness</div>
+                <div class="quiz-option" onclick="checkAnswer(7, 'C', false)">C) Tell everyone about your success</div>
+                <div class="quiz-option" onclick="checkAnswer(7, 'D', false)">D) Immediately start the next project</div>
+                <div id="feedback7" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4>Question 8: Which companion correctly interpreted the deeper meaning of this surah?</h4>
+                <div class="quiz-option" onclick="checkAnswer(8, 'A', false)">A) Abu Bakr (RA)</div>
+                <div class="quiz-option" onclick="checkAnswer(8, 'B', true)">B) Ibn Abbas (RA)</div>
+                <div class="quiz-option" onclick="checkAnswer(8, 'C', false)">C) Ali (RA)</div>
+                <div class="quiz-option" onclick="checkAnswer(8, 'D', false)">D) Uthman (RA)</div>
+                <div id="feedback8" class="feedback" style="display:none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const reflections = {};
+
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-btn');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function saveReflection(number) {
+            const textarea = document.getElementById(`reflection${number}`) || document.getElementById(number);
+            const content = textarea.value.trim();
+            
+            if (content) {
+                reflections[number] = content;
+                alert('Your reflection has been saved! ✓\n\nKeep up the excellent work in your Islamic studies.');
+            } else {
+                alert('Please write your reflection before saving.');
+            }
+        }
+
+        let answeredQuestions = {};
+
+        function checkAnswer(questionNum, choice, isCorrect) {
+            if (answeredQuestions[questionNum]) {
+                return;
+            }
+
+            const feedback = document.getElementById(`feedback${questionNum}`);
+            const options = document.querySelectorAll(`#quiz .card:nth-child(${questionNum + 1}) .quiz-option`);
+            
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+                if (option.textContent.startsWith(choice)) {
+                    option.classList.add(isCorrect ? 'correct' : 'incorrect');
+                }
+            });
+
+            answeredQuestions[questionNum] = true;
+
+            const feedbackMessages = {
+                1: {
+                    correct: "Excellent! Surah An-Nasr was revealed during the Farewell Pilgrimage (Hajjat al-Wada') in 10 AH, just a few months before the Prophet's ﷺ death.",
+                    incorrect: "The correct answer is C. This surah was revealed during the Farewell Pilgrimage in 10 AH, marking the completion of the Prophet's mission."
+                },
+                2: {
+                    correct: "Correct! Nasr means help, aid, and support—not just victory. It emphasizes that success comes through Allah's divine assistance.",
+                    incorrect: "The correct answer is B. Nasr means help and support from Allah, which then leads to victory (fath)."
+                },
+                3: {
+                    correct: "Absolutely right! Al-fath refers to the peaceful Conquest of Makkah in 8 AH, when the Prophet ﷺ entered his hometown victoriously yet humbly.",
+                    incorrect: "The correct answer is B. Al-fath specifically refers to the Conquest of Makkah, the most significant victory in Islamic history."
+                },
+                4: {
+                    correct: "Perfect! Afwajan means in crowds or multitudes—describing how Arab tribes entered Islam en masse after the Conquest of Makkah.",
+                    incorrect: "The correct answer is C. Afwajan means in crowds and multitudes, like waves of people coming one after another."
+                },
+                5: {
+                    correct: "Excellent understanding! The verse commands us to glorify Allah with praise (Tasbih and Tahmid) and seek His forgiveness (Istighfar).",
+                    incorrect: "The correct answer is B. The verse tells us to glorify Allah, praise Him, and seek His forgiveness—the proper response to success."
+                },
+                6: {
+                    correct: "Correct! The Prophet ﷺ understood this surah as a sign that his mission was complete and that his death was approaching.",
+                    incorrect: "The correct answer is C. The Prophet ﷺ recognized this surah as indicating the completion of his mission and the nearness of his death."
+                },
+                7: {
+                    correct: "Perfect! The key lesson is to remain humble in success, attribute it to Allah, thank Him, and seek His forgiveness—not to become arrogant.",
+                    incorrect: "The correct answer is B. True Islamic character means staying humble in success, thanking Allah, and seeking forgiveness rather than boasting."
+                },
+                8: {
+                    correct: "Excellent! Ibn Abbas (RA) correctly understood the deeper meaning—that this surah indicated the Prophet's approaching death and mission completion.",
+                    incorrect: "The correct answer is B. Ibn Abbas (RA) showed profound understanding by recognizing this surah as a sign of the Prophet's approaching departure."
+                }
+            };
+
+            feedback.innerHTML = isCorrect ? 
+                `✅ ${feedbackMessages[questionNum].correct}` : 
+                `❌ ${feedbackMessages[questionNum].incorrect}`;
+            feedback.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
