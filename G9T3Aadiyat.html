@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tafseer Surah Al-Aadiyaat | Tr Mu'az Learning Portal</title>
+    <title>Tafseer Surah Al-Adiyat - Interactive Lesson</title>
     <style>
+        :root {
+            --color-primary: #8b4513;
+            --color-primary-light: #a0522d;
+            --color-secondary: #d4af37;
+            --color-bg: #f8f9fa;
+            --color-surface: #ffffff;
+            --color-text: #2c3e50;
+            --color-text-light: #6c757d;
+            --color-accent: #fff8dc;
+            --color-border: #dee2e6;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,157 +24,312 @@
         }
 
         body {
-            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
-            background: #D2B48C;
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #fff8dc 0%, #faebd7 100%);
+            color: var(--color-text);
             line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         header {
-            background: #20B2AA;
-            padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(139, 69, 19, 0.2);
+        }
+
+        .arabic-title {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         header h1 {
-            font-size: 2.2rem;
-            color: white;
-            margin-bottom: 8px;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
         }
 
         header p {
-            color: white;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            opacity: 0.95;
         }
 
-        .back-btn {
-            display: inline-block;
-            margin: 20px;
-            padding: 10px 20px;
-            background: #20B2AA;
-            color: white;
-            text-decoration: none;
+        .tab-nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .tab-btn {
+            flex: 1;
+            min-width: 140px;
+            padding: 12px 20px;
+            background: var(--color-bg);
+            border: 2px solid var(--color-border);
             border-radius: 8px;
-            transition: all 0.2s ease;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            color: var(--color-text);
         }
 
-        .back-btn:hover {
-            background: #188A84;
+        .tab-btn:hover {
+            background: var(--color-accent);
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
         }
 
-        main {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 0 20px 40px;
+        .tab-btn.active {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
         }
 
-        .lesson-container {
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
             background: white;
             border-radius: 12px;
-            padding: 35px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border: 2px solid #20B2AA;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--color-primary);
         }
 
-        .surah-info {
-            background: #f8f8f8;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            border-left: 4px solid #20B2AA;
-        }
-
-        .surah-info h3 {
-            color: #20B2AA;
-            margin-bottom: 10px;
-        }
-
-        .surah-info ul {
-            margin-left: 20px;
-        }
-
-        .surah-info li {
-            margin-bottom: 8px;
-        }
-
-        .arabic-text {
-            font-size: 1.8rem;
-            text-align: right;
-            direction: rtl;
-            line-height: 2.5;
-            background: #f8f8f8;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            border: 1px solid #ddd;
-        }
-
-        .section {
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            color: #20B2AA;
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #20B2AA;
-        }
-
-        h3 {
-            color: #188A84;
+        .card h3 {
+            color: var(--color-primary);
             font-size: 1.4rem;
-            margin-top: 25px;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        h4 {
-            color: #20B2AA;
-            font-size: 1.2rem;
-            margin-top: 15px;
-            margin-bottom: 10px;
+        .icon {
+            font-size: 1.5rem;
         }
 
         .verse-box {
-            background: #f0f8ff;
-            padding: 15px;
-            border-radius: 8px;
+            background: linear-gradient(135deg, #fff8dc 0%, #faebd7 100%);
+            border: 2px solid var(--color-primary);
+            border-radius: 10px;
+            padding: 20px;
             margin: 15px 0;
-            border-left: 4px solid #20B2AA;
+            text-align: center;
         }
 
-        .verse-number {
-            color: #20B2AA;
-            font-weight: bold;
+        .scene-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            margin: 15px auto;
+            display: block;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .image-caption {
+            text-align: center;
+            font-style: italic;
+            color: var(--color-text-light);
+            margin-top: 8px;
+            font-size: 0.9rem;
+        }
+
+        .arabic {
+            font-size: 2rem;
+            line-height: 2.2;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .transliteration {
             font-size: 1.1rem;
+            color: var(--color-text-light);
+            font-style: italic;
+            margin-bottom: 8px;
         }
 
         .translation {
-            font-style: italic;
-            color: #555;
-            margin: 10px 0;
+            font-size: 1.05rem;
+            color: var(--color-text);
+            font-weight: 500;
         }
 
-        .explanation {
-            margin: 15px 0;
-            line-height: 1.8;
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .info-item {
+            background: var(--color-accent);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid var(--color-primary);
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--color-primary);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 1.05rem;
+            color: var(--color-text);
         }
 
         .key-point {
-            background: #fff9e6;
+            background: #fff8dc;
+            border-left: 4px solid var(--color-secondary);
             padding: 15px;
-            border-radius: 8px;
             margin: 15px 0;
-            border-left: 4px solid #FFD700;
+            border-radius: 8px;
         }
 
         .key-point strong {
-            color: #20B2AA;
+            color: var(--color-secondary);
         }
 
-        ul {
-            margin-left: 25px;
+        .interactive-box {
+            background: white;
+            border: 2px dashed var(--color-primary);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 12px;
+            border: 2px solid var(--color-border);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+            margin-top: 10px;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .btn {
+            background: var(--color-primary);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: var(--color-primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 69, 19, 0.3);
+        }
+
+        .quiz-option {
+            background: var(--color-bg);
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid var(--color-border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            background: var(--color-accent);
+            border-color: var(--color-primary);
+        }
+
+        .quiz-option.selected {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        .quiz-option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .quiz-option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .feedback {
+            background: var(--color-accent);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid var(--color-primary);
+        }
+
+        .word-meaning {
+            display: inline-block;
+            background: var(--color-accent);
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            border: 2px solid var(--color-primary);
+        }
+
+        .word-arabic {
+            color: var(--color-primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .word-english {
+            color: var(--color-text);
+            margin-left: 8px;
+        }
+
+        ul, ol {
+            margin-left: 20px;
             margin-top: 10px;
         }
 
@@ -171,313 +338,631 @@
         }
 
         .highlight {
-            background: #ffffcc;
-            padding: 2px 5px;
-            border-radius: 3px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #666;
-            font-size: 0.9rem;
-            background: white;
-            margin-top: 40px;
+            background: linear-gradient(135deg, #fff8dc 0%, #ffeaa7 100%);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
         }
 
         @media (max-width: 768px) {
+            .arabic-title {
+                font-size: 2.2rem;
+            }
+
             header h1 {
-                font-size: 1.8rem;
+                font-size: 1.4rem;
             }
 
-            .lesson-container {
-                padding: 20px;
+            .tab-btn {
+                min-width: 120px;
+                font-size: 0.85rem;
             }
 
-            .arabic-text {
-                font-size: 1.5rem;
-            }
-
-            h2 {
-                font-size: 1.5rem;
+            .arabic {
+                font-size: 1.6rem;
             }
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <header>
+            <div class="arabic-title">سُورَةُ العَادِيَاتِ</div>
+            <h1>Tafseer Surah Al-Adiyat</h1>
+            <p>The Charging Horses</p>
+        </header>
 
-<header>
-    <h1>📖 Tafseer Surah Al-Aadiyaat</h1>
-    <p>The Courser | السورة العاديات</p>
-</header>
-
-<a href="index.html" class="back-btn">← Back to Portal</a>
-
-<main>
-    <div class="lesson-container">
-        
-        <!-- Surah Information -->
-        <div class="surah-info">
-            <h3>📚 Surah Information</h3>
-            <ul>
-                <li><strong>Name:</strong> Al-Aadiyaat (العاديات) - The Courser / The Chargers</li>
-                <li><strong>Surah Number:</strong> 100</li>
-                <li><strong>Number of Verses:</strong> 11 ayaat</li>
-                <li><strong>Place of Revelation:</strong> Makkan</li>
-                <li><strong>Theme:</strong> Human ingratitude and love of wealth</li>
-            </ul>
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="showTab('overview')">Overview</button>
+            <button class="tab-btn" onclick="showTab('verses')">Verses &amp; Translation</button>
+            <button class="tab-btn" onclick="showTab('tafseer')">Detailed Tafseer</button>
+            <button class="tab-btn" onclick="showTab('lessons')">Key Lessons</button>
+            <button class="tab-btn" onclick="showTab('reflection')">Reflection</button>
+            <button class="tab-btn" onclick="showTab('quiz')">Quiz</button>
         </div>
 
-        <!-- Full Surah in Arabic -->
-        <div class="section">
-            <h2>📜 Full Surah (Arabic)</h2>
-            <div class="arabic-text">
-بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ<br><br>
-وَالْعَادِيَاتِ ضَبْحًا ﴿١﴾<br>
-فَالْمُورِيَاتِ قَدْحًا ﴿٢﴾<br>
-فَالْمُغِيرَاتِ صُبْحًا ﴿٣﴾<br>
-فَأَثَرْنَ بِهِ نَقْعًا ﴿٤﴾<br>
-فَوَسَطْنَ بِهِ جَمْعًا ﴿٥﴾<br>
-إِنَّ الْإِنسَانَ لِرَبِّهِ لَكَنُودٌ ﴿٦﴾<br>
-وَإِنَّهُ عَلَىٰ ذَٰلِكَ لَشَهِيدٌ ﴿٧﴾<br>
-وَإِنَّهُ لِحُبِّ الْخَيْرِ لَشَدِيدٌ ﴿٨﴾<br>
-أَفَلَا يَعْلَمُ إِذَا بُعْثِرَ مَا فِي الْقُبُورِ ﴿٩﴾<br>
-وَحُصِّلَ مَا فِي الصُّدُورِ ﴿١٠﴾<br>
-إِنَّ رَبَّهُم بِهِمْ يَوْمَئِذٍ لَّخَبِيرٌ ﴿١١﴾
-            </div>
-        </div>
-
-        <!-- Verse by Verse Tafseer -->
-        <div class="section">
-            <h2>🔍 Verse by Verse Tafseer</h2>
-
-            <div class="verse-box">
-                <p class="verse-number">Ayah 1-5: The Oath (Al-Qasam)</p>
-                <div class="arabic-text">
-وَالْعَادِيَاتِ ضَبْحًا ﴿١﴾ فَالْمُورِيَاتِ قَدْحًا ﴿٢﴾ فَالْمُغِيرَاتِ صُبْحًا ﴿٣﴾ فَأَثَرْنَ بِهِ نَقْعًا ﴿٤﴾ فَوَسَطْنَ بِهِ جَمْعًا ﴿٥﴾
-                </div>
-                <p class="translation"><strong>Translation:</strong> "By the (steeds) that run with panting breath, striking sparks of fire (with their hooves), and making raids at dawn, stirring up clouds of dust, then penetrating into the midst (of the enemy) together."</p>
+        <div id="overview" class="tab-content active">
+            <div class="card">
+                <h3><span class="icon">📖</span>Introduction to Surah Al-Adiyat</h3>
+                <p>Surah Al-Adiyat is the 100th chapter of the Qur'an, consisting of 11 powerful verses. The name "Al-Adiyat" means "The Chargers" or "The Charging Horses," referring to the dramatic opening scene of war horses galloping into battle. This surah paints a vivid picture to illustrate profound lessons about human nature, ingratitude, and the Day of Judgment.</p>
                 
-                <div class="explanation">
-                    <h4>Explanation:</h4>
-                    <p>Allah SWT begins this surah with a powerful oath, swearing by the <span class="highlight">war horses</span> that charge into battle. This imagery describes:</p>
-                    <ul>
-                        <li><strong>Al-Aadiyaat:</strong> The horses running swiftly with heavy breathing</li>
-                        <li><strong>Al-Mooriyaat:</strong> Striking their hooves on stones, causing sparks</li>
-                        <li><strong>Al-Mugheeraat:</strong> Raiding at dawn (the best time for surprise attacks)</li>
-                        <li><strong>Atharna naq'an:</strong> Raising clouds of dust with their charge</li>
-                        <li><strong>Wasatna bihi jam'an:</strong> Penetrating into the midst of enemy ranks</li>
-                    </ul>
-                    
-                    <div class="key-point">
-                        <strong>Key Point:</strong> Some scholars interpret these verses as referring to horses in battle (jihad), while others see them as camels during Hajj. Both interpretations highlight dedication and struggle in the path of Allah.
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Revelation</div>
+                        <div class="info-value">Makki (Majority view)</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Number of Verses</div>
+                        <div class="info-value">11 Ayat</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Order of Revelation</div>
+                        <div class="info-value">Approximately 14th</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Position in Quran</div>
+                        <div class="info-value">Juz 30</div>
                     </div>
                 </div>
             </div>
 
-            <div class="verse-box">
-                <p class="verse-number">Ayah 6: The Nature of Mankind</p>
-                <div class="arabic-text">
-إِنَّ الْإِنسَانَ لِرَبِّهِ لَكَنُودٌ ﴿٦﴾
-                </div>
-                <p class="translation"><strong>Translation:</strong> "Verily, mankind is ungrateful to his Lord."</p>
+            <div class="card">
+                <h3><span class="icon">📅</span>Historical Context</h3>
+                <p><strong>Two Views on Revelation:</strong></p>
                 
-                <div class="explanation">
-                    <h4>Explanation:</h4>
-                    <p>After the oath, Allah reveals its purpose: to highlight the <span class="highlight">ungrateful nature of human beings</span>.</p>
-                    <ul>
-                        <li><strong>Kanood:</strong> Extremely ungrateful, forgetful of blessings</li>
-                        <li>Humans tend to focus on what they lack rather than appreciate what they have</li>
-                        <li>We remember misfortunes but forget countless blessings</li>
-                        <li>This ingratitude can lead to disobedience and sin</li>
-                    </ul>
-                    
-                    <div class="key-point">
-                        <strong>Reflection:</strong> Consider how many blessings Allah has given you today—health, food, family, faith. Do we thank Him adequately?
-                    </div>
+                <div class="key-point">
+                    <strong>Makki View (Majority):</strong> This surah was revealed in Makkah during the early period of Islam. The horses mentioned refer metaphorically to the pilgrims' camels rushing toward Makkah for Hajj, or more broadly to human beings in their relentless pursuit of worldly gains. The focus is on diagnosing humanity's spiritual disease: ingratitude and obsession with wealth.
+                </div>
+
+                <div class="key-point">
+                    <strong>Madani View (Minority):</strong> Some scholars say it was revealed in Madinah about a specific military expedition called Dhat al-Salasil (8 AH). The Prophet ﷺ sent a force under Amr ibn Al-As, but news was delayed. Hypocrites spread rumors of defeat. This surah was revealed announcing the Muslims' success, with horses literally referring to cavalry in battle.
+                </div>
+
+                <p><strong>Most scholars prefer the Makki view,</strong> as the themes align perfectly with early Makkan surahs that diagnose human nature and warn about the Hereafter.</p>
+            </div>
+
+            <div class="card">
+                <h3><span class="icon">🎯</span>Main Themes</h3>
+                <ul>
+                    <li><strong>The Intensity of Human Effort:</strong> Whether for good or evil, humans exert tremendous energy</li>
+                    <li><strong>Human Ingratitude (Kanud):</strong> Despite Allah's countless blessings, humans are ungrateful</li>
+                    <li><strong>Love of Wealth:</strong> The fierce attachment to material possessions</li>
+                    <li><strong>Self-Awareness:</strong> Deep down, humans know their own faults</li>
+                    <li><strong>Certainty of Resurrection:</strong> The Day when graves are opened and hearts revealed</li>
+                    <li><strong>Divine Knowledge:</strong> Allah's complete awareness of all hidden intentions</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3><span class="icon">💡</span>The Surah's Structure</h3>
+                <p>The surah has a brilliant structure:</p>
+                <ol>
+                    <li><strong>Verses 1-5:</strong> Dramatic oath by charging horses - creating suspense</li>
+                    <li><strong>Verse 6:</strong> The answer to the oath - humanity's ingratitude</li>
+                    <li><strong>Verses 7-8:</strong> Elaboration - self-awareness and love of wealth</li>
+                    <li><strong>Verses 9-11:</strong> Warning - the Day of Reckoning when all is revealed</li>
+                </ol>
+            </div>
+        </div>
+
+        <div id="verses" class="tab-content">
+            <div class="card">
+                <h3><span class="icon">📝</span>Complete Text with Translation</h3>
+                
+                <div class="verse-box">
+                    <div class="arabic">وَٱلْعَـٰدِيَـٰتِ ضَبْحًۭا</div>
+                    <div class="transliteration">Wal-'aadiyaati dabha</div>
+                    <div class="translation">"By the charging horses, panting heavily"</div>
+                </div>
+
+                <div class="verse-box">
+                    <div class="arabic">فَٱلْمُورِيَـٰتِ قَدْحًۭا</div>
+                    <div class="transliteration">Fal-mooriyaati qadha</div>
+                    <div class="translation">"Striking sparks of fire (with their hooves)"</div>
+                </div>
+
+                <div class="verse-box">
+                    <div class="arabic">فَٱلْمُغِيرَٰتِ صُبْحًۭا</div>
+                    <div class="transliteration">Fal-mugheeraati subha</div>
+                    <div class="translation">"And making raids at dawn"</div>
+                </div>
+
+                <div class="verse-box">
+                    <div class="arabic">فَأَثَرْنَ بِهِۦ نَقْعًۭا</div>
+                    <div class="transliteration">Fa-atharna bihi naq'a</div>
+                    <div class="translation">"Stirring up clouds of dust"</div>
+                </div>
+
+                <div class="verse-box">
+                    <div class="arabic">فَوَسَطْنَ بِهِۦ جَمْعًا</div>
+                    <div class="transliteration">Fa-wasatna bihi jam'a</div>
+                    <div class="translation">"And penetrating deep into the midst (of the enemy)"</div>
+                </div>
+
+                <div class="verse-box">
+                    <div class="arabic">إِنَّ ٱلْإِنسَـٰنَ لِرَبِّهِۦ لَكَنُودٌۭ</div>
+                    <div class="transliteration">Innal-insaana lirabbihee lakanood</div>
+                    <div class="translation">"Indeed, mankind is ungrateful to his Lord"</div>
+                </div>
+
+                <div class="verse-box">
+                    <div class="arabic">وَإِنَّهُۥ عَلَىٰ ذَٰلِكَ لَشَهِيدٌۭ</div>
+                    <div class="transliteration">Wa innahu 'alaa dhaalika lashaheed</div>
+                    <div class="translation">"And indeed, he is a witness to that (himself)"</div>
+                </div>
+
+                <div class="verse-box">
+                    <div class="arabic">وَإِنَّهُۥ لِحُبِّ ٱلْخَيْرِ لَشَدِيدٌ</div>
+                    <div class="transliteration">Wa innahu lihubbil-khayri lashadeed</div>
+                    <div class="translation">"And indeed, he is intense in his love of wealth"</div>
+                </div>
+
+                <div class="verse-box">
+                    <div class="arabic">۞ أَفَلَا يَعْلَمُ إِذَا بُعْثِرَ مَا فِى ٱلْقُبُورِ</div>
+                    <div class="transliteration">Afalaa ya'lamu idhaa bu'thira maa fil-quboor</div>
+                    <div class="translation">"Does he not know that when the contents of the graves are scattered (resurrected)"</div>
+                </div>
+
+                <div class="verse-box">
+                    <div class="arabic">وَحُصِّلَ مَا فِى ٱلصُّدُورِ</div>
+                    <div class="transliteration">Wa hussila maa fis-sudoor</div>
+                    <div class="translation">"And that within the hearts is brought out (exposed)"</div>
+                </div>
+
+                <div class="verse-box">
+                    <div class="arabic">إِنَّ رَبَّهُم بِهِمْ يَوْمَئِذٍۢ لَّخَبِيرٌۢ</div>
+                    <div class="transliteration">Inna rabbahum bihim yawma'idhin lakhabeer</div>
+                    <div class="translation">"Indeed, their Lord, on that Day, is fully Aware of them"</div>
                 </div>
             </div>
 
-            <div class="verse-box">
-                <p class="verse-number">Ayah 7: Self-Awareness</p>
-                <div class="arabic-text">
-وَإِنَّهُ عَلَىٰ ذَٰلِكَ لَشَهِيدٌ ﴿٧﴾
-                </div>
-                <p class="translation"><strong>Translation:</strong> "And indeed, he (mankind) is a witness to that."</p>
-                
-                <div class="explanation">
-                    <h4>Explanation:</h4>
-                    <p>Humans themselves bear witness to their own ingratitude through their:</p>
-                    <ul>
-                        <li><strong>Actions:</strong> Disobeying Allah despite His blessings</li>
-                        <li><strong>Words:</strong> Complaining more than expressing gratitude</li>
-                        <li><strong>Attitudes:</strong> Taking blessings for granted</li>
-                        <li><strong>Behavior:</strong> Prioritizing worldly gains over spiritual growth</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="verse-box">
-                <p class="verse-number">Ayah 8: Love of Wealth</p>
-                <div class="arabic-text">
-وَإِنَّهُ لِحُبِّ الْخَيْرِ لَشَدِيدٌ ﴿٨﴾
-                </div>
-                <p class="translation"><strong>Translation:</strong> "And indeed, he is intense in his love for wealth (al-khayr)."</p>
-                
-                <div class="explanation">
-                    <h4>Explanation:</h4>
-                    <p>The word <strong>"al-khayr"</strong> here refers to wealth and worldly goods. This verse reveals:</p>
-                    <ul>
-                        <li>Humans have an <span class="highlight">intense love for material possessions</span></li>
-                        <li>This love often blinds them to their spiritual obligations</li>
-                        <li>Wealth becomes the primary pursuit, overshadowing gratitude to Allah</li>
-                        <li>The attachment to dunya (worldly life) makes people forget the akhirah (Hereafter)</li>
-                    </ul>
-                    
-                    <div class="key-point">
-                        <strong>Warning:</strong> Loving wealth is not forbidden, but excessive attachment that leads to neglecting Allah's rights and the rights of others is dangerous.
-                    </div>
-                </div>
-            </div>
-
-            <div class="verse-box">
-                <p class="verse-number">Ayah 9-10: The Day of Reckoning</p>
-                <div class="arabic-text">
-أَفَلَا يَعْلَمُ إِذَا بُعْثِرَ مَا فِي الْقُبُورِ ﴿٩﴾ وَحُصِّلَ مَا فِي الصُّدُورِ ﴿١٠﴾
-                </div>
-                <p class="translation"><strong>Translation:</strong> "Does he not know that when the contents of the graves are scattered, and that which is in the breasts (hearts) is made apparent?"</p>
-                
-                <div class="explanation">
-                    <h4>Explanation:</h4>
-                    <p>These verses present a powerful reminder of the <span class="highlight">Day of Resurrection</span>:</p>
-                    <ul>
-                        <li><strong>"Bu'thira":</strong> The dead will be raised and scattered from their graves</li>
-                        <li><strong>"Hussila":</strong> Everything hidden in hearts will be revealed and examined</li>
-                        <li>All secrets, intentions, and hidden thoughts will be exposed</li>
-                        <li>Nothing will remain concealed on that Day</li>
-                        <li>This is a wake-up call to those obsessed with wealth and ungrateful to Allah</li>
-                    </ul>
-                    
-                    <div class="key-point">
-                        <strong>Reflection:</strong> If everything in our hearts will be revealed, are we cultivating good intentions, gratitude, and sincerity?
-                    </div>
-                </div>
-            </div>
-
-            <div class="verse-box">
-                <p class="verse-number">Ayah 11: Allah's Complete Knowledge</p>
-                <div class="arabic-text">
-إِنَّ رَبَّهُم بِهِمْ يَوْمَئِذٍ لَّخَبِيرٌ ﴿١١﴾
-                </div>
-                <p class="translation"><strong>Translation:</strong> "Verily, their Lord, that Day, is perfectly aware of them (all-knowing of their conditions and will requite them)."</p>
-                
-                <div class="explanation">
-                    <h4>Explanation:</h4>
-                    <p>The surah concludes with a powerful reminder:</p>
-                    <ul>
-                        <li>Allah is <strong>Al-Khabeer</strong> (the All-Aware)</li>
-                        <li>He knows every detail of our lives, intentions, and deeds</li>
-                        <li>Perfect justice will be established on the Day of Judgment</li>
-                        <li>No one will be wronged, and no deed will be overlooked</li>
-                        <li>The ungrateful and the grateful will each receive their due</li>
-                    </ul>
+            <div class="card">
+                <h3><span class="icon">📚</span>Key Vocabulary</h3>
+                <div>
+                    <span class="word-meaning">
+                        <span class="word-arabic">عَادِيَات</span>
+                        <span class="word-english">Chargers, Running horses</span>
+                    </span>
+                    <span class="word-meaning">
+                        <span class="word-arabic">ضَبْح</span>
+                        <span class="word-english">Panting, Heavy breathing</span>
+                    </span>
+                    <span class="word-meaning">
+                        <span class="word-arabic">قَدْح</span>
+                        <span class="word-english">Striking sparks</span>
+                    </span>
+                    <span class="word-meaning">
+                        <span class="word-arabic">صُبْح</span>
+                        <span class="word-english">Dawn, Morning</span>
+                    </span>
+                    <span class="word-meaning">
+                        <span class="word-arabic">نَقْع</span>
+                        <span class="word-english">Dust clouds</span>
+                    </span>
+                    <span class="word-meaning">
+                        <span class="word-arabic">كَنُود</span>
+                        <span class="word-english">Ungrateful, Stingy</span>
+                    </span>
+                    <span class="word-meaning">
+                        <span class="word-arabic">خَيْر</span>
+                        <span class="word-english">Wealth, Goods</span>
+                    </span>
+                    <span class="word-meaning">
+                        <span class="word-arabic">بُعْثِر</span>
+                        <span class="word-english">Scattered, Thrown out</span>
+                    </span>
+                    <span class="word-meaning">
+                        <span class="word-arabic">حُصِّل</span>
+                        <span class="word-english">Brought out, Exposed</span>
+                    </span>
                 </div>
             </div>
         </div>
 
-        <!-- Main Themes -->
-        <div class="section">
-            <h2>🎯 Main Themes and Messages</h2>
-            
-            <h3>1. Human Ingratitude (Kufran An-Ni'mah)</h3>
-            <p>Despite countless blessings, humans tend to be ungrateful and forget Allah's favors. This is a natural inclination that we must actively combat through:</p>
-            <ul>
-                <li>Regular remembrance of Allah (dhikr)</li>
-                <li>Counting our blessings daily</li>
-                <li>Expressing gratitude in prayer and actions</li>
-            </ul>
+        <div id="tafseer" class="tab-content">
+            <div class="card">
+                <h3><span class="icon">🔍</span>Verses 1-2: The Charging Horses</h3>
+                <div class="verse-box">
+                    <div class="arabic">وَٱلْعَـٰدِيَـٰتِ ضَبْحًۭا ۝ فَٱلْمُورِيَـٰتِ قَدْحًۭا</div>
+                </div>
 
-            <h3>2. Love of Wealth (Hubb Ad-Dunya)</h3>
-            <p>The excessive attachment to material possessions can lead to spiritual neglect. Islam teaches moderation:</p>
-            <ul>
-                <li>Wealth is not evil, but love of it can corrupt</li>
-                <li>Use wealth as a means, not as the ultimate goal</li>
-                <li>Remember that wealth is a test from Allah</li>
-            </ul>
+                <img src="image:32" alt="Arabian horses charging at dawn" class="scene-image">
+                <p class="image-caption">Visualizing the powerful scene of horses charging through the desert at dawn</p>
+                
+                <div class="key-point">
+                    <strong>The Oath:</strong> Allah swears by charging horses that pant heavily as they run. In battle, horses gallop so fast they breathe audibly. When their hooves strike rocky ground, sparks fly from the impact of their horseshoes.
+                </div>
 
-            <h3>3. Accountability in the Hereafter</h3>
-            <p>The surah reminds us that this life is temporary and we will be held accountable:</p>
-            <ul>
-                <li>Everything hidden will be revealed</li>
-                <li>Our intentions and deeds will be examined</li>
-                <li>Prepare for that Day through righteous actions</li>
-            </ul>
+                <p><strong>Tafseer:</strong> This opening creates dramatic tension. Allah is swearing by something to emphasize what's coming next. The horses represent intensity, sacrifice, and effort. In the Arabian context, dawn raids were the ultimate test of courage—attacking in daylight to show bravery, not in darkness like cowards.</p>
 
-            <h3>4. Allah's Complete Knowledge</h3>
-            <p>Nothing escapes Allah's knowledge—He is fully aware of our conditions, struggles, and intentions.</p>
+                <p><strong>Symbolic Meaning (Makki View):</strong> The horses can symbolize human beings in their relentless pursuit—whether for good (like pilgrims rushing to worship) or for worldly gain (people exhausting themselves for wealth). The intensity shown by these horses reflects the intensity humans put into their pursuits.</p>
+
+                <p><strong>Literary Brilliance:</strong> The use of active participles (al-'aadiyaat, al-mooriyaat) creates a sense of ongoing action, pulling the listener into the scene. You can almost hear the panting and see the sparks flying!</p>
+            </div>
+
+            <div class="card">
+                <h3><span class="icon">🔍</span>Verses 3-5: The Dawn Raid</h3>
+                <div class="verse-box">
+                    <div class="arabic">فَٱلْمُغِيرَٰتِ صُبْحًۭا ۝ فَأَثَرْنَ بِهِۦ نَقْعًۭا ۝ فَوَسَطْنَ بِهِۦ جَمْعًا</div>
+                </div>
+
+                <img src="image:34" alt="Warriors charging in dust clouds" class="scene-image">
+                <p class="image-caption">The intense scene of cavalry raising dust clouds during their charge</p>
+
+                <div class="key-point">
+                    <strong>The Complete Picture:</strong> The horses attack at dawn (subhan), stirring up clouds of dust as they charge, then penetrate deep into the enemy ranks. This completes the cinematic description of a cavalry raid.
+                </div>
+
+                <p><strong>Historical Context:</strong> Dawn raids were the traditional Arabian form of warfare. It required courage because you attacked in broad daylight when the enemy could see you coming. The dust clouds show the speed and numbers of the charging force.</p>
+
+                <p><strong>The Climax of the Oath:</strong> After five verses of building tension with this powerful imagery, the surah is about to deliver its main point. The listener is wondering: <em>What is Allah swearing to? What's so important?</em></p>
+            </div>
+
+            <div class="card">
+                <h3><span class="icon">🔍</span>Verse 6: The Diagnosis - Humanity's Ingratitude</h3>
+                <div class="verse-box">
+                    <div class="arabic">إِنَّ ٱلْإِنسَـٰنَ لِرَبِّهِۦ لَكَنُودٌۭ</div>
+                </div>
+
+                <div class="key-point">
+                    <strong>The Answer Revealed:</strong> After all that powerful imagery... the point is this: <em>Mankind is ungrateful to his Lord.</em> This is what Allah was swearing to emphasize!
+                </div>
+
+                <p><strong>Understanding Kanud (كَنُود):</strong> This Arabic word is stronger than just "ungrateful." It means someone who remembers only the bad things and forgets all the good. A person who focuses on one problem while ignoring a thousand blessings. Someone stingy with thanks and appreciation.</p>
+
+                <p><strong>The Contrast:</strong> Horses work incredibly hard for humans, risking their lives, just because humans feed them. But humans, who receive infinitely more from Allah—life, health, food, family, talents—often deny Him, disobey Him, or simply ignore Him. The irony is stunning!</p>
+
+                <p><strong>For the Makkan Context:</strong> The Quraysh enjoyed Allah's blessings: security (Surah Quraysh mentions this), wealth from trade, honor as guardians of the Ka'bah. Yet they worshipped idols, rejected the Prophet ﷺ, and oppressed believers. Their ingratitude was complete.</p>
+            </div>
+
+            <div class="card">
+                <h3><span class="icon">🔍</span>Verses 7-8: Self-Awareness and Love of Wealth</h3>
+                <div class="verse-box">
+                    <div class="arabic">وَإِنَّهُۥ عَلَىٰ ذَٰلِكَ لَشَهِيدٌۭ ۝ وَإِنَّهُۥ لِحُبِّ ٱلْخَيْرِ لَشَدِيدٌ</div>
+                </div>
+
+                <img src="image:39" alt="Gold coins representing wealth" class="scene-image">
+                <p class="image-caption">The intense love of wealth that the surah warns against</p>
+
+                <div class="key-point">
+                    <strong>He Witnesses Against Himself:</strong> Deep down, every person knows they are ungrateful. When you receive a hundred blessings but complain about one problem, you know you're being ungrateful. Human conscience itself testifies against them.
+                </div>
+
+                <p><strong>The Root Cause:</strong> Why is mankind ungrateful? Because of an intense, fierce love of wealth and material possessions. The word <em>shadeed</em> means extremely strong, almost violent. This love becomes an obsession that blinds people to Allah's blessings.</p>
+
+                <p><strong>The Word "Khayr" (خَيْر):</strong> Literally means "good," but in this context refers to wealth and worldly goods. Humans call wealth "good" and pursue it relentlessly, often forgetting the real good: faith, character, eternal reward.</p>
+
+                <p><strong>Modern Application:</strong> This verse perfectly describes modern materialistic society. People work themselves to exhaustion for money, neglect family and worship for career, and define success by possessions. The diagnosis given 1,400 years ago remains accurate today.</p>
+            </div>
+
+            <div class="card">
+                <h3><span class="icon">🔍</span>Verses 9-11: The Day of Reckoning</h3>
+                <div class="verse-box">
+                    <div class="arabic">أَفَلَا يَعْلَمُ إِذَا بُعْثِرَ مَا فِى ٱلْقُبُورِ ۝ وَحُصِّلَ مَا فِى ٱلصُّدُورِ ۝ إِنَّ رَبَّهُم بِهِمْ يَوْمَئِذٍۢ لَّخَبِيرٌۢ</div>
+                </div>
+
+                <div class="key-point">
+                    <strong>The Rhetorical Question:</strong> "Does he not know...?" This implies: <em>He should know! How can he be so foolish?</em> It's a wake-up call to those heedless of the Hereafter.
+                </div>
+
+                <p><strong>Three Terrifying Realities:</strong></p>
+                <ol>
+                    <li><strong>Graves Scattered (بُعْثِرَ):</strong> The dead will be thrown out of their graves, resurrected. Your body that you buried with ancestors will be brought back. No hiding in death!</li>
+                    <li><strong>Hearts Exposed (حُصِّلَ):</strong> All secrets, intentions, hidden thoughts, private sins—everything in the heart will be brought out into the open. Your inner reality will be public knowledge.</li>
+                    <li><strong>Allah's Complete Knowledge (خَبِير):</strong> On that Day, Allah's perfect awareness becomes the basis of judgment. Nothing hidden will remain hidden.</li>
+                </ol>
+
+                <p><strong>The Terror for the Ungrateful:</strong> For those who denied the Hereafter and chased wealth, this is their worst nightmare. All their carefully guarded secrets exposed. All their worldly achievements meaningless. Standing before the Lord they were ungrateful to.</p>
+
+                <p><strong>The Contrast:</strong> Just as those horses penetrated deep into enemy ranks with nowhere to hide, on Judgment Day there will be nowhere to hide from Allah's knowledge and justice.</p>
+
+                <p><strong>The Final Warning:</strong> The word <em>khabeer</em> (fully aware) is emphatic. Allah doesn't just know—He knows completely, perfectly, in detail. This should make the ungrateful person tremble and the grateful believer rejoice.</p>
+            </div>
         </div>
 
-        <!-- Practical Lessons -->
-        <div class="section">
-            <h2>💡 Practical Lessons for Daily Life</h2>
-            
-            <div class="key-point">
-                <strong>1. Practice Gratitude Daily</strong>
-                <p>Keep a gratitude journal or make it a habit to thank Allah for 3 specific blessings each day in your du'a.</p>
+        <div id="lessons" class="tab-content">
+            <div class="card">
+                <h3><span class="icon">🎓</span>Key Lessons from Surah Al-Adiyat</h3>
+                
+                <div class="key-point">
+                    <strong>1. The Disease of Ingratitude</strong>
+                    <p>Ingratitude (kanud) is a serious spiritual disease. It makes you focus on what you lack while ignoring the hundreds of blessings you have. The cure is conscious gratitude—regularly counting your blessings and thanking Allah sincerely.</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>2. The Danger of Loving Wealth</strong>
+                    <p>There's nothing wrong with wealth itself, but when love of wealth becomes intense (shadeed), it blinds you to what really matters. It makes you ungrateful, selfish, and heedless of the Hereafter. Wealth should be a tool, not a goal.</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>3. Self-Awareness is Conscience</strong>
+                    <p>You are a witness against yourself (verse 7). Deep down, you know when you're being ungrateful, selfish, or wrong. Listen to your conscience—it's a gift from Allah to guide you back when you stray.</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>4. The Reality of Resurrection</strong>
+                    <p>The graves will be opened. The dead will be resurrected. This is not mythology—it's divine truth. Living with certainty of this reality transforms how you live today. Every action has eternal consequences.</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>5. Nothing Hidden on Judgment Day</strong>
+                    <p>All secrets will be exposed. Everything hidden in hearts will come out. This should make us very careful about our intentions, not just our actions. Purify your heart, not just your behavior.</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>6. Allah's Complete Knowledge</strong>
+                    <p>Allah is fully aware (khabeer) of everything—your struggles, your intentions, your hidden good deeds, your secret sins. This should bring comfort to the righteous and fear to the wrongdoer.</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>7. Channel Your Intensity</strong>
+                    <p>Humans have the capacity for intense effort (like those charging horses). The question is: Where do you direct this intensity? Toward worldly pursuits alone, or toward pleasing Allah and preparing for the Hereafter?</p>
+                </div>
+
+                <div class="key-point">
+                    <strong>8. Gratitude is Worship</strong>
+                    <p>Being grateful to Allah is an act of worship. When you say "Alhamdulillah" sincerely, you're acknowledging His lordship and your servitude. Ingratitude is a form of spiritual rebellion.</p>
+                </div>
             </div>
 
-            <div class="key-point">
-                <strong>2. Balance Material and Spiritual Life</strong>
-                <p>While working for halal sustenance, don't let worldly pursuits overshadow your spiritual obligations (salah, Qur'an, good character).</p>
-            </div>
-
-            <div class="key-point">
-                <strong>3. Examine Your Heart Regularly</strong>
-                <p>Since hearts will be examined on Judgment Day, perform regular self-assessment (muhasabah). Are you sincere? Grateful? Free from envy and pride?</p>
-            </div>
-
-            <div class="key-point">
-                <strong>4. Remember Death and Resurrection</strong>
-                <p>Reflect on the reality of death and the Hereafter. Let this motivate you to live righteously and prioritize what truly matters.</p>
-            </div>
-
-            <div class="key-point">
-                <strong>5. Be Generous with Wealth</strong>
-                <p>Combat the love of wealth by regularly giving in charity (sadaqah). This purifies the heart and reminds us that wealth is temporary.</p>
+            <div class="card">
+                <h3><span class="icon">🌟</span>Practical Applications</h3>
+                <ul>
+                    <li><strong>Daily gratitude practice:</strong> Before bed, list 5 specific blessings you experienced today</li>
+                    <li><strong>Check your priorities:</strong> How much energy do you spend on wealth vs spiritual growth?</li>
+                    <li><strong>Intention check:</strong> Regularly examine your intentions in worship and good deeds</li>
+                    <li><strong>Charity:</strong> Give to overcome love of wealth and express gratitude</li>
+                    <li><strong>Remember death:</strong> Visit graveyards to remember resurrection is real</li>
+                    <li><strong>Dua of gratitude:</strong> "Allahumma a'inni 'ala dhikrika wa shukrika wa husni 'ibadatik" (O Allah, help me remember You, thank You, and worship You well)</li>
+                    <li><strong>When blessed:</strong> Say "Alhamdulillah" sincerely, not just automatically</li>
+                    <li><strong>When tested:</strong> Remember Allah's other blessings to maintain perspective</li>
+                </ul>
             </div>
         </div>
 
-        <!-- Key Vocabulary -->
-        <div class="section">
-            <h2>📖 Key Vocabulary</h2>
-            <ul>
-                <li><strong>Al-Aadiyaat (العاديات):</strong> The courser/chargers, those that run swiftly</li>
-                <li><strong>Kanood (كَنُودٌ):</strong> Extremely ungrateful, one who denies blessings</li>
-                <li><strong>Al-Khayr (الْخَيْرِ):</strong> Wealth, worldly goods, possessions</li>
-                <li><strong>Bu'thira (بُعْثِرَ):</strong> Scattered, raised from graves</li>
-                <li><strong>Hussila (حُصِّلَ):</strong> Brought forth, made apparent, examined</li>
-                <li><strong>Khabeer (خَبِيرٌ):</strong> All-Aware, fully informed, perfectly knowledgeable</li>
-            </ul>
+        <div id="reflection" class="tab-content">
+            <div class="card">
+                <h3><span class="icon">💭</span>Personal Reflection</h3>
+                <p>Use this space to deeply reflect on the powerful messages of Surah Al-Adiyat. Write honestly about your relationship with gratitude, wealth, and awareness of the Hereafter.</p>
+            </div>
+
+            <div class="card">
+                <div class="interactive-box">
+                    <h4>Reflection Question 1:</h4>
+                    <p>Allah diagnoses humans as "kanud" (ungrateful). Think about the past week: What blessings did you take for granted? What did you complain about despite having many other blessings? Write an honest self-assessment.</p>
+                    <textarea id="reflection1" placeholder="Write your reflection here..."></textarea>
+                    <button class="btn" onclick="saveReflection(1)">Save Reflection</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="interactive-box">
+                    <h4>Reflection Question 2:</h4>
+                    <p>The surah describes intense love of wealth (hubbil-khayr shadeed). Honestly assess: What do you think about most? What gets your energy and attention? Is wealth/success/material things taking priority over spiritual growth?</p>
+                    <textarea id="reflection2" placeholder="Write your reflection here..."></textarea>
+                    <button class="btn" onclick="saveReflection(2)">Save Reflection</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="interactive-box">
+                    <h4>Reflection Question 3:</h4>
+                    <p>"You are a witness against yourself" (verse 7). Your conscience knows your faults. What is your conscience telling you right now? What do you need to change? What hidden behavior or attitude do you need to work on?</p>
+                    <textarea id="reflection3" placeholder="Write your reflection here..."></textarea>
+                    <button class="btn" onclick="saveReflection(3)">Save Reflection</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="interactive-box">
+                    <h4>Reflection Question 4:</h4>
+                    <p>The surah ends with a warning: graves will open, hearts will be exposed, Allah knows everything. If your heart was exposed today—all your thoughts, intentions, desires—what would people see? What would you be ashamed of?</p>
+                    <textarea id="reflection4" placeholder="Write your reflection here..."></textarea>
+                    <button class="btn" onclick="saveReflection(4)">Save Reflection</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="interactive-box">
+                    <h4>Action Plan:</h4>
+                    <p>Based on this surah, write three specific, measurable actions you will take this week to increase gratitude, reduce attachment to wealth, and prepare for the Day of Judgment.</p>
+                    <textarea id="actionplan" placeholder="1. I will...\n2. I will...\n3. I will..."></textarea>
+                    <button class="btn" onclick="saveReflection('actionplan')">Save Action Plan</button>
+                </div>
+            </div>
         </div>
 
-        <!-- Questions for Reflection -->
-        <div class="section">
-            <h2>🤔 Questions for Reflection</h2>
-            <ol>
-                <li>In what ways do I show gratitude to Allah for His blessings?</li>
-                <li>Do I love wealth excessively? How can I ensure it doesn't distract me from my purpose?</li>
-                <li>What secrets are hidden in my heart that I should work on purifying?</li>
-                <li>How often do I remember the Day of Judgment in my daily life?</li>
-                <li>What concrete steps can I take to become more grateful and less attached to worldly possessions?</li>
-            </ol>
-        </div>
+        <div id="quiz" class="tab-content">
+            <div class="card">
+                <h3><span class="icon">✅</span>Knowledge Check Quiz</h3>
+                <p>Test your understanding of Surah Al-Adiyat. Click on your answer choice.</p>
+            </div>
 
+            <div class="card">
+                <h4>Question 1: What does "Al-Adiyat" mean?</h4>
+                <div class="quiz-option" onclick="checkAnswer(1, 'A', false)">A) The patient ones</div>
+                <div class="quiz-option" onclick="checkAnswer(1, 'B', true)">B) The charging horses / The chargers</div>
+                <div class="quiz-option" onclick="checkAnswer(1, 'C', false)">C) The grateful ones</div>
+                <div class="quiz-option" onclick="checkAnswer(1, 'D', false)">D) The victorious ones</div>
+                <div id="feedback1" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4>Question 2: What are the horses doing in verses 1-2?</h4>
+                <div class="quiz-option" onclick="checkAnswer(2, 'A', false)">A) Walking slowly and calmly</div>
+                <div class="quiz-option" onclick="checkAnswer(2, 'B', true)">B) Panting heavily and striking sparks with their hooves</div>
+                <div class="quiz-option" onclick="checkAnswer(2, 'C', false)">C) Sleeping and resting</div>
+                <div class="quiz-option" onclick="checkAnswer(2, 'D', false)">D) Eating and drinking</div>
+                <div id="feedback2" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4>Question 3: At what time do the horses make their raid?</h4>
+                <div class="quiz-option" onclick="checkAnswer(3, 'A', false)">A) At midnight</div>
+                <div class="quiz-option" onclick="checkAnswer(3, 'B', true)">B) At dawn (subhan)</div>
+                <div class="quiz-option" onclick="checkAnswer(3, 'C', false)">C) At noon</div>
+                <div class="quiz-option" onclick="checkAnswer(3, 'D', false)">D) At sunset</div>
+                <div id="feedback3" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4>Question 4: What does "kanud" (كَنُود) mean?</h4>
+                <div class="quiz-option" onclick="checkAnswer(4, 'A', false)">A) Generous and kind</div>
+                <div class="quiz-option" onclick="checkAnswer(4, 'B', false)">B) Patient and persevering</div>
+                <div class="quiz-option" onclick="checkAnswer(4, 'C', true)">C) Ungrateful and stingy with thanks</div>
+                <div class="quiz-option" onclick="checkAnswer(4, 'D', false)">D) Intelligent and wise</div>
+                <div id="feedback4" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4>Question 5: What is the main point of the surah (the answer to the oath)?</h4>
+                <div class="quiz-option" onclick="checkAnswer(5, 'A', true)">A) Indeed, mankind is ungrateful to his Lord</div>
+                <div class="quiz-option" onclick="checkAnswer(5, 'B', false)">B) Indeed, horses are noble creatures</div>
+                <div class="quiz-option" onclick="checkAnswer(5, 'C', false)">C) Indeed, wars will always happen</div>
+                <div class="quiz-option" onclick="checkAnswer(5, 'D', false)">D) Indeed, dawn is the best time</div>
+                <div id="feedback5" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4>Question 6: What does verse 7 say man is a witness to?</h4>
+                <div class="quiz-option" onclick="checkAnswer(6, 'A', false)">A) Allah's power in nature</div>
+                <div class="quiz-option" onclick="checkAnswer(6, 'B', true)">B) His own ingratitude (he witnesses against himself)</div>
+                <div class="quiz-option" onclick="checkAnswer(6, 'C', false)">C) The beauty of horses</div>
+                <div class="quiz-option" onclick="checkAnswer(6, 'D', false)">D) Historical battles</div>
+                <div id="feedback6" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4>Question 7: What does the word "khayr" refer to in verse 8?</h4>
+                <div class="quiz-option" onclick="checkAnswer(7, 'A', false)">A) Good deeds and charity</div>
+                <div class="quiz-option" onclick="checkAnswer(7, 'B', true)">B) Wealth and worldly possessions</div>
+                <div class="quiz-option" onclick="checkAnswer(7, 'C', false)">C) Knowledge and wisdom</div>
+                <div class="quiz-option" onclick="checkAnswer(7, 'D', false)">D) Family and friends</div>
+                <div id="feedback7" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4>Question 8: What will happen to the graves on the Day of Judgment?</h4>
+                <div class="quiz-option" onclick="checkAnswer(8, 'A', false)">A) They will remain sealed forever</div>
+                <div class="quiz-option" onclick="checkAnswer(8, 'B', true)">B) Their contents will be scattered (people resurrected)</div>
+                <div class="quiz-option" onclick="checkAnswer(8, 'C', false)">C) They will be made more beautiful</div>
+                <div class="quiz-option" onclick="checkAnswer(8, 'D', false)">D) They will disappear</div>
+                <div id="feedback8" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4>Question 9: What will be exposed on Judgment Day according to verse 10?</h4>
+                <div class="quiz-option" onclick="checkAnswer(9, 'A', false)">A) Only people's visible actions</div>
+                <div class="quiz-option" onclick="checkAnswer(9, 'B', true)">B) Everything hidden in the hearts (intentions, secrets, thoughts)</div>
+                <div class="quiz-option" onclick="checkAnswer(9, 'C', false)">C) Only major sins</div>
+                <div class="quiz-option" onclick="checkAnswer(9, 'D', false)">D) Nothing will be revealed</div>
+                <div id="feedback9" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4>Question 10: What attribute of Allah is emphasized in the final verse?</h4>
+                <div class="quiz-option" onclick="checkAnswer(10, 'A', false)">A) His mercy and forgiveness</div>
+                <div class="quiz-option" onclick="checkAnswer(10, 'B', true)">B) His complete awareness and knowledge (Khabeer)</div>
+                <div class="quiz-option" onclick="checkAnswer(10, 'C', false)">C) His power to create</div>
+                <div class="quiz-option" onclick="checkAnswer(10, 'D', false)">D) His ability to provide sustenance</div>
+                <div id="feedback10" class="feedback" style="display:none;"></div>
+            </div>
+        </div>
     </div>
-</main>
 
-<footer>
-    © 2026 | Created by Tr. Muaz | Islamic Studies Learning Portal
-</footer>
+    <script>
+        const reflections = {};
 
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-btn');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function saveReflection(number) {
+            const textarea = document.getElementById(`reflection${number}`) || document.getElementById(number);
+            const content = textarea.value.trim();
+            
+            if (content) {
+                reflections[number] = content;
+                alert('Your reflection has been saved! ✓\n\nMay Allah reward your sincere effort in studying His words.');
+            } else {
+                alert('Please write your reflection before saving.');
+            }
+        }
+
+        let answeredQuestions = {};
+
+        function checkAnswer(questionNum, choice, isCorrect) {
+            if (answeredQuestions[questionNum]) {
+                return;
+            }
+
+            const feedback = document.getElementById(`feedback${questionNum}`);
+            const options = document.querySelectorAll(`#quiz .card:nth-child(${questionNum + 1}) .quiz-option`);
+            
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+                if (option.textContent.startsWith(choice)) {
+                    option.classList.add(isCorrect ? 'correct' : 'incorrect');
+                }
+            });
+
+            answeredQuestions[questionNum] = true;
+
+            const feedbackMessages = {
+                1: {
+                    correct: "Excellent! Al-Adiyat means 'The Chargers' or 'The Charging Horses,' referring to the war horses described in the opening verses.",
+                    incorrect: "The correct answer is B. Al-Adiyat means 'The Charging Horses,' which is the central imagery of the first five verses."
+                },
+                2: {
+                    correct: "Perfect! The horses are panting heavily from running fast (dabhan) and striking sparks with their hooves on rocky ground (qadhan).",
+                    incorrect: "The correct answer is B. The verses describe horses breathing heavily and creating sparks—a vivid image of intense cavalry action."
+                },
+                3: {
+                    correct: "Correct! The raid happens at dawn (subhan). Arabs conducted dawn raids to show courage, attacking in daylight rather than darkness.",
+                    incorrect: "The correct answer is B. 'Subhan' means dawn—the traditional time for cavalry raids in Arabian warfare."
+                },
+                4: {
+                    correct: "Excellent understanding! Kanud means ungrateful, specifically someone who remembers bad things but forgets blessings.",
+                    incorrect: "The correct answer is C. Kanud describes extreme ingratitude—focusing on problems while ignoring Allah's countless blessings."
+                },
+                5: {
+                    correct: "Perfect! This is the powerful answer to the oath—after all that dramatic imagery, the point is: mankind is ungrateful to his Lord.",
+                    incorrect: "The correct answer is A. The whole oath (verses 1-5) builds up to this diagnosis: humans are ungrateful to Allah despite His blessings."
+                },
+                6: {
+                    correct: "Correct! Man witnesses against himself—his conscience knows he's being ungrateful. Deep down, everyone knows their faults.",
+                    incorrect: "The correct answer is B. Verse 7 says man himself is a witness to his own ingratitude—his conscience testifies against him."
+                },
+                7: {
+                    correct: "Excellent! 'Khayr' literally means 'good' but here refers to wealth and material possessions that people call 'good' and intensely love.",
+                    incorrect: "The correct answer is B. In this context, 'khayr' refers to wealth and worldly goods that humans love intensely (shadeed)."
+                },
+                8: {
+                    correct: "Correct! 'Bu'thira' means scattered or thrown out—the dead will be resurrected from their graves on Judgment Day.",
+                    incorrect: "The correct answer is B. The graves will be opened and their contents scattered—everyone will be resurrected for judgment."
+                },
+                9: {
+                    correct: "Perfect! Everything hidden in hearts—intentions, secrets, private thoughts—will be exposed. Nothing will remain hidden.",
+                    incorrect: "The correct answer is B. 'Hussila' means brought out/exposed—all the secrets of hearts will be revealed on Judgment Day."
+                },
+                10: {
+                    correct: "Excellent! Allah is described as 'Khabeer' (Fully Aware)—He has complete, perfect knowledge of everything we did and intended.",
+                    incorrect: "The correct answer is B. The final verse emphasizes Allah is 'Khabeer' on that Day—fully aware of everyone's deeds and intentions."
+                }
+            };
+
+            feedback.innerHTML = isCorrect ? 
+                `✅ ${feedbackMessages[questionNum].correct}` : 
+                `❌ ${feedbackMessages[questionNum].incorrect}`;
+            feedback.style.display = 'block';
+        }
+    </script>
 </body>
 </html>
