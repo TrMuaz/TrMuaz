@@ -6,103 +6,172 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        body {
+        * {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f4f6f8;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+            background: #F5F5DC;
+            min-height: 100vh;
             color: #333;
         }
 
         header {
-            background: #1e3a8a;
-            color: white;
-            padding: 40px 20px;
+            background: #20B2AA;
+            padding: 30px 20px;
             text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
-            margin: 0;
             font-size: 2.2rem;
+            color: white;
+            margin-bottom: 8px;
         }
 
         header p {
-            margin-top: 10px;
-            font-size: 1.1rem;
+            color: white;
+            font-size: 1rem;
         }
 
         main {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
-        .card-container {
+        .section-container {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #20B2AA;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
-        .card {
+        .gallery-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 12px;
             padding: 25px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 2px solid #20B2AA;
         }
 
-        .card h3 {
-            margin-top: 0;
-            color: #1e3a8a;
+        .gallery-card h3 {
+            color: #20B2AA;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
         }
 
-        .card a {
-            display: inline-block;
-            margin-top: 15px;
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
             text-decoration: none;
-            background: #1e3a8a;
+            padding: 12px 18px;
+            border-radius: 8px;
+            background: #20B2AA;
             color: white;
-            padding: 10px 15px;
-            border-radius: 6px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            border: none;
         }
 
-        .card a:hover {
-            background: #162c63;
+        .btn:hover {
+            background: #188A84;
+            transform: translateX(5px);
+        }
+
+        .btn::before {
+            content: '▸';
+            margin-right: 10px;
+            font-size: 1.1rem;
         }
 
         footer {
             text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
+            padding: 30px 20px;
             color: #666;
+            font-size: 0.9rem;
+            background: white;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Welcome to Tr Mu'az Learning Portal</h1>
+    <h1>Tr Mu'az Learning Portal</h1>
     <p>Islamic Studies • Activities • Lessons</p>
 </header>
 
 <main>
-    <section class="card-container">
-
-        <div class="card">
-            <h3>Islamic Studies Grade 7</h3>
-            <a href="Grade7.html">Open Lesson</a>
+    <div class="gallery-grid">
+        <!-- Grade 7 Card -->
+        <div class="gallery-card">
+            <h3>📚 Islamic Studies Grade 7</h3>
+            <div class="button-group">
+                <a href="Grade7.html" class="btn">Lesson Notes by Topic</a>
+                <a href="Grade7-quiz.html" class="btn">Quiz & Exercise</a>
+                <a href="Grade7-homework.html" class="btn">Homework List</a>
+            </div>
         </div>
 
-        <div class="card">
-            <h3>Islamic Studies Grade 9</h3>
-            <a href="Grade9.html">Open Lesson</a>
+        <!-- Grade 9 Card -->
+        <div class="gallery-card">
+            <h3>📚 Islamic Studies Grade 9</h3>
+            <div class="button-group">
+                <a href="Grade9.html" class="btn">Lesson Notes by Topic</a>
+                <a href="Grade9-quiz.html" class="btn">Quiz & Exercise</a>
+                <a href="Grade9-homework.html" class="btn">Homework List</a>
+            </div>
         </div>
 
-        <div class="card">
-            <h3>Fardhu Ain Grade 7,8,9</h3>
-            <a href="FardhuAin.html">Open Lesson</a>
+        <!-- Fardhu Ain Card -->
+        <div class="gallery-card">
+            <h3>🕌 Fardhu Ain Grade 7, 8, 9</h3>
+            <div class="button-group">
+                <a href="FardhuAin.html" class="btn">Lesson Notes by Topic</a>
+                <a href="FardhuAin-quiz.html" class="btn">Quiz & Exercise</a>
+                <a href="FardhuAin-homework.html" class="btn">Homework List</a>
+            </div>
         </div>
-        
-    </section>
+    </div>
 </main>
 
 <footer>
@@ -111,4 +180,3 @@
 
 </body>
 </html>
-
