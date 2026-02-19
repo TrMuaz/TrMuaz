@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Homework List Grade 9</title>
+  <style>
+    :root {
+      --bg-cream: #fcfcf9;
+      --turquoise: #208095;
+      --soft-brown: #8a6b4f;
+      --light-border: #d7d7cf;
+      --text-primary: #222222;
+      --text-secondary: #666666;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-primary);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      border: 1px solid var(--light-border);
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 2.2rem;
+      color: var(--turquoise);
+    }
+
+    header p {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--text-secondary);
+    }
+
+    .homework-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .homework-item {
+      background-color: #ffffff;
+      border-radius: 12px;
+      border: 1px solid var(--light-border);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .homework-item:hover {
+      box-shadow: 0 4px 12px rgba(32, 128, 149, 0.1);
+    }
+
+    .homework-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .homework-header:hover {
+      background-color: rgba(32, 128, 149, 0.05);
+    }
+
+    .homework-title-section {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .homework-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .homework-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--turquoise);
+      margin: 0;
+    }
+
+    .homework-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+
+    .due-date {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      padding: 6px 12px;
+      background-color: rgba(138, 107, 79, 0.1);
+      border-radius: 6px;
+    }
+
+    .due-date.urgent {
+      background-color: rgba(220, 38, 38, 0.1);
+      color: #dc2626;
+      font-weight: 500;
+    }
+
+    .expand-icon {
+      font-size: 1.2rem;
+      color: var(--turquoise);
+      transition: transform 0.3s ease;
+    }
+
+    .homework-item.expanded .expand-icon {
+      transform: rotate(180deg);
+    }
+
+    .homework-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .homework-item.expanded .homework-content {
+      max-height: 1000px;
+    }
+
+    .homework-details {
+      padding: 0 20px 20px 20px;
+      border-top: 1px solid var(--light-border);
+    }
+
+    .detail-section {
+      margin-top: 16px;
+    }
+
+    .detail-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .detail-content {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text-primary);
+    }
+
+    .detail-content ul {
+      margin: 8px 0;
+      padding-left: 20px;
+    }
+
+    .detail-content li {
+      margin-bottom: 4px;
+    }
+
+    .links-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .resource-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background-color: var(--turquoise);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .resource-link:hover {
+      background-color: #1a6b7d;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(32, 128, 149, 0.2);
+    }
+
+    .resource-link.secondary {
+      background-color: var(--soft-brown);
+    }
+
+    .resource-link.secondary:hover {
+      background-color: #725a3f;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.85rem;
+      color: #888888;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+
+      .homework-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .homework-meta {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .links-container {
+        flex-direction: column;
+      }
+
+      .resource-link {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📝 Homework List</h1>
+      <p>Click on each assignment to view details</p>
+    </header>
+
+    <div class="homework-list">
+      <!-- HOMEWORK ITEM 1 -->
+      <div class="homework-item">
+        <div class="homework-header" onclick="toggleHomework(this)">
+          <div class="homework-title-section">
+            <span class="homework-icon">📖</span>
+            <h3 class="homework-title">Islamic Studies - Hadeeth Summary</h3>
+          </div>
+          <div class="homework-meta">
+            <span class="due-date urgent">
+              <span>⏰</span>
+              <span>Due: Feb 25, 2026</span>
+            </span>
+            <span class="expand-icon">▼</span>
+          </div>
+        </div>
+        <div class="homework-content">
+          <div class="homework-details">
+            <div class="detail-section">
+              <div class="detail-label">Instructions</div>
+              <div class="detail-content">
+                <ul>
+                  <li>Read the three Hadeeth about Taqwa, Repentance, and Good Character</li>
+                  <li>Write a 300-word summary explaining their relevance to daily life</li>
+                  <li>Include at least one personal reflection</li>
+                  <li>Submit in PDF format via Google Classroom</li>
+                </ul>
+              </div>
+            </div>
+            <div class="detail-section">
+              <div class="detail-label">Resources &amp; Links</div>
+              <div class="links-container">
+                <a href="G9T1Hadeeth3.html" class="resource-link">
+                  <span>📄</span>
+                  <span>Lesson Notes</span>
+                </a>
+                <a href="#" class="resource-link secondary">
+                  <span>📥</span>
+                  <span>Download Template</span>
+                </a>
+                <a href="#" class="resource-link secondary">
+                  <span>🔗</span>
+                  <span>Submit Here</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOMEWORK ITEM 2 -->
+      <div class="homework-item">
+        <div class="homework-header" onclick="toggleHomework(this)">
+          <div class="homework-title-section">
+            <span class="homework-icon">🌙</span>
+            <h3 class="homework-title">Fiqh - Fasting Worksheet</h3>
+          </div>
+          <div class="homework-meta">
+            <span class="due-date">
+              <span>📅</span>
+              <span>Due: Mar 5, 2026</span>
+            </span>
+            <span class="expand-icon">▼</span>
+          </div>
+        </div>
+        <div class="homework-content">
+          <div class="homework-details">
+            <div class="detail-section">
+              <div class="detail-label">Instructions</div>
+              <div class="detail-content">
+                <ul>
+                  <li>Complete the worksheet on the rules and conditions of fasting</li>
+                  <li>Answer all 15 questions based on the lesson notes</li>
+                  <li>Include evidence from Quran or Hadeeth where applicable</li>
+                  <li>Handwritten or typed submission accepted</li>
+                </ul>
+              </div>
+            </div>
+            <div class="detail-section">
+              <div class="detail-label">Resources &amp; Links</div>
+              <div class="links-container">
+                <a href="G9T2Fasting.html" class="resource-link">
+                  <span>📄</span>
+                  <span>Lesson Notes</span>
+                </a>
+                <a href="#" class="resource-link secondary">
+                  <span>📥</span>
+                  <span>Download Worksheet</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOMEWORK ITEM 3 -->
+      <div class="homework-item">
+        <div class="homework-header" onclick="toggleHomework(this)">
+          <div class="homework-title-section">
+            <span class="homework-icon">📿</span>
+            <h3 class="homework-title">Quran - Memorization Project</h3>
+          </div>
+          <div class="homework-meta">
+            <span class="due-date">
+              <span>📅</span>
+              <span>Due: Mar 15, 2026</span>
+            </span>
+            <span class="expand-icon">▼</span>
+          </div>
+        </div>
+        <div class="homework-content">
+          <div class="homework-details">
+            <div class="detail-section">
+              <div class="detail-label">Instructions</div>
+              <div class="detail-content">
+                <ul>
+                  <li>Memorize Surah Al-Mulk (verses 1-10)</li>
+                  <li>Practice recitation with proper Tajweed rules</li>
+                  <li>Record yourself reciting and submit audio file</li>
+                  <li>Optional: Write down the translation and key lessons</li>
+                </ul>
+              </div>
+            </div>
+            <div class="detail-section">
+              <div class="detail-label">Resources &amp; Links</div>
+              <div class="links-container">
+                <a href="#" class="resource-link">
+                  <span>🎧</span>
+                  <span>Audio Recitation</span>
+                </a>
+                <a href="#" class="resource-link secondary">
+                  <span>📖</span>
+                  <span>Translation PDF</span>
+                </a>
+                <a href="#" class="resource-link secondary">
+                  <span>🔗</span>
+                  <span>Submit Recording</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      Islamic Studies Homework | IISM | 2026
+    </footer>
+  </div>
+
+  <script>
+    function toggleHomework(headerElement) {
+      const item = headerElement.closest('.homework-item');
+      const wasExpanded = item.classList.contains('expanded');
+      
+      // Close all items
+      document.querySelectorAll('.homework-item').forEach(function(el) {
+        el.classList.remove('expanded');
+      });
+      
+      // Toggle current item
+      if (!wasExpanded) {
+        item.classList.add('expanded');
+      }
+    }
+
+    // Auto-expand first item on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const firstItem = document.querySelector('.homework-item');
+      if (firstItem) {
+        firstItem.classList.add('expanded');
+      }
+    });
+  </script>
+</body>
+</html>
