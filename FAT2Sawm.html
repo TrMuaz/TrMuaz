@@ -54,6 +54,57 @@
             margin-top: 5px;
         }
 
+        .tab-nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            background: white;
+            padding: 15px;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            justify-content: center;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            background: #FFF8F0;
+            border: 2px solid #FFD4A3;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            color: #4A3933;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .tab-btn:hover {
+            background: #FFE8D6;
+            border-color: #FFA07A;
+            transform: translateY(-2px);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #FFD4A3 0%, #FFA07A 100%);
+            color: white;
+            border-color: #FFA07A;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -202,11 +253,101 @@
             left: 0;
         }
 
+        .interactive-box {
+            background: white;
+            border: 2px dashed #FFD4A3;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 12px;
+            border: 2px solid #FFD4A3;
+            border-radius: 15px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            resize: vertical;
+            margin-top: 10px;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #FFA07A;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #FFD4A3 0%, #FFA07A 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 160, 122, 0.3);
+        }
+
+        .quiz-option {
+            background: #FFF8F0;
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid #FFD4A3;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            background: #FFE8D6;
+            border-color: #FFA07A;
+        }
+
+        .quiz-option.selected {
+            background: linear-gradient(135deg, #FFD4A3 0%, #FFA07A 100%);
+            color: white;
+            border-color: #FFA07A;
+        }
+
+        .quiz-option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .quiz-option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .feedback {
+            background: #FFFACD;
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 15px;
+            border-left: 5px solid #FFD700;
+        }
+
         @media (max-width: 768px) {
             h1 { font-size: 2em; }
             .subtitle { font-size: 1.2em; }
             .gallery { grid-template-columns: 1fr; }
             .card { padding: 20px; }
+            .tab-btn { 
+                min-width: 100px;
+                font-size: 0.9rem;
+                padding: 10px 16px;
+            }
         }
     </style>
 </head>
@@ -218,100 +359,139 @@
             <div class="pinyin">Zhāi yuè zhāi jiè jī chǔ zhī shì</div>
         </header>
 
-        <div class="gallery">
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="showTab('niyyah')">1. Niyyah 尼亚特</button>
+            <button class="tab-btn" onclick="showTab('suhoor')">2. Suhoor 封斋饭</button>
+            <button class="tab-btn" onclick="showTab('iftaar')">3. Iftaar 开斋</button>
+            <button class="tab-btn" onclick="showTab('taraweeh')">4. Taraweeh 台拉威赫</button>
+            <button class="tab-btn" onclick="showTab('laylatul')">5. Laylatul Qadr 盖德尔夜</button>
+            <button class="tab-btn" onclick="showTab('itikaf')">6. I'tikaf 坐静</button>
+            <button class="tab-btn" onclick="showTab('quiz')">Quiz 测验</button>
+        </div>
+
+        <div id="niyyah" class="tab-content active">
             <!-- Card 1: Niyyah -->
             <div class="card">
-                <div class="card-icon">🕌</div>
-                <div class="card-title">1. Niyyah (Intention)</div>
-                <div class="card-chinese">尼亚特（意念）</div>
-                <div class="card-pinyin">Ní yà tè (yì niàn)</div>
-                
-                <div class="content-item">
-                    <div class="english"><span class="emoji">⏰</span>When to make intention?</div>
-                    <div class="chinese-text">什么时候做意念？</div>
-                    <div class="pinyin-text">Shén me shí hòu zuò yì niàn?</div>
-                </div>
+                    <div class="card-icon">🕌</div>
+                    <div class="card-title">1. Niyyah (Intention)</div>
+                    <div class="card-chinese">尼亚特（意念）</div>
+                    <div class="card-pinyin">Ní yà tè (yì niàn)</div>
+                    
+                    <div class="content-item">
+                        <div class="english"><span class="emoji">⏰</span>When to make intention?</div>
+                        <div class="chinese-text">什么时候做意念？</div>
+                        <div class="pinyin-text">Shén me shí hòu zuò yì niàn?</div>
+                    </div>
 
-                <div class="content-item">
-                    <div class="english">After Maghrib and before Fajr (dawn)</div>
-                    <div class="chinese-text">在昏礼之后和晨礼之前</div>
-                    <div class="pinyin-text">Zài hūn lǐ zhī hòu hé chén lǐ zhī qián</div>
-                </div>
+                    <div class="content-item">
+                        <div class="english">After Maghrib and before Fajr (dawn)</div>
+                        <div class="chinese-text">在昏礼之后和晨礼之前</div>
+                        <div class="pinyin-text">Zài hūn lǐ zhī hòu hé chén lǐ zhī qián</div>
+                    </div>
 
-                <div class="content-item">
-                    <div class="english">The intention is in your heart to fast for Allah</div>
-                    <div class="chinese-text">在心中为真主而斋戒的意念</div>
-                    <div class="pinyin-text">Zài xīn zhōng wèi zhēn zhǔ ér zhāi jiè de yì niàn</div>
+                    <div class="content-item">
+                        <div class="english">The intention is in your heart to fast for Allah</div>
+                        <div class="chinese-text">在心中为真主而斋戒的意念</div>
+                        <div class="pinyin-text">Zài xīn zhōng wèi zhēn zhǔ ér zhāi jiè de yì niàn</div>
+                    </div>
                 </div>
-            </div>
+        </div>
 
+        <div id="suhoor" class="tab-content">
             <!-- Card 2: Suhoor -->
             <div class="card">
-                <div class="card-icon">🌅</div>
-                <div class="card-title">2. Suhoor (Pre-Dawn Meal)</div>
-                <div class="card-chinese">苏胡尔（封斋饭）</div>
-                <div class="card-pinyin">Sū hú ěr (fēng zhāi fàn)</div>
+                    <div class="card-icon">🌅</div>
+                    <div class="card-title">2. Suhoor (Pre-Dawn Meal)</div>
+                    <div class="card-chinese">苏胡尔（封斋饭）</div>
+                    <div class="card-pinyin">Sū hú ěr (fēng zhāi fàn)</div>
 
-                <div class="highlight">
-                    <div class="english"><span class="emoji">💧</span>Minimum: One sip of water</div>
-                    <div class="chinese-text">最低要求：至少喝一口水</div>
-                    <div class="pinyin-text">Zuì dī yāo qiú: zhì shǎo hē yī kǒu shuǐ</div>
+                    <div class="highlight">
+                        <div class="english"><span class="emoji">💧</span>Minimum: One sip of water</div>
+                        <div class="chinese-text">最低要求：至少喝一口水</div>
+                        <div class="pinyin-text">Zuì dī yāo qiú: zhì shǎo hē yī kǒu shuǐ</div>
+                    </div>
+
+                    <div class="content-item">
+                        <div class="english"><span class="emoji">🍯</span>Recommended: Eat dates</div>
+                        <div class="chinese-text">建议：吃椰枣</div>
+                        <div class="pinyin-text">Jiàn yì: chī yē zǎo</div>
+                    </div>
+
+                    <div class="content-item">
+                        <div class="english"><span class="emoji">📖</span>Prophet's saying:</div>
+                        <div class="chinese-text">先知（愿主福安之）说：</div>
+                        <div class="pinyin-text">Xiān zhī (yuàn zhǔ fú ān zhī) shuō:</div>
+                        <div class="english" style="margin-top: 10px;">"Take suhoor, there is blessing in it"</div>
+                        <div class="chinese-text">"要吃封斋饭，其中有福分"</div>
+                        <div class="pinyin-text">"Yào chī fēng zhāi fàn, qí zhōng yǒu fú fèn"</div>
+                    </div>
+
+                    <div class="content-item">
+                        <div class="english"><span class="emoji">⏰</span>Stop eating before Fajr time</div>
+                        <div class="chinese-text">在晨礼时间到来之前停止吃喝</div>
+                        <div class="pinyin-text">Zài chén lǐ shí jiān dào lái zhī qián tíng zhǐ chī hē</div>
+                    </div>
                 </div>
+        </div>
 
-                <div class="content-item">
-                    <div class="english"><span class="emoji">🍯</span>Recommended: Eat dates</div>
-                    <div class="chinese-text">建议：吃椰枣</div>
-                    <div class="pinyin-text">Jiàn yì: chī yē zǎo</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="english"><span class="emoji">📖</span>Prophet's saying:</div>
-                    <div class="chinese-text">先知（愿主福安之）说：</div>
-                    <div class="pinyin-text">Xiān zhī (yuàn zhǔ fú ān zhī) shuō:</div>
-                    <div class="english" style="margin-top: 10px;">"Take suhoor, there is blessing in it"</div>
-                    <div class="chinese-text">"要吃封斋饭，其中有福分"</div>
-                    <div class="pinyin-text">"Yào chī fēng zhāi fàn, qí zhōng yǒu fú fèn"</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="english"><span class="emoji">⏰</span>Stop eating before Fajr time</div>
-                    <div class="chinese-text">在晨礼时间到来之前停止吃喝</div>
-                    <div class="pinyin-text">Zài chén lǐ shí jiān dào lái zhī qián tíng zhǐ chī hē</div>
-                </div>
-            </div>
-
+        <div id="iftaar" class="tab-content">
             <!-- Card 3: Iftaar -->
             <div class="card">
-                <div class="card-icon">🌙</div>
-                <div class="card-title">3. Iftaar (Breaking the Fast)</div>
-                <div class="card-chinese">伊夫塔尔（开斋）</div>
-                <div class="card-pinyin">Yī fū tǎ ěr (kāi zhāi)</div>
+                    <div class="card-icon">🌙</div>
+                    <div class="card-title">3. Iftaar (Breaking the Fast)</div>
+                    <div class="card-chinese">伊夫塔尔（开斋）</div>
+                    <div class="card-pinyin">Yī fū tǎ ěr (kāi zhāi)</div>
 
-                <div class="content-item">
-                    <div class="english"><span class="emoji">🌆</span>When? At Maghrib (sunset)</div>
-                    <div class="chinese-text">什么时候？昏礼时间（日落时）</div>
-                    <div class="pinyin-text">Shén me shí hòu? Hūn lǐ shí jiān (rì luò shí)</div>
-                </div>
+                    <div class="content-item">
+                        <div class="english"><span class="emoji">🌆</span>When? At Maghrib (sunset)</div>
+                        <div class="chinese-text">什么时候？昏礼时间（日落时）</div>
+                        <div class="pinyin-text">Shén me shí hòu? Hūn lǐ shí jiān (rì luò shí)</div>
+                    </div>
 
-                <div class="highlight">
-                    <div class="english"><span class="emoji">🍯</span>Best food: Dates and water</div>
-                    <div class="chinese-text">最好的食物：椰枣和水</div>
-                    <div class="pinyin-text">Zuì hǎo de shí wù: yē zǎo hé shuǐ</div>
-                </div>
+                    <div class="highlight">
+                        <div class="english"><span class="emoji">🍯</span>Best food: Dates and water</div>
+                        <div class="chinese-text">最好的食物：椰枣和水</div>
+                        <div class="pinyin-text">Zuì hǎo de shí wù: yē zǎo hé shuǐ</div>
+                    </div>
 
-                <div class="content-item">
-                    <div class="english"><span class="emoji">⚡</span>Do not delay! Break fast quickly</div>
-                    <div class="chinese-text">不要拖延！立即开斋</div>
-                    <div class="pinyin-text">Bù yào tuō yán! Lì jí kāi zhāi</div>
+                    <div class="content-item">
+                        <div class="english"><span class="emoji">⚡</span>Do not delay! Break fast quickly</div>
+                        <div class="chinese-text">不要拖延！立即开斋</div>
+                        <div class="pinyin-text">Bù yào tuō yán! Lì jí kāi zhāi</div>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, #FFE8D6 0%, #FFF0F5 100%); padding: 25px; border-radius: 20px; margin-top: 20px;">
+                        <div class="english" style="text-align: center; font-size: 1.3em; color: #FF6347; margin-bottom: 15px;">
+                            <span class="emoji">📿</span>Dua for Breaking Fast
+                        </div>
+                        <div class="chinese-text" style="text-align: center; font-size: 1.2em; margin-bottom: 15px;">开斋祈祷词</div>
+                        <div class="pinyin-text" style="text-align: center; margin-bottom: 20px;">Kāi zhāi qí dǎo cí</div>
+
+                        <div class="arabic">اللَّهُمَّ لَكَ صُمْتُ وَعَلَى رِزْقِكَ أَفْطَرْتُ</div>
+                        <div class="transliteration">Allahumma laka sumtu wa 'ala rizqika aftartu</div>
+                        <div class="translation">"O Allah, for You I have fasted and with Your provision I have broken my fast"</div>
+                        <div class="chinese-text" style="text-align: center;">"主啊，我为你而斋戒，用你的给养而开斋"</div>
+                        <div class="pinyin-text" style="text-align: center;">Zhǔ ā, wǒ wèi nǐ ér zhāi jiè, yòng nǐ de jǐ yǎng ér kāi zhāi</div>
+
+                        <div style="margin-top: 25px;">
+                            <div class="arabic">ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الأَجْرُ إِنْ شَاءَ اللَّهُ</div>
+                            <div class="transliteration">Dhahaba azh-zhama' wabtallatil 'urooq wa thabatal ajru insha Allah</div>
+                            <div class="translation">"The thirst is gone, the veins are moistened, and the reward is confirmed, if Allah wills"</div>
+                            <div class="chinese-text" style="text-align: center;">"口渴已消失，血脉已滋润，回赐已确定，如真主意欲"</div>
+                            <div class="pinyin-text" style="text-align: center;">Kǒu kě yǐ xiāo shī, xuè mài yǐ zī rùn, huí cì yǐ què dìng, rú zhēn zhǔ yì yù</div>
+                        </div>
+                    </div>
                 </div>
+        </div>
+
+        <div id="taraweeh" class="tab-content">
+            <div class="card">
+                <div class="card-icon">📿</div>
+                <div class="card-title">Dua for Breaking Fast</div>
+                <div class="card-chinese">开斋祈祷词</div>
+                <div class="card-pinyin">Kāi zhāi qí dǎo cí</div>
 
                 <div style="background: linear-gradient(135deg, #FFE8D6 0%, #FFF0F5 100%); padding: 25px; border-radius: 20px; margin-top: 20px;">
-                    <div class="english" style="text-align: center; font-size: 1.3em; color: #FF6347; margin-bottom: 15px;">
-                        <span class="emoji">📿</span>Dua for Breaking Fast
-                    </div>
-                    <div class="chinese-text" style="text-align: center; font-size: 1.2em; margin-bottom: 15px;">开斋祈祷词</div>
-                    <div class="pinyin-text" style="text-align: center; margin-bottom: 20px;">Kāi zhāi qí dǎo cí</div>
-
                     <div class="arabic">اللَّهُمَّ لَكَ صُمْتُ وَعَلَى رِزْقِكَ أَفْطَرْتُ</div>
                     <div class="transliteration">Allahumma laka sumtu wa 'ala rizqika aftartu</div>
                     <div class="translation">"O Allah, for You I have fasted and with Your provision I have broken my fast"</div>
@@ -328,7 +508,6 @@
                 </div>
             </div>
 
-            <!-- Card 4: Taraweeh -->
             <div class="card">
                 <div class="card-icon">🤲</div>
                 <div class="card-title">4. Taraweeh Prayer</div>
@@ -365,8 +544,9 @@
                     <div class="pinyin-text">Shén me shí hòu? Zài xiāo lǐ zhī hòu de zhāi yuè yè wǎn</div>
                 </div>
             </div>
+        </div>
 
-            <!-- Card 5: Laylatul Qadr -->
+        <div id="laylatul" class="tab-content">
             <div class="card">
                 <div class="card-icon">⭐</div>
                 <div class="card-title">5. Laylatul Qadr (Night of Power)</div>
@@ -417,8 +597,9 @@
                     <div class="pinyin-text">Gōng xiū dài lái jù dà de huí cì!</div>
                 </div>
             </div>
+        </div>
 
-            <!-- Card 6: I'tikaf -->
+        <div id="itikaf" class="tab-content">
             <div class="card">
                 <div class="card-icon">🕋</div>
                 <div class="card-title">6. I'tikaf (Spiritual Retreat)</div>
@@ -457,7 +638,89 @@
             </div>
         </div>
 
-        <footer style="text-align: center; padding: 30px; background: #FFD4A3; border-radius: 20px; margin-top: 40px;">
+        <div id="quiz" class="tab-content">
+            <div class="card">
+                <div class="card-icon">✅</div>
+                <div class="card-title">Knowledge Check Quiz</div>
+                <div class="card-chinese">知识检查测验</div>
+                <div class="card-pinyin">Zhī shì jiǎn chá cè yàn</div>
+                <p style="margin-top: 15px;">Test your understanding of Ramadan fasting fundamentals!</p>
+            </div>
+
+            <div class="card">
+                <h4 style="color: #FF8C69;">Question 1: When should the intention (niyyah) for fasting be made?</h4>
+                <div class="quiz-option" onclick="checkAnswer(1, 'A', false)">A) Only at the time of Suhoor</div>
+                <div class="quiz-option" onclick="checkAnswer(1, 'B', true)">B) After Maghrib and before Fajr</div>
+                <div class="quiz-option" onclick="checkAnswer(1, 'C', false)">C) During Isha prayer</div>
+                <div class="quiz-option" onclick="checkAnswer(1, 'D', false)">D) At any time during the day</div>
+                <div id="feedback1" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4 style="color: #FF8C69;">Question 2: What is the minimum requirement for Suhoor?</h4>
+                <div class="quiz-option" onclick="checkAnswer(2, 'A', false)">A) A full meal</div>
+                <div class="quiz-option" onclick="checkAnswer(2, 'B', true)">B) One sip of water</div>
+                <div class="quiz-option" onclick="checkAnswer(2, 'C', false)">C) Three dates</div>
+                <div class="quiz-option" onclick="checkAnswer(2, 'D', false)">D) A glass of milk</div>
+                <div id="feedback2" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4 style="color: #FF8C69;">Question 3: What is the best food to break the fast with?</h4>
+                <div class="quiz-option" onclick="checkAnswer(3, 'A', false)">A) Rice and chicken</div>
+                <div class="quiz-option" onclick="checkAnswer(3, 'B', true)">B) Dates and water</div>
+                <div class="quiz-option" onclick="checkAnswer(3, 'C', false)">C) Soup and bread</div>
+                <div class="quiz-option" onclick="checkAnswer(3, 'D', false)">D) Fruits and juice</div>
+                <div id="feedback3" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4 style="color: #FF8C69;">Question 4: How many rakaat is the Prophet's way of Taraweeh?</h4>
+                <div class="quiz-option" onclick="checkAnswer(4, 'A', false)">A) 20 rakaat</div>
+                <div class="quiz-option" onclick="checkAnswer(4, 'B', true)">B) 8 rakaat + 3 Witr</div>
+                <div class="quiz-option" onclick="checkAnswer(4, 'C', false)">C) 12 rakaat</div>
+                <div class="quiz-option" onclick="checkAnswer(4, 'D', false)">D) 4 rakaat</div>
+                <div id="feedback4" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4 style="color: #FF8C69;">Question 5: Laylatul Qadr is better than how many months?</h4>
+                <div class="quiz-option" onclick="checkAnswer(5, 'A', false)">A) 100 months</div>
+                <div class="quiz-option" onclick="checkAnswer(5, 'B', false)">B) 500 months</div>
+                <div class="quiz-option" onclick="checkAnswer(5, 'C', true)">C) 1000 months (83 years)</div>
+                <div class="quiz-option" onclick="checkAnswer(5, 'D', false)">D) 10 months</div>
+                <div id="feedback5" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4 style="color: #FF8C69;">Question 6: Which nights are especially important to seek Laylatul Qadr?</h4>
+                <div class="quiz-option" onclick="checkAnswer(6, 'A', true)">A) Odd nights in the last 10 days (21, 23, 25, 27, 29)</div>
+                <div class="quiz-option" onclick="checkAnswer(6, 'B', false)">B) Even nights in the last 10 days</div>
+                <div class="quiz-option" onclick="checkAnswer(6, 'C', false)">C) Only the 27th night</div>
+                <div class="quiz-option" onclick="checkAnswer(6, 'D', false)">D) The first night of Ramadan</div>
+                <div id="feedback6" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4 style="color: #FF8C69;">Question 7: What is I'tikaf?</h4>
+                <div class="quiz-option" onclick="checkAnswer(7, 'A', false)">A) Breaking the fast</div>
+                <div class="quiz-option" onclick="checkAnswer(7, 'B', false)">B) Night prayer</div>
+                <div class="quiz-option" onclick="checkAnswer(7, 'C', true)">C) Spiritual retreat in the mosque</div>
+                <div class="quiz-option" onclick="checkAnswer(7, 'D', false)">D) Pre-dawn meal</div>
+                <div id="feedback7" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4 style="color: #FF8C69;">Question 8: What is the main purpose of I'tikaf?</h4>
+                <div class="quiz-option" onclick="checkAnswer(8, 'A', false)">A) To avoid work</div>
+                <div class="quiz-option" onclick="checkAnswer(8, 'B', true)">B) To seek Laylatul Qadr</div>
+                <div class="quiz-option" onclick="checkAnswer(8, 'C', false)">C) To socialize with friends</div>
+                <div class="quiz-option" onclick="checkAnswer(8, 'D', false)">D) To save money on food</div>
+                <div id="feedback8" class="feedback" style="display:none;"></div>
+            </div>
+        </div>
+
+        <footer style="text-align: center; padding: 30px; background: linear-gradient(135deg, #FFD4A3 0%, #FFA07A 100%); border-radius: 30px; margin-top: 40px; box-shadow: 0 8px 20px rgba(255, 160, 122, 0.3);">
             <div style="font-size: 1.3em; color: #fff; font-weight: 700;">
                 🌙 May Allah accept our fasting! 🌙
             </div>
@@ -469,6 +732,94 @@
             </div>
         </footer>
     </div>
+
+    <script>
+        const reflections = {};
+
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-btn');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function saveReflection(type) {
+            const textarea = document.getElementById(type);
+            const content = textarea.value.trim();
+            
+            if (content) {
+                reflections[type] = content;
+                alert('✅ Saved successfully! 保存成功！\n\nMay Allah bless your efforts in this blessed month.\n愿真主祝福你在这个吉祥月份的努力。');
+            } else {
+                alert('Please write something before saving.\n请在保存前写点什么。');
+            }
+        }
+
+        let answeredQuestions = {};
+
+        function checkAnswer(questionNum, choice, isCorrect) {
+            if (answeredQuestions[questionNum]) {
+                return;
+            }
+
+            const feedback = document.getElementById(`feedback${questionNum}`);
+            const options = document.querySelectorAll(`#quiz .card:nth-child(${questionNum + 1}) .quiz-option`);
+            
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+                if (option.textContent.startsWith(choice)) {
+                    option.classList.add(isCorrect ? 'correct' : 'incorrect');
+                }
+            });
+
+            answeredQuestions[questionNum] = true;
+
+            const feedbackMessages = {
+                1: {
+                    correct: "صحيح！ Correct! The intention should be made after Maghrib and before Fajr. 正确！意念应该在昏礼之后、晨礼之前做。",
+                    incorrect: "The correct answer is B. Niyyah should be made between Maghrib and Fajr. 正确答案是B。"
+                },
+                2: {
+                    correct: "ممتاز！ Excellent! Even one sip of water fulfills the Sunnah of Suhoor. 太好了！即使一口水也能完成封斋饭的圣行。",
+                    incorrect: "The correct answer is B. The minimum is one sip of water. 正确答案是B。"
+                },
+                3: {
+                    correct: "صحيح！ Correct! Following the Sunnah, dates and water are best to break the fast. 正确！按照圣行，椰枣和水是最好的开斋食物。",
+                    incorrect: "The correct answer is B. The Prophet ﷺ broke his fast with dates and water. 正确答案是B。"
+                },
+                4: {
+                    correct: "ممتاز！ Excellent! The Prophet's way was 8 rakaat Taraweeh plus 3 Witr. 太好了！先知的方式是8拜台拉威赫加3拜威特尔。",
+                    incorrect: "The correct answer is B. The Prophet ﷺ prayed 8 + 3 Witr. 正确答案是B。"
+                },
+                5: {
+                    correct: "صحيح جداً! Perfect! Laylatul Qadr is better than 1000 months (83 years)! 完全正确！盖德尔夜胜过1000个月（83年）！",
+                    incorrect: "The correct answer is C. It's better than 1000 months. 正确答案是C。"
+                },
+                6: {
+                    correct: "ممتاز! Excellent knowledge! Odd nights in the last 10 days are most likely. 优秀！最后10天的单数夜晚最有可能。",
+                    incorrect: "The correct answer is A. Look for it in the odd nights. 正确答案是A。"
+                },
+                7: {
+                    correct: "صحيح! Correct! I'tikaf is a spiritual retreat in the mosque. 正确！伊提卡夫是在清真寺中的精神隔离。",
+                    incorrect: "The correct answer is C. I'tikaf means staying in the mosque. 正确答案是C。"
+                },
+                8: {
+                    correct: "ممتاز! Perfect! The main purpose is to seek Laylatul Qadr. 太好了！主要目的是寻求盖德尔夜。",
+                    incorrect: "The correct answer is B. We do I'tikaf to seek Laylatul Qadr. 正确答案是B。"
+                }
+            };
+
+            feedback.innerHTML = isCorrect ? 
+                `✅ ${feedbackMessages[questionNum].correct}` : 
+                `❌ ${feedbackMessages[questionNum].incorrect}`;
+            feedback.style.display = 'block';
+        }
+    </script>
 </body>
 </html>
-
