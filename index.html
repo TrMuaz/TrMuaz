@@ -279,6 +279,8 @@
                 <a href="HWFA.html" class="btn">Homework List</a>
             </div>
         </div>
+
+        <!-- Feedback button -->
         <button class="btn feedback-btn" id="openFeedback">Feedback & Suggestions</button>
     </div>
 </main>
@@ -357,19 +359,24 @@
             timestamp: new Date().toISOString()
         };
 
-        // TODO: send `data` to your backend or email service.
-        // Example (pseudo-code):
-        // await fetch('https://YOUR_ENDPOINT_HERE', {
-        //   method: 'POST',
-        //   headers: { 'Content-Type': 'application/json' },
-        //   body: JSON.stringify(data)
-        // });
+        try {
+            await fetch('https://script.google.com/macros/s/AKfycbyaClmXXcAzsn3P1mixqyv5QTAaOJPZ-OrVyyoh6gLUjkplUxm3GhiTqYuVIazbfxnr/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
 
-        successMessage.style.display = 'block';
+            successMessage.style.display = 'block';
 
-        setTimeout(() => {
-            overlay.classList.remove('active');
-        }, 1500);
+            setTimeout(() => {
+                overlay.classList.remove('active');
+            }, 1500);
+        } catch (error) {
+            alert('There was a problem sending your feedback. Please try again later.');
+        }
     });
 </script>
 
