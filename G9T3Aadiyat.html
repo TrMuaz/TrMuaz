@@ -704,11 +704,12 @@
             </div>
         </div>
 
-        <!-- QUIZ (unchanged) -->
+        <!-- QUIZ (updated) -->
         <div id="quiz" class="tab-content">
             <div class="card">
                 <h3><span class="icon">✅</span>Knowledge Check Quiz</h3>
-                <p>Test your understanding of Surah Al-Adiyat. Click on your answer choice.</p>
+                <p>Test your understanding of Surah Al-Adiyat. Click on your answer choice. Try to reach 10 out of 10.</p>
+                <p><strong>Progress:</strong> <span id="quiz-progress">0</span> / 10 answered | <strong>Score:</strong> <span id="quiz-score">0</span></p>
             </div>
 
             <div class="card">
@@ -730,48 +731,81 @@
             </div>
 
             <div class="card">
-                <h4>Question 3: What is the main diagnosis in verse 6?</h4>
-                <div class="quiz-option" onclick="checkAnswer(3, 'A', false)">A) People are always patient</div>
-                <div class="quiz-option" onclick="checkAnswer(3, 'B', true)">B) People are ungrateful to their Lord</div>
-                <div class="quiz-option" onclick="checkAnswer(3, 'C', false)">C) People never love wealth</div>
-                <div class="quiz-option" onclick="checkAnswer(3, 'D', false)">D) People never forget death</div>
+                <h4>Question 3: At what time do the horses make their raid?</h4>
+                <div class="quiz-option" onclick="checkAnswer(3, 'A', false)">A) At midnight</div>
+                <div class="quiz-option" onclick="checkAnswer(3, 'B', true)">B) At dawn</div>
+                <div class="quiz-option" onclick="checkAnswer(3, 'C', false)">C) At noon</div>
+                <div class="quiz-option" onclick="checkAnswer(3, 'D', false)">D) At sunset</div>
                 <div id="feedback3" class="feedback" style="display:none;"></div>
             </div>
 
             <div class="card">
-                <h4>Question 4: What does verse 8 say about humans?</h4>
-                <div class="quiz-option" onclick="checkAnswer(4, 'A', false)">A) They do not care about wealth at all</div>
-                <div class="quiz-option" onclick="checkAnswer(4, 'B', true)">B) Their love for material good is very strong</div>
-                <div class="quiz-option" onclick="checkAnswer(4, 'C', false)">C) They only love the Hereafter</div>
-                <div class="quiz-option" onclick="checkAnswer(4, 'D', false)">D) They never work hard</div>
+                <h4>Question 4: What does the word "kanud" (كَنُود) describe?</h4>
+                <div class="quiz-option" onclick="checkAnswer(4, 'A', false)">A) Someone who is generous and thankful</div>
+                <div class="quiz-option" onclick="checkAnswer(4, 'B', false)">B) Someone who is patient in hardship</div>
+                <div class="quiz-option" onclick="checkAnswer(4, 'C', true)">C) Someone who is very ungrateful and denies blessings</div>
+                <div class="quiz-option" onclick="checkAnswer(4, 'D', false)">D) Someone who is wise and knowledgeable</div>
                 <div id="feedback4" class="feedback" style="display:none;"></div>
             </div>
 
             <div class="card">
-                <h4>Question 5: What will happen when what is in the graves is poured out?</h4>
-                <div class="quiz-option" onclick="checkAnswer(5, 'A', false)">A) People will go back to sleep</div>
-                <div class="quiz-option" onclick="checkAnswer(5, 'B', true)">B) People will be resurrected and brought for judgment</div>
-                <div class="quiz-option" onclick="checkAnswer(5, 'C', false)">C) Only their wealth will appear</div>
-                <div class="quiz-option" onclick="checkAnswer(5, 'D', false)">D) Nothing special will happen</div>
+                <h4>Question 5: What is the main point that Allah states after the oath?</h4>
+                <div class="quiz-option" onclick="checkAnswer(5, 'A', true)">A) Indeed, mankind is ungrateful to his Lord</div>
+                <div class="quiz-option" onclick="checkAnswer(5, 'B', false)">B) Indeed, horses are the best animals</div>
+                <div class="quiz-option" onclick="checkAnswer(5, 'C', false)">C) Indeed, wars will never end</div>
+                <div class="quiz-option" onclick="checkAnswer(5, 'D', false)">D) Indeed, dawn is the most beautiful time</div>
                 <div id="feedback5" class="feedback" style="display:none;"></div>
             </div>
 
             <div class="card">
-                <h4>Question 6: What will be exposed according to verse 10?</h4>
-                <div class="quiz-option" onclick="checkAnswer(6, 'A', false)">A) Only public actions</div>
-                <div class="quiz-option" onclick="checkAnswer(6, 'B', true)">B) What is in the chests, including inner secrets and intentions</div>
-                <div class="quiz-option" onclick="checkAnswer(6, 'C', false)">C) Only spoken words</div>
-                <div class="quiz-option" onclick="checkAnswer(6, 'D', false)">D) Only major sins</div>
+                <h4>Question 6: According to the tafseer, how do people often show ingratitude?</h4>
+                <div class="quiz-option" onclick="checkAnswer(6, 'A', false)">A) By refusing to ride horses</div>
+                <div class="quiz-option" onclick="checkAnswer(6, 'B', true)">B) By claiming their wealth is only from their own effort</div>
+                <div class="quiz-option" onclick="checkAnswer(6, 'C', false)">C) By never going to sleep</div>
+                <div class="quiz-option" onclick="checkAnswer(6, 'D', false)">D) By not eating enough food</div>
                 <div id="feedback6" class="feedback" style="display:none;"></div>
             </div>
 
             <div class="card">
-                <h4>Question 7: What attribute of Allah is highlighted in the last verse?</h4>
-                <div class="quiz-option" onclick="checkAnswer(7, 'A', false)">A) Only His mercy</div>
-                <div class="quiz-option" onclick="checkAnswer(7, 'B', true)">B) His complete awareness and knowledge</div>
-                <div class="quiz-option" onclick="checkAnswer(7, 'C', false)">C) Only His power to create</div>
-                <div class="quiz-option" onclick="checkAnswer(7, 'D', false)">D) Only His ability to provide food</div>
+                <h4>Question 7: Why is a person a witness against himself in this surah?</h4>
+                <div class="quiz-option" onclick="checkAnswer(7, 'A', false)">A) Because angels stop recording deeds</div>
+                <div class="quiz-option" onclick="checkAnswer(7, 'B', true)">B) Because his actions show his ingratitude even if his tongue says “Alhamdulillah”</div>
+                <div class="quiz-option" onclick="checkAnswer(7, 'C', false)">C) Because he never speaks to anyone</div>
+                <div class="quiz-option" onclick="checkAnswer(7, 'D', false)">D) Because he forgets his own name</div>
                 <div id="feedback7" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4>Question 8: What will happen when what is in the graves is poured out?</h4>
+                <div class="quiz-option" onclick="checkAnswer(8, 'A', false)">A) People will fall into a deeper sleep</div>
+                <div class="quiz-option" onclick="checkAnswer(8, 'B', true)">B) All people will be resurrected for judgment</div>
+                <div class="quiz-option" onclick="checkAnswer(8, 'C', false)">C) Only their clothes will appear</div>
+                <div class="quiz-option" onclick="checkAnswer(8, 'D', false)">D) The graves will be closed forever</div>
+                <div id="feedback8" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4>Question 9: What does “what is in the chests will be exposed” refer to?</h4>
+                <div class="quiz-option" onclick="checkAnswer(9, 'A', false)">A) Only people’s physical strength</div>
+                <div class="quiz-option" onclick="checkAnswer(9, 'B', true)">B) Inner secrets, intentions and hidden feelings</div>
+                <div class="quiz-option" onclick="checkAnswer(9, 'C', false)">C) Only the clothes people wore</div>
+                <div class="quiz-option" onclick="checkAnswer(9, 'D', false)">D) The amount of food people ate</div>
+                <div id="feedback9" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h4>Question 10: Which attribute of Allah is highlighted in the last verse?</h4>
+                <div class="quiz-option" onclick="checkAnswer(10, 'A', false)">A) Only His power to create animals</div>
+                <div class="quiz-option" onclick="checkAnswer(10, 'B', false)">B) Only His ability to provide food</div>
+                <div class="quiz-option" onclick="checkAnswer(10, 'C', true)">C) His complete awareness and perfect knowledge of His servants</div>
+                <div class="quiz-option" onclick="checkAnswer(10, 'D', false)">D) Only His forgiveness of every sin without judgment</div>
+                <div id="feedback10" class="feedback" style="display:none;"></div>
+            </div>
+
+            <div class="card" id="quiz-summary" style="display:none;">
+                <h3>Quiz Summary</h3>
+                <p id="quiz-summary-text"></p>
+                <p>You can revisit the other tabs if you want to improve your score and try again.</p>
             </div>
         </div>
     </div>
@@ -789,6 +823,28 @@
         }
 
         let answeredQuestions = {};
+        let totalQuestions = 10;
+        let correctCount = 0;
+
+        function updateQuizStatus() {
+            const answeredCount = Object.keys(answeredQuestions).length;
+            document.getElementById('quiz-progress').textContent = answeredCount;
+            document.getElementById('quiz-score').textContent = correctCount;
+
+            if (answeredCount === totalQuestions) {
+                const summaryCard = document.getElementById('quiz-summary');
+                const summaryText = document.getElementById('quiz-summary-text');
+                summaryCard.style.display = 'block';
+
+                if (correctCount === totalQuestions) {
+                    summaryText.textContent = "Excellent. You answered all 10 questions correctly. Your understanding of Surah Al-Adiyat is very strong.";
+                } else if (correctCount >= 7) {
+                    summaryText.textContent = "Good job. You scored " + correctCount + " out of 10. Review the tafseer and try again to reach full marks.";
+                } else {
+                    summaryText.textContent = "You scored " + correctCount + " out of 10. Revisit the overview, tafseer and key lessons, then attempt the quiz again.";
+                }
+            }
+        }
 
         function checkAnswer(questionNum, choice, isCorrect) {
             if (answeredQuestions[questionNum]) {
@@ -797,7 +853,8 @@
 
             const feedback = document.getElementById(`feedback${questionNum}`);
             const cards = document.querySelectorAll('#quiz .card');
-            const card = cards[questionNum]; // first quiz card is index 1
+            // first card is the header, so questionNum card is at index questionNum
+            const card = cards[questionNum];
             const options = card.querySelectorAll('.quiz-option');
 
             options.forEach(option => {
@@ -808,6 +865,9 @@
             });
 
             answeredQuestions[questionNum] = true;
+            if (isCorrect) {
+                correctCount++;
+            }
 
             const feedbackMessages = {
                 1: {
@@ -815,28 +875,40 @@
                     incorrect: "The correct answer is B. Al-Adiyat refers to the charging horses in the first verses."
                 },
                 2: {
-                    correct: "Well done. The verses describe war horses charging and striking sparks from the ground.",
+                    correct: "Well done. The first verses describe war horses charging and striking sparks from the ground.",
                     incorrect: "The correct answer is B. The scene is of charging horses whose hooves strike sparks."
                 },
                 3: {
-                    correct: "Correct. The main diagnosis is that people are ungrateful to their Lord.",
-                    incorrect: "The correct answer is B. Allah states that mankind is ungrateful to his Lord."
+                    correct: "Correct. The raid is made at dawn when the enemy is unprepared.",
+                    incorrect: "The correct answer is B. The horses make their raid at dawn."
                 },
                 4: {
-                    correct: "Good. The surah states that people have a very strong love for material good.",
-                    incorrect: "The correct answer is B. Humans are described as having intense love for material good."
+                    correct: "Good. Kanud describes a person who is very ungrateful and denies blessings.",
+                    incorrect: "The correct answer is C. Kanud refers to someone extremely ungrateful and stingy with thanks."
                 },
                 5: {
-                    correct: "Correct. People will be brought out of their graves for judgment.",
-                    incorrect: "The correct answer is B. Resurrection from the graves leads to judgment before Allah."
+                    correct: "Correct. The main point is that mankind is ungrateful to his Lord.",
+                    incorrect: "The correct answer is A. Allah states that mankind is ungrateful to his Lord."
                 },
                 6: {
-                    correct: "Yes. What is in the chests, including hidden intentions, will be exposed.",
-                    incorrect: "The correct answer is B. The inner secrets in the chests will be brought out."
+                    correct: "Yes. People often show ingratitude by claiming their wealth is only from their own effort.",
+                    incorrect: "The correct answer is B. People deny Allah's role by saying their wealth is only from their effort."
                 },
                 7: {
-                    correct: "Correct. The last verse emphasises Allah's complete awareness and knowledge.",
-                    incorrect: "The correct answer is B. Allah is fully aware of His servants on that Day."
+                    correct: "Correct. His actions show his ingratitude even while his tongue claims to thank Allah.",
+                    incorrect: "The correct answer is B. A person witnesses against himself through his behaviour."
+                },
+                8: {
+                    correct: "Correct. All people will be resurrected from their graves for judgment.",
+                    incorrect: "The correct answer is B. What is in the graves will be poured out when people are resurrected."
+                },
+                9: {
+                    correct: "Yes. What is in the chests includes inner secrets, intentions and hidden feelings.",
+                    incorrect: "The correct answer is B. Inner secrets and intentions will be exposed."
+                },
+                10: {
+                    correct: "Correct. The last verse highlights Allah's complete awareness and perfect knowledge of His servants.",
+                    incorrect: "The correct answer is C. Allah is fully aware and perfectly knowledgeable about His servants."
                 }
             };
 
@@ -844,6 +916,8 @@
                 `✅ ${feedbackMessages[questionNum].correct}` :
                 `❌ ${feedbackMessages[questionNum].incorrect}`;
             feedback.style.display = 'block';
+
+            updateQuizStatus();
         }
     </script>
 </body>
