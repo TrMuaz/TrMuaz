@@ -841,56 +841,46 @@
     <div id="quiz" class="section">
         <div class="section-title">Quiz 小测验</div>
 
-        <div class="quiz-form">
-            <h3>Submit your answers 提交你的答案</h3>
-            <p class="english-text">
-                Fill in your name, class and short answers. When you click submit, your answers will be sent to your teacher.
-            </p>
-            <p class="chinese-text">
-                请填写你的姓名、班级和简短回答。点击提交后, 你的答案会发送给老师。
-            </p>
+<form id="quizForm">
+  <div class="quiz-row">
+    <label for="studentName">Name 姓名:</label>
+    <input type="text" id="studentName" name="name" required>
+  </div>
+  <div class="quiz-row">
+    <label for="studentClass">Class 班级:</label>
+    <input type="text" id="studentClass" name="class" required>
+  </div>
 
-            <form action="https://script.google.com/macros/s/AKfycbyaClmXXcAzsn3P1mixqyv5QTAaOJPZ-OrVyyoh6gLUjkplUxm3GhiTqYuVIazbfxnr/exec"
-                  method="POST">
-                <div class="quiz-row">
-                    <label for="studentName">Name 姓名:</label>
-                    <input type="text" id="studentName" name="name" required>
-                </div>
-                <div class="quiz-row">
-                    <label for="studentClass">Class 班级:</label>
-                    <input type="text" id="studentClass" name="class" required>
-                </div>
+  <div class="quiz-row">
+    <label for="q1">1. Why did Allah send prophets? 真主为什么派遣先知</label>
+    <textarea id="q1" name="q1" required></textarea>
+  </div>
 
-                <div class="quiz-row">
-                    <label for="q1">1. Why did Allah send prophets? 真主为什么派遣先知</label>
-                    <textarea id="q1" name="q1" required></textarea>
-                </div>
+  <div class="quiz-row">
+    <label for="q2">2. Where did the first revelation happen? 第一次启示在哪里发生</label>
+    <textarea id="q2" name="q2" required></textarea>
+  </div>
 
-                <div class="quiz-row">
-                    <label for="q2">2. Where did the first revelation happen? 第一次启示在哪里发生</label>
-                    <textarea id="q2" name="q2" required></textarea>
-                </div>
+  <div class="quiz-row">
+    <label for="q3">3. What was the first command from Angel Jibreel? 吉卜里天使的第一个命令是什么</label>
+    <textarea id="q3" name="q3" required></textarea>
+  </div>
 
-                <div class="quiz-row">
-                    <label for="q3">3. What was the first command from Angel Jibreel? 吉卜里天使的第一个命令是什么</label>
-                    <textarea id="q3" name="q3" required></textarea>
-                </div>
+  <div class="quiz-row">
+    <label for="q4">4. What do you learn from the story of the first revelation? 你从第一次启示的故事中学到什么</label>
+    <textarea id="q4" name="q4" required></textarea>
+  </div>
 
-                <div class="quiz-row">
-                    <label for="q4">4. What do you learn from the story of the first revelation? 你从第一次启示的故事中学到什么</label>
-                    <textarea id="q4" name="q4" required></textarea>
-                </div>
+  <div class="quiz-row">
+    <label for="q5">5. Any question you still have about this topic 你对这个主题还有什么问题</label>
+    <textarea id="q5" name="q5"></textarea>
+  </div>
 
-                <div class="quiz-row">
-                    <label for="q5">5. Any question you still have about this topic 你对这个主题还有什么问题</label>
-                    <textarea id="q5" name="q5"></textarea>
-                </div>
+  <div class="quiz-submit">
+    <button type="submit">Submit 提交</button>
+  </div>
+</form>
 
-                <div class="quiz-submit">
-                    <button type="submit">Submit 提交</button>
-                </div>
-            </form>
-        </div>
     </div>
 
     <div class="footer">
@@ -903,18 +893,54 @@
 </div>
 
 <script>
-    function showSection(evt, sectionId) {
-        const sections = document.querySelectorAll('.section');
-        sections.forEach(section => section.classList.remove('active'));
+  function showSection(evt, sectionId) {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => section.classList.remove('active'));
 
-        const buttons = document.querySelectorAll('.tab-btn');
-        buttons.forEach(btn => btn.classList.remove('active'));
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
 
-        document.getElementById(sectionId).classList.add('active');
-        if (evt && evt.target) {
-            evt.target.classList.add('active');
-        }
+    document.getElementById(sectionId).classList.add('active');
+    if (evt && evt.target) {
+      evt.target.classList.add('active');
     }
+  }
+
+  // JSON submit to Apps Script
+  const quizForm = document.getElementById('quizForm');
+  if (quizForm) {
+    quizForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const data = {
+        name: document.getElementById('studentName').value,
+        class: document.getElementById('studentClass').value,
+        q1: document.getElementById('q1').value,
+        q2: document.getElementById('q2').value,
+        q3: document.getElementById('q3').value,
+        q4: document.getElementById('q4').value,
+        q5: document.getElementById('q5').value
+      };
+
+      try {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbyaClmXXcAzsn3P1mixqyv5QTAaOJPZ-OrVyyoh6gLUjkplUxm3GhiTqYuVIazbfxnr/exec', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        alert('Submitted: ' + (result.message || 'Thank you!'));
+        quizForm.reset();
+      } catch (err) {
+        console.error(err);
+        alert('Error submitting. Please try again later.');
+      }
+    });
+  }
 </script>
+
 </body>
 </html>
