@@ -27,7 +27,7 @@
     line-height: 1.7;
   }
 
-  /* ── Header ── */
+  /* Header */
   header {
     background: var(--green);
     color: white;
@@ -49,7 +49,6 @@
     );
   }
   header .badge {
-    font-family: 'Source Sans 3', sans-serif;
     font-weight: 300;
     font-size: 12px;
     letter-spacing: 3px;
@@ -69,57 +68,57 @@
     font-weight: 300;
   }
 
-  /* ── Navigation pills ── */
-  nav {
+  /* Top nav buttons (sections) */
+  .top-nav {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     justify-content: center;
-    padding: 24px 20px;
+    padding: 16px 20px 20px;
     background: white;
     border-bottom: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 12px rgba(0,0,0,.06);
   }
-  nav a {
-    text-decoration: none;
-    color: var(--green);
-    border: 1px solid var(--green-light);
+  .nav-btn {
     border-radius: 999px;
+    border: 1px solid var(--green-light);
     padding: 6px 16px;
     font-size: 13px;
     font-weight: 600;
+    background: white;
+    color: var(--green);
+    cursor: pointer;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     transition: all .2s;
     white-space: nowrap;
   }
-  nav a:hover { background: var(--green); color: white; }
+  .nav-btn span.icon { font-size: 15px; }
+  .nav-btn.active,
+  .nav-btn:hover {
+    background: var(--green);
+    color: white;
+  }
 
-  /* ── Main ── */
   main {
     max-width: 780px;
     margin: 0 auto;
-    padding: 40px 20px 80px;
+    padding: 30px 20px 60px;
   }
 
-  /* ── Section ── */
-  section {
-    margin-bottom: 60px;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp .5s ease forwards;
+  /* Sections as slides */
+  .slide-section {
+    display: none;
+    animation: fadeUp .4s ease forwards;
   }
-  section:nth-child(1) { animation-delay: .05s; }
-  section:nth-child(2) { animation-delay: .1s; }
-  section:nth-child(3) { animation-delay: .15s; }
-  section:nth-child(4) { animation-delay: .2s; }
-  section:nth-child(5) { animation-delay: .25s; }
-  section:nth-child(6) { animation-delay: .3s; }
-  @keyframes fadeUp {
-    to { opacity: 1; transform: none; }
+  .slide-section.active {
+    display: block;
   }
-
   .section-label {
     font-size: 11px;
     letter-spacing: 3px;
@@ -143,7 +142,12 @@
     margin: 24px 0 10px;
   }
 
-  /* ── Sentence blocks (bilingual) ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  /* Sentence blocks (bilingual) */
   .sentence-block {
     background: white;
     border: 1px solid var(--border);
@@ -195,7 +199,53 @@
   .zh-text { font-size: 17px; color: var(--green); margin-bottom: 4px; }
   .pinyin { font-size: 13px; color: var(--muted); font-style: italic; }
 
-  /* ── Comparison table ── */
+  .key-term {
+    display: inline-block;
+    background: var(--gold);
+    color: white;
+    border-radius: 6px;
+    padding: 2px 9px;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 2px 3px;
+  }
+
+  .callout {
+    background: var(--green-pale);
+    border-left: 4px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 18px;
+    margin: 16px 0;
+  }
+  .callout.gold {
+    background: #fdf3e3;
+    border-color: var(--gold);
+  }
+  .callout strong { color: var(--green); }
+  .callout.gold strong { color: var(--gold); }
+
+  .steps { list-style: none; padding: 0; }
+  .steps li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+  }
+  .step-num {
+    background: var(--green);
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    border-radius: 50%;
+    min-width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+
+  /* Comparison table (used in What is it) */
   .compare-table {
     width: 100%;
     border-collapse: collapse;
@@ -228,58 +278,15 @@
     color: var(--green);
     white-space: nowrap;
   }
-  .zh-small { display: block; font-size: 12px; color: var(--muted); margin-top: 3px; font-style: italic; }
-
-  /* ── Key term badge ── */
-  .key-term {
-    display: inline-block;
-    background: var(--gold);
-    color: white;
-    border-radius: 6px;
-    padding: 2px 9px;
-    font-size: 13px;
-    font-weight: 600;
-    margin: 2px 3px;
+  .zh-small {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 3px;
+    font-style: italic;
   }
 
-  /* ── Callout box ── */
-  .callout {
-    background: var(--green-pale);
-    border-left: 4px solid var(--green);
-    border-radius: 0 8px 8px 0;
-    padding: 16px 18px;
-    margin: 16px 0;
-  }
-  .callout.gold {
-    background: #fdf3e3;
-    border-color: var(--gold);
-  }
-  .callout strong { color: var(--green); }
-  .callout.gold strong { color: var(--gold); }
-
-  /* ── Steps ── */
-  .steps { list-style: none; padding: 0; }
-  .steps li {
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-    margin-bottom: 14px;
-  }
-  .step-num {
-    background: var(--green);
-    color: white;
-    font-weight: 700;
-    font-size: 13px;
-    border-radius: 50%;
-    min-width: 28px;
-    height: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 2px;
-  }
-
-  /* ── Quiz ── */
+  /* Quiz */
   .quiz-card {
     background: white;
     border: 1px solid var(--border);
@@ -301,8 +308,17 @@
     transition: all .15s;
   }
   .quiz-opt:hover { border-color: var(--green-light); background: var(--green-pale); }
-  .quiz-opt.correct { background: #d8f3dc; border-color: var(--green); color: var(--green); font-weight: 600; }
-  .quiz-opt.wrong { background: #fde8e8; border-color: #c0392b; color: #c0392b; }
+  .quiz-opt.correct {
+    background: #d8f3dc;
+    border-color: var(--green);
+    color: var(--green);
+    font-weight: 600;
+  }
+  .quiz-opt.wrong {
+    background: #fde8e8;
+    border-color: #c0392b;
+    color: #c0392b;
+  }
   .quiz-feedback {
     margin-top: 10px;
     font-size: 14px;
@@ -311,31 +327,7 @@
   }
   .quiz-feedback.show { display: block; }
 
-  /* ── Progress bar ── */
-  .progress-wrap {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: rgba(0,0,0,.08);
-    z-index: 999;
-  }
-  #progress-bar {
-    height: 100%;
-    background: var(--gold);
-    width: 0%;
-    transition: width .2s;
-  }
-
-  /* ── Footer ── */
-  footer {
-    text-align: center;
-    font-size: 12px;
-    color: var(--muted);
-    padding: 30px 20px;
-    border-top: 1px solid var(--border);
-  }
-
-  /* ── Translate All toggle ── */
+  /* Translate All toggle */
   .translate-all-btn {
     display: flex;
     align-items: center;
@@ -354,11 +346,17 @@
   }
   .translate-all-btn:hover { background: var(--green); color: white; }
   .translate-all-btn .icon { font-size: 16px; }
+
+  footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    padding: 30px 20px;
+    border-top: 1px solid var(--border);
+  }
 </style>
 </head>
 <body>
-
-<div class="progress-wrap"><div id="progress-bar"></div></div>
 
 <header>
   <div class="badge">Islamic Studies • Grade 7–9</div>
@@ -366,81 +364,25 @@
   <p class="sub">天课天赋 • Tiānkè tiānfù — Interactive Lesson Notes</p>
 </header>
 
-<nav>
-  <a href="#compare">📊 Comparison</a>
-  <a href="#definition">📖 Definition</a>
-  <a href="#hukm">⚖️ Hukm</a>
-  <a href="#amount">🌾 Amount</a>
-  <a href="#when">🕌 When & Who</a>
-  <a href="#quiz">✏️ Quiz</a>
-</nav>
+<!-- Section buttons -->
+<div class="top-nav">
+  <button class="nav-btn active" data-target="sec-what"><span class="icon">❓</span>What is it?</button>
+  <button class="nav-btn" data-target="sec-who"><span class="icon">👤</span>Who needs to pay?</button>
+  <button class="nav-btn" data-target="sec-when"><span class="icon">⏰</span>When can we pay?</button>
+  <button class="nav-btn" data-target="sec-how"><span class="icon">💰</span>How do we pay?</button>
+  <button class="nav-btn" data-target="sec-why"><span class="icon">💡</span>Why do we pay?</button>
+  <button class="nav-btn" data-target="sec-quiz"><span class="icon">✏️</span>Quick quiz</button>
+</div>
 
 <main>
 
-<!-- TOGGLE ALL -->
 <button class="translate-all-btn" onclick="toggleAll()">
   <span class="icon">🌐</span> <span id="toggle-label">Show All Chinese Translations 显示所有中文翻译</span>
 </button>
 
-<!-- ══════════════════════════════════
-     SECTION 1: COMPARISON
-══════════════════════════════════ -->
-<section id="compare">
+<!-- 1. What is it -->
+<section id="sec-what" class="slide-section active">
   <div class="section-label">Part 1 · 第一部分</div>
-  <h2>Zakat al-Mal vs. Zakat al-Fitrah</h2>
-
-  <div class="sentence-block">
-    <div class="en">Both <span class="key-term">Zakat al-Mal</span> and <span class="key-term">Zakat al-Fitrah</span> are types of <em>zakat</em> (obligatory charity) in Islam, but they are different in many ways.</div>
-    <div class="zh-toggle"><button class="btn-zh" onclick="toggleTr(this)">中文 ▾</button></div>
-    <div class="translation">
-      <div class="zh-text">天课·财富 (Zakat al-Mal) 和天课·天赋 (Zakat al-Fitrah) 都是伊斯兰教中的天课（必缴慈善），但它们在许多方面有所不同。</div>
-      <div class="pinyin">Tiānkè cáifù hé tiānkè tiānfù dōu shì yīsīlán jiào zhōng de tiānkè (bì jiǎo císhàn), dàn tāmen zài xǔduō fāngmiàn yǒusuǒ bùtóng.</div>
-    </div>
-  </div>
-
-  <table class="compare-table">
-    <thead>
-      <tr>
-        <th>Feature 项目</th>
-        <th>Zakat al-Mal<br><span style="font-weight:300;font-size:12px">财富天课</span></th>
-        <th>Zakat al-Fitrah<br><span style="font-weight:300;font-size:12px">开斋天课</span></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="cat">Meaning 含义<span class="zh-small">hányì</span></td>
-        <td>Charity on wealth / savings<br><span class="zh-small">财富/储蓄上的天课 · Cáifù chùxù shàng de tiānkè</span></td>
-        <td>Charity for breaking fast (Eid)<br><span class="zh-small">开斋节的天课 · Kāizhāi jié de tiānkè</span></td>
-      </tr>
-      <tr>
-        <td class="cat">When 时间<span class="zh-small">shíjiān</span></td>
-        <td>Any time of year (after 1 Hijri year)<br><span class="zh-small">全年任何时间</span></td>
-        <td>End of Ramadan / before Eid prayer<br><span class="zh-small">斋月末/开斋节礼拜前</span></td>
-      </tr>
-      <tr>
-        <td class="cat">Who pays 谁缴<span class="zh-small">shuí jiǎo</span></td>
-        <td>Muslims who own nisab (minimum wealth)<br><span class="zh-small">拥有最低财富的穆斯林</span></td>
-        <td>Every Muslim (even children/elderly)<br><span class="zh-small">每位穆斯林（包括儿童/老人）</span></td>
-      </tr>
-      <tr>
-        <td class="cat">Based on 依据<span class="zh-small">yījù</span></td>
-        <td>Percentage of wealth (2.5%)<br><span class="zh-small">财富的百分比（2.5%）</span></td>
-        <td>Fixed amount of food / money<br><span class="zh-small">固定数量的食物/金钱</span></td>
-      </tr>
-      <tr>
-        <td class="cat">Purpose 目的<span class="zh-small">mùdì</span></td>
-        <td>Purify wealth, help the poor<br><span class="zh-small">净化财富，帮助穷人</span></td>
-        <td>Purify fasting, feed the poor for Eid<br><span class="zh-small">净化斋戒，为开斋节喂饱穷人</span></td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
-<!-- ══════════════════════════════════
-     SECTION 2: DEFINITION
-══════════════════════════════════ -->
-<section id="definition">
-  <div class="section-label">Part 2 · 第二部分</div>
   <h2>What is Zakat al-Fitrah? 什么是开斋天课？</h2>
 
   <div class="sentence-block">
@@ -453,249 +395,267 @@
   </div>
 
   <div class="sentence-block">
-    <div class="en">The word <em>Fitrah</em> (فطرة) means <strong>"natural state"</strong> or <strong>"the breaking of the fast"</strong>. It reminds us of our duty to help others even during celebrations.</div>
+    <div class="en">The word <em>Fitrah</em> (فطرة) means <strong>"natural state"</strong> or <strong>"the breaking of the fast"</strong>. It reminds us to help others even during celebrations.</div>
     <div class="zh-toggle"><button class="btn-zh" onclick="toggleTr(this)">中文 ▾</button></div>
     <div class="translation">
-      <div class="zh-text">"Fitrah"这个词的意思是"自然本性"或"开斋"。它提醒我们，即使在庆祝活动中也有责任帮助他人。</div>
-      <div class="pinyin">"Fitrah" zhège cí de yìsi shì "zìrán běnxìng" huò "kāizhāi". Tā tíxǐng wǒmen, jíshǐ zài qìngzhù huódòng zhōng yě yǒu zérèn bāngzhù tārén.</div>
+      <div class="zh-text">"Fitrah"这个词的意思是"自然本性"或"开斋"。它提醒我们，即使在庆祝时也要帮助他人。</div>
+      <div class="pinyin">"Fitrah" zhège cí de yìsi shì "zìrán běnxìng" huò "kāizhāi". Tā tíxǐng wǒmen, jíshǐ zài qìngzhù shí yě yào bāngzhù tārén.</div>
     </div>
   </div>
 
   <div class="sentence-block">
-    <div class="en">It was made obligatory (<span class="key-term">wajib</span>) by the Prophet Muhammad ﷺ in the second year of Hijrah, the same year that fasting in Ramadan was ordained.</div>
+    <div class="en">It was made obligatory (<span class="key-term">wajib</span>) by the Prophet Muhammad ﷺ in the second year of Hijrah, the same year fasting in Ramadan was ordained.</div>
     <div class="zh-toggle"><button class="btn-zh" onclick="toggleTr(this)">中文 ▾</button></div>
     <div class="translation">
-      <div class="zh-text">先知穆罕默德ﷺ在伊斯兰历第二年规定了它为义务，与规定斋月封斋的同年。</div>
-      <div class="pinyin">Xiānzhī Mùhǎnmòdéﷺ zài yīsīlán lì dì èr nián guīdìng le tā wéi yìwù, yǔ guīdìng zhāiyuè fēngzhāi de tóngnián.</div>
+      <div class="zh-text">先知穆罕默德ﷺ在伊斯兰历第二年规定了它为义务，与规定斋月封斋是同一年。</div>
+      <div class="pinyin">Xiānzhī Mùhǎnmòdéﷺ zài yīsīlán lì dì èr nián guīdìng le tā wéi yìwù, yǔ guīdìng zhāiyuè fēngzhāi shì tóng yī nián.</div>
     </div>
   </div>
 
-  <div class="callout">
-    <strong>📌 Remember / 记住 (Jì zhù):</strong><br>
-    Zakat al-Fitrah is paid <em>by</em> the head of the family <em>on behalf of</em> every family member — including babies and elderly relatives.
-    <span class="zh-small">开斋天课由家长代表每位家庭成员缴纳，包括婴儿和老年亲属。<br>Kāizhāi tiānkè yóu jiāzhǎng dàibiǎo měi wèi jiātíng chéngyuán jiǎonà, bāokuò yīng'ér hé lǎonián qīnshǔ.</span>
-  </div>
+  <h3>Zakat al-Mal vs Zakat al-Fitrah</h3>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Feature 项目</th>
+        <th>Zakat al-Mal<br><span style="font-weight:300;font-size:12px">财富天课</span></th>
+        <th>Zakat al-Fitrah<br><span style="font-weight:300;font-size:12px">开斋天课</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cat">Meaning 含义<span class="zh-small">hányì</span></td>
+        <td>Charity on wealth / savings<br><span class="zh-small">财富/储蓄上的天课</span></td>
+        <td>Charity for breaking fast (Eid)<br><span class="zh-small">开斋节的天课</span></td>
+      </tr>
+      <tr>
+        <td class="cat">When 时间<span class="zh-small">shíjiān</span></td>
+        <td>Any time after holding wealth for one Hijri year<br><span class="zh-small">持有一年后可缴</span></td>
+        <td>End of Ramadan / before Eid prayer<br><span class="zh-small">斋月末/开斋节礼拜前</span></td>
+      </tr>
+      <tr>
+        <td class="cat">Who pays 谁缴<span class="zh-small">shuí jiǎo</span></td>
+        <td>Muslims who own nisab (minimum wealth)<br><span class="zh-small">拥有最低财富的穆斯林</span></td>
+        <td>Every Muslim (family head pays for all)<br><span class="zh-small">每位穆斯林（家长代缴）</span></td>
+      </tr>
+    </tbody>
+  </table>
 </section>
 
-<!-- ══════════════════════════════════
-     SECTION 3: HUKM / RULING
-══════════════════════════════════ -->
-<section id="hukm">
-  <div class="section-label">Part 3 · 第三部分</div>
-  <h2>Ruling (Hukm) 法律地位 (Fǎlǜ dìwèi)</h2>
+<!-- 2. Who needs to pay -->
+<section id="sec-who" class="slide-section">
+  <div class="section-label">Part 2 · 第二部分</div>
+  <h2>Who Needs to Pay? 谁必须缴纳？</h2>
 
   <div class="sentence-block">
-    <div class="en">Zakat al-Fitrah is <span class="key-term">Fardhu 'Ain</span> — it is an <strong>individual obligation</strong>. This means every capable Muslim <strong>must</strong> pay it personally.</div>
+    <div class="en">Zakat al-Fitrah is <span class="key-term">Fardhu 'Ain</span> — an <strong>individual obligation</strong>. Every capable Muslim must pay it personally or through the head of the family.</div>
     <div class="zh-toggle"><button class="btn-zh" onclick="toggleTr(this)">中文 ▾</button></div>
     <div class="translation">
-      <div class="zh-text">开斋天课是"个人义务"（Fardhu 'Ain）——这意味着每位有能力的穆斯林必须亲自缴纳。</div>
-      <div class="pinyin">Kāizhāi tiānkè shì "gèrén yìwù" (Fardhu 'Ain) — zhè yìwèizhe měi wèi yǒu nénglì de mùsīlín bìxū qīnzì jiǎonà.</div>
+      <div class="zh-text">开斋天课是"个人义务"（Fardhu 'Ain），每位有能力的穆斯林都必须缴纳，可以由家长代缴。</div>
+      <div class="pinyin">Kāizhāi tiānkè shì "gèrén yìwù" (Fardhu 'Ain), měi wèi yǒu nénglì de mùsīlín dōu bìxū jiǎonà, kěyǐ yóu jiāzhǎng dàijiǎo.</div>
     </div>
   </div>
-
-  <h3>Who must pay? 谁必须缴纳？</h3>
 
   <div class="sentence-block">
     <div class="en">A Muslim must pay Zakat al-Fitrah if they: (1) are <strong>Muslim</strong>, (2) are alive at the <strong>end of Ramadan</strong>, and (3) have <strong>enough food</strong> for themselves and family on Eid day.</div>
     <div class="zh-toggle"><button class="btn-zh" onclick="toggleTr(this)">中文 ▾</button></div>
     <div class="translation">
-      <div class="zh-text">穆斯林必须缴纳开斋天课的条件：(1) 是穆斯林，(2) 在斋月结束时仍然在世，(3) 在开斋节当天有足够的食物供自己和家人食用。</div>
-      <div class="pinyin">Mùsīlín bìxū jiǎonà kāizhāi tiānkè de tiáojiàn: (1) shì mùsīlín, (2) zài zhāiyuè jiéshù shí réngrán zàishì, (3) zài kāizhāi jié dāngtiān yǒu zúgòu de shíwù gōng zìjǐ hé jiārén shíyòng.</div>
+      <div class="zh-text">必须缴纳开斋天课的条件：(1) 是穆斯林，(2) 在斋月结束时仍然在世，(3) 在开斋节当天有足够的食物供自己和家人食用。</div>
+      <div class="pinyin">Bìxū jiǎonà kāizhāi tiānkè de tiáojiàn: (1) shì mùsīlín, (2) zài zhāiyuè jiéshù shí réngrán zàishì, (3) zài kāizhāi jié dāngtiān yǒu zúgòu shíwù gōng zìjǐ hé jiārén shíyòng.</div>
     </div>
   </div>
 
   <div class="callout gold">
-    <strong>💡 Did you know? / 你知道吗？(Nǐ zhīdào ma?)</strong><br>
-    Even a baby born before sunset on the last day of Ramadan must have Zakat al-Fitrah paid for them by their parents!
-    <span class="zh-small">即使是在斋月最后一天日落前出生的婴儿，其父母也必须为他们缴纳开斋天课！<br>Jíshǐ shì zài zhāiyuè zuìhòu yītiān rìluò qián chūshēng de yīng'ér, qí fùmǔ yě bìxū wèi tāmen jiǎonà kāizhāi tiānkè!</span>
+    <strong>💡 Example / 例子:</strong><br>
+    Even a baby born before sunset on the last day of Ramadan must have Zakat al-Fitrah paid for them by their parents.
+    <span class="zh-small">即使是在斋月最后一天日落前出生的婴儿，其父母也必须为他们缴纳开斋天课。</span>
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     SECTION 4: AMOUNT
-══════════════════════════════════ -->
-<section id="amount">
+<!-- 3. When can we pay -->
+<section id="sec-when" class="slide-section">
+  <div class="section-label">Part 3 · 第三部分</div>
+  <h2>When Can We Pay? 何时可以缴？</h2>
+
+  <h3>Time Categories 缴纳时间类别</h3>
+
+  <div class="sentence-block">
+    <div class="en">There are several time categories for paying Zakat al-Fitrah. The <strong>best time</strong> is before the Eid prayer on the morning of <span class="key-term">Eid al-Fitr</span>.</div>
+    <div class="zh-toggle"><button class="btn-zh" onclick="toggleTr(this)">中文 ▾</button></div>
+    <div class="translation">
+      <div class="zh-text">缴纳开斋天课有几个时间类别。最佳时间是在开斋节早上的节礼拜前。</div>
+      <div class="pinyin">Jiǎonà kāizhāi tiānkè yǒu jǐ gè shíjiān lèibié. Zuì jiā shíjiān shì zài kāizhāi jié zǎoshang de jié lǐbài qián.</div>
+    </div>
+  </div>
+
+  <ul class="steps">
+    <li>
+      <div class="step-num">1</div>
+      <div>
+        <strong>Permitted (Harus)</strong> — From the 1st of Ramadan until the end of Ramadan.<br>
+        <span class="zh-small">允许时间：从斋月第一天到斋月结束。</span>
+      </div>
+    </li>
+    <li>
+      <div class="step-num">2</div>
+      <div>
+        <strong>Obligatory (Wajib)</strong> — When the sun sets on the last day of Ramadan.<br>
+        <span class="zh-small">义务时间：斋月最后一天日落时。</span>
+      </div>
+    </li>
+    <li>
+      <div class="step-num">3</div>
+      <div>
+        <strong>Best Time (Sunat / Afdal)</strong> — Morning of Eid al-Fitr after sunrise, before the Eid prayer.<br>
+        <span class="zh-small">最优时间：开斋节早晨，从日出后到节礼拜前。</span>
+      </div>
+    </li>
+    <li>
+      <div class="step-num">4</div>
+      <div>
+        <strong>Makruh (Disliked)</strong> — After the Eid prayer but before sunset on the first day of Shawwal.<br>
+        <span class="zh-small">可憎：在开斋节礼拜之后，到肖瓦尔月初一日落之前。</span>
+      </div>
+    </li>
+    <li>
+      <div class="step-num">5</div>
+      <div>
+        <strong>Haram (Forbidden)</strong> — After sunset on the first day of Shawwal (becomes a debt you must repay).<br>
+        <span class="zh-small">禁止：在肖瓦尔月初一日落之后，此时才缴属于拖欠，变成必须补缴的“欠债”。</span>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- 4. How do we pay -->
+<section id="sec-how" class="slide-section">
   <div class="section-label">Part 4 · 第四部分</div>
-  <h2>Amount & Type 数量与种类 (Shùliàng yǔ zhǒnglèi)</h2>
+  <h2>How Do We Pay? 如何缴纳？</h2>
 
   <div class="sentence-block">
-    <div class="en">The amount of Zakat al-Fitrah is <strong>one <span class="key-term">sa'</span></strong> of food — which equals approximately <strong>2.5 kg to 3 kg</strong> of the staple food in your area.</div>
+    <div class="en">The amount of Zakat al-Fitrah is <strong>one <span class="key-term">sa'</span></strong> of food — about <strong>2.5–3 kg</strong> of the staple food in your area.</div>
     <div class="zh-toggle"><button class="btn-zh" onclick="toggleTr(this)">中文 ▾</button></div>
     <div class="translation">
-      <div class="zh-text">开斋天课的数量是一个"萨"（Sa'）的食物——约等于你所在地区的主食2.5至3公斤。</div>
-      <div class="pinyin">Kāizhāi tiānkè de shùliàng shì yīgè "sà" (Sa') de shíwù — yuē děngyú nǐ suǒzài dìqū de zhǔshí 2.5 zhì 3 gōngjīn.</div>
+      <div class="zh-text">开斋天课的数量是一个"萨"（Sa'）的食物，大约等于当地主食2.5至3公斤。</div>
+      <div class="pinyin">Kāizhāi tiānkè de shùliàng shì yīgè "sà" (Sa') de shíwù, dàyuē děngyú dāngdì zhǔshí 2.5 zhì 3 gōngjīn.</div>
     </div>
   </div>
 
   <div class="sentence-block">
-    <div class="en">In Malaysia, the staple food is <strong>rice</strong>. So each person must pay approximately <strong>2.7 kg of rice</strong>, or its <strong>equivalent in money</strong> (as determined by the local Islamic authority).</div>
+    <div class="en">In Malaysia, the staple food is <strong>rice</strong>, so each person must pay about <strong>2.7 kg of rice</strong> or its <strong>cash equivalent</strong> as decided by the state Islamic council.</div>
     <div class="zh-toggle"><button class="btn-zh" onclick="toggleTr(this)">中文 ▾</button></div>
     <div class="translation">
-      <div class="zh-text">在马来西亚，主食是大米。因此每人必须缴纳约2.7公斤的大米，或其等值金额（由当地伊斯兰当局规定）。</div>
-      <div class="pinyin">Zài mǎláixīyà, zhǔshí shì dàmǐ. Yīncǐ měi rén bìxū jiǎonà yuē 2.7 gōngjīn de dàmǐ, huò qí děngzhí jīn'é (yóu dāngdì yīsīlán dāngjú guīdìng).</div>
+      <div class="zh-text">在马来西亚，主食是大米，因此每人必须缴纳约2.7公斤大米，或由州宗教理事会规定的等值现金。</div>
+      <div class="pinyin">Zài mǎláixīyà, zhǔshí shì dàmǐ, yīncǐ měi rén bìxū jiǎonà yuē 2.7 gōngjīn dàmǐ, huò zhōu zōngjiào lǐshìhuì guīdìng de děngzhí xiànjīn.</div>
     </div>
   </div>
 
   <div class="sentence-block">
-    <div class="en">Today, most Islamic authorities allow payment in <strong>money (cash)</strong> instead of food, to make it easier and more useful for the poor.</div>
+    <div class="en">Today, many Islamic authorities allow payment in <strong>money (cash)</strong> instead of food, to make it easier and more useful for the poor.</div>
     <div class="zh-toggle"><button class="btn-zh" onclick="toggleTr(this)">中文 ▾</button></div>
     <div class="translation">
-      <div class="zh-text">如今，大多数伊斯兰当局允许用金钱（现金）代替食物缴纳，以便为穷人提供更方便、更实用的帮助。</div>
-      <div class="pinyin">Rújīn, dàduōshù yīsīlán dāngjú yǔnxǔ yòng jīnqián (xiànjīn) dàitì shíwù jiǎonà, yǐbiàn wèi qióngrén tígōng gèng fāngbiàn, gèng shíyòng de bāngzhù.</div>
+      <div class="zh-text">如今，许多伊斯兰当局允许用现金代替食物缴纳，以便为穷人提供更方便、更实用的帮助。</div>
+      <div class="pinyin">Rújīn, xǔduō yīsīlán dāngjú yǔnxǔ yòng xiànjīn dàitì shíwù jiǎonà, yǐbiàn wèi qióngrén tígōng gèng fāngbiàn gèng shíyòng de bāngzhù.</div>
+    </div>
+  </div>
+
+  <h3>Who receives it?</h3>
+  <div class="sentence-block">
+    <div class="en">Zakat al-Fitrah is given to the <span class="key-term">Asnaf</span> — 8 groups of people who can receive zakat, especially the <strong>poor (Fakir &amp; Miskin)</strong> so they can celebrate Eid with dignity.</div>
+    <div class="zh-toggle"><button class="btn-zh" onclick="toggleTr(this)">中文 ▾</button></div>
+    <div class="translation">
+      <div class="zh-text">开斋天课给"Asnaf"——有资格接受天课的八类人，特别是"Fakir"和"Miskin"，使他们也能有尊严地庆祝开斋节。</div>
+      <div class="pinyin">Kāizhāi tiānkè gěi "Asnaf" — yǒu zīgé jiēshòu tiānkè de bā lèi rén, tèbié shì "Fakir" hé "Miskin", shǐ tāmen yě néng yǒu zūnyán de qìngzhù kāizhāi jié.</div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     SECTION 5: WHEN & WHO RECEIVES
-══════════════════════════════════ -->
-<section id="when">
+<!-- 5. Why do we pay -->
+<section id="sec-why" class="slide-section">
   <div class="section-label">Part 5 · 第五部分</div>
-  <h2>When & Who Receives It? 何时缴？谁接受？</h2>
-
-  <h3>Time of Payment 缴纳时间</h3>
+  <h2>Why Do We Pay? 为什么要缴？</h2>
 
   <div class="sentence-block">
-    <div class="en">There are different <strong>time categories</strong> for paying Zakat al-Fitrah. The best time is before the Eid prayer on the morning of <span class="key-term">Eid al-Fitr</span>.</div>
+    <div class="en">Zakat al-Fitrah <strong>purifies</strong> our fasting from small mistakes like bad words or wasting time.</div>
     <div class="zh-toggle"><button class="btn-zh" onclick="toggleTr(this)">中文 ▾</button></div>
     <div class="translation">
-      <div class="zh-text">缴纳开斋天课有不同的时间类别。最佳时间是在开斋节早上的节礼拜前。</div>
-      <div class="pinyin">Jiǎonà kāizhāi tiānkè yǒu bùtóng de shíjiān lèibié. Zuì jiā shíjiān shì zài kāizhāi jié zǎoshang de jié lǐbài qián.</div>
-    </div>
-  </div>
-
-<ul class="steps">
-  <li>
-    <div class="step-num">1</div>
-    <div>
-      <strong>Permitted (Harus)</strong> — From the 1st of Ramadan until the end of Ramadan. <em>Paying anytime in this period is valid, and you may pay early once Ramadan starts.</em>
-      <span class="zh-small">允许（Harus）— 从斋月第一天开始直到斋月结束。<em>在这整个期间内缴纳都是有效的，只要进入斋月就可以提前缴纳。</em><br>Yǔnxǔ (Harus) — cóng zhāiyuè dì yī tiān kāishǐ zhídào zhāiyuè jiéshù. <em>Zài zhěnggè qījiān nèi jiǎonà dōu shì yǒuxiào de, jǐnrù zhāiyuè jiù kěyǐ tíqián jiǎonà.</em></span>
-    </div>
-  </li>
-  <li>
-    <div class="step-num">2</div>
-    <div>
-      <strong>Obligatory (Wajib)</strong> — When the sun sets on the last day of Ramadan (the start of the night of Eid). <em>Zakat fitrah becomes compulsory at this point for those who meet the conditions.</em>
-      <span class="zh-small">义务时间（Wajib）— 在斋月最后一天日落（即进入开斋节之夜）时。<em>从这一刻起，对符合条件的穆斯林来说开斋捐便成为义务。</em><br>Yìwù shíjiān (Wajib) — zài zhāiyuè zuìhòu yī tiān rìluò (jí jìnrù kāizhāi jié zhī yè) shí. <em>Cóng zhè yīkè qǐ, duì fúhé tiáojiàn de mùsīlín láishuō kāizhāi juān biàn chéng wùbì.</em></span>
-    </div>
-  </li>
-  <li>
-    <div class="step-num">3</div>
-    <div>
-      <strong>Recommended / Best Time (Sunat / Afdal)</strong> — Morning of Eid al-Fitr after sunrise, before the Eid prayer. <em>This is the best time, following the practice of the Prophet.</em>
-      <span class="zh-small">推荐／最优时间（Sunat／Afdal）— 开斋节早晨，从日出后直到开斋节礼拜之前。<em>这是最优时间，符合先知的实践。</em><br>Tuījiàn / zuì yōu shíjiān (Sunat / Afdal) — kāizhāi jié zǎochén, cóng rìchū hòu zhídào kāizhāi jié lǐbài zhīqián. <em>Zhè shì zuì yōu shíjiān, fúhé xiānzhī de shíjiàn.</em></span>
-    </div>
-  </li>
-  <li>
-    <div class="step-num">4</div>
-    <div>
-      <strong>Makruh (Disliked)</strong> — After the Eid prayer but before sunset on the first day of Shawwal. <em>The zakat is still valid but it is disliked to delay it beyond the recommended time.</em>
-      <span class="zh-small">可憎（Makruh）— 在开斋节礼拜之后，但仍在肖瓦尔月初一日落之前。<em>此时缴纳依然有效，但因拖延超过推荐时间而不受鼓励。</em><br>Kězēng (Makruh) — zài kāizhāi jié lǐbài zhīhòu, dàn réng zài Xiào wǎ ěr yuè chū yī rìluò zhīqián. <em>Cǐ shí jiǎonà yīrán yǒuxiào, dàn yīnwèi tuōyán chāoguò tuījiàn shíjiān ér bù shòu gǔlì.</em></span>
-    </div>
-  </li>
-  <li>
-    <div class="step-num">5</div>
-    <div>
-      <strong>Haram (Forbidden)</strong> — After sunset on the first day of Shawwal. <em>Delaying without excuse until this time is sinful, and it becomes a debt (qada’) you must repay immediately.</em>
-      <span class="zh-small">禁止（Haram）— 在肖瓦尔月初一日落之后。<em>无正当理由拖延到此时才缴纳属有罪之举，这笔开斋捐变成必须立即补缴的“欠债”（ قضاء ）。</em><br>Jìnzhǐ (Haram) — zài Xiào wǎ ěr yuè chū yī rìluò zhīhòu. <em>Wú zhèngdàng lǐyóu tuōyán dào cǐ shí cái jiǎonà shǔ yǒuzuì zhī jǔ, zhè bǐ kāizhāi juān biàn chéng bìxū lìjí bǔjiǎo de “qiànzhài” (qadā’).</em></span>
-    </div>
-  </li>
-</ul>
-
-
-  <h3>Who Receives Zakat al-Fitrah? 谁接受开斋天课？</h3>
-
-  <div class="sentence-block">
-    <div class="en">Zakat al-Fitrah is distributed to <span class="key-term">Asnaf</span> — 8 groups of people who are eligible to receive zakat, as stated in the Quran (Surah at-Tawbah 9:60).</div>
-    <div class="zh-toggle"><button class="btn-zh" onclick="toggleTr(this)">中文 ▾</button></div>
-    <div class="translation">
-      <div class="zh-text">开斋天课分配给"Asnaf"——《古兰经》（第9章第60节）中提到的8类有资格接受天课的人。</div>
-      <div class="pinyin">Kāizhāi tiānkè fēnpèi gěi "Asnaf" — gǔlán jīng (dì 9 zhāng dì 60 jié) zhōng tídào de 8 lèi yǒu zīgé jiēshòu tiānkè de rén.</div>
+      <div class="zh-text">开斋天课可以净化我们的斋戒，弥补我们在斋月中犯下的小错误，比如说坏话或浪费时间。</div>
+      <div class="pinyin">Kāizhāi tiānkè kěyǐ jìnghuà wǒmen de zhāijiè, míbǔ wǒmen zài zhāiyuè zhōng fàn xià de xiǎo cuòwù, bǐrú shuō huàihuà huò làngfèi shíjiān.</div>
     </div>
   </div>
 
   <div class="sentence-block">
-    <div class="en">The most important group for Zakat al-Fitrah is the <span class="key-term">Fakir</span> (very poor) and <span class="key-term">Miskin</span> (poor), so they can celebrate Eid with food and happiness.</div>
+    <div class="en">It also <strong>helps the poor</strong> enjoy Eid so that they do not need to beg on that day.</div>
     <div class="zh-toggle"><button class="btn-zh" onclick="toggleTr(this)">中文 ▾</button></div>
     <div class="translation">
-      <div class="zh-text">开斋天课最重要的接受群体是"Fakir"（极度贫困者）和"Miskin"（贫困者），使他们能够在开斋节享有食物和快乐。</div>
-      <div class="pinyin">Kāizhāi tiānkè zuì zhòngyào de jiēshòu qúntǐ shì "Fakir" (jídù pínkùn zhě) hé "Miskin" (pínkùn zhě), shǐ tāmen nénggòu zài kāizhāi jié xiǎngyǒu shíwù hé kuàilè.</div>
+      <div class="zh-text">它还可以帮助穷人，让他们在开斋节这一天也能有食物，不必向人乞讨。</div>
+      <div class="pinyin">Tā hái kěyǐ bāngzhù qióngrén, ràng tāmen zài kāizhāi jié zhè yītiān yě néng yǒu shíwù, bùbì xiàng rén qǐtǎo.</div>
     </div>
   </div>
 
   <div class="callout">
-    <strong>🌙 Wisdom / 智慧 (Zhìhuì):</strong><br>
-    The Prophet ﷺ said: "Feed them (the poor) on this day (Eid) so they do not have to beg from people." This shows that Zakat al-Fitrah is about <em>dignity for all</em>.
-    <span class="zh-small">先知ﷺ说："在这一天（开斋节）喂养穷人，使他们不必向人乞讨。"这表明开斋天课是关于人人有尊严的。<br>Xiānzhī shuō: "Zài zhè yītiān wèiyǎng qióngrén, shǐ tāmen bù bì xiàng rén qǐtǎo." Zhè biǎomíng kāizhāi tiānkè shì guānyú rénrén yǒu zūnyán de.</span>
+    <strong>🌙 Wisdom:</strong><br>
+    The aim is that <em>every Muslim</em> can feel joy, food, and dignity on Eid — not only the rich.
+    <span class="zh-small">目标是让每一位穆斯林在开斋节都能感受到快乐、食物和尊严，而不只是富人。</span>
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     SECTION 6: QUIZ
-══════════════════════════════════ -->
-<section id="quiz">
+<!-- 6. Quick quiz -->
+<section id="sec-quiz" class="slide-section">
   <div class="section-label">Part 6 · 第六部分</div>
-  <h2>Quick Quiz 小测验 (Xiǎo cèyàn)</h2>
-  <p style="margin-bottom:20px;color:var(--muted);">Click your answer. Click to see if you are correct! 点击你的答案，看看是否正确！</p>
+  <h2>Quick Quiz 小测验</h2>
+  <p style="margin-bottom:20px;color:var(--muted);">Click your answer. 点击你的答案看看是否正确！</p>
 
-  <!-- Q1 -->
   <div class="quiz-card">
-    <div class="quiz-q">1. Who must pay Zakat al-Fitrah? 谁必须缴纳开斋天课？</div>
+    <div class="quiz-q">1. Who must pay Zakat al-Fitrah?</div>
     <div class="quiz-options">
-      <button class="quiz-opt" onclick="answer(this, false, 'Only rich adults must pay.')">Only rich adult Muslims 只有富裕的成年穆斯林</button>
-      <button class="quiz-opt" onclick="answer(this, true, 'Correct! Every Muslim — including children — must pay.')">Every Muslim, including children 每位穆斯林，包括儿童 ✓</button>
-      <button class="quiz-opt" onclick="answer(this, false, 'Not correct. Even non-fasting Muslims must pay.')">Only those who fasted 只有封斋者</button>
+      <button class="quiz-opt" onclick="answer(this, false, 'Only rich adults is wrong; every Muslim must pay.')">Only rich adult Muslims</button>
+      <button class="quiz-opt" onclick="answer(this, true, 'Correct! Every Muslim, including children, must pay (through their guardian).')">Every Muslim, including children</button>
+      <button class="quiz-opt" onclick="answer(this, false, 'Even those who could not fast still need to pay if they meet the conditions.')">Only those who fasted</button>
     </div>
     <div class="quiz-feedback"></div>
   </div>
 
-  <!-- Q2 -->
   <div class="quiz-card">
-    <div class="quiz-q">2. What is the BEST time to pay Zakat al-Fitrah? 缴纳开斋天课的最佳时间是？</div>
+    <div class="quiz-q">2. What is the BEST time to pay Zakat al-Fitrah?</div>
     <div class="quiz-options">
-      <button class="quiz-opt" onclick="answer(this, false, 'After Eid prayer is Makruh (disliked).')">After Eid prayer 开斋节礼拜后</button>
-      <button class="quiz-opt" onclick="answer(this, true, 'Correct! Before the Eid prayer is the best and obligatory time.')">Before Eid prayer 开斋节礼拜前 ✓</button>
-      <button class="quiz-opt" onclick="answer(this, false, 'The day after Eid is Haram — it becomes a debt!')">Day after Eid 开斋节后一天</button>
+      <button class="quiz-opt" onclick="answer(this, false, 'After Eid prayer is Makruh (disliked).')">After Eid prayer</button>
+      <button class="quiz-opt" onclick="answer(this, true, 'Correct! Before the Eid prayer is the best time.')">Before Eid prayer</button>
+      <button class="quiz-opt" onclick="answer(this, false, 'The day after Eid is already late (Haram).')">The day after Eid</button>
     </div>
     <div class="quiz-feedback"></div>
   </div>
 
-  <!-- Q3 -->
   <div class="quiz-card">
-    <div class="quiz-q">3. How much is one Sa' of food approximately? 一个"萨"大约等于多少？</div>
+    <div class="quiz-q">3. Approximately how much is one Sa’ of food?</div>
     <div class="quiz-options">
-      <button class="quiz-opt" onclick="answer(this, false, '500g is too little. One Sa equals about 2.5–3 kg.')">500 grams 500克</button>
-      <button class="quiz-opt" onclick="answer(this, false, '10 kg is too much.')">10 kilograms 10公斤</button>
-      <button class="quiz-opt" onclick="answer(this, true, 'Correct! One Sa is approximately 2.5 to 3 kg.')">2.5 – 3 kilograms 2.5至3公斤 ✓</button>
+      <button class="quiz-opt" onclick="answer(this, false, 'Too little – one Sa’ is more than that.')">500 grams</button>
+      <button class="quiz-opt" onclick="answer(this, false, 'Too much – one Sa’ is not 10 kg.')">10 kilograms</button>
+      <button class="quiz-opt" onclick="answer(this, true, 'Correct! One Sa’ is around 2.5–3 kg of food.')">2.5–3 kilograms</button>
     </div>
     <div class="quiz-feedback"></div>
   </div>
-
-  <!-- Q4 -->
-  <div class="quiz-card">
-    <div class="quiz-q">4. What is the main difference between Zakat al-Mal and Zakat al-Fitrah? 两种天课的主要区别是？</div>
-    <div class="quiz-options">
-      <button class="quiz-opt" onclick="answer(this, false, 'Both are obligatory for Muslims, not non-Muslims.')">One is for non-Muslims 一种是给非穆斯林的</button>
-      <button class="quiz-opt" onclick="answer(this, true, 'Correct! Zakat al-Mal is on savings/wealth; Zakat al-Fitrah is a fixed food amount paid at end of Ramadan.')">Zakat al-Mal is on savings; al-Fitrah is a fixed food amount at Ramadan end ✓</button>
-      <button class="quiz-opt" onclick="answer(this, false, 'Both are obligatory — not optional.')">One is optional 一种是自愿的</button>
-    </div>
-    <div class="quiz-feedback"></div>
-  </div>
-
 </section>
 
 </main>
 
 <footer>
-  Made for Grade 7–9 Islamic Studies · 初中伊斯兰研究 · Chūzhōng yīsīlán yánjiū
+  Made for Grade 7–9 Islamic Studies · 初中伊斯兰研究
 </footer>
 
 <script>
-  // Progress bar
-  window.addEventListener('scroll', () => {
-    const total = document.documentElement.scrollHeight - window.innerHeight;
-    const pct = (window.scrollY / total) * 100;
-    document.getElementById('progress-bar').style.width = pct + '%';
+  // Slide switching
+  const navButtons = document.querySelectorAll('.nav-btn');
+  const sections = document.querySelectorAll('.slide-section');
+
+  navButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-target');
+      navButtons.forEach(b => b.classList.remove('active'));
+      sections.forEach(s => s.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(target).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   });
 
   // Toggle individual translation
@@ -723,7 +683,7 @@
   // Quiz
   function answer(btn, correct, feedback) {
     const card = btn.closest('.quiz-card');
-    if (card.querySelector('.correct')) return; // already answered
+    if (card.querySelector('.correct')) return;
     const opts = card.querySelectorAll('.quiz-opt');
     opts.forEach(o => o.disabled = true);
     btn.classList.add(correct ? 'correct' : 'wrong');
