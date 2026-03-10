@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>G9 Quiz – Translations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .question-block {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px auto;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+    .question-text {
+      font-size: 1.05rem;
+      margin-bottom: 15px;
+      white-space: pre-line;
+    }
+    .btn-group {
+      margin-bottom: 10px;
+    }
+    button.lang-btn {
+      margin: 4px;
+      padding: 8px 14px;
+      font-size: 0.9rem;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      background: #1976d2;
+      color: #ffffff;
+    }
+    button.lang-btn:hover {
+      background: #125a9e;
+    }
+    details.translation-box {
+      margin-top: 8px;
+      text-align: left;
+      display: inline-block;
+      max-width: 100%;
+    }
+    details.translation-box summary {
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .translation-text {
+      padding-top: 6px;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Quiz 1 – Grade 9</h1>
+
+    <h2>Section A</h2>
+
+    <!-- A1 -->
+    <div class="question-block" id="qA1">
+      <div class="question-text">
+1. The hadith seems to mention three separate messages. Explain how these three messages are actually connected and work together in a Muslim’s life.
+      </div>
+
+      <div class="btn-group">
+        <button class="lang-btn" onclick="showTranslation('qA1','cn')">中文 Chinese</button>
+        <button class="lang-btn" onclick="showTranslation('qA1','th')">ภาษาไทย Thai</button>
+        <button class="lang-btn" onclick="showTranslation('qA1','bn')">বাংলা Bengali</button>
+      </div>
+
+      <details class="translation-box" id="qA1-cn" style="display:none;">
+        <summary>中文翻译 Chinese Translation</summary>
+        <div class="translation-text">
+1. 这段圣训好像提到三个不同的信息。请解释这三个信息是怎样互相关联，并且怎样在穆斯林的生活中一起发挥作用。
+        </div>
+      </details>
+
+      <details class="translation-box" id="qA1-th" style="display:none;">
+        <summary>คำแปลภาษาไทย Thai Translation</summary>
+        <div class="translation-text">
+1. ฮะดีษบทนี้ดูเหมือนจะกล่าวถึงสาระสำคัญสามข้อ อธิบายว่าสามข้อความนี้เชื่อมโยงกันอย่างไร และทำงานร่วมกันในชีวิตของมุสลิมอย่างไร
+        </div>
+      </details>
+
+      <details class="translation-box" id="qA1-bn" style="display:none;">
+        <summary>বাংলা অনুবাদ Bengali Translation</summary>
+        <div class="translation-text">
+1. এই হাদীসে তিনটি আলাদা বার্তা উল্লেখ করা হয়েছে বলে মনে হয়। ব্যাখ্যা করো কীভাবে এই তিনটি বার্তা পরস্পর সংযুক্ত এবং কীভাবে তা একজন মুসলিমের জীবনে একসাথে কাজ করে।
+        </div>
+      </details>
+    </div>
+
+    <!-- A2 -->
+    <div class="question-block" id="qA2">
+      <div class="question-text">
+2. A student cheated in a test and now feels guilty. Based on the hadith, explain the concrete steps he should take to repent from the sin, in his relationship with Allah and with his teacher.
+      </div>
+
+      <div class="btn-group">
+        <button class="lang-btn" onclick="showTranslation('qA2','cn')">中文 Chinese</button>
+        <button class="lang-btn" onclick="showTranslation('qA2','th')">ภาษาไทย Thai</button>
+        <button class="lang-btn" onclick="showTranslation('qA2','bn')">বাংলা Bengali</button>
+      </div>
+
+      <details class="translation-box" id="qA2-cn" style="display:none;">
+        <summary>中文翻译 Chinese Translation</summary>
+        <div class="translation-text">
+2. 一名学生在考试中作弊，现在感到很内疚。根据这段圣训，说明他在与安拉和老师的关系中应当采取哪些具体步骤来忏悔自己的罪行。
+        </div>
+      </details>
+
+      <details class="translation-box" id="qA2-th" style="display:none;">
+        <summary>คำแปลภาษาไทย Thai Translation</summary>
+        <div class="translation-text">
+2. นักเรียนคนหนึ่งโกงข้อสอบและรู้สึกผิด จากฮะดีษบทนี้ จงอธิบายขั้นตอนที่เป็นรูปธรรมที่เขาควรทำเพื่อเตาบะฮฺจากความผิดนี้ ทั้งในความสัมพันธ์ของเขากับอัลลอฮ์และกับครูของเขา
+        </div>
+      </details>
+
+      <details class="translation-box" id="qA2-bn" style="display:none;">
+        <summary>বাংলা অনুবাদ Bengali Translation</summary>
+        <div class="translation-text">
+2. এক ছাত্র পরীক্ষায় নকল করেছে এবং এখন অপরাধবোধে ভুগছে। হাদীসের ভিত্তিতে ব্যাখ্যা করো, আল্লাহর সাথে এবং তার শিক্ষকের সাথে সম্পর্কের ক্ষেত্রে এই গুনাহ থেকে তাওবা করতে তাকে কী কী বাস্তব পদক্ষেপ নিতে হবে।
+        </div>
+      </details>
+    </div>
+
+    <!-- A3 -->
+    <div class="question-block" id="qA3">
+      <div class="question-text">
+3. Give one example of good character (husn al-akhlaq) that a Muslim can practise every day.
+      </div>
+
+      <div class="btn-group">
+        <button class="lang-btn" onclick="showTranslation('qA3','cn')">中文 Chinese</button>
+        <button class="lang-btn" onclick="showTranslation('qA3','th')">ภาษาไทย Thai</button>
+        <button class="lang-btn" onclick="showTranslation('qA3','bn')">বাংলা Bengali</button>
+      </div>
+
+      <details class="translation-box" id="qA3-cn" style="display:none;">
+        <summary>中文翻译 Chinese Translation</summary>
+        <div class="translation-text">
+3. 举出一个穆斯林每天都可以实践的良好品德（优良道德，husn al-akhlaq）的例子。
+        </div>
+      </details>
+
+      <details class="translation-box" id="qA3-th" style="display:none;">
+        <summary>คำแปลภาษาไทย Thai Translation</summary>
+        <div class="translation-text">
+3. ยกตัวอย่างหนึ่งข้อของอุปนิสัยที่ดี (husn al-akhlaq) ซึ่งมุสลิมสามารถปฏิบัติได้ในชีวิตประจำวัน
+        </div>
+      </details>
+
+      <details class="translation-box" id="qA3-bn" style="display:none;">
+        <summary>বাংলা অনুবাদ Bengali Translation</summary>
+        <div class="translation-text">
+3. এমন একটি উত্তম চরিত্রের (হুসনুল আখলাক) উদাহরণ দাও যা একজন মুসলিম প্রতিদিন অনুশীলন করতে পারে।
+        </div>
+      </details>
+    </div>
+
+    <h2>Section B</h2>
+
+    <!-- B intro -->
+    <div class="question-block" id="qB0">
+      <div class="question-text">
+B) Read each statement carefully. If the statement is correct according to the Islamic rulings of fasting, write T for True. If the statement is not correct, write F for False.
+      </div>
+
+      <div class="btn-group">
+        <button class="lang-btn" onclick="showTranslation('qB0','cn')">中文 Chinese</button>
+        <button class="lang-btn" onclick="showTranslation('qB0','th')">ภาษาไทย Thai</button>
+        <button class="lang-btn" onclick="showTranslation('qB0','bn')">বাংলা Bengali</button>
+      </div>
+
+      <details class="translation-box" id="qB0-cn" style="display:none;">
+        <summary>中文翻译 Chinese Translation</summary>
+        <div class="translation-text">
+B）仔细阅读每一句话。如果该句根据伊斯兰有关斋戒的教法规是正确的，就写 T（True）。如果不正确，就写 F（False）。
+        </div>
+      </details>
+
+      <details class="translation-box" id="qB0-th" style="display:none;">
+        <summary>คำแปลภาษาไทย Thai Translation</summary>
+        <div class="translation-text">
+ข) อ่านแต่ละข้อความอย่างระมัดระวัง ถ้าข้อความนั้นถูกต้องตามหลักฟิกฮฺเรื่องการถือศีลอดให้เขียน T (True) ถ้าไม่ถูกต้องให้เขียน F (False)
+        </div>
+      </details>
+
+      <details class="translation-box" id="qB0-bn" style="display:none;">
+        <summary>বাংলা অনুবাদ Bengali Translation</summary>
+        <div class="translation-text">
+খ) প্রতিটি বাক্য ভালোভাবে পড়ো। যদি বাক্যটি ইসলামি শরয়ি রোজার বিধান অনুযায়ী সঠিক হয়, তবে T (True) লেখো; সঠিক না হলে F (False) লেখো।
+        </div>
+      </details>
+    </div>
+
+    <!-- B1 -->
+    <div class="question-block" id="qB1">
+      <div class="question-text">
+In Islamic law, fasting means to intentionally refrain from food, drink and invalidators from sunrise until sunset for the sake of Allah.
+      </div>
+
+      <div class="btn-group">
+        <button class="lang-btn" onclick="showTranslation('qB1','cn')">中文 Chinese</button>
+        <button class="lang-btn" onclick="showTranslation('qB1','th')">ภาษาไทย Thai</button>
+        <button class="lang-btn" onclick="showTranslation('qB1','bn')">বাংলা Bengali</button>
+      </div>
+
+      <details class="translation-box" id="qB1-cn" style="display:none;">
+        <summary>中文翻译 Chinese Translation</summary>
+        <div class="translation-text">
+在伊斯兰教法中，斋戒是指为了安拉而在日出到日落之间，有意识地远离饮食和一切会使斋戒无效的事物。
+        </div>
+      </details>
+
+      <details class="translation-box" id="qB1-th" style="display:none;">
+        <summary>คำแปลภาษาไทย Thai Translation</summary>
+        <div class="translation-text">
+ตามกฎหมายอิสลาม การถือศีลอดหมายถึงการตั้งใจเว้นจากอาหาร น้ำ และสิ่งที่ทำให้ศีลอดเสีย ตั้งแต่พระอาทิตย์ขึ้นจนพระอาทิตย์ตก เพื่ออัลลอฮ์
+        </div>
+      </details>
+
+      <details class="translation-box" id="qB1-bn" style="display:none;">
+        <summary>বাংলা অনুবাদ Bengali Translation</summary>
+        <div class="translation-text">
+ইসলামি শরিয়তে রোজা হল আল্লাহর সন্তুষ্টির জন্য সচেতনভাবে ভোর থেকে সূর্যাস্ত পর্যন্ত খাদ্য, পানীয় এবং রোজা ভঙ্গকারী সবকিছু থেকে বিরত থাকা।
+        </div>
+      </details>
+    </div>
+
+    <!-- B2 -->
+    <div class="question-block" id="qB2">
+      <div class="question-text">
+Kaffarah fasting is a voluntary fast that a Muslim can do anytime to get more reward.
+      </div>
+
+      <div class="btn-group">
+        <button class="lang-btn" onclick="showTranslation('qB2','cn')">中文 Chinese</button>
+        <button class="lang-btn" onclick="showTranslation('qB2','th')">ภาษาไทย Thai</button>
+        <button class="lang-btn" onclick="showTranslation('qB2','bn')">বাংলা Bengali</button>
+      </div>
+
+      <details class="translation-box" id="qB2-cn" style="display:none;">
+        <summary>中文翻译 Chinese Translation</summary>
+        <div class="translation-text">
+赎罪斋（Kaffarah）是一种自愿性斋戒，穆斯林可以在任何时间为获取更多回赐而进行。
+        </div>
+      </details>
+
+      <details class="translation-box" id="qB2-th" style="display:none;">
+        <summary>คำแปลภาษาไทย Thai Translation</summary>
+        <div class="translation-text">
+การถือศีลอดกาแฟเราะฮฺ (kaffarah) เป็นการถือศีลอดสมัครใจที่มุสลิมสามารถทำเมื่อไรก็ได้เพื่อให้ได้ผลบุญมากขึ้น
+        </div>
+      </details>
+
+      <details class="translation-box" id="qB2-bn" style="display:none;">
+        <summary>বাংলা অনুবাদ Bengali Translation</summary>
+        <div class="translation-text">
+কাফফারা রোজা হল একটি নফল রোজা, যা মুসলিম যেকোনো সময় বেশি সওয়াবের জন্য রাখতে পারে।
+        </div>
+      </details>
+    </div>
+
+    <!-- B3 -->
+    <div class="question-block" id="qB3">
+      <div class="question-text">
+The time to make the intention (niyyah) for an obligatory fast is during the night, from Maghrib until before Fajr.
+      </div>
+
+      <div class="btn-group">
+        <button class="lang-btn" onclick="showTranslation('qB3','cn')">中文 Chinese</button>
+        <button class="lang-btn" onclick="showTranslation('qB3','th')">ภาษาไทย Thai</button>
+        <button class="lang-btn" onclick="showTranslation('qB3','bn')">বাংলা Bengali</button>
+      </div>
+
+      <details class="translation-box" id="qB3-cn" style="display:none;">
+        <summary>中文翻译 Chinese Translation</summary>
+        <div class="translation-text">
+为履行主命斋而立意（niyyah）的时间是在夜间，从昏礼（Maghrib）之后到晨礼（Fajr）之前。
+        </div>
+      </details>
+
+      <details class="translation-box" id="qB3-th" style="display:none;">
+        <summary>คำแปลภาษาไทย Thai Translation</summary>
+        <div class="translation-text">
+เวลาสำหรับตั้งเจตนา (นิยยะฮฺ) ในการถือศีลอดฟัรฎู คือช่วงเวลากลางคืน ตั้งแต่มักริบถึงก่อนฟัجร์
+        </div>
+      </details>
+
+      <details class="translation-box" id="qB3-bn" style="display:none;">
+        <summary>বাংলা অনুবাদ Bengali Translation</summary>
+        <div class="translation-text">
+ফরজ রোজার নিয়ত করার সময় হল রাতের মধ্যে, মাগরিব থেকে ফজরের আগে পর্যন্ত।
+        </div>
+      </details>
+    </div>
+
+    <!-- B4 -->
+    <div class="question-block" id="qB4">
+      <div class="question-text">
+Accidental vomiting does not break the fast, but intentionally making yourself vomit does.
+      </div>
+
+      <div class="btn-group">
+        <button class="lang-btn" onclick="showTranslation('qB4','cn')">中文 Chinese</button>
+        <button class="lang-btn" onclick="showTranslation('qB4','th')">ภาษาไทย Thai</button>
+        <button class="lang-btn" onclick="showTranslation('qB4','bn')">বাংলা Bengali</button>
+      </div>
+
+      <details class="translation-box" id="qB4-cn" style="display:none;">
+        <summary>中文翻译 Chinese Translation</summary>
+        <div class="translation-text">
+无意呕吐不会使斋戒无效，但故意让自己呕吐则会破坏斋戒。
+        </div>
+      </details>
+
+      <details class="translation-box" id="qB4-th" style="display:none;">
+        <summary>คำแปลภาษาไทย Thai Translation</summary>
+        <div class="translation-text">
+การอาเจียนโดยไม่ตั้งใจไม่ทำให้ศีลอดเสีย แต่การจงใจทำให้ตัวเองอาเจียนทำให้ศีลอดเสีย
+        </div>
+      </details>
+
+      <details class="translation-box" id="qB4-bn" style="display:none;">
+        <summary>বাংলা অনুবাদ Bengali Translation</summary>
+        <div class="translation-text">
+অনিচ্ছাকৃত বমি রোজা নষ্ট করে না, তবে ইচ্ছাকৃতভাবে নিজেকে বমি করালে রোজা ভেঙে যায়।
+        </div>
+      </details>
+    </div>
+
+    <!-- B5 -->
+    <div class="question-block" id="qB5">
+      <div class="question-text">
+Fasting for health reasons is not permissible and is sinful; a Muslim must never think about health when fasting and should only be sincere to Allah.
+      </div>
+
+      <div class="btn-group">
+        <button class="lang-btn" onclick="showTranslation('qB5','cn')">中文 Chinese</button>
+        <button class="lang-btn" onclick="showTranslation('qB5','th')">ภาษาไทย Thai</button>
+        <button class="lang-btn" onclick="showTranslation('qB5','bn')">বাংলা Bengali</button>
+      </div>
+
+      <details class="translation-box" id="qB5-cn" style="display:none;">
+        <summary>中文翻译 Chinese Translation</summary>
+        <div class="translation-text">
+为了健康而斋戒是不被允许的，是有罪的；穆斯林在斋戒时绝不能想到健康，只应当只为安拉而真诚。
+        </div>
+      </details>
+
+      <details class="translation-box" id="qB5-th" style="display:none;">
+        <summary>คำแปลภาษาไทย Thai Translation</summary>
+        <div class="translation-text">
+การถือศีลอดด้วยเหตุผลด้านสุขภาพไม่อนุญาตและถือเป็นบาป มุสลิมต้องไม่คิดเรื่องสุขภาพเมื่อถือศีลอดและต้องมีแต่ความบริสุทธิ์ใจต่ออัลลอฮ์เท่านั้น
+        </div>
+      </details>
+
+      <details class="translation-box" id="qB5-bn" style="display:none;">
+        <summary>বাংলা অনুবাদ Bengali Translation</summary>
+        <div class="translation-text">
+স্বাস্থ্যগত কারণে রোজা রাখা জায়েয নয় এবং এটি গুনাহ; একজন মুসলিম রোজা রাখার সময় কখনোই স্বাস্থ্য নিয়ে ভাবতে পারবে না, শুধু আল্লাহর জন্যই নিয়ত রাখতে হবে।
+        </div>
+      </details>
+    </div>
+
+    <!-- B6 -->
+    <div class="question-block" id="qB6">
+      <div class="question-text">
+Taraweeh prayer in Ramadan is highly recommended (sunnah mu’akkadah), not compulsory.
+      </div>
+
+      <div class="btn-group">
+        <button class="lang-btn" onclick="showTranslation('qB6','cn')">中文 Chinese</button>
+        <button class="lang-btn" onclick="showTranslation('qB6','th')">ภาษาไทย Thai</button>
+        <button class="lang-btn" onclick="showTranslation('qB6','bn')">বাংলা Bengali</button>
+      </div>
+
+      <details class="translation-box" id="qB6-cn" style="display:none;">
+        <summary>中文翻译 Chinese Translation</summary>
+        <div class="translation-text">
+在斋月里的台拉维哈（Taraweeh）拜是非常被强调的圣行（sunnah mu’akkadah），但并非强制性的。
+        </div>
+      </details>
+
+      <details class="translation-box" id="qB6-th" style="display:none;">
+        <summary>คำแปลภาษาไทย Thai Translation</summary>
+        <div class="translation-text">
+ละหมาดตะรอเวี๊ยะฮฺในเดือนรอมฎอนเป็นสุนนะฮฺมุอักกะดะฮฺที่ถูกเน้นย้ำอย่างสูง แต่ไม่ใช่ฟัรฎู
+        </div>
+      </details>
+
+      <details class="translation-box" id="qB6-bn" style="display:none;">
+        <summary>বাংলা অনুবাদ Bengali Translation</summary>
+        <div class="translation-text">
+রমজানে তারাবিহ নামাজ অত্যন্ত জোর দেওয়া সুন্নাত (সুন্নাতে মুয়াক্কাদাহ), ফরজ নয়।
+        </div>
+      </details>
+    </div>
+
+    <!-- B7 -->
+    <div class="question-block" id="qB7">
+      <div class="question-text">
+Muslims should eat suhoor as early as possible and delay iftar as late as possible in order to gain more reward from Allah.
+      </div>
+
+      <div class="btn-group">
+        <button class="lang-btn" onclick="showTranslation('qB7','cn')">中文 Chinese</button>
+        <button class="lang-btn" onclick="showTranslation('qB7','th')">ภาษาไทย Thai</button>
+        <button class="lang-btn" onclick="showTranslation('qB7','bn')">বাংলা Bengali</button>
+      </div>
+
+      <details class="translation-box" id="qB7-cn" style="display:none;">
+        <summary>中文翻译 Chinese Translation</summary>
+        <div class="translation-text">
+穆斯林应该尽量在很早的时候吃封斋饭（suhoor），并尽量推迟开斋（iftar），以从安拉那里获得更多的回赐。
+        </div>
+      </details>
+
+      <details class="translation-box" id="qB7-th" style="display:none;">
+        <summary>คำแปลภาษาไทย Thai Translation</summary>
+        <div class="translation-text">
+มุสลิมควรกินซะฮูรให้เร็วที่สุดและชะลอการละศีลอดให้สายที่สุดเพื่อให้ได้ผลบุญมากขึ้นจากอัลลอฮ์
+        </div>
+      </details>
+
+      <details class="translation-box" id="qB7-bn" style="display:none;">
+        <summary>বাংলা অনুবাদ Bengali Translation</summary>
+        <div class="translation-text">
+মুসলমানদের উচিত সাহরি যত তাড়াতাড়ি সম্ভব খাওয়া এবং ইফতার যত দেরিতে সম্ভব করা, যাতে আল্লাহর নিকট থেকে বেশি সওয়াব পাওয়া যায়।
+        </div>
+      </details>
+    </div>
+
+    <h2>Section C</h2>
+
+    <!-- C1 -->
+    <div class="question-block" id="qC1">
+      <div class="question-text">
+1. What main human problem is highlighted in the Surah after the oaths by the horses?
+A. Humans are too weak physically
+B. Humans are very intelligent but lazy
+C. Humans are ungrateful to their Lord
+D. Humans are always kind and generous
+      </div>
+
+      <div class="btn-group">
+        <button class="lang-btn" onclick="showTranslation('qC1','cn')">中文 Chinese</button>
+        <button class="lang-btn" onclick="showTranslation('qC1','th')">ภาษาไทย Thai</button>
+        <button class="lang-btn" onclick="showTranslation('qC1','bn')">বাংলা Bengali</button>
+      </div>
+
+      <details class="translation-box" id="qC1-cn" style="display:none;">
+        <summary>中文翻译 Chinese Translation</summary>
+        <div class="translation-text">
+1. 在马匹起誓之后，这章经文强调了人类的哪一个主要问题？
+A. 人在身体上太软弱
+B. 人非常聪明但很懒惰
+C. 人对他们的主忘恩负义
+D. 人总是善良而慷慨
+        </div>
+      </details>
+
+      <details class="translation-box" id="qC1-th" style="display:none;">
+        <summary>คำแปลภาษาไทย Thai Translation</summary>
+        <div class="translation-text">
+1. ปัญหาหลักของมนุษย์ใดที่ถูกเน้นในซูเราะฮฺหลังจากการปฏิญาณด้วยม้า?
+ก. มนุษย์อ่อนแอด้านร่างกายเกินไป
+ข. มนุษย์ฉลาดมากแต่ขี้เกียจ
+ค. มนุษย์เนรคุณต่อพระผู้อภิบาลของตน
+ง. มนุษย์มักใจดีและใจกว้างอยู่เสมอ
+        </div>
+      </details>
+
+      <details class="translation-box" id="qC1-bn" style="display:none;">
+        <summary>বাংলা অনুবাদ Bengali Translation</summary>
+        <div class="translation-text">
+1. ঘোড়ার শপথের পর সূরায় মানবজাতির কোন মূল সমস্যাটি তুলে ধরা হয়েছে?
+ক. মানুষ শারীরিকভাবে খুব দুর্বল
+খ. মানুষ খুব বুদ্ধিমান কিন্তু অলস
+গ. মানুষ তার রবের প্রতি অকৃতজ্ঞ
+ঘ. মানুষ সবসময় দয়ালু ও উদার
+        </div>
+      </details>
+    </div>
+
+    <!-- C2 -->
+    <div class="question-block" id="qC2">
+      <div class="question-text">
+2. Why does Allah make an oath (swear) by certain creations in the Qur’an?
+A. To show that He also needs to prove His words
+B. To make us think about the message that comes after the oath
+C. To praise those creations because they are equal to Him
+D. To make the Qur’an longer and more detailed
+      </div>
+
+      <div class="btn-group">
+        <button class="lang-btn" onclick="showTranslation('qC2','cn')">中文 Chinese</button>
+        <button class="lang-btn" onclick="showTranslation('qC2','th')">ภาษาไทย Thai</button>
+        <button class="lang-btn" onclick="showTranslation('qC2','bn')">বাংলা Bengali
