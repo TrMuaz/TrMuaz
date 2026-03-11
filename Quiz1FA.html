@@ -1,350 +1,1866 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Quiz 1 – Zakat al-Fitrah & Ramadan</title>
+  <meta charset="UTF-8" />
+  <title>Quiz 1 – FA Multilingual</title>
   <style>
-    body { font-family: Arial, "Noto Sans CJK SC", sans-serif; line-height: 1.6; margin: 20px; }
-    h1 { text-align: center; }
-    .meta { margin-bottom: 20px; }
-    .meta div { margin: 3px 0; }
-    .question { margin: 12px 0; }
-    .options { margin-left: 20px; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+    .tab-btn {
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: 1px solid #1976d2;
+      background: #ffffff;
+      color: #1976d2;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .tab-btn.active {
+      background: #1976d2;
+      color: #ffffff;
+    }
+    .section {
+      max-width: 900px;
+      margin: 0 auto 20px auto;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      padding: 20px;
+      display: none;
+    }
+    .section.active {
+      display: block;
+    }
+    h2 {
+      text-align: center;
+      margin-top: 0;
+    }
+    .question-block {
+      margin: 12px 0;
+      text-align: left;
+    }
+    .question-text {
+      white-space: pre-line;
+      font-size: 0.98rem;
+    }
+    hr {
+      margin: 18px 0;
+      border: none;
+      border-top: 1px solid #ddd;
+    }
   </style>
 </head>
 <body>
 
-  <h1>Quiz 1 – Zakat al-Fitrah & Ramadan</h1>
+  <h1>Quiz 1 – Fiqh & Akhlaq</h1>
 
-  <div class="meta">
-    <div>Name: ____________________</div>
-    <div>姓名：</div>
-
-    <div>Class: ____________________</div>
-    <div>班级：</div>
-
-    <div>Date: ____________________</div>
-    <div>日期：</div>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showLang('cn')">中文 Chinese</button>
+    <button class="tab-btn" onclick="showLang('th')">ภาษาไทย Thai</button>
+    <button class="tab-btn" onclick="showLang('bn')">বাংলা Bengali</button>
+    <button class="tab-btn" onclick="showLang('kk')">Қазақша Kazakh</button>
+    <button class="tab-btn" onclick="showLang('so')">Af-Soomaali Somali</button>
   </div>
 
-  <ol>
+  <!-- ========== CHINESE ========== -->
+  <div class="section active" id="sec-cn">
+    <h2>中文 Chinese Version</h2>
 
-    <li class="question">
-      What is Zakat al-Fitrah?<br>
-      开斋捐（Zakat al-Fitrah）是什么？<br>
-      <div class="options">
-        A. A tax we pay every month<br>
-        A. 我们每个月都要交的一种税<br>
-        B. A special charity at the end of Ramadan<br>
-        B. 在斋月结束时给出的特别施舍<br>
-        C. Money we give only on Fridays<br>
-        C. 只在星期五给出的钱<br>
-        D. A fee to enter the masjid<br>
-        D. 进入清真寺要付的费用<br>
+    <div class="question-block">
+      <div class="question-text">
+Name:
+Class:
+Date:
+
+姓名：
+班级：
+日期：
       </div>
-    </li>
+    </div>
 
-    <li class="question">
-      When must Zakat al-Fitrah be given?<br>
-      必须在什么时候给出开斋捐？<br>
-      <div class="options">
-        A. Before Ramadan starts<br>
-        A. 在斋月开始之前<br>
-        B. Any day in the year<br>
-        B. 一年中的任何一天都可以<br>
-        C. Before the Eid al-Fitr prayer<br>
-        C. 在开斋节礼拜之前<br>
-        D. After Dhuhur on Eid day<br>
-        D. 在开斋节当天晌礼（Zuhr）之后<br>
+    <div class="question-block">
+      <div class="question-text">
+1. What is Zakat al-Fitrah?
+A. A tax we pay every month
+B. A special charity at the end of Ramadan
+C. Money we give only on Fridays
+D. A fee to enter the masjid
+
+1. 什么是开斋捐（Zakat al-Fitrah）？
+A. 我们每个月都要交的一种税
+B. 在斋月结束时要付出的特别施舍
+C. 我们只在星期五捐出的钱
+D. 进入清真寺要付的费用
       </div>
-    </li>
+    </div>
 
-    <li class="question">
-      What is one main reason for Zakat al-Fitrah?<br>
-      开斋捐的一个主要原因是什么？<br>
-      <div class="options">
-        A. To buy new clothes for rich people<br>
-        A. 为富人买新衣服<br>
-        B. To purify the fasting person and complete the fast<br>
-        B. 洗净斋戒者的不足，并使斋戒更加完整<br>
-        C. To pay the school fees<br>
-        C. 用来交学费<br>
-        D. To build markets<br>
-        D. 用来建市场<br>
+    <div class="question-block">
+      <div class="question-text">
+2. When must Zakat al-Fitrah be given?
+A. Before Ramadan starts
+B. Any day in the year
+C. Before the Eid al-Fitr prayer
+D. After Dhuhur on Eid day
+
+2. 必须在什么时候交出开斋捐？
+A. 在斋月开始之前
+B. 在一年的任何一天
+C. 在开斋节礼拜（Eid al-Fitr）之前
+D. 在开斋节当天晌礼（Dhuhur）之后
       </div>
-    </li>
+    </div>
 
-    <li class="question">
-      Who must pay Zakat al-Fitrah?<br>
-      谁必须给出开斋捐？<br>
-      <div class="options">
-        A. Any rich person, Muslim or not<br>
-        A. 任何有钱人，不管是不是穆斯林<br>
-        B. Every Muslim who has extra food and money on Eid<br>
-        B. 每一位在开斋节时有多余食物和钱的穆斯林<br>
-        C. Only imams and teachers<br>
-        C. 只有伊玛目和老师<br>
-        D. Only children who fast<br>
-        D. 只有守斋的孩子<br>
+    <div class="question-block">
+      <div class="question-text">
+3. What is one main reason for Zakat al-Fitrah?
+A. To buy new clothes for rich people
+B. To purify the fasting person and complete the fast
+C. To pay the school fees
+D. To build markets
+
+3. 开斋捐的一个主要原因是什么？
+A. 给富人买新衣服
+B. 洁净斋戒者并使斋戒完整
+C. 支付学费
+D. 建造市场
       </div>
-    </li>
+    </div>
 
-    <li class="question">
-      On whom does a person pay Zakat al-Fitrah?<br>
-      一个人要为谁支付开斋捐？<br>
-      <div class="options">
-        A. Only for himself<br>
-        A. 只为他自己<br>
-        B. Only for his friends<br>
-        B. 只为他的朋友<br>
-        C. Only for his parents<br>
-        C. 只为他的父母<br>
-        D. For himself and his dependents<br>
-        D. 为他自己和他所养护的人（家属）<br>
+    <div class="question-block">
+      <div class="question-text">
+4. Who must pay Zakat al-Fitrah?
+A. Any rich person, Muslim or not
+B. Every Muslim who has extra food and money on Eid
+C. Only imams and teachers
+D. Only children who fast
+
+4. 谁必须交开斋捐？
+A. 任何富人，不论是否穆斯林
+B. 每一位在开斋节有多余食物和金钱的穆斯林
+C. 只有伊玛目和老师
+D. 只有守斋的儿童
       </div>
-    </li>
+    </div>
 
-    <li class="question">
-      What is normally given as Zakat al-Fitrah?<br>
-      通常开斋捐是用什么来支付的？<br>
-      <div class="options">
-        A. A fixed amount of staple food or its value in money<br>
-        A. 一定数量的主食或相等价值的金钱<br>
-        B. Any small gift or amount money<br>
-        B. 任何小礼物或随便一点钱<br>
-        C. Only clothes<br>
-        C. 只给衣服<br>
-        D. Only cooked food<br>
-        D. 只给煮好的食物<br>
+    <div class="question-block">
+      <div class="question-text">
+5. On whom does a person pay Zakat al-Fitrah?
+A. Only for himself
+B. Only for his friends
+C. Only for his parents
+D. For himself and his dependents
+
+5. 一个人需要为谁交开斋捐？
+A. 只为他自己
+B. 只为他的朋友
+C. 只为他的父母
+D. 为他自己和他所负责抚养的人
       </div>
-    </li>
+    </div>
 
-    <li class="question">
-      How does Zakat al-Fitrah help the poor?<br>
-      开斋捐怎样帮助穷人？<br>
-      <div class="options">
-        A. It makes them feel more hungry<br>
-        A. 让他们更饿<br>
-        B. It gives them food or money so they can eat and be happy on Eid<br>
-        B. 给他们食物或钱，让他们在开斋节能吃饱、开心<br>
-        C. It forces them to move houses<br>
-        C. 强迫他们搬家<br>
-        D. It stops them from praying<br>
-        D. 让他们不能礼拜<br>
+    <div class="question-block">
+      <div class="question-text">
+6. What is normally given as Zakat al-Fitrah?
+A. A fixed amount of staple food or its value in money
+B. Any small gift or amount money
+C. Only clothes
+D. Only cooked food
+
+6. 通常作为开斋捐所给的是什么？
+A. 一定数量的主食或相等价值的金钱
+B. 任何小礼物或任意金额
+C. 只给衣服
+D. 只给熟食
       </div>
-    </li>
+    </div>
 
-    <li class="question">
-      Ahmad has enough money and food. He lives with his wife and two children. For how many people should he pay Zakat al-Fitrah?<br>
-      Ahmad 有足够的钱和食物，他和妻子以及两个孩子住在一起。他应该为多少人支付开斋捐？<br>
-      <div class="options">
-        A. 1<br>
-        A. 1 人<br>
-        B. 2<br>
-        B. 2 人<br>
-        C. 3<br>
-        C. 3 人<br>
-        D. 4<br>
-        D. 4 人<br>
+    <div class="question-block">
+      <div class="question-text">
+7. How does Zakat al-Fitrah help the poor?
+A. It makes them feel more hungry
+B. It gives them food or money so they can eat and be happy on Eid
+C. It forces them to move houses
+D. It stops them from praying
+
+7. 开斋捐怎样帮助贫困者？
+A. 让他们更饥饿
+B. 给他们食物或钱，使他们在开斋节也能吃喝、快乐
+C. 强迫他们搬家
+D. 阻止他们礼拜
       </div>
-    </li>
+    </div>
 
-    <li class="question">
-      In Ramadan, fasting means to stop from:<br>
-      在斋月里，守斋是指停止：<br>
-      <div class="options">
-        A. Eating and drinking only at night<br>
-        A. 只是在夜里停止吃喝<br>
-        B. Eating, drinking, and marital relations from Fajr until Maghrib<br>
-        B. 从晨礼（Fajr）到昏礼（Maghrib）之间停止饮食和夫妻关系<br>
-        C. Sleeping in the day<br>
-        C. 白天睡觉<br>
-        D. Talking to people<br>
-        D. 和人说话<br>
+    <div class="question-block">
+      <div class="question-text">
+8. Ahmad has enough money and food. He lives with his wife and two children. For how
+many people should he pay Zakat al-Fitrah?
+A. 1
+B. 2
+C. 3
+D. 4
+
+8. 艾哈迈德有足够的钱和食物，他与妻子和两个孩子一起生活。他应为多少人交开斋捐？
+A. 1
+B. 2
+C. 3
+D. 4
       </div>
-    </li>
+    </div>
 
-    <li class="question">
-      What is one main purpose of fasting in Ramadan?<br>
-      斋月守斋的一个主要目的是什么？<br>
-      <div class="options">
-        A. To feel angry and tired<br>
-        A. 让自己生气又疲劳<br>
-        B. To lose weight only<br>
-        B. 只是为了减肥<br>
-        C. To gain taqwa and self-control<br>
-        C. 为了获得敬畏之心（taqwa）和自我控制<br>
-        D. To show off to others<br>
-        D. 为了向别人炫耀<br>
+    <div class="question-block">
+      <div class="question-text">
+9. In Ramadan, fasting means to stop from:
+A. Eating and drinking only at night
+B. Eating, drinking, and marital relations from Fajr until Maghrib
+C. Sleeping in the day
+D. Talking to people
+
+9. 在斋月里，斋戒是指停止：
+A. 只在晚上停止吃喝
+B. 从晨礼（Fajr）到昏礼（Maghrib）之间停止吃、喝和夫妻关系
+C. 白天睡觉
+D. 和别人说话
       </div>
-    </li>
+    </div>
 
-    <li class="question">
-      When should a Muslim make the intention (niyyah) for fasting in Ramadan?<br>
-      穆斯林在什么时候应当立下斋月守斋的意念（niyyah）？<br>
-      <div class="options">
-        A. Only at the time of Suhoor<br>
-        A. 只在封斋餐（suhoor）的时候<br>
-        B. After Maghrib and before Fajr<br>
-        B. 从昏礼之后到晨礼之前的时间里<br>
-        C. During Isha prayer<br>
-        C. 在宵礼（Isha）礼拜中<br>
-        D. At any time during the day<br>
-        D. 白天任何时候都可以<br>
+    <div class="question-block">
+      <div class="question-text">
+10. What is one main purpose of fasting in Ramadan?
+A. To feel angry and tired
+B. To lose weight only
+C. To gain taqwa and self-control
+D. To show off to others
+
+10. 斋月斋戒的一个主要目的是什么？
+A. 感到愤怒和疲惫
+B. 只是为了减肥
+C. 获得敬畏（taqwa）和自我控制
+D. 向别人炫耀
       </div>
-    </li>
+    </div>
 
-    <li class="question">
-      What is the minimum requirement for Suhoor?<br>
-      封斋餐（suhoor）的最低要求是什么？<br>
-      <div class="options">
-        A. A full meal<br>
-        A. 必须是一顿完整的大餐<br>
-        B. One sip of water<br>
-        B. 一小口水也可以<br>
-        C. Three dates<br>
-        C. 三颗椰枣<br>
-        D. A glass of milk<br>
-        D. 一杯牛奶<br>
+    <div class="question-block">
+      <div class="question-text">
+11. When should a Muslim make the intention (niyyah) for fasting in Ramadan?
+A. Only at the time of Suhoor
+B. After Maghrib and before Fajr
+C. During Isha prayer
+D. At any time during the day
+
+11. 穆斯林应在什么时候为斋月斋戒立意（niyyah）？
+A. 只在封斋餐（Suhoor）时间
+B. 在昏礼之后到晨礼之前
+C. 在宵礼（Isha）期间
+D. 白天任何时间
       </div>
-    </li>
+    </div>
 
-    <li class="question">
-      What is the best thing to break the fast with, according to the Sunnah?<br>
-      根据圣行，开斋时最好的食物是什么？<br>
-      <div class="options">
-        A. Rice and chicken<br>
-        A. 米饭和鸡肉<br>
-        B. Dates and water<br>
-        B. 椰枣和清水<br>
-        C. Soup and bread<br>
-        C. 汤和面包<br>
-        D. Fruits and juice<br>
-        D. 水果和果汁<br>
+    <div class="question-block">
+      <div class="question-text">
+12. What is the minimum requirement for Suhoor?
+A. A full meal
+B. One sip of water
+C. Three dates
+D. A glass of milk
+
+12. 封斋餐（Suhoor）的最低要求是什么？
+A. 一顿完整的饭
+B. 一口水
+C. 三颗椰枣
+D. 一杯牛奶
       </div>
-    </li>
+    </div>
 
-    <li class="question">
-      What is the number of rakaat in the Prophet’s usual Taraweeh prayer?<br>
-      先知平时做台拉威赫（Taraweeh）礼拜时一般做多少拜数？<br>
-      <div class="options">
-        A. 24 rakaat<br>
-        A. 24 拜<br>
-        B. 10 rakaat<br>
-        B. 10 拜<br>
-        C. 12 rakaat<br>
-        C. 12 拜<br>
-        D. 8 rakaat<br>
-        D. 8 拜<br>
+    <div class="question-block">
+      <div class="question-text">
+13. What is the best thing to break the fast with, according to the Sunnah?
+A. Rice and chicken
+B. Dates and water
+C. Soup and bread
+D. Fruits and juice
+
+13. 根据圣行，最好的开斋方式是什么？
+A. 米饭和鸡肉
+B. 椰枣和水
+C. 汤和面包
+D. 水果和果汁
       </div>
-    </li>
+    </div>
 
-    <li class="question">
-      Laylatul Qadr is better than how many months of worship?<br>
-      尊贵之夜（莱拉图勒·盖德尔）的功德胜过多少个月的礼拜？<br>
-      <div class="options">
-        A. 1000 months<br>
-        A. 一千个月<br>
-        B. 500 months<br>
-        B. 五百个月<br>
-        C. 100 months<br>
-        C. 一百个月<br>
-        D. 10 months<br>
-        D. 十个月<br>
+    <div class="question-block">
+      <div class="question-text">
+14. What is the number of rakaat in the Prophet’s usual Taraweeh prayer?
+A. 24 rakaat
+B. 10 rakaat
+C. 12 rakaat
+D. 8 rakaat
+
+14. 先知平常做的 تراويح（Taraweeh）拜一般有多少拜数（rakaat）？
+A. 24 拜
+B. 10 拜
+C. 12 拜
+D. 8 拜
       </div>
-    </li>
+    </div>
 
-    <li class="question">
-      Which nights are most important to search for Laylatul Qadr?<br>
-      在哪些夜晚最应该寻找尊贵之夜？<br>
-      <div class="options">
-        A. Odd nights in the last 10 days<br>
-        A. 斋月最后十天中的奇数夜<br>
-        B. Even nights in the last 10 days<br>
-        B. 斋月最后十天中的偶数夜<br>
-        C. Only the 27th night<br>
-        C. 只在第二十七夜<br>
-        D. The first night of Ramadan<br>
-        D. 斋月的第一夜<br>
+    <div class="question-block">
+      <div class="question-text">
+15. Laylatul Qadr is better than how many months of worship?
+A. 1000 months
+B. 500 months
+C. 100 months
+D. 10 months
+
+15. 前定之夜（Laylatul Qadr）的功价胜过多少个月的礼拜？
+A. 1000 个月
+B. 500 个月
+C. 100 个月
+D. 10 个月
       </div>
-    </li>
+    </div>
 
-    <li class="question">
-      Where was the Prophet when the first revelation came?<br>
-      第一段启示降临时，先知在哪里？<br>
-      <div class="options">
-        A. In Masjid Al-Haram<br>
-        A. 在禁寺（Masjid Al-Haram）里<br>
-        B. In Cave Hira<br>
-        B. 在希拉山洞（Cave Hira）里<br>
-        C. In Madinah<br>
-        C. 在麦地那<br>
-        D. On Mount Uhud<br>
-        D. 在乌侯德山上<br>
+    <div class="question-block">
+      <div class="question-text">
+16. Which nights are most important to search for Laylatul Qadr?
+A. Odd nights in the last 10 days
+B. Even nights in the last 10 days
+C. Only the 27th night
+D. The first night of Ramadan
+
+16. 哪些夜晚最重要用来寻求前定之夜（Laylatul Qadr）？
+A. 斋月最后十夜中的奇数夜
+B. 斋月最后十夜中的偶数夜
+C. 只有第二十七夜
+D. 斋月第一夜
       </div>
-    </li>
+    </div>
 
-    <li class="question">
-      Which angel came to the Prophet with the first revelation?<br>
-      带着第一段启示来到先知面前的天使是谁？<br>
-      <div class="options">
-        A. Mikail<br>
-        A. 米卡伊勒（Mikail）<br>
-        B. Israfil<br>
-        B. 以色拉菲勒（Israfil）<br>
-        C. Malik<br>
-        C. 马立克（地狱天使）<br>
-        D. Jibril<br>
-        D. 吉卜利勒（Jibril，加百列）<br>
+    <div class="question-block">
+      <div class="question-text">
+17. Where was the Prophet when the first revelation came?
+A. In Masjid Al-Haram
+B. In Cave Hira
+C. In Madinah
+D. On Mount Uhud
+
+17. 第一段启示降临时，先知在哪里？
+A. 在禁寺（Masjid Al-Haram）
+B. 在希拉山洞（Cave Hira）
+C. 在麦地那
+D. 在乌侯德山（Mount Uhud）
       </div>
-    </li>
+    </div>
 
-    <li class="question">
-      Which surah’s first verses were revealed first?<br>
-      哪一章的前几节经文是最先被启示的？<br>
-      <div class="options">
-        A. Surah Al-Fatihah<br>
-        A. 《开端章》（Al-Fatihah）<br>
-        B. Surah Al-Ikhlas<br>
-        B. 《忠诚章》（Al-Ikhlas）<br>
-        C. Surah Al-‘Alaq<br>
-        C. 《血块章》（Al-‘Alaq）<br>
-        D. Surah An-Nas<br>
-        D. 《人类章》（An-Nas）<br>
+    <div class="question-block">
+      <div class="question-text">
+18. Which angel came to the Prophet with the first revelation?
+A. Mikail
+B. Israfil
+C. Malik
+D. Jibril
+
+18. 哪位天使带着第一段启示来到先知面前？
+A. 米卡伊勒（Mikail）
+B. 依斯拉菲勒（Israfil）
+C. 马利克（Malik）
+D. 吉卜里勒（Jibril）
       </div>
-    </li>
+    </div>
 
-    <li class="question">
-      Who took care of Prophet Muhammad before the first revelation when he was young?<br>
-      在第一段启示降临之前，先知还小的时候是谁照顾他的？<br>
-      <div class="options">
-        A. His mother only<br>
-        A. 只有他的母亲<br>
-        B. His grandfather and then his uncle Abu Talib<br>
-        B. 先是他的祖父，然后是他的叔叔阿布·塔利卜<br>
-        C. His brothers and sisters<br>
-        C. 他的兄弟姐妹<br>
-        D. His teacher in Madinah<br>
-        D. 他在麦地那的老师<br>
+    <div class="question-block">
+      <div class="question-text">
+19. Which surah’s first verses were revealed first?
+A. Surah Al-Fatihah
+B. Surah Al-Ikhlas
+C. Surah Al-‘Alaq
+D. Surah An-Nas
+
+19. 哪一章的前几节经文是最先被启示的？
+A. 《 فاتحة章 》（Al-Fatihah）
+B. 《 إخلاص章 》（Al-Ikhlas）
+C. 《 علق章 》（Al-‘Alaq）
+D. 《 ناس章 》（An-Nas）
       </div>
-    </li>
+    </div>
 
-    <li class="question">
-      Which action shows that a student is using the lesson from “Iqra’” in daily life?<br>
-      哪一种行为显示学生在日常生活中实践“Iqra”（读）的教诲？<br>
-      <div class="options">
-        A. Ignoring books and homework<br>
-        A. 无视课本和作业<br>
-        B. Reading only for exams and forgetting Allah<br>
-        B. 只为考试而读书，却忘记真主<br>
-        C. Trying to read and learn more, and remembering that all knowledge comes from Allah<br>
-        C. 努力多阅读、多学习，并记得一切知识都来自真主<br>
-        D. Refusing to read anything from the Qur’an<br>
-        D. 拒绝阅读任何古兰经内容<br>
+    <div class="question-block">
+      <div class="question-text">
+20. Who took care of Prophet Muhammad before the first revelation when he was young?
+A. His mother only
+B. His grandfather and then his uncle Abu Talib
+C. His brothers and sisters
+D. His teacher in Madinah
+
+20. 在第一段启示降临之前，先知年轻时是谁照顾他的？
+A. 只有他的母亲
+B. 他的祖父，然后是他的叔叔阿布·塔利卜
+C. 他的兄弟姐妹
+D. 他在麦地那的老师
       </div>
-    </li>
+    </div>
 
-  </ol>
+    <div class="question-block">
+      <div class="question-text">
+21. Which action shows that a student is using the lesson from “Iqra’” in daily life?
+A. Ignoring books and homework
+B. Reading only for exams and forgetting Allah
+C. Trying to read and learn more, and remembering that all knowledge comes from Allah
+D. Refusing to read anything from the Qur’an
 
+21. 哪种行为表明一个学生在日常生活中运用了“اقرأ（Iqra’）”的教训？
+A. 忽视书本和作业
+B. 只为考试而读书并忘记安拉
+C. 努力多读、多学习，并记得一切知识都来自安拉
+D. 拒绝阅读任何《古兰经》的内容
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== THAI ========== -->
+  <div class="section" id="sec-th">
+    <h2>ภาษาไทย Thai Version</h2>
+
+    <div class="question-block">
+      <div class="question-text">
+Name:
+Class:
+Date:
+
+ชื่อ:
+ชั้น:
+วันที่:
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+1. What is Zakat al-Fitrah?
+A. A tax we pay every month
+B. A special charity at the end of Ramadan
+C. Money we give only on Fridays
+D. A fee to enter the masjid
+
+1. ซะกาตอัลฟิฏเราะฮ์คืออะไร?
+ก. ภาษีที่เราจ่ายทุกเดือน
+ข. การบริจาคพิเศษเมื่อสิ้นสุดเดือนรอมฎอน
+ค. เงินที่เราบริจาคเฉพาะวันศุกร์
+ง. ค่าธรรมเนียมเข้าไปในมัสยิด
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+2. When must Zakat al-Fitrah be given?
+A. Before Ramadan starts
+B. Any day in the year
+C. Before the Eid al-Fitr prayer
+D. After Dhuhur on Eid day
+
+2. ต้องจ่ายซะกาตอัลฟิฏเราะฮ์เมื่อใด?
+ก. ก่อนเดือนรอมฎอนเริ่ม
+ข. วันใดก็ได้ในปี
+ค. ก่อนละหมาดอีดอัลฟิฏร์
+ง. หลังซุฮ์ริของวันอีด
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+3. What is one main reason for Zakat al-Fitrah?
+A. To buy new clothes for rich people
+B. To purify the fasting person and complete the fast
+C. To pay the school fees
+D. To build markets
+
+3. เหตุผลหลักประการหนึ่งของซะกาตอัลฟิฏเราะฮ์คืออะไร?
+ก. เพื่อซื้อเสื้อผ้าใหม่ให้คนรวย
+ข. เพื่อชำระล้างผู้ถือศีลอดและทำให้การถือศีลอดสมบูรณ์
+ค. เพื่อจ่ายค่าเทอมโรงเรียน
+ง. เพื่อสร้างตลาด
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+4. Who must pay Zakat al-Fitrah?
+A. Any rich person, Muslim or not
+B. Every Muslim who has extra food and money on Eid
+C. Only imams and teachers
+D. Only children who fast
+
+4. ใครที่จำเป็นต้องจ่ายซะกาตอัลฟิฏเราะฮ์?
+ก. คนรวยทุกคน ไม่ว่าจะเป็นมุสลิมหรือไม่
+ข. มุสลิมทุกคนที่มีอาหารและเงินเหลือในวันอีด
+ค. เฉพาะอิหม่ามและครู
+ง. เฉพาะเด็กที่ถือศีลอด
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+5. On whom does a person pay Zakat al-Fitrah?
+A. Only for himself
+B. Only for his friends
+C. Only for his parents
+D. For himself and his dependents
+
+5. บุคคลหนึ่งต้องจ่ายซะกาตอัลฟิฏเราะฮ์ให้กับใครบ้าง?
+ก. เฉพาะตัวเขาเอง
+ข. เฉพาะเพื่อนของเขา
+ค. เฉพาะพ่อแม่ของเขา
+ง. ตัวเขาเองและผู้ที่อยู่ในความดูแลของเขา
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+6. What is normally given as Zakat al-Fitrah?
+A. A fixed amount of staple food or its value in money
+B. Any small gift or amount money
+C. Only clothes
+D. Only cooked food
+
+6. โดยปกติให้สิ่งใดเป็นซะกาตอัลฟิฏเราะฮ์?
+ก. อาหารหลักปริมาณที่กำหนด หรือมูลค่าเท่ากันเป็นเงิน
+ข. ของขวัญเล็ก ๆ หรือเงินจำนวนใดก็ได้
+ค. ให้เฉพาะเสื้อผ้า
+ง. ให้เฉพาะอาหารปรุงสุก
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+7. How does Zakat al-Fitrah help the poor?
+A. It makes them feel more hungry
+B. It gives them food or money so they can eat and be happy on Eid
+C. It forces them to move houses
+D. It stops them from praying
+
+7. ซะกาตอัลฟิฏเราะฮ์ช่วยเหลือคนยากจนอย่างไร?
+ก. ทำให้พวกเขาหิวมากขึ้น
+ข. ให้พวกเขาได้รับอาหารหรือเงิน เพื่อจะได้กินและมีความสุขในวันอีด
+ค. บังคับให้พวกเขาย้ายบ้าน
+ง. ทำให้พวกเขาเลิกละหมาด
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+8. Ahmad has enough money and food. He lives with his wife and two children. For how
+many people should he pay Zakat al-Fitrah?
+A. 1
+B. 2
+C. 3
+D. 4
+
+8. อาหมัดมีเงินและอาหารเพียงพอ เขาอาศัยอยู่กับภรรยาและลูกสองคน เขาต้องจ่ายซะกาตอัลฟิฏเราะฮ์กี่คน?
+ก. 1
+ข. 2
+ค. 3
+ง. 4
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+9. In Ramadan, fasting means to stop from:
+A. Eating and drinking only at night
+B. Eating, drinking, and marital relations from Fajr until Maghrib
+C. Sleeping in the day
+D. Talking to people
+
+9. ในเดือนรอมฎอน การถือศีลอดหมายถึงการงดเว้นจาก:
+ก. การกินและดื่มเฉพาะตอนกลางคืน
+ข. การกิน ดื่ม และสัมพันธ์ทางสามีภรรยาตั้งแต่ฟัจญ์รจนถึงมักริบ
+ค. การนอนในเวลากลางวัน
+ง. การพูดคุยกับผู้คน
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+10. What is one main purpose of fasting in Ramadan?
+A. To feel angry and tired
+B. To lose weight only
+C. To gain taqwa and self-control
+D. To show off to others
+
+10. วัตถุประสงค์หลักประการหนึ่งของการถือศีลอดในเดือนรอมฎอนคืออะไร?
+ก. เพื่อให้รู้สึกโกรธและเหนื่อย
+ข. เพื่อ ลดน้ำหนักเท่านั้น
+ค. เพื่อให้ได้ตักวาและการควบคุมตนเอง
+ง. เพื่ออวดผู้อื่น
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+11. When should a Muslim make the intention (niyyah) for fasting in Ramadan?
+A. Only at the time of Suhoor
+B. After Maghrib and before Fajr
+C. During Isha prayer
+D. At any time during the day
+
+11. มุสลิมควรตั้งเจตนา (นิยยะฮ์) สำหรับการถือศีลอดรอมฎอนเมื่อใด?
+ก. เฉพาะเวลาซะฮูร
+ข. หลังมักริบจนถึงก่อนฟัจญ์ร
+ค. ระหว่างละหมาดอิชาอ์
+ง. เวลาใดก็ได้ในตอนกลางวัน
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+12. What is the minimum requirement for Suhoor?
+A. A full meal
+B. One sip of water
+C. Three dates
+D. A glass of milk
+
+12. ข้อกำหนดขั้นต่ำของซะฮูรคืออะไร?
+ก. มื้ออาหารเต็มมื้อ
+ข. เพียงหนึ่งอึกน้ำ
+ค. อินทผลัมสามลูก
+ง. นมหนึ่งแก้ว
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+13. What is the best thing to break the fast with, according to the Sunnah?
+A. Rice and chicken
+B. Dates and water
+C. Soup and bread
+D. Fruits and juice
+
+13. ตามซุนนะฮ์ สิ่งที่ดีที่สุดในการละศีลอดคืออะไร?
+ก. ข้าวกับไก่
+ข. อินทผลัมและน้ำ
+ค. ซุปและขนมปัง
+ง. ผลไม้และน้ำผลไม้
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+14. What is the number of rakaat in the Prophet’s usual Taraweeh prayer?
+A. 24 rakaat
+B. 10 rakaat
+C. 12 rakaat
+D. 8 rakaat
+
+14. จำนวนร็อกอะฮ์ของละหมาดตะรอเวี๊ยะฮฺของท่านนบีโดยปกติคือเท่าใด?
+ก. 24 ร็อกอะฮ์
+ข. 10 ร็อกอะฮ์
+ค. 12 ร็อกอะฮ์
+ง. 8 ร็อกอะฮ์
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+15. Laylatul Qadr is better than how many months of worship?
+A. 1000 months
+B. 500 months
+C. 100 months
+D. 10 months
+
+15. ลัยละตุลก็อดรฺดีกว่าการอิบาดะฮ์กี่เดือน?
+ก. 1000 เดือน
+ข. 500 เดือน
+ค. 100 เดือน
+ง. 10 เดือน
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+16. Which nights are most important to search for Laylatul Qadr?
+A. Odd nights in the last 10 days
+B. Even nights in the last 10 days
+C. Only the 27th night
+D. The first night of Ramadan
+
+16. คืนใดที่สำคัญที่สุดในการแสวงหาลัยละตุลก็อดรฺ?
+ก. คืนคี่ในสิบคืนสุดท้ายของรอมฎอน
+ข. คืนคู่ในสิบคืนสุดท้ายของรอมฎอน
+ค. เฉพาะคืนที่ 27
+ง. คืนแรกของรอมฎอน
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+17. Where was the Prophet when the first revelation came?
+A. In Masjid Al-Haram
+B. In Cave Hira
+C. In Madinah
+D. On Mount Uhud
+
+17. ท่านนบีอยู่ที่ไหนเมื่อวะฮฺยูแรกมาถึง?
+ก. ในมัสยิดอัลฮะรอม
+ข. ในถ้ำฮิรออ์
+ค. ในเมืองมะดีนะฮ์
+ง. บนภูเขาอุฮุด
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+18. Which angel came to the Prophet with the first revelation?
+A. Mikail
+B. Israfil
+C. Malik
+D. Jibril
+
+18. มลาอิกะฮ์องค์ใดมาหาท่านนบีพร้อมกับวะฮฺยูแรก?
+ก. มิกาอีล
+ข. อิสรอฟีล
+ค. มาลิก
+ง. ญิบรีล
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+19. Which surah’s first verses were revealed first?
+A. Surah Al-Fatihah
+B. Surah Al-Ikhlas
+C. Surah Al-‘Alaq
+D. Surah An-Nas
+
+19. อายะฮ์แรก ๆ ของซูเราะฮ์ใดถูกประทานก่อน?
+ก. ซูเราะฮ์อัลฟาติหะฮ์
+ข. ซูเราะฮ์อัลอิคล๊าศ
+ค. ซูเราะฮ์อัลอะลัก
+ง. ซูเราะฮ์อันนาส
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+20. Who took care of Prophet Muhammad before the first revelation when he was young?
+A. His mother only
+B. His grandfather and then his uncle Abu Talib
+C. His brothers and sisters
+D. His teacher in Madinah
+
+20. ใครเป็นผู้ดูแลท่านนบีมูฮัมมัดในวัยเด็กก่อนวะฮฺยูแรก?
+ก. แม่ของท่านเพียงคนเดียว
+ข. ปู่ของท่าน แล้วต่อมาคือลุงของท่าน อบูฏอลิบ
+ค. พี่น้องของท่าน
+ง. ครูของท่านในมะดีนะฮ์
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+21. Which action shows that a student is using the lesson from “Iqra’” in daily life?
+A. Ignoring books and homework
+B. Reading only for exams and forgetting Allah
+C. Trying to read and learn more, and remembering that all knowledge comes from Allah
+D. Refusing to read anything from the Qur’an
+
+21. การกระทำใดแสดงว่านักเรียนได้นำบทเรียนจากคำว่า “อิกเราะอ์ (Iqra’)” ไปใช้ในชีวิตประจำวัน?
+ก. เพิกเฉยต่อหนังสือและการบ้าน
+ข. อ่านหนังสือเฉพาะตอนสอบและลืมอัลลอฮ์
+ค. พยายามอ่านและเรียนรู้มากขึ้น และระลึกว่าความรู้ทั้งหมดมาจากอัลลอฮ์
+ง. ปฏิเสธที่จะอ่านอะไรจากอัลกุรอาน
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== BENGALI ========== -->
+  <div class="section" id="sec-bn">
+    <h2>বাংলা Bengali Version</h2>
+
+    <div class="question-block">
+      <div class="question-text">
+Name:
+Class:
+Date:
+
+নাম:
+শ্রেণি:
+তারিখ:
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+1. What is Zakat al-Fitrah?
+A. A tax we pay every month
+B. A special charity at the end of Ramadan
+C. Money we give only on Fridays
+D. A fee to enter the masjid
+
+1. যাকাতুল ফিতর কী?
+ক. এমন একটি ট্যাক্স যা আমরা প্রতি মাসে দিই
+খ. রমজানের শেষে দেওয়া একটি বিশেষ দান
+গ. শুধু শুক্রবারে দেওয়া টাকা
+ঘ. মসজিদে ঢুকতে যে ফি দিতে হয়
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+2. When must Zakat al-Fitrah be given?
+A. Before Ramadan starts
+B. Any day in the year
+C. Before the Eid al-Fitr prayer
+D. After Dhuhur on Eid day
+
+2. যাকাতুল ফিতর কখন দিতে হবে?
+ক. রমজান শুরু হওয়ার আগে
+খ. বছরের যেকোনো দিনে
+গ. ঈদুল ফিতর নামাজের আগে
+ঘ. ঈদের দিনে যোহর নামাজের পরে
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+3. What is one main reason for Zakat al-Fitrah?
+A. To buy new clothes for rich people
+B. To purify the fasting person and complete the fast
+C. To pay the school fees
+D. To build markets
+
+3. যাকাতুল ফিতরের একটি প্রধান উদ্দেশ্য কী?
+ক. ধনী লোকদের নতুন কাপড় কিনে দেওয়ার জন্য
+খ. রোজাদারের আত্মাকে পবিত্র করা এবং রোজাকে সম্পূর্ণ করা
+গ. স্কুল ফি দেওয়ার জন্য
+ঘ. মার্কেট (বাজার) তৈরির জন্য
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+4. Who must pay Zakat al-Fitrah?
+A. Any rich person, Muslim or not
+B. Every Muslim who has extra food and money on Eid
+C. Only imams and teachers
+D. Only children who fast
+
+4. কার উপর যাকাতুল ফিতর ওয়াজিব?
+ক. যে কোনো ধনী ব্যক্তি, সে মুসলিম হোক বা না হোক
+খ. এমন প্রতিটি মুসলিম, যার কাছে ঈদের দিনে অতিরিক্ত খাবার ও টাকা আছে
+গ. শুধু ইমাম ও শিক্ষক
+ঘ. শুধু যারা রোজা রাখে সেই বাচ্চারা
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+5. On whom does a person pay Zakat al-Fitrah?
+A. Only for himself
+B. Only for his friends
+C. Only for his parents
+D. For himself and his dependents
+
+5. একজন ব্যক্তি কার জন্য যাকাতুল ফিতর আদায় করবে?
+ক. শুধু নিজের জন্য
+খ. শুধু বন্ধুদের জন্য
+গ. শুধু তার বাবা-মায়ের জন্য
+ঘ. নিজের জন্য এবং তার দায়িত্বে থাকা সকলের জন্য
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+6. What is normally given as Zakat al-Fitrah?
+A. A fixed amount of staple food or its value in money
+B. Any small gift or amount money
+C. Only clothes
+D. Only cooked food
+
+6. সাধারণত যাকাতুল ফিতর হিসেবে কী দেওয়া হয়?
+ক. নির্দিষ্ট পরিমাণ প্রধান খাদ্য বা তার সমমূল্যের টাকা
+খ. যেকোনো ছোট উপহার বা যেকোনো পরিমাণ টাকা
+গ. শুধু কাপড়
+ঘ. শুধু রান্না করা খাবার
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+7. How does Zakat al-Fitrah help the poor?
+A. It makes them feel more hungry
+B. It gives them food or money so they can eat and be happy on Eid
+C. It forces them to move houses
+D. It stops them from praying
+
+7. যাকাতুল ফিতর কীভাবে গরিবদের সাহায্য করে?
+ক. তাদের আরও বেশি ক্ষুধার্ত বানায়
+খ. তাদের খাবার বা টাকা দেয়, যাতে তারা ঈদের দিন খেতে পারে এবং খুশি থাকতে পারে
+গ. তাদেরকে বাসা বদল করতে বাধ্য করে
+ঘ. তাদের নামাজ পড়া বন্ধ করে দেয়
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+8. Ahmad has enough money and food. He lives with his wife and two children. For how
+many people should he pay Zakat al-Fitrah?
+A. 1
+B. 2
+C. 3
+D. 4
+
+8. আহমদের কাছে যথেষ্ট টাকা ও খাবার আছে। তিনি স্ত্রী ও দুই সন্তানসহ থাকেন। তাকে কতজনের জন্য যাকাতুল ফিতর দিতে হবে?
+ক. ১
+খ. ২
+গ. ৩
+ঘ. ৪
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+9. In Ramadan, fasting means to stop from:
+A. Eating and drinking only at night
+B. Eating, drinking, and marital relations from Fajr until Maghrib
+C. Sleeping in the day
+D. Talking to people
+
+9. রমজানে রোজা রাখার অর্থ কী থেকে বিরত থাকা?
+ক. শুধু রাতের বেলা খাওয়া ও পান করা থেকে
+খ. ফজর থেকে মাগরিব পর্যন্ত খাওয়া, পান করা এবং দাম্পত্য সম্পর্ক থেকে
+গ. দিনের বেলা ঘুমানো থেকে
+ঘ. মানুষের সাথে কথা বলা থেকে
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+10. What is one main purpose of fasting in Ramadan?
+A. To feel angry and tired
+B. To lose weight only
+C. To gain taqwa and self-control
+D. To show off to others
+
+10. রমজানে রোজা রাখার একটি প্রধান উদ্দেশ্য কী?
+ক. রাগান্বিত ও ক্লান্ত হওয়া
+খ. শুধু ওজন কমানো
+গ. তাকওয়া ও আত্মনিয়ন্ত্রণ অর্জন করা
+ঘ. অন্যদের সামনে দেখানো ও অহংকার করা
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+11. When should a Muslim make the intention (niyyah) for fasting in Ramadan?
+A. Only at the time of Suhoor
+B. After Maghrib and before Fajr
+C. During Isha prayer
+D. At any time during the day
+
+11. রমজানের রোজার নিয়ত কখন করা উচিত?
+ক. শুধু সেহরির সময়
+খ. মাগরিবের পরে থেকে ফজরের আগে
+গ. এশার নামাজের সময়
+ঘ. দিনের যেকোনো সময়
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+12. What is the minimum requirement for Suhoor?
+A. A full meal
+B. One sip of water
+C. Three dates
+D. A glass of milk
+
+12. সেহরির সর্বনিম্ন শর্ত কী?
+ক. পূর্ণ একবেলা খাবার
+খ. এক চুমুক পানি
+গ. তিনটি খেজুর
+ঘ. এক গ্লাস দুধ
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+13. What is the best thing to break the fast with, according to the Sunnah?
+A. Rice and chicken
+B. Dates and water
+C. Soup and bread
+D. Fruits and juice
+
+13. সুন্নাহ অনুযায়ী, রোজা ভাঙ্গার জন্য সবচেয়ে উত্তম জিনিস কী?
+ক. ভাত ও মুরগি
+খ. খেজুর ও পানি
+গ. স্যুপ ও রুটি
+ঘ. ফল ও জুস
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+14. What is the number of rakaat in the Prophet’s usual Taraweeh prayer?
+A. 24 rakaat
+B. 10 rakaat
+C. 12 rakaat
+D. 8 rakaat
+
+14. নবী সাল্লাল্লাহু আলাইহি ওয়া সাল্লামের সাধারণ তারাবিহ নামাযে কয় রাকাত ছিল?
+ক. ২৪ রাকাত
+খ. ১০ রাকাত
+গ. ১২ রাকাত
+ঘ. ৮ রাকাত
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+15. Laylatul Qadr is better than how many months of worship?
+A. 1000 months
+B. 500 months
+C. 100 months
+D. 10 months
+
+15. লাইলাতুল কদর কত মাসের ইবাদতের চেয়ে উত্তম?
+ক. ১০০০ মাস
+খ. ৫০০ মাস
+গ. ১০০ মাস
+ঘ. ১০ মাস
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+16. Which nights are most important to search for Laylatul Qadr?
+A. Odd nights in the last 10 days
+B. Even nights in the last 10 days
+C. Only the 27th night
+D. The first night of Ramadan
+
+16. লাইলাতুল কদর খোঁজার জন্য কোন রাতগুলো সবচেয়ে গুরুত্বপূর্ণ?
+ক. রমজানের শেষ দশ রাতের বিজোড় রাতগুলো
+খ. রমজানের শেষ দশ রাতের জোড় রাতগুলো
+গ. শুধু ২৭তম রাত
+ঘ. রমজানের প্রথম রাত
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+17. Where was the Prophet when the first revelation came?
+A. In Masjid Al-Haram
+B. In Cave Hira
+C. In Madinah
+D. On Mount Uhud
+
+17. প্রথম ওহী নাজিল হওয়ার সময় নবী (সা.) কোথায় ছিলেন?
+ক. মসজিদুল হারামে
+খ. হেরা গুহায়
+গ. মদীনায়
+ঘ. উহুদ পর্বতে
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+18. Which angel came to the Prophet with the first revelation?
+A. Mikail
+B. Israfil
+C. Malik
+D. Jibril
+
+18. কোন ফেরেশতা প্রথম ওহী নিয়ে নবীর কাছে আসেন?
+ক. মিকাইল
+খ. ইস্রাফিল
+গ. মালিক
+ঘ. জিবরীল
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+19. Which surah’s first verses were revealed first?
+A. Surah Al-Fatihah
+B. Surah Al-Ikhlas
+C. Surah Al-‘Alaq
+D. Surah An-Nas
+
+19. কোন সূরার প্রথম আয়াতগুলো প্রথম নাজিল হয়েছিল?
+ক. সূরা আল-ফাতিহা
+খ. সূরা আল-ইখলাস
+গ. সূরা আল-আলাক
+ঘ. সূরা আন-নাস
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+20. Who took care of Prophet Muhammad before the first revelation when he was young?
+A. His mother only
+B. His grandfather and then his uncle Abu Talib
+C. His brothers and sisters
+D. His teacher in Madinah
+
+20. প্রথম ওহীর আগে ছোটবেলায় নবী মুহাম্মদ (সা.)-এর লালন-পালন কে করেছেন?
+ক. শুধু তাঁর মা
+খ. তাঁর দাদা, তারপর তাঁর চাচা আবু তালিব
+গ. তাঁর ভাই-বোনেরা
+ঘ. মদীনায় তাঁর শিক্ষক
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+21. Which action shows that a student is using the lesson from “Iqra’” in daily life?
+A. Ignoring books and homework
+B. Reading only for exams and forgetting Allah
+C. Trying to read and learn more, and remembering that all knowledge comes from Allah
+D. Refusing to read anything from the Qur’an
+
+21. কোন কাজটি দেখায় যে একজন ছাত্র “ইকরা” (Iqra’) থেকে নেওয়া শিক্ষাটি জীবনে প্রয়োগ করছে?
+ক. বই ও হোমওয়ার্ককে উপেক্ষা করা
+খ. শুধু পরীক্ষার জন্য পড়া এবং আল্লাহকে ভুলে থাকা
+গ. আরো পড়া ও শিখতে চেষ্টা করা এবং মনে রাখা যে সব জ্ঞান আল্লাহর কাছ থেকে আসে
+ঘ. কোরআন থেকে কিছু পড়তে অস্বীকার করা
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== KAZAKH ========== -->
+  <div class="section" id="sec-kk">
+    <h2>Қазақша Kazakh Version</h2>
+
+    <div class="question-block">
+      <div class="question-text">
+Name:
+Class:
+Date:
+
+Аты-жөні:
+Сынып:
+Күні:
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+1. What is Zakat al-Fitrah?
+A. A tax we pay every month
+B. A special charity at the end of Ramadan
+C. Money we give only on Fridays
+D. A fee to enter the masjid
+
+1. Пітір садақа (Зәкат әл-Фитр) деген не?
+A. Ай сайын төлейтін салық
+B. Рамазан айының соңында берілетін арнайы садақа
+C. Тек жұма күні беретін ақша
+D. Мешітке кіру үшін төленетін ақы
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+2. When must Zakat al-Fitrah be given?
+A. Before Ramadan starts
+B. Any day in the year
+C. Before the Eid al-Fitr prayer
+D. After Dhuhur on Eid day
+
+2. Пітір садақа қашан берілуі керек?
+A. Рамазан басталмай тұрып
+B. Жылдың кез келген күні
+C. Ораза айт намазынан бұрын
+D. Айт күні бесін намазынан кейін
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+3. What is one main reason for Zakat al-Fitrah?
+A. To buy new clothes for rich people
+B. To purify the fasting person and complete the fast
+C. To pay the school fees
+D. To build markets
+
+3. Пітір садақаның негізгі себептерінің бірі қандай?
+A. Бай адамдарға жаңа киім сатып алу үшін
+B. Ораза тұтқан адамды тазартып, оразасын толық ету үшін
+C. Мектеп ақысын төлеу үшін
+D. Базарлар салу үшін
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+4. Who must pay Zakat al-Fitrah?
+A. Any rich person, Muslim or not
+B. Every Muslim who has extra food and money on Eid
+C. Only imams and teachers
+D. Only children who fast
+
+4. Пітір садақаны кім беруі керек?
+A. Бай адамдардың бәрі, мұсылман болсын, болмасын
+B. Айт күні артық тамақ пен ақшасы бар әрбір мұсылман
+C. Тек имамдар мен мұғалімдер
+D. Тек ораза ұстаған балалар
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+5. On whom does a person pay Zakat al-Fitrah?
+A. Only for himself
+B. Only for his friends
+C. Only for his parents
+D. For himself and his dependents
+
+5. Адам пітір садақаны кімдер үшін береді?
+A. Тек өзі үшін
+B. Тек достары үшін
+C. Тек ата-анасы үшін
+D. Өзі және өзінің қарамағындағы адамдар үшін
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+6. What is normally given as Zakat al-Fitrah?
+A. A fixed amount of staple food or its value in money
+B. Any small gift or amount money
+C. Only clothes
+D. Only cooked food
+
+6. Пітір садақа ретінде әдетте не беріледі?
+A. Негізгі азық-түліктің белгілі мөлшері немесе соған тең ақша
+B. Кез келген сыйлық немесе аздаған ақша
+C. Тек киім-кешек
+D. Тек пісірілген тамақ
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+7. How does Zakat al-Fitrah help the poor?
+A. It makes them feel more hungry
+B. It gives them food or money so they can eat and be happy on Eid
+C. It forces them to move houses
+D. It stops them from praying
+
+7. Пітір садақа кедейлерге қалай көмектеседі?
+A. Оларды одан сайын аш қалдырады
+B. Оларға тамақ не ақша беріп, айт күні тоя жеп, қуануына себеп болады
+C. Оларды үйін ауыстыруға мәжбүрлейді
+D. Олардың намаз оқуына кедергі болады
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+8. Ahmad has enough money and food. He lives with his wife and two children. For how
+many people should he pay Zakat al-Fitrah?
+A. 1
+B. 2
+C. 3
+D. 4
+
+8. Ахмадтың жеткілікті ақшасы мен тамағы бар. Ол әйелі және екі баласымен бірге тұрады. Ол неше адамға пітір садақа беруі керек?
+A. 1
+B. 2
+C. 3
+D. 4
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+9. In Ramadan, fasting means to stop from:
+A. Eating and drinking only at night
+B. Eating, drinking, and marital relations from Fajr until Maghrib
+C. Sleeping in the day
+D. Talking to people
+
+9. Рамазан айында ораза деген нені тастау деген сөз?
+A. Тек түнде ішіп-жемді тастау
+B. Таң намазынан (Фәжр) ақшамға (Мәғриб) дейін ішіп-жеу мен ерлі-зайыптылық қатынасты тастау
+C. Күндіз ұйықтауды тастау
+D. Адамдармен сөйлесуді тоқтату
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+10. What is one main purpose of fasting in Ramadan?
+A. To feel angry and tired
+B. To lose weight only
+C. To gain taqwa and self-control
+D. To show off to others
+
+10. Рамазанда ораза ұстаудың негізгі мақсаттарының бірі қандай?
+A. Ашуланып, шаршау үшін
+B. Тек салмақ тастау үшін
+C. Тақуалық пен өзін-өзі бақылауды арттыру үшін
+D. Басқаларға көрсету, мақтану үшін
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+11. When should a Muslim make the intention (niyyah) for fasting in Ramadan?
+A. Only at the time of Suhoor
+B. After Maghrib and before Fajr
+C. During Isha prayer
+D. At any time during the day
+
+11. Мұсылман Рамазан оразасына ниетті қашан етуі керек?
+A. Тек сәресі (Сухур) уақытында
+B. Ақшамнан кейін таңға дейін
+C. Құптан намазы кезінде
+D. Күндіз кез келген уақытта
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+12. What is the minimum requirement for Suhoor?
+A. A full meal
+B. One sip of water
+C. Three dates
+D. A glass of milk
+
+12. Сәресінің ең аз өлшемі қандай?
+A. Толық бір ас
+B. Бір жұтым су
+C. Үш құрма
+D. Бір стакан сүт
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+13. What is the best thing to break the fast with, according to the Sunnah?
+A. Rice and chicken
+B. Dates and water
+C. Soup and bread
+D. Fruits and juice
+
+13. Сүннет бойынша, ауыз ашуға ең жақсы нәрсе не?
+A. Күріш пен тауық
+B. Құрма мен су
+C. Сорпа мен нан
+D. Жеміс пен шырын
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+14. What is the number of rakaat in the Prophet’s usual Taraweeh prayer?
+A. 24 rakaat
+B. 10 rakaat
+C. 12 rakaat
+D. 8 rakaat
+
+14. Пайғамбарымыздың (с.а.у.) әдеттегі тарауих намазында неше рәкағат болған?
+A. 24 рәкағат
+B. 10 рәкағат
+C. 12 рәкағат
+D. 8 рәкағат
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+15. Laylatul Qadr is better than how many months of worship?
+A. 1000 months
+B. 500 months
+C. 100 months
+D. 10 months
+
+15. Қадір түні (Ләйләтул Қадр) қанша айлық құлшылықтан артық?
+A. 1000 ай
+B. 500 ай
+C. 100 ай
+D. 10 ай
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+16. Which nights are most important to search for Laylatul Qadr?
+A. Odd nights in the last 10 days
+B. Even nights in the last 10 days
+C. Only the 27th night
+D. The first night of Ramadan
+
+16. Қадір түнін қай түндерден іздеу ең маңызды?
+A. Рамазанның соңғы он күніндегі тақ түндер
+B. Соңғы он күндегі жұп түндер
+C. Тек 27-түні
+D. Рамазанның бірінші түні
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+17. Where was the Prophet when the first revelation came?
+A. In Masjid Al-Haram
+B. In Cave Hira
+C. In Madinah
+D. On Mount Uhud
+
+17. Алғашқы уахи келген кезде Пайғамбар (с.а.у.) қайда болды?
+A. Мәсжидул Харамда
+B. Хира үңгірінде
+C. Мәдинада
+D. Ұхуд тауында
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+18. Which angel came to the Prophet with the first revelation?
+A. Mikail
+B. Israfil
+C. Malik
+D. Jibril
+
+18. Алғашқы уахиды Пайғамбарға (с.а.у.) қай періште алып келді?
+A. Микаил
+B. Исрафил
+C. Мәлик
+D. Жәбрейіл (Жибрил)
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+19. Which surah’s first verses were revealed first?
+A. Surah Al-Fatihah
+B. Surah Al-Ikhlas
+C. Surah Al-‘Alaq
+D. Surah An-Nas
+
+19. Қай сүренің алғашқы аяттары ең бірінші түсті?
+A. Әл-Фатиха сүресі
+B. Әл-Ихлас сүресі
+C. Әл-Алақ сүресі
+D. Ән-Нәс сүресі
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+20. Who took care of Prophet Muhammad before the first revelation when he was young?
+A. His mother only
+B. His grandfather and then his uncle Abu Talib
+C. His brothers and sisters
+D. His teacher in Madinah
+
+20. Алғашқы уахиға дейін жас кезінде Мұхаммед (с.а.у.)-ға кім қамқор болды?
+A. Тек анасы
+B. Алдымен атасы, кейін көкесі Әбу Тәліп
+C. Ағалары мен апа-қарындастары
+D. Мәдинадағы ұстазы
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+21. Which action shows that a student is using the lesson from “Iqra’” in daily life?
+A. Ignoring books and homework
+B. Reading only for exams and forgetting Allah
+C. Trying to read and learn more, and remembering that all knowledge comes from Allah
+D. Refusing to read anything from the Qur’an
+
+21. Оқушының «Иқра» (Оқы) сабағын күнделікті өмірде қолданып жүргенін қандай іс-әрекет көрсетеді?
+A. Кітап пен үй тапсырмасын елемеу
+B. Тек емтихан үшін оқып, Алланы ұмыту
+C. Көбірек оқуға, білім алуға тырысып, бар білім Алладан екенін еске алу
+D. Құраннан ештеңе оқудан бас тарту
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SOMALI ========== -->
+  <div class="section" id="sec-so">
+    <h2>Af-Soomaali Somali Version</h2>
+
+    <div class="question-block">
+      <div class="question-text">
+Name:
+Class:
+Date:
+
+Magac:
+Fasalka:
+Taariikh:
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+1. What is Zakat al-Fitrah?
+A. A tax we pay every month
+B. A special charity at the end of Ramadan
+C. Money we give only on Fridays
+D. A fee to enter the masjid
+
+1. Zakatul-Fitri waa maxay?
+A. Canshuur aan bixino bil kasta
+B. Sadaqo gaar ah oo la bixiyo dhammaadka Ramadaanka
+C. Lacag aan bixino oo keliya Jimcaha
+D. Lacag laga qaado marka masjidka la galayo
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+2. When must Zakat al-Fitrah be given?
+A. Before Ramadan starts
+B. Any day in the year
+C. Before the Eid al-Fitr prayer
+D. After Dhuhur on Eid day
+
+2. Goorma ayaa la bixinayaa Zakatul-Fitriga?
+A. Kahor inta uusan Ramadaan bilaaban
+B. Maalin kasta oo sanadka ka mid ah
+C. Kahor salaadda Ciidul-Fitriga
+D. Kadib salaadda Duhur maalinta Ciida
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+3. What is one main reason for Zakat al-Fitrah?
+A. To buy new clothes for rich people
+B. To purify the fasting person and complete the fast
+C. To pay the school fees
+D. To build markets
+
+3. Maxay ka mid tahay ujeeddooyinka waaweyn ee Zakatul-Fitriga?
+A. In dharka cusub loo iibsado dadka taajiriinta ah
+B. In la daahiriye qofka sooman oo soonkiisu u dhammaado
+C. In lagu bixiyo lacagta iskuulka
+D. In suuqyo la dhiso
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+4. Who must pay Zakat al-Fitrah?
+A. Any rich person, Muslim or not
+B. Every Muslim who has extra food and money on Eid
+C. Only imams and teachers
+D. Only children who fast
+
+4. Yaa waajib ku ah Zakatul-Fitriga?
+A. Qof kasta oo taajir ah, Muslim ha ahaado ama yaanay ahayn
+B. Muslim kasta oo maalinta Ciida haysta cunto iyo lacag ka badan baahidiisa
+C. Keliya imaamyada iyo macallimiinta
+D. Keliya carruurta soonta
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+5. On whom does a person pay Zakat al-Fitrah?
+A. Only for himself
+B. Only for his friends
+C. Only for his parents
+D. For himself and his dependents
+
+5. Qofku Zakatul-Fitri wuxuu ka bixiyaa yaa?
+A. Isaga oo kaliya
+B. Keliya asxaabtiisa
+C. Keliya waalidkiis
+D. Isaga iyo kuwa uu masuulka ka yahay (reerkiisa)
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+6. What is normally given as Zakat al-Fitrah?
+A. A fixed amount of staple food or its value in money
+B. Any small gift or amount money
+C. Only clothes
+D. Only cooked food
+
+6. Caadiyan maxaa loo bixiyaa Zakatul-Fitriga ahaan?
+A. Cunto asaasi ah (qaddar go’an) ama qiimaheeda lacageed
+B. Hadiyad yar ama lacag kasta oo yar
+C. Keliya dhar
+D. Keliya cunto la kariyey
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+7. How does Zakat al-Fitrah help the poor?
+A. It makes them feel more hungry
+B. It gives them food or money so they can eat and be happy on Eid
+C. It forces them to move houses
+D. It stops them from praying
+
+7. Zakatal-Fitri maxay u taraysaa masaakiinta?
+A. Waxay ka dhigtaa inay sii dareemaan gaajo
+B. Waxay siinaysaa cunto ama lacag si ay u cunaan oo ugu farxaan maalinta Ciida
+C. Waxay ku qasbaysaa inay guryo ka guuraan
+D. Waxay ka hor joogsanaysaa salaadda
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+8. Ahmad has enough money and food. He lives with his wife and two children. For how
+many people should he pay Zakat al-Fitrah?
+A. 1
+B. 2
+C. 3
+D. 4
+
+8. Axmed wuxuu haystaa lacag iyo cunto ku filan. Wuxuu la nool yahay xaaskiisa iyo laba carruur ah. Immisa qof ayuu ka bixinayaa Zakatal-Fitri?
+A. 1
+B. 2
+C. 3
+D. 4
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+9. In Ramadan, fasting means to stop from:
+A. Eating and drinking only at night
+B. Eating, drinking, and marital relations from Fajr until Maghrib
+C. Sleeping in the day
+D. Talking to people
+
+9. Bisha Ramadaan, soonku wuxuu ka dhigan yahay in laga joogsado:
+A. Cunto iyo cabitaan habeenkii oo keliya
+B. Cunto, cabitaan iyo xiriirka guurka laga bilaabo Fajr ilaa Maghrib
+C. Hurdo maalintii
+D. Dadka la hadalkooda
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+10. What is one main purpose of fasting in Ramadan?
+A. To feel angry and tired
+B. To lose weight only
+C. To gain taqwa and self-control
+D. To show off to others
+
+10. Ujeeddada ugu weyn ee soonka Ramadaanku mid ka mid ah waa maxay?
+A. In qofku dareemo xanaaq iyo daal
+B. In la miisaan dhimo oo keliya
+C. In laga helo taqwo iyo is-xakameyn (nafta la edbiyo)
+D. In dadka kale lagu faano
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+11. When should a Muslim make the intention (niyyah) for fasting in Ramadan?
+A. Only at the time of Suhoor
+B. After Maghrib and before Fajr
+C. During Isha prayer
+D. At any time during the day
+
+11. Muslimku goorma ayuu niyadda (niyyah) u yeelanayaa soonka Ramadaan?
+A. Keliya waqtiga suxuurka
+B. Kadib Maghrib kahor Fajr
+C. Inta lagu jiro salaadda Cishaa
+D. Wakhti kasta oo maalintii ah
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+12. What is the minimum requirement for Suhoor?
+A. A full meal
+B. One sip of water
+C. Three dates
+D. A glass of milk
+
+12. Shuruudda ugu yar ee suxuurku waa maxay?
+A. Cunto dhammaystiran
+B. Hal cabbid oo biyo ah
+C. Saddex timir
+D. Hal koob caano ah
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+13. What is the best thing to break the fast with, according to the Sunnah?
+A. Rice and chicken
+B. Dates and water
+C. Soup and bread
+D. Fruits and juice
+
+13. Sida Sunnada ah, maxaa ugu khayr badan in lagu afuro (soonka lagu jebiyo)?
+A. Bariis iyo digaag
+B. Timir iyo biyo
+C. Maraq iyo rooti
+D. Khudaar iyo casiir
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+14. What is the number of rakaat in the Prophet’s usual Taraweeh prayer?
+A. 24 rakaat
+B. 10 rakaat
+C. 12 rakaat
+D. 8 rakaat
+
+14. Taraawiixdii caadiga ahayd ee Nabigu (SCW) intee rakco ayuu tukan jiray?
+A. 24 rakco
+B. 10 rakco
+C. 12 rakco
+D. 8 rakco
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+15. Laylatul Qadr is better than how many months of worship?
+A. 1000 months
+B. 500 months
+C. 100 months
+D. 10 months
+
+15. Habeenka Laylatul-Qadr ka wanaagsan yahay cibaadada imisa bilood?
+A. 1000 bilood
+B. 500 bilood
+C. 100 bilood
+D. 10 bilood
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+16. Which nights are most important to search for Laylatul Qadr?
+A. Odd nights in the last 10 days
+B. Even nights in the last 10 days
+C. Only the 27th night
+D. The first night of Ramadan
+
+16. Habeenkee ayaa ugu muhiimsan in la raadiyo Laylatul-Qadr?
+A. Habeenada kooda ee tobanka habeen ee ugu dambeeya
+B. Habeenada xitaa ee tobanka habeen ee ugu dambeeya
+C. Oo keliya habeenka 27-aad
+D. Habeenka ugu horreeya Ramadaan
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+17. Where was the Prophet when the first revelation came?
+A. In Masjid Al-Haram
+B. In Cave Hira
+C. In Madinah
+D. On Mount Uhud
+
+17. Nabigu (SCW) xaggee buu joogay markuu u horreeyey wahyigu yimid?
+A. Masjidul-Xaram gudihiisa
+B. Godka Xiraa (Cave Hira)
+C. Magaalada Madiinah
+D. Buurta Uhud korkeed
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+18. Which angel came to the Prophet with the first revelation?
+A. Mikail
+B. Israfil
+C. Malik
+D. Jibril
+
+18. Malaa’igtee ayaa Nabi Muxammad (SCW) ugu timid wahyigii ugu horreeyey?
+A. Miika’iil
+B. Israfiil
+C. Maalik
+D. Jibriil
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+19. Which surah’s first verses were revealed first?
+A. Surah Al-Fatihah
+B. Surah Al-Ikhlas
+C. Surah Al-‘Alaq
+D. Surah An-Nas
+
+19. Aayadihii ugu horreeyey waxa laga soo dejiyey suuraddee?
+A. Suuradda Al-Faatixah
+B. Suuradda Al-Ikhlaas
+C. Suuradda Al-Calaq
+D. Suuradda An-Naas
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+20. Who took care of Prophet Muhammad before the first revelation when he was young?
+A. His mother only
+B. His grandfather and then his uncle Abu Talib
+C. His brothers and sisters
+D. His teacher in Madinah
+
+20. Yaa daryeelay Nabi Muxammad (SCW) isagoo yar ka hor intaan la soo dejin wahyiga ugu horreeya?
+A. Hooyadii oo keliya
+B. Awoowgiis kadibna adeerkii Abu Daalib
+C. Walaalihiis
+D. Macallinkiisii ku noolaa Madiinah
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+21. Which action shows that a student is using the lesson from “Iqra’” in daily life?
+A. Ignoring books and homework
+B. Reading only for exams and forgetting Allah
+C. Trying to read and learn more, and remembering that all knowledge comes from Allah
+D. Refusing to read anything from the Qur’an
+
+21. Ficilkee ayaa muujinaya in ardaygu uu casharka “Iqra’” (Akhriso) ku dabaqayo noloshiisa maalin kasta?
+A. Buuggaagta iyo shaqada guriga oo la iska indho tiro
+B. Kaliya imtixaan u akhrinta iyo illaawidda Alle
+C. Isku dayo inuu wax badan akhriyo oo barto, isagoo xusuusan in aqoontu Ilaahay ka timaaddo
+D. Diido inuu wax ka akhriyo Qur’aanka
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showLang(lang) {
+      const codes = ['cn', 'th', 'bn', 'kk', 'so'];
+      codes.forEach(code => {
+        const sec = document.getElementById('sec-' + code);
+        if (sec) sec.classList.toggle('active', code === lang);
+      });
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      if (lang === 'cn') buttons[0].classList.add('active');
+      if (lang === 'th') buttons[1].classList.add('active');
+      if (lang === 'bn') buttons[2].classList.add('active');
+      if (lang === 'kk') buttons[3].classList.add('active');
+      if (lang === 'so') buttons[4].classList.add('active');
+    }
+  </script>
 </body>
 </html>
