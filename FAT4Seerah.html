@@ -1,0 +1,1910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seerah — The Life of Prophet Muhammad ﷺ</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold:       #C9A84C;
+  --gold-light: #E8C97A;
+  --gold-dim:   #8B6914;
+  --gold-pale:  #F5E6C0;
+  --green:      #1E5C35;
+  --green-light:#2D7A4A;
+  --green-pale: #E6F2EB;
+  --cream:      #FAF6EE;
+  --parchment:  #F0E8D4;
+  --dark:       #16130E;
+  --ink:        #2C2416;
+  --muted:      #7A6A4E;
+  --white:      #FEFCF8;
+
+  --phase-pre:    #8B4513;
+  --phase-makkah: #C9A84C;
+  --phase-madinah:#1E5C35;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  background: var(--dark);
+  color: var(--cream);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ─── BACKGROUND TEXTURE ─── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 20%, rgba(201,168,76,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 80%, rgba(30,92,53,0.07) 0%, transparent 60%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h60v60H0z' fill='none'/%3E%3Ccircle cx='30' cy='30' r='1' fill='rgba(201,168,76,0.04)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── HERO ─── */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 80px 24px 60px;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(22,19,14,0.95) 0%, transparent 100%);
+}
+
+.hero-arabic {
+  font-family: 'Amiri', serif;
+  font-size: clamp(28px, 5vw, 52px);
+  color: var(--gold-light);
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  margin-bottom: 16px;
+  text-shadow: 0 0 40px rgba(201,168,76,0.3);
+}
+
+.hero-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(14px, 2vw, 18px);
+  letter-spacing: 0.35em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.hero-subtitle {
+  font-size: clamp(32px, 6vw, 64px);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.1;
+  font-style: italic;
+}
+
+.hero-subtitle strong {
+  font-weight: 700;
+  color: var(--gold-light);
+  font-style: normal;
+}
+
+.hero-divider {
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 32px auto;
+}
+
+.hero-desc {
+  font-size: 18px;
+  color: var(--muted);
+  font-style: italic;
+  max-width: 600px;
+  margin: 0 auto 48px;
+  line-height: 1.7;
+}
+
+/* ─── PHASE NAV ─── */
+.phase-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 16px 24px;
+  background: rgba(22,19,14,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+
+.phase-btn {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  padding: 10px 20px;
+  border: 1px solid;
+  border-radius: 2px;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.phase-btn.pre    { color: #C4855A; border-color: rgba(196,133,90,0.4); }
+.phase-btn.makkah { color: var(--gold); border-color: rgba(201,168,76,0.4); }
+.phase-btn.madinah{ color: #5FAD7A; border-color: rgba(95,173,122,0.4); }
+.phase-btn.all    { color: var(--cream); border-color: rgba(250,246,238,0.3); }
+
+.phase-btn:hover, .phase-btn.active {
+  background: currentColor;
+  color: var(--dark) !important;
+}
+
+/* ─── TIMELINE WRAPPER ─── */
+.timeline {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+  z-index: 1;
+}
+
+/* ─── PHASE SECTION ─── */
+.phase-section {
+  margin-bottom: 80px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.phase-section.hidden {
+  display: none;
+}
+
+.phase-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 60px;
+  padding: 32px 40px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.phase-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.07;
+  background: currentColor;
+}
+
+.phase-header-num {
+  font-family: 'Cinzel', serif;
+  font-size: 72px;
+  font-weight: 900;
+  opacity: 0.15;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.phase-header-content {}
+
+.phase-header-label {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 4px;
+}
+
+.phase-header-title {
+  font-size: clamp(24px, 4vw, 38px);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.phase-header-arabic {
+  font-family: 'Amiri', serif;
+  font-size: 22px;
+  opacity: 0.7;
+  margin-top: 6px;
+}
+
+.phase-header-range {
+  font-size: 15px;
+  opacity: 0.6;
+  font-style: italic;
+  margin-top: 4px;
+}
+
+.pre-phase  .phase-header { color: #C4855A; }
+.makkah-phase .phase-header { color: var(--gold); }
+.madinah-phase .phase-header { color: #5FAD7A; }
+
+/* ─── TIMELINE SPINE ─── */
+.events-list {
+  position: relative;
+  padding-left: 60px;
+}
+
+.events-list::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--phase-color, var(--gold)) 0%, rgba(201,168,76,0.1) 100%);
+}
+
+.pre-phase  .events-list::before { background: linear-gradient(180deg, #C4855A 0%, rgba(196,133,90,0.1) 100%); }
+.makkah-phase .events-list::before { background: linear-gradient(180deg, var(--gold) 0%, rgba(201,168,76,0.1) 100%); }
+.madinah-phase .events-list::before { background: linear-gradient(180deg, #5FAD7A 0%, rgba(95,173,122,0.1) 100%); }
+
+/* ─── EVENT CARD ─── */
+.event {
+  position: relative;
+  margin-bottom: 48px;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideIn 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Dot on spine */
+.event::before {
+  content: '';
+  position: absolute;
+  left: -48px;
+  top: 22px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  background: var(--dark);
+  z-index: 2;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.pre-phase   .event { color: #C4855A; }
+.makkah-phase .event { color: var(--gold); }
+.madinah-phase .event { color: #5FAD7A; }
+
+.event:hover::before {
+  transform: scale(1.5);
+  background: currentColor;
+}
+
+/* Connector line from dot to card */
+.event::after {
+  content: '';
+  position: absolute;
+  left: -34px;
+  top: 28px;
+  width: 34px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.3;
+}
+
+.event-card {
+  background: rgba(250,246,238,0.03);
+  border: 1px solid rgba(250,246,238,0.07);
+  border-left: 3px solid currentColor;
+  border-radius: 0 4px 4px 0;
+  padding: 0;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.event-card:hover {
+  background: rgba(250,246,238,0.06);
+  border-color: rgba(250,246,238,0.15);
+  border-left-color: currentColor;
+  transform: translateX(4px);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+}
+
+/* Card header (always visible) */
+.event-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 24px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.event-date-badge {
+  background: currentColor;
+  color: var(--dark);
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 2px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.event-meta {
+  flex: 1;
+}
+
+.event-age {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  opacity: 0.5;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.event-title {
+  font-size: clamp(17px, 2.5vw, 21px);
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1.2;
+}
+
+.event-toggle {
+  font-size: 20px;
+  color: currentColor;
+  opacity: 0.5;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  margin-top: 4px;
+}
+
+.event.open .event-toggle {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* Card body (expandable) */
+.event-body {
+  display: none;
+  border-top: 1px solid rgba(250,246,238,0.07);
+}
+
+.event.open .event-body {
+  display: block;
+  animation: fadeDown 0.3s ease;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.event-body-inner {
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 700px) {
+  .event-body-inner { grid-template-columns: 1fr; }
+}
+
+.event-desc-col {}
+
+.event-desc {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--cream);
+  opacity: 0.85;
+  margin-bottom: 20px;
+}
+
+.event-refs {
+  background: rgba(201,168,76,0.06);
+  border-left: 2px solid var(--gold);
+  padding: 14px 16px;
+  border-radius: 0 3px 3px 0;
+  margin-bottom: 20px;
+}
+
+.event-refs-label {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.event-refs-text {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  color: var(--gold-pale);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.event-lesson {
+  background: rgba(30,92,53,0.1);
+  border-left: 2px solid var(--green-light);
+  padding: 14px 16px;
+  border-radius: 0 3px 3px 0;
+}
+
+.event-lesson-label {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  color: #5FAD7A;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.event-lesson-text {
+  font-size: 15px;
+  color: var(--green-pale);
+  line-height: 1.7;
+}
+
+/* ─── MEDIA COLUMN ─── */
+.event-media-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.media-slot {
+  border: 1.5px dashed;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.pre-phase   .media-slot { border-color: rgba(196,133,90,0.3); }
+.makkah-phase .media-slot { border-color: rgba(201,168,76,0.3); }
+.madinah-phase .media-slot { border-color: rgba(95,173,122,0.3); }
+
+.media-slot-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: rgba(250,246,238,0.03);
+}
+
+.media-slot-icon {
+  font-size: 18px;
+  opacity: 0.7;
+}
+
+.media-slot-text {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+/* Image upload area */
+.media-image-area {
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  position: relative;
+}
+
+.media-image-area:hover {
+  background: rgba(250,246,238,0.04);
+}
+
+.media-image-area img.preview {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.media-image-placeholder {
+  text-align: center;
+  padding: 20px;
+  opacity: 0.4;
+}
+
+.media-image-placeholder .upload-icon {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.media-image-placeholder p {
+  font-size: 13px;
+  font-style: italic;
+}
+
+.media-image-placeholder small {
+  font-size: 11px;
+  opacity: 0.6;
+}
+
+.media-img-hidden-input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+/* Video embed area */
+.media-video-area {
+  padding: 14px;
+}
+
+.video-input-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.video-url-input {
+  flex: 1;
+  background: rgba(250,246,238,0.05);
+  border: 1px solid rgba(250,246,238,0.1);
+  border-radius: 3px;
+  padding: 8px 12px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  color: var(--cream);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.video-url-input:focus {
+  border-color: var(--gold);
+}
+
+.video-url-input::placeholder {
+  opacity: 0.35;
+  font-style: italic;
+}
+
+.video-embed-btn {
+  background: var(--gold);
+  color: var(--dark);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 3px;
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.video-embed-btn:hover { background: var(--gold-light); }
+
+.video-embed-btn.clear-btn {
+  background: rgba(200,60,60,0.2);
+  color: #e88;
+}
+
+.video-embed-btn.clear-btn:hover { background: rgba(200,60,60,0.35); }
+
+.video-frame-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 3px;
+  background: #000;
+}
+
+.video-frame-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+
+.video-placeholder {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.35;
+  font-size: 13px;
+  font-style: italic;
+  padding: 4px 0;
+}
+
+.video-placeholder-icon { font-size: 24px; }
+
+/* ─── FILTER ACTIVE STYLES ─── */
+.timeline.filter-pre .pre-phase,
+.timeline.filter-makkah .makkah-phase,
+.timeline.filter-madinah .madinah-phase {
+  display: block;
+}
+
+.timeline.filter-pre .makkah-phase,
+.timeline.filter-pre .madinah-phase,
+.timeline.filter-makkah .pre-phase,
+.timeline.filter-makkah .madinah-phase,
+.timeline.filter-madinah .pre-phase,
+.timeline.filter-madinah .makkah-phase {
+  display: none;
+}
+
+/* ─── FOOTER ─── */
+.footer {
+  text-align: center;
+  padding: 48px 24px;
+  border-top: 1px solid rgba(201,168,76,0.1);
+  z-index: 1;
+  position: relative;
+}
+
+.footer-arabic {
+  font-family: 'Amiri', serif;
+  font-size: 28px;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+}
+
+.footer-text {
+  font-size: 15px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ─── SCROLL ANIMATION DELAYS ─── */
+.event:nth-child(1)  { animation-delay: 0.05s; }
+.event:nth-child(2)  { animation-delay: 0.10s; }
+.event:nth-child(3)  { animation-delay: 0.15s; }
+.event:nth-child(4)  { animation-delay: 0.20s; }
+.event:nth-child(5)  { animation-delay: 0.25s; }
+.event:nth-child(6)  { animation-delay: 0.30s; }
+.event:nth-child(7)  { animation-delay: 0.35s; }
+.event:nth-child(8)  { animation-delay: 0.40s; }
+.event:nth-child(9)  { animation-delay: 0.45s; }
+.event:nth-child(10) { animation-delay: 0.50s; }
+.event:nth-child(11) { animation-delay: 0.55s; }
+.event:nth-child(12) { animation-delay: 0.60s; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 600px) {
+  .events-list { padding-left: 40px; }
+  .event::before { left: -33px; }
+  .event::after  { left: -20px; width: 20px; }
+  .phase-header { padding: 24px 20px; }
+  .phase-header-num { font-size: 52px; }
+  .event-body-inner { padding: 16px; }
+}
+
+/* ─── ORNAMENT ─── */
+.ornament {
+  text-align: center;
+  color: var(--gold);
+  font-size: 22px;
+  opacity: 0.4;
+  letter-spacing: 0.5em;
+  margin: 40px 0;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+  <div class="hero-title">Seerah al-Nabawiyyah</div>
+  <div class="hero-subtitle">The Life of <strong>Prophet Muhammad ﷺ</strong></div>
+  <div class="hero-divider"></div>
+  <div class="hero-desc">A complete chronological journey through the life of the Final Messenger — from birth in Makkah to his departure to the Most High Companion.</div>
+</div>
+
+<!-- PHASE NAV -->
+<nav class="phase-nav">
+  <button class="phase-btn all active" onclick="filterPhase('all', this)">All Periods</button>
+  <button class="phase-btn pre" onclick="filterPhase('pre', this)">⬤ Before Revelation</button>
+  <button class="phase-btn makkah" onclick="filterPhase('makkah', this)">⬤ Makkan Period</button>
+  <button class="phase-btn madinah" onclick="filterPhase('madinah', this)">⬤ Madinan Period</button>
+</nav>
+
+<!-- TIMELINE -->
+<div class="timeline" id="timeline">
+
+  <!-- ══════════════ PHASE 1: BEFORE REVELATION ══════════════ -->
+  <section class="phase-section pre-phase" id="phase-pre">
+    <div class="phase-header">
+      <div class="phase-header-num">I</div>
+      <div class="phase-header-content">
+        <div class="phase-header-label">Phase One</div>
+        <div class="phase-header-title">Before Revelation</div>
+        <div class="phase-header-arabic">قبل الوحي</div>
+        <div class="phase-header-range">570 CE – 610 CE · Birth to Age 40</div>
+      </div>
+    </div>
+
+    <div class="events-list">
+
+      <!-- EVENT -->
+      <div class="event" id="ev-birth">
+        <div class="event-card">
+          <div class="event-header" onclick="toggleEvent('ev-birth')">
+            <div class="event-date-badge">570 CE</div>
+            <div class="event-meta">
+              <div class="event-age">Age: Newborn</div>
+              <div class="event-title">Birth of the Prophet ﷺ — Year of the Elephant</div>
+            </div>
+            <div class="event-toggle">▾</div>
+          </div>
+          <div class="event-body">
+            <div class="event-body-inner">
+              <div class="event-desc-col">
+                <p class="event-desc">Born on 12 Rabi' al-Awwal in Makkah, in the clan of Banu Hashim of the Quraysh tribe. His father Abdullah had passed away before his birth. His grandfather Abd al-Muttalib named him Muhammad — "the praised one" — a name rarely used in Arabia. The same year, the Abyssinian army of Abraha attempted to destroy the Ka'bah and was repelled by birds carrying stones (Surah Al-Fil).</p>
+                <div class="event-refs">
+                  <div class="event-refs-label">📖 Reference</div>
+                  <div class="event-refs-text">Quran 105:1–5 (Al-Fil) · Bukhari: "I am the du'a of Ibrahim and the glad tidings of Isa."</div>
+                </div>
+                <div class="event-lesson">
+                  <div class="event-lesson-label">✦ Key Lesson</div>
+                  <div class="event-lesson-text">Allah prepares the world for His chosen servants before they even arrive. The defeat of Abraha was a sign of divine protection over the sacred land into which the Final Prophet would be born.</div>
+                </div>
+              </div>
+              <div class="event-media-col">
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🖼</span><span class="media-slot-text">Photo / Image</span></div>
+                  <div class="media-image-area" onclick="triggerImageUpload('img-ev-birth')">
+                    <input type="file" accept="image/*" class="media-img-hidden-input" id="img-ev-birth" onchange="handleImageUpload(this, 'ev-birth')">
+                    <div class="media-image-placeholder" id="img-placeholder-ev-birth">
+                      <span class="upload-icon">📷</span>
+                      <p>Click to add a photo</p>
+                      <small>e.g. Makkah skyline, Masjid al-Haram</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🎬</span><span class="media-slot-text">Video</span></div>
+                  <div class="media-video-area" id="video-ev-birth">
+                    <div class="video-input-row">
+                      <input type="text" class="video-url-input" placeholder="Paste YouTube / Vimeo URL…" id="videourl-ev-birth">
+                      <button class="video-embed-btn" onclick="embedVideo('ev-birth')">Embed</button>
+                    </div>
+                    <div class="video-placeholder"><span class="video-placeholder-icon">▶</span> Add a related video</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event" id="ev-halimah">
+        <div class="event-card">
+          <div class="event-header" onclick="toggleEvent('ev-halimah')">
+            <div class="event-date-badge">570–575 CE</div>
+            <div class="event-meta">
+              <div class="event-age">Age: Infant – 5</div>
+              <div class="event-title">Wet-Nursing with Halimah al-Sa'diyyah & Opening of the Chest</div>
+            </div>
+            <div class="event-toggle">▾</div>
+          </div>
+          <div class="event-body">
+            <div class="event-body-inner">
+              <div class="event-desc-col">
+                <p class="event-desc">Following Arab tradition, the infant Muhammad ﷺ was entrusted to Halimah bint Abi Dhu'ayb of the Banu Sa'd tribe. Her household was abundantly blessed during his stay — livestock thrived and her land flourished. Around age 4–5, two angels appeared, opened his chest, removed a portion of his heart, washed it with Zamzam water, and restored it — a divine purification. Frightened, Halimah returned him to his mother Aminah in Makkah.</p>
+                <div class="event-refs">
+                  <div class="event-refs-label">📖 Reference</div>
+                  <div class="event-refs-text">Quran 94:1 · Sahih Muslim: Narration of Anas ibn Malik on the shaqq al-sadr · Ibn Hisham, Sirah al-Nabawiyyah</div>
+                </div>
+                <div class="event-lesson">
+                  <div class="event-lesson-label">✦ Key Lesson</div>
+                  <div class="event-lesson-text">Purity of heart is a prerequisite for divine mission. Allah prepares His messengers through spiritual purification before the weight of revelation descends.</div>
+                </div>
+              </div>
+              <div class="event-media-col">
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🖼</span><span class="media-slot-text">Photo / Image</span></div>
+                  <div class="media-image-area" onclick="triggerImageUpload('img-ev-halimah')">
+                    <input type="file" accept="image/*" class="media-img-hidden-input" id="img-ev-halimah" onchange="handleImageUpload(this, 'ev-halimah')">
+                    <div class="media-image-placeholder" id="img-placeholder-ev-halimah">
+                      <span class="upload-icon">📷</span><p>Click to add a photo</p><small>e.g. Arabian desert, Banu Sa'd region</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🎬</span><span class="media-slot-text">Video</span></div>
+                  <div class="media-video-area" id="video-ev-halimah">
+                    <div class="video-input-row">
+                      <input type="text" class="video-url-input" placeholder="Paste YouTube / Vimeo URL…" id="videourl-ev-halimah">
+                      <button class="video-embed-btn" onclick="embedVideo('ev-halimah')">Embed</button>
+                    </div>
+                    <div class="video-placeholder"><span class="video-placeholder-icon">▶</span> Add a related video</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event" id="ev-orphan">
+        <div class="event-card">
+          <div class="event-header" onclick="toggleEvent('ev-orphan')">
+            <div class="event-date-badge">576–578 CE</div>
+            <div class="event-meta">
+              <div class="event-age">Age: 6 – 8</div>
+              <div class="event-title">Death of Mother Aminah & Grandfather Abd al-Muttalib</div>
+            </div>
+            <div class="event-toggle">▾</div>
+          </div>
+          <div class="event-body">
+            <div class="event-body-inner">
+              <div class="event-desc-col">
+                <p class="event-desc">Aminah took her son to visit relatives in Yathrib. On the return journey, she fell gravely ill at Al-Abwa and passed away, leaving 6-year-old Muhammad ﷺ a complete orphan. His grandfather Abd al-Muttalib — who loved him deeply and would seat him at the Ka'bah's shade — became his guardian. Just two years later, Abd al-Muttalib too passed away, transferring guardianship to Abu Talib, his uncle.</p>
+                <div class="event-refs">
+                  <div class="event-refs-label">📖 Reference</div>
+                  <div class="event-refs-text">Quran 93:6–8: "Did He not find you an orphan and give you refuge?" · Sahih Muslim: on visiting his mother's grave</div>
+                </div>
+                <div class="event-lesson">
+                  <div class="event-lesson-label">✦ Key Lesson</div>
+                  <div class="event-lesson-text">Allah tests those He loves most. Orphanhood built in the Prophet ﷺ a profound empathy for the vulnerable — a compassion that would define his entire mission.</div>
+                </div>
+              </div>
+              <div class="event-media-col">
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🖼</span><span class="media-slot-text">Photo / Image</span></div>
+                  <div class="media-image-area" onclick="triggerImageUpload('img-ev-orphan')">
+                    <input type="file" accept="image/*" class="media-img-hidden-input" id="img-ev-orphan" onchange="handleImageUpload(this, 'ev-orphan')">
+                    <div class="media-image-placeholder" id="img-placeholder-ev-orphan">
+                      <span class="upload-icon">📷</span><p>Click to add a photo</p><small>e.g. Al-Abwa, ancient Makkah</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🎬</span><span class="media-slot-text">Video</span></div>
+                  <div class="media-video-area" id="video-ev-orphan">
+                    <div class="video-input-row">
+                      <input type="text" class="video-url-input" placeholder="Paste YouTube / Vimeo URL…" id="videourl-ev-orphan">
+                      <button class="video-embed-btn" onclick="embedVideo('ev-orphan')">Embed</button>
+                    </div>
+                    <div class="video-placeholder"><span class="video-placeholder-icon">▶</span> Add a related video</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event" id="ev-bahira">
+        <div class="event-card">
+          <div class="event-header" onclick="toggleEvent('ev-bahira')">
+            <div class="event-date-badge">582 CE</div>
+            <div class="event-meta">
+              <div class="event-age">Age: 12</div>
+              <div class="event-title">Journey to Syria — Bahira the Monk Recognizes the Prophet</div>
+            </div>
+            <div class="event-toggle">▾</div>
+          </div>
+          <div class="event-body">
+            <div class="event-body-inner">
+              <div class="event-desc-col">
+                <p class="event-desc">Abu Talib took the young Muhammad ﷺ on a trade caravan to Syria. At Busra, the Christian monk Bahira — who had seen a cloud shading the boy and trees bowing — invited the caravan. He examined the youth, recognized the seal of prophethood between his shoulders, and urged Abu Talib: "Return with your nephew — guard him from the Jews and Romans who will seek to harm him." Abu Talib returned him to Makkah.</p>
+                <div class="event-refs">
+                  <div class="event-refs-label">📖 Reference</div>
+                  <div class="event-refs-text">Tirmidhi (Hasan): Detailed narration of Bahira's recognition of prophetic signs · Ibn Hisham, Sirah</div>
+                </div>
+                <div class="event-lesson">
+                  <div class="event-lesson-label">✦ Key Lesson</div>
+                  <div class="event-lesson-text">Truth is recognized by the sincere across all traditions. Bahira's testimony shows that earlier scriptures contained descriptions of the Final Prophet — and those who studied them honestly recognized him.</div>
+                </div>
+              </div>
+              <div class="event-media-col">
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🖼</span><span class="media-slot-text">Photo / Image</span></div>
+                  <div class="media-image-area" onclick="triggerImageUpload('img-ev-bahira')">
+                    <input type="file" accept="image/*" class="media-img-hidden-input" id="img-ev-bahira" onchange="handleImageUpload(this, 'ev-bahira')">
+                    <div class="media-image-placeholder" id="img-placeholder-ev-bahira">
+                      <span class="upload-icon">📷</span><p>Click to add a photo</p><small>e.g. Busra, Syria trade route</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🎬</span><span class="media-slot-text">Video</span></div>
+                  <div class="media-video-area" id="video-ev-bahira">
+                    <div class="video-input-row">
+                      <input type="text" class="video-url-input" placeholder="Paste YouTube / Vimeo URL…" id="videourl-ev-bahira">
+                      <button class="video-embed-btn" onclick="embedVideo('ev-bahira')">Embed</button>
+                    </div>
+                    <div class="video-placeholder"><span class="video-placeholder-icon">▶</span> Add a related video</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event" id="ev-khadijah">
+        <div class="event-card">
+          <div class="event-header" onclick="toggleEvent('ev-khadijah')">
+            <div class="event-date-badge">595 CE</div>
+            <div class="event-meta">
+              <div class="event-age">Age: 25</div>
+              <div class="event-title">Marriage to Khadijah bint Khuwaylid (RA)</div>
+            </div>
+            <div class="event-toggle">▾</div>
+          </div>
+          <div class="event-body">
+            <div class="event-body-inner">
+              <div class="event-desc-col">
+                <p class="event-desc">Known as Al-Amin (the trustworthy), Muhammad ﷺ was employed by the respected widow Khadijah bint Khuwaylid to lead her trade caravan to Syria. Impressed by his character, honesty, and the miraculous shade that followed him, she sent a marriage proposal. He was 25; she was 40. They married and lived in extraordinary love and partnership for 25 years until her death. She bore him six children: Qasim, Abdullah, Zaynab, Ruqayyah, Umm Kulthum, and Fatimah (RA).</p>
+                <div class="event-refs">
+                  <div class="event-refs-label">📖 Reference</div>
+                  <div class="event-refs-text">Bukhari: "She believed in me when people disbelieved… she helped me with her wealth when people deprived me." · Bukhari: "The best of its women is Khadijah bint Khuwaylid."</div>
+                </div>
+                <div class="event-lesson">
+                  <div class="event-lesson-label">✦ Key Lesson</div>
+                  <div class="event-lesson-text">A righteous spouse is among Allah's greatest gifts. Khadijah (RA) modeled what unconditional love, spiritual partnership, and sacrifice look like. She is the model of a believing spouse.</div>
+                </div>
+              </div>
+              <div class="event-media-col">
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🖼</span><span class="media-slot-text">Photo / Image</span></div>
+                  <div class="media-image-area" onclick="triggerImageUpload('img-ev-khadijah')">
+                    <input type="file" accept="image/*" class="media-img-hidden-input" id="img-ev-khadijah" onchange="handleImageUpload(this, 'ev-khadijah')">
+                    <div class="media-image-placeholder" id="img-placeholder-ev-khadijah">
+                      <span class="upload-icon">📷</span><p>Click to add a photo</p><small>e.g. Ancient Makkah, trade routes</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🎬</span><span class="media-slot-text">Video</span></div>
+                  <div class="media-video-area" id="video-ev-khadijah">
+                    <div class="video-input-row">
+                      <input type="text" class="video-url-input" placeholder="Paste YouTube / Vimeo URL…" id="videourl-ev-khadijah">
+                      <button class="video-embed-btn" onclick="embedVideo('ev-khadijah')">Embed</button>
+                    </div>
+                    <div class="video-placeholder"><span class="video-placeholder-icon">▶</span> Add a related video</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event" id="ev-blackstone">
+        <div class="event-card">
+          <div class="event-header" onclick="toggleEvent('ev-blackstone')">
+            <div class="event-date-badge">605 CE</div>
+            <div class="event-meta">
+              <div class="event-age">Age: 35</div>
+              <div class="event-title">Placing the Black Stone — Al-Amin Averts a Civil War</div>
+            </div>
+            <div class="event-toggle">▾</div>
+          </div>
+          <div class="event-body">
+            <div class="event-body-inner">
+              <div class="event-desc-col">
+                <p class="event-desc">The Quraysh were rebuilding the Ka'bah after a flood. A fierce dispute erupted over which clan would have the honor of placing the Black Stone (Hajar al-Aswad). They agreed: the first man through the gate would decide. Muhammad ﷺ entered — they exclaimed, "Al-Amin has come!" He spread his cloak, placed the stone on it, had each tribe leader hold a corner, then placed it himself. A war was averted through wisdom.</p>
+                <div class="event-refs">
+                  <div class="event-refs-label">📖 Reference</div>
+                  <div class="event-refs-text">Ibn Hisham, Sirah al-Nabawiyyah: Full account of the arbitration · Quran 49:9: "Make peace between them with justice."</div>
+                </div>
+                <div class="event-lesson">
+                  <div class="event-lesson-label">✦ Key Lesson</div>
+                  <div class="event-lesson-text">True leadership is earned through character, not power. The Prophet's solution honored everyone's dignity — a model of creative conflict resolution rooted in justice.</div>
+                </div>
+              </div>
+              <div class="event-media-col">
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🖼</span><span class="media-slot-text">Photo / Image</span></div>
+                  <div class="media-image-area" onclick="triggerImageUpload('img-ev-blackstone')">
+                    <input type="file" accept="image/*" class="media-img-hidden-input" id="img-ev-blackstone" onchange="handleImageUpload(this, 'ev-blackstone')">
+                    <div class="media-image-placeholder" id="img-placeholder-ev-blackstone">
+                      <span class="upload-icon">📷</span><p>Click to add a photo</p><small>e.g. Hajar al-Aswad, Ka'bah</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🎬</span><span class="media-slot-text">Video</span></div>
+                  <div class="media-video-area" id="video-ev-blackstone">
+                    <div class="video-input-row">
+                      <input type="text" class="video-url-input" placeholder="Paste YouTube / Vimeo URL…" id="videourl-ev-blackstone">
+                      <button class="video-embed-btn" onclick="embedVideo('ev-blackstone')">Embed</button>
+                    </div>
+                    <div class="video-placeholder"><span class="video-placeholder-icon">▶</span> Add a related video</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /events-list -->
+  </section>
+
+
+  <!-- ══════════════ PHASE 2: MAKKAN PERIOD ══════════════ -->
+  <section class="phase-section makkah-phase" id="phase-makkah">
+    <div class="phase-header">
+      <div class="phase-header-num">II</div>
+      <div class="phase-header-content">
+        <div class="phase-header-label">Phase Two</div>
+        <div class="phase-header-title">The Makkan Period</div>
+        <div class="phase-header-arabic">المرحلة المكية</div>
+        <div class="phase-header-range">610 CE – 622 CE · Ages 40–52 · 13 Years of Revelation in Makkah</div>
+      </div>
+    </div>
+
+    <div class="events-list">
+
+      <div class="event" id="ev-revelation">
+        <div class="event-card">
+          <div class="event-header" onclick="toggleEvent('ev-revelation')">
+            <div class="event-date-badge">610 CE</div>
+            <div class="event-meta">
+              <div class="event-age">Age: 40</div>
+              <div class="event-title">First Revelation — Cave of Hira · The Night of Power</div>
+            </div>
+            <div class="event-toggle">▾</div>
+          </div>
+          <div class="event-body">
+            <div class="event-body-inner">
+              <div class="event-desc-col">
+                <p class="event-desc">During his annual spiritual retreat in the Cave of Hira on Mount Nur, Jibreel (AS) appeared and commanded: "Iqra!" (Read!). Three times the Prophet replied he could not read; three times the angel embraced him. The first five verses of Surah Al-Alaq descended. He returned home trembling, wrapped in a cloak. Khadijah (RA) comforted him: "By Allah, He will never humiliate you." Her cousin Waraqah ibn Nawfal confirmed: "This is the Namus — the same angel who came to Musa."</p>
+                <div class="event-refs">
+                  <div class="event-refs-label">📖 Reference</div>
+                  <div class="event-refs-text">Quran 96:1–5: "Read! In the name of your Lord who created…" · Bukhari & Muslim: Full narration of the first revelation from Aisha (RA)</div>
+                </div>
+                <div class="event-lesson">
+                  <div class="event-lesson-label">✦ Key Lesson</div>
+                  <div class="event-lesson-text">The first word of Islam was "Read" — a divine command to seek knowledge. Revelation begins with literacy. Learning and reflection are acts of worship embedded into the foundation of this faith.</div>
+                </div>
+              </div>
+              <div class="event-media-col">
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🖼</span><span class="media-slot-text">Photo / Image</span></div>
+                  <div class="media-image-area" onclick="triggerImageUpload('img-ev-revelation')">
+                    <input type="file" accept="image/*" class="media-img-hidden-input" id="img-ev-revelation" onchange="handleImageUpload(this, 'ev-revelation')">
+                    <div class="media-image-placeholder" id="img-placeholder-ev-revelation">
+                      <span class="upload-icon">📷</span><p>Click to add a photo</p><small>e.g. Cave of Hira, Mount Nur, Makkah</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🎬</span><span class="media-slot-text">Video</span></div>
+                  <div class="media-video-area" id="video-ev-revelation">
+                    <div class="video-input-row">
+                      <input type="text" class="video-url-input" placeholder="Paste YouTube / Vimeo URL…" id="videourl-ev-revelation">
+                      <button class="video-embed-btn" onclick="embedVideo('ev-revelation')">Embed</button>
+                    </div>
+                    <div class="video-placeholder"><span class="video-placeholder-icon">▶</span> Add a related video</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event" id="ev-persecution">
+        <div class="event-card">
+          <div class="event-header" onclick="toggleEvent('ev-persecution')">
+            <div class="event-date-badge">613–619 CE</div>
+            <div class="event-meta">
+              <div class="event-age">Age: 43–49</div>
+              <div class="event-title">Persecution of Muslims in Makkah</div>
+            </div>
+            <div class="event-toggle">▾</div>
+          </div>
+          <div class="event-body">
+            <div class="event-body-inner">
+              <div class="event-desc-col">
+                <p class="event-desc">As the Prophet ﷺ began public preaching, the Quraysh unleashed brutal persecution. Bilal ibn Rabah was dragged across burning sand under a boulder, repeating "Ahad! Ahad!" (One! One!) until Abu Bakr purchased his freedom. Yasir and Sumayyah were tortured to death — she became Islam's first martyr. The Prophet ﷺ was pelted with offal, had thorns placed at his door, and endured constant mockery and physical harm.</p>
+                <div class="event-refs">
+                  <div class="event-refs-label">📖 Reference</div>
+                  <div class="event-refs-text">Quran 16:106: "Except for one who is forced while his heart is firm in faith…" · Ibn Hisham: Accounts of Bilal and the first martyrs</div>
+                </div>
+                <div class="event-lesson">
+                  <div class="event-lesson-label">✦ Key Lesson</div>
+                  <div class="event-lesson-text">Steadfastness under oppression — sabr — is the highest form of worship. Every martyr and every patient sufferer elevates the cause they stand for. The Quraysh's cruelty only strengthened the believers' resolve.</div>
+                </div>
+              </div>
+              <div class="event-media-col">
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🖼</span><span class="media-slot-text">Photo / Image</span></div>
+                  <div class="media-image-area" onclick="triggerImageUpload('img-ev-persecution')">
+                    <input type="file" accept="image/*" class="media-img-hidden-input" id="img-ev-persecution" onchange="handleImageUpload(this, 'ev-persecution')">
+                    <div class="media-image-placeholder" id="img-placeholder-ev-persecution">
+                      <span class="upload-icon">📷</span><p>Click to add a photo</p><small>e.g. Bilal's memorial, early Islamic maps</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🎬</span><span class="media-slot-text">Video</span></div>
+                  <div class="media-video-area" id="video-ev-persecution">
+                    <div class="video-input-row">
+                      <input type="text" class="video-url-input" placeholder="Paste YouTube / Vimeo URL…" id="videourl-ev-persecution">
+                      <button class="video-embed-btn" onclick="embedVideo('ev-persecution')">Embed</button>
+                    </div>
+                    <div class="video-placeholder"><span class="video-placeholder-icon">▶</span> Add a related video</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event" id="ev-abyssinia">
+        <div class="event-card">
+          <div class="event-header" onclick="toggleEvent('ev-abyssinia')">
+            <div class="event-date-badge">615 CE</div>
+            <div class="event-meta">
+              <div class="event-age">Age: 45</div>
+              <div class="event-title">First Hijrah to Abyssinia (al-Habasha)</div>
+            </div>
+            <div class="event-toggle">▾</div>
+          </div>
+          <div class="event-body">
+            <div class="event-body-inner">
+              <div class="event-desc-col">
+                <p class="event-desc">To protect persecuted Muslims, the Prophet ﷺ advised followers to emigrate to Abyssinia (Ethiopia) under its just Christian king, Negus Ashamah al-Najashi. About 15 Muslims fled, led by Uthman ibn Affan and the Prophet's daughter Ruqayyah. The Quraysh sent envoys demanding their extradition. In the royal court, Ja'far ibn Abi Talib recited Surah Maryam. The Negus wept, saying he would not hand them over for a mountain of gold.</p>
+                <div class="event-refs">
+                  <div class="event-refs-label">📖 Reference</div>
+                  <div class="event-refs-text">Quran 19 (Surah Maryam) — recited before the Negus · Ibn Hisham: Ja'far's famous speech in the court of Abyssinia</div>
+                </div>
+                <div class="event-lesson">
+                  <div class="event-lesson-label">✦ Key Lesson</div>
+                  <div class="event-lesson-text">Justice transcends religious difference. The Prophet ﷺ recognized a just non-Muslim ruler as a place of refuge — a profound lesson in appreciating goodness wherever it exists.</div>
+                </div>
+              </div>
+              <div class="event-media-col">
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🖼</span><span class="media-slot-text">Photo / Image</span></div>
+                  <div class="media-image-area" onclick="triggerImageUpload('img-ev-abyssinia')">
+                    <input type="file" accept="image/*" class="media-img-hidden-input" id="img-ev-abyssinia" onchange="handleImageUpload(this, 'ev-abyssinia')">
+                    <div class="media-image-placeholder" id="img-placeholder-ev-abyssinia">
+                      <span class="upload-icon">📷</span><p>Click to add a photo</p><small>e.g. Abyssinia/Ethiopia, ancient church</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🎬</span><span class="media-slot-text">Video</span></div>
+                  <div class="media-video-area" id="video-ev-abyssinia">
+                    <div class="video-input-row">
+                      <input type="text" class="video-url-input" placeholder="Paste YouTube / Vimeo URL…" id="videourl-ev-abyssinia">
+                      <button class="video-embed-btn" onclick="embedVideo('ev-abyssinia')">Embed</button>
+                    </div>
+                    <div class="video-placeholder"><span class="video-placeholder-icon">▶</span> Add a related video</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event" id="ev-yearofsorrow">
+        <div class="event-card">
+          <div class="event-header" onclick="toggleEvent('ev-yearofsorrow')">
+            <div class="event-date-badge">619 CE</div>
+            <div class="event-meta">
+              <div class="event-age">Age: 49</div>
+              <div class="event-title">The Year of Sorrow (Aam al-Huzn) — Deaths of Khadijah & Abu Talib</div>
+            </div>
+            <div class="event-toggle">▾</div>
+          </div>
+          <div class="event-body">
+            <div class="event-body-inner">
+              <div class="event-desc-col">
+                <p class="event-desc">Within weeks of each other, the Prophet ﷺ lost his two greatest earthly protectors. Abu Talib — who had shielded him tribally for decades despite not accepting Islam — passed away. Weeks later, Khadijah (RA) — wife of 25 years, mother of his children, first believer, greatest comforter — died. He was left without tribal protection or domestic sanctuary. Quraysh intensified persecution. He named this year Aam al-Huzn — the Year of Grief.</p>
+                <div class="event-refs">
+                  <div class="event-refs-label">📖 Reference</div>
+                  <div class="event-refs-text">Bukhari: "She believed when others disbelieved, trusted when others rejected, helped when others deprived me." · Quran 93:3: "Your Lord has not abandoned you."</div>
+                </div>
+                <div class="event-lesson">
+                  <div class="event-lesson-label">✦ Key Lesson</div>
+                  <div class="event-lesson-text">Grief is part of the prophetic experience. Divine abandonment is not the cause of suffering — sometimes it precedes a greater elevation. After this year came Al-Isra wal Mi'raj.</div>
+                </div>
+              </div>
+              <div class="event-media-col">
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🖼</span><span class="media-slot-text">Photo / Image</span></div>
+                  <div class="media-image-area" onclick="triggerImageUpload('img-ev-yearofsorrow')">
+                    <input type="file" accept="image/*" class="media-img-hidden-input" id="img-ev-yearofsorrow" onchange="handleImageUpload(this, 'ev-yearofsorrow')">
+                    <div class="media-image-placeholder" id="img-placeholder-ev-yearofsorrow">
+                      <span class="upload-icon">📷</span><p>Click to add a photo</p><small>e.g. Jannat al-Mualla cemetery, Makkah</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🎬</span><span class="media-slot-text">Video</span></div>
+                  <div class="media-video-area" id="video-ev-yearofsorrow">
+                    <div class="video-input-row">
+                      <input type="text" class="video-url-input" placeholder="Paste YouTube / Vimeo URL…" id="videourl-ev-yearofsorrow">
+                      <button class="video-embed-btn" onclick="embedVideo('ev-yearofsorrow')">Embed</button>
+                    </div>
+                    <div class="video-placeholder"><span class="video-placeholder-icon">▶</span> Add a related video</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event" id="ev-taif">
+        <div class="event-card">
+          <div class="event-header" onclick="toggleEvent('ev-taif')">
+            <div class="event-date-badge">619 CE</div>
+            <div class="event-meta">
+              <div class="event-age">Age: 49</div>
+              <div class="event-title">Journey to Ta'if — The Greatest Act of Mercy</div>
+            </div>
+            <div class="event-toggle">▾</div>
+          </div>
+          <div class="event-body">
+            <div class="event-body-inner">
+              <div class="event-desc-col">
+                <p class="event-desc">Unprotected after Abu Talib's death, he traveled to Ta'if with Zayd ibn Harithah seeking support from Thaqif. They laughed, mocked, and set their slaves to stone him until his feet bled. He sought refuge in a garden. Jibreel arrived with the Angel of Mountains, offering to crush Ta'if between two peaks. The Prophet ﷺ replied: "No — perhaps Allah will bring forth from their descendants those who will worship Him alone." His du'a that day is among the most moving supplications recorded.</p>
+                <div class="event-refs">
+                  <div class="event-refs-label">📖 Reference</div>
+                  <div class="event-refs-text">Bukhari: The supplication of Ta'if: "O Allah, to You I complain of my weakness…" · Quran 94:5–6: "Verily, with hardship comes ease."</div>
+                </div>
+                <div class="event-lesson">
+                  <div class="event-lesson-label">✦ Key Lesson</div>
+                  <div class="event-lesson-text">Choosing mercy over revenge at the moment of greatest pain is the apex of prophetic character. The people who once stoned him later became among the most devoted Muslims.</div>
+                </div>
+              </div>
+              <div class="event-media-col">
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🖼</span><span class="media-slot-text">Photo / Image</span></div>
+                  <div class="media-image-area" onclick="triggerImageUpload('img-ev-taif')">
+                    <input type="file" accept="image/*" class="media-img-hidden-input" id="img-ev-taif" onchange="handleImageUpload(this, 'ev-taif')">
+                    <div class="media-image-placeholder" id="img-placeholder-ev-taif">
+                      <span class="upload-icon">📷</span><p>Click to add a photo</p><small>e.g. Ta'if city, rose fields, mountain road</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🎬</span><span class="media-slot-text">Video</span></div>
+                  <div class="media-video-area" id="video-ev-taif">
+                    <div class="video-input-row">
+                      <input type="text" class="video-url-input" placeholder="Paste YouTube / Vimeo URL…" id="videourl-ev-taif">
+                      <button class="video-embed-btn" onclick="embedVideo('ev-taif')">Embed</button>
+                    </div>
+                    <div class="video-placeholder"><span class="video-placeholder-icon">▶</span> Add a related video</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event" id="ev-miraj">
+        <div class="event-card">
+          <div class="event-header" onclick="toggleEvent('ev-miraj')">
+            <div class="event-date-badge">619 CE</div>
+            <div class="event-meta">
+              <div class="event-age">Age: 49</div>
+              <div class="event-title">Al-Isra wal Mi'raj — The Night Journey and Ascension</div>
+            </div>
+            <div class="event-toggle">▾</div>
+          </div>
+          <div class="event-body">
+            <div class="event-body-inner">
+              <div class="event-desc-col">
+                <p class="event-desc">In one night, Jibreel took the Prophet ﷺ from Masjid al-Haram to Masjid al-Aqsa in Jerusalem (al-Isra), where he led all prophets in prayer. He then ascended through the seven heavens (al-Mi'raj), meeting Adam, Yahya & Isa, Yusuf, Idris, Harun, Musa, and Ibrahim ﷺ. At Sidrat al-Muntaha, he received the gift of 50 daily prayers — which, through Musa's counsel, was reduced to 5 retaining the reward of 50. The five prayers are Islam's daily mi'raj.</p>
+                <div class="event-refs">
+                  <div class="event-refs-label">📖 Reference</div>
+                  <div class="event-refs-text">Quran 17:1 · Quran 53:12–18 · Bukhari & Muslim: Full narration of the Night Journey and Ascension</div>
+                </div>
+                <div class="event-lesson">
+                  <div class="event-lesson-label">✦ Key Lesson</div>
+                  <div class="event-lesson-text">The five daily prayers are a direct gift from Allah — a journey to the Divine available to every believer five times a day. After the darkest year came the greatest honor. Hardship precedes elevation.</div>
+                </div>
+              </div>
+              <div class="event-media-col">
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🖼</span><span class="media-slot-text">Photo / Image</span></div>
+                  <div class="media-image-area" onclick="triggerImageUpload('img-ev-miraj')">
+                    <input type="file" accept="image/*" class="media-img-hidden-input" id="img-ev-miraj" onchange="handleImageUpload(this, 'ev-miraj')">
+                    <div class="media-image-placeholder" id="img-placeholder-ev-miraj">
+                      <span class="upload-icon">📷</span><p>Click to add a photo</p><small>e.g. Masjid al-Aqsa, Dome of the Rock, Jerusalem</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🎬</span><span class="media-slot-text">Video</span></div>
+                  <div class="media-video-area" id="video-ev-miraj">
+                    <div class="video-input-row">
+                      <input type="text" class="video-url-input" placeholder="Paste YouTube / Vimeo URL…" id="videourl-ev-miraj">
+                      <button class="video-embed-btn" onclick="embedVideo('ev-miraj')">Embed</button>
+                    </div>
+                    <div class="video-placeholder"><span class="video-placeholder-icon">▶</span> Add a related video</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════ PHASE 3: MADINAN PERIOD ══════════════ -->
+  <section class="phase-section madinah-phase" id="phase-madinah">
+    <div class="phase-header">
+      <div class="phase-header-num">III</div>
+      <div class="phase-header-content">
+        <div class="phase-header-label">Phase Three</div>
+        <div class="phase-header-title">The Madinan Period</div>
+        <div class="phase-header-arabic">المرحلة المدنية</div>
+        <div class="phase-header-range">622 CE – 632 CE · Ages 52–63 · Building the Islamic State</div>
+      </div>
+    </div>
+
+    <div class="events-list">
+
+      <div class="event" id="ev-hijrah">
+        <div class="event-card">
+          <div class="event-header" onclick="toggleEvent('ev-hijrah')">
+            <div class="event-date-badge">622 CE · 1 AH</div>
+            <div class="event-meta">
+              <div class="event-age">Age: 52</div>
+              <div class="event-title">The Hijrah to Madinah — The Islamic Calendar Begins</div>
+            </div>
+            <div class="event-toggle">▾</div>
+          </div>
+          <div class="event-body">
+            <div class="event-body-inner">
+              <div class="event-desc-col">
+                <p class="event-desc">The Quraysh plotted assassination at Dar al-Nadwah. Jibreel warned the Prophet ﷺ. He and Abu Bakr (RA) hid in the Cave of Thawr for three days while Asma bint Abi Bakr (RA) risked her life delivering food. A spider web and dove's nest at the cave entrance deterred the pursuers. They arrived in Quba on 12 Rabi' al-Awwal — the people of Madinah greeted him with the song Tala' al-Badru 'Alayna. This event is so pivotal that Umar (RA) chose it as the start of the Islamic calendar (Hijri).</p>
+                <div class="event-refs">
+                  <div class="event-refs-label">📖 Reference</div>
+                  <div class="event-refs-text">Quran 9:40: "Do not grieve; indeed Allah is with us." · Bukhari: The full account of the Hijrah narrated by Aisha (RA)</div>
+                </div>
+                <div class="event-lesson">
+                  <div class="event-lesson-label">✦ Key Lesson</div>
+                  <div class="event-lesson-text">The Hijrah teaches strategic sacrifice — leaving one's home, wealth, and comfort for the sake of Allah. New beginnings require courage. Divine protection operates in the most unexpected ways.</div>
+                </div>
+              </div>
+              <div class="event-media-col">
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🖼</span><span class="media-slot-text">Photo / Image</span></div>
+                  <div class="media-image-area" onclick="triggerImageUpload('img-ev-hijrah')">
+                    <input type="file" accept="image/*" class="media-img-hidden-input" id="img-ev-hijrah" onchange="handleImageUpload(this, 'ev-hijrah')">
+                    <div class="media-image-placeholder" id="img-placeholder-ev-hijrah">
+                      <span class="upload-icon">📷</span><p>Click to add a photo</p><small>e.g. Cave of Thawr, Madinah, Quba Mosque</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🎬</span><span class="media-slot-text">Video</span></div>
+                  <div class="media-video-area" id="video-ev-hijrah">
+                    <div class="video-input-row">
+                      <input type="text" class="video-url-input" placeholder="Paste YouTube / Vimeo URL…" id="videourl-ev-hijrah">
+                      <button class="video-embed-btn" onclick="embedVideo('ev-hijrah')">Embed</button>
+                    </div>
+                    <div class="video-placeholder"><span class="video-placeholder-icon">▶</span> Add a related video</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event" id="ev-badr">
+        <div class="event-card">
+          <div class="event-header" onclick="toggleEvent('ev-badr')">
+            <div class="event-date-badge">624 CE · 2 AH</div>
+            <div class="event-meta">
+              <div class="event-age">Age: 54</div>
+              <div class="event-title">Battle of Badr — The First and Greatest Victory</div>
+            </div>
+            <div class="event-toggle">▾</div>
+          </div>
+          <div class="event-body">
+            <div class="event-body-inner">
+              <div class="event-desc-col">
+                <p class="event-desc">313 Muslims faced 1,000 Quraysh warriors near the wells of Badr. The Prophet ﷺ spent the night in du'a: "O Allah, if this small group perishes, You will not be worshipped on earth." Single combats opened with Hamza, Ali, and Ubaydah (RA). Quran 8:9 records that angels fought alongside the believers. 70 Quraysh were killed including Abu Jahl; 70 were captured. Only 14 Muslims were martyred. Allah declared this the Day of Furqan — the Distinction between truth and falsehood.</p>
+                <div class="event-refs">
+                  <div class="event-refs-label">📖 Reference</div>
+                  <div class="event-refs-text">Quran 8:9: "I will reinforce you with a thousand angels." · Quran 3:13 · Bukhari: The Prophet's du'a the night before Badr</div>
+                </div>
+                <div class="event-lesson">
+                  <div class="event-lesson-label">✦ Key Lesson</div>
+                  <div class="event-lesson-text">Victory belongs to those with tawakkul (reliance on Allah), preparation, and sincere intention — not superior numbers. 313 against 1,000 is one of history's most decisive demonstrations of divine intervention.</div>
+                </div>
+              </div>
+              <div class="event-media-col">
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🖼</span><span class="media-slot-text">Photo / Image</span></div>
+                  <div class="media-image-area" onclick="triggerImageUpload('img-ev-badr')">
+                    <input type="file" accept="image/*" class="media-img-hidden-input" id="img-ev-badr" onchange="handleImageUpload(this, 'ev-badr')">
+                    <div class="media-image-placeholder" id="img-placeholder-ev-badr">
+                      <span class="upload-icon">📷</span><p>Click to add a photo</p><small>e.g. Valley of Badr, Saudi Arabia</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🎬</span><span class="media-slot-text">Video</span></div>
+                  <div class="media-video-area" id="video-ev-badr">
+                    <div class="video-input-row">
+                      <input type="text" class="video-url-input" placeholder="Paste YouTube / Vimeo URL…" id="videourl-ev-badr">
+                      <button class="video-embed-btn" onclick="embedVideo('ev-badr')">Embed</button>
+                    </div>
+                    <div class="video-placeholder"><span class="video-placeholder-icon">▶</span> Add a related video</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event" id="ev-uhud">
+        <div class="event-card">
+          <div class="event-header" onclick="toggleEvent('ev-uhud')">
+            <div class="event-date-badge">625 CE · 3 AH</div>
+            <div class="event-meta">
+              <div class="event-age">Age: 55</div>
+              <div class="event-title">Battle of Uhud — The Lesson of Obedience</div>
+            </div>
+            <div class="event-toggle">▾</div>
+          </div>
+          <div class="event-body">
+            <div class="event-body-inner">
+              <div class="event-desc-col">
+                <p class="event-desc">The Quraysh returned with 3,000 soldiers. The Prophet ﷺ placed 50 archers on a hill with a strict command: "Do not leave your position whether we win or lose." Initial Muslim success turned catastrophic when most archers abandoned their post to collect spoils. Khalid ibn al-Walid (then pagan) flanked the exposed position. The Prophet ﷺ was wounded; a rumour of his death spread. 70 companions including Hamza ibn Abd al-Muttalib (RA) were martyred. The most painful battle — yet the greatest classroom of obedience.</p>
+                <div class="event-refs">
+                  <div class="event-refs-label">📖 Reference</div>
+                  <div class="event-refs-text">Quran 3:152: "…until you lost heart and disputed and disobeyed after He had shown you what you love." · Quran 3:169–170: "Never think of those killed in the cause of Allah as dead."</div>
+                </div>
+                <div class="event-lesson">
+                  <div class="event-lesson-label">✦ Key Lesson</div>
+                  <div class="event-lesson-text">Disobedience to the Prophet ﷺ — even for seemingly rational reasons — costs divine support. The archers' choice for worldly gain is a permanent warning: obedience must be unconditional.</div>
+                </div>
+              </div>
+              <div class="event-media-col">
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🖼</span><span class="media-slot-text">Photo / Image</span></div>
+                  <div class="media-image-area" onclick="triggerImageUpload('img-ev-uhud')">
+                    <input type="file" accept="image/*" class="media-img-hidden-input" id="img-ev-uhud" onchange="handleImageUpload(this, 'ev-uhud')">
+                    <div class="media-image-placeholder" id="img-placeholder-ev-uhud">
+                      <span class="upload-icon">📷</span><p>Click to add a photo</p><small>e.g. Mount Uhud, martyrs' cemetery Madinah</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🎬</span><span class="media-slot-text">Video</span></div>
+                  <div class="media-video-area" id="video-ev-uhud">
+                    <div class="video-input-row">
+                      <input type="text" class="video-url-input" placeholder="Paste YouTube / Vimeo URL…" id="videourl-ev-uhud">
+                      <button class="video-embed-btn" onclick="embedVideo('ev-uhud')">Embed</button>
+                    </div>
+                    <div class="video-placeholder"><span class="video-placeholder-icon">▶</span> Add a related video</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event" id="ev-khandaq">
+        <div class="event-card">
+          <div class="event-header" onclick="toggleEvent('ev-khandaq')">
+            <div class="event-date-badge">627 CE · 5 AH</div>
+            <div class="event-meta">
+              <div class="event-age">Age: 57</div>
+              <div class="event-title">Battle of the Trench (al-Khandaq) — Strategy Defeats an Army</div>
+            </div>
+            <div class="event-toggle">▾</div>
+          </div>
+          <div class="event-body">
+            <div class="event-body-inner">
+              <div class="event-desc-col">
+                <p class="event-desc">A coalition (Ahzab) of 10,000 marched on Madinah. Salman al-Farisi (RA) suggested a strategy unprecedented in Arabia: dig a trench on the exposed northern flank. The 3,000 Muslims dug the 5km trench in 6 days. The coalition was stalled for weeks. Nu'aym ibn Mas'ud secretly sowed mistrust among the Ahzab factions. Allah sent a bitter wind and unseen forces; the coalition collapsed. The Prophet ﷺ declared: "From now on, we march toward them — they shall not march toward us."</p>
+                <div class="event-refs">
+                  <div class="event-refs-label">📖 Reference</div>
+                  <div class="event-refs-text">Quran 33:9: "…We sent against them a wind and armies you could not see." · Bukhari: Salman's proposal of the trench · Quran 33:22: "And when the believers saw the Ahzab, they said: This is what Allah and His Messenger promised us."</div>
+                </div>
+                <div class="event-lesson">
+                  <div class="event-lesson-label">✦ Key Lesson</div>
+                  <div class="event-lesson-text">Innovation in strategy is praiseworthy. The Prophet ﷺ adopted a Persian's idea without hesitation — a lesson in humility, openness, and the value of diverse perspectives in problem-solving.</div>
+                </div>
+              </div>
+              <div class="event-media-col">
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🖼</span><span class="media-slot-text">Photo / Image</span></div>
+                  <div class="media-image-area" onclick="triggerImageUpload('img-ev-khandaq')">
+                    <input type="file" accept="image/*" class="media-img-hidden-input" id="img-ev-khandaq" onchange="handleImageUpload(this, 'ev-khandaq')">
+                    <div class="media-image-placeholder" id="img-placeholder-ev-khandaq">
+                      <span class="upload-icon">📷</span><p>Click to add a photo</p><small>e.g. Trench site, Masjid al-Fath, Madinah</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🎬</span><span class="media-slot-text">Video</span></div>
+                  <div class="media-video-area" id="video-ev-khandaq">
+                    <div class="video-input-row">
+                      <input type="text" class="video-url-input" placeholder="Paste YouTube / Vimeo URL…" id="videourl-ev-khandaq">
+                      <button class="video-embed-btn" onclick="embedVideo('ev-khandaq')">Embed</button>
+                    </div>
+                    <div class="video-placeholder"><span class="video-placeholder-icon">▶</span> Add a related video</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event" id="ev-hudaybiyyah">
+        <div class="event-card">
+          <div class="event-header" onclick="toggleEvent('ev-hudaybiyyah')">
+            <div class="event-date-badge">628 CE · 6 AH</div>
+            <div class="event-meta">
+              <div class="event-age">Age: 58</div>
+              <div class="event-title">Treaty of Hudaybiyyah — The Apparent Defeat Was a Manifest Victory</div>
+            </div>
+            <div class="event-toggle">▾</div>
+          </div>
+          <div class="event-body">
+            <div class="event-body-inner">
+              <div class="event-desc-col">
+                <p class="event-desc">The Prophet ﷺ marched with 1,400 companions for Umrah. The Quraysh blocked them at Hudaybiyyah. The treaty terms angered the companions: Muslims return without Umrah this year; 10-year peace; Muslims escaping Makkah need not be returned. Umar (RA) was enraged. Abu Bakr counseled: "Hold his stirrup." Allah immediately revealed: "Indeed We have given you a clear victory" (Fath Mubeen). Within 2 years of peace, Islam spread more than in 20 years of war. Khalid and Amr ibn al-As accepted Islam during this period.</p>
+                <div class="event-refs">
+                  <div class="event-refs-label">📖 Reference</div>
+                  <div class="event-refs-text">Quran 48:1: "Indeed We have given you a clear victory." · Bukhari: Umar's objection and Abu Bakr's response · Quran 48:27: "Allah will surely fulfill the vision."</div>
+                </div>
+                <div class="event-lesson">
+                  <div class="event-lesson-label">✦ Key Lesson</div>
+                  <div class="event-lesson-text">Allah's victories don't always look like victories to us. Long-term wisdom sometimes requires short-term concession. Trust in the Prophet's judgment — even when incomprehensible — is the definition of iman.</div>
+                </div>
+              </div>
+              <div class="event-media-col">
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🖼</span><span class="media-slot-text">Photo / Image</span></div>
+                  <div class="media-image-area" onclick="triggerImageUpload('img-ev-hudaybiyyah')">
+                    <input type="file" accept="image/*" class="media-img-hidden-input" id="img-ev-hudaybiyyah" onchange="handleImageUpload(this, 'ev-hudaybiyyah')">
+                    <div class="media-image-placeholder" id="img-placeholder-ev-hudaybiyyah">
+                      <span class="upload-icon">📷</span><p>Click to add a photo</p><small>e.g. Hudaybiyyah well area, near Makkah</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🎬</span><span class="media-slot-text">Video</span></div>
+                  <div class="media-video-area" id="video-ev-hudaybiyyah">
+                    <div class="video-input-row">
+                      <input type="text" class="video-url-input" placeholder="Paste YouTube / Vimeo URL…" id="videourl-ev-hudaybiyyah">
+                      <button class="video-embed-btn" onclick="embedVideo('ev-hudaybiyyah')">Embed</button>
+                    </div>
+                    <div class="video-placeholder"><span class="video-placeholder-icon">▶</span> Add a related video</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event" id="ev-fathmakkah">
+        <div class="event-card">
+          <div class="event-header" onclick="toggleEvent('ev-fathmakkah')">
+            <div class="event-date-badge">630 CE · 8 AH</div>
+            <div class="event-meta">
+              <div class="event-age">Age: 60</div>
+              <div class="event-title">Conquest of Makkah (Fath Makkah) — The Grand Amnesty</div>
+            </div>
+            <div class="event-toggle">▾</div>
+          </div>
+          <div class="event-body">
+            <div class="event-body-inner">
+              <div class="event-desc-col">
+                <p class="event-desc">When the Quraysh violated the treaty by attacking Banu Khuza'ah, the Prophet ﷺ mobilized 10,000 in secrecy. Abu Sufyan accepted Islam on the eve of the conquest. The city fell with minimal bloodshed. The Prophet ﷺ entered on his camel, head bowed in humility, reciting Surah al-Fath. He circled the Ka'bah and destroyed 360 idols with his staff saying: "Truth has arrived, falsehood has vanished." He then stood at the door of the Ka'bah and declared the Grand Amnesty: "Go — you are free." Those who had persecuted him for 20 years were pardoned.</p>
+                <div class="event-refs">
+                  <div class="event-refs-label">📖 Reference</div>
+                  <div class="event-refs-text">Quran 17:81: "Truth has come and falsehood has departed." · Ibn Hisham: The Prophet's amnesty speech · Bukhari: Abu Sufyan's conversion</div>
+                </div>
+                <div class="event-lesson">
+                  <div class="event-lesson-label">✦ Key Lesson</div>
+                  <div class="event-lesson-text">The greatest conqueror in history entered his city with his head bowed in humility, not triumph. Magnanimity in victory is the mark of the greatest leaders. The goal was never revenge — it was always guidance.</div>
+                </div>
+              </div>
+              <div class="event-media-col">
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🖼</span><span class="media-slot-text">Photo / Image</span></div>
+                  <div class="media-image-area" onclick="triggerImageUpload('img-ev-fathmakkah')">
+                    <input type="file" accept="image/*" class="media-img-hidden-input" id="img-ev-fathmakkah" onchange="handleImageUpload(this, 'ev-fathmakkah')">
+                    <div class="media-image-placeholder" id="img-placeholder-ev-fathmakkah">
+                      <span class="upload-icon">📷</span><p>Click to add a photo</p><small>e.g. Ka'bah, Masjid al-Haram, Makkah aerial</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🎬</span><span class="media-slot-text">Video</span></div>
+                  <div class="media-video-area" id="video-ev-fathmakkah">
+                    <div class="video-input-row">
+                      <input type="text" class="video-url-input" placeholder="Paste YouTube / Vimeo URL…" id="videourl-ev-fathmakkah">
+                      <button class="video-embed-btn" onclick="embedVideo('ev-fathmakkah')">Embed</button>
+                    </div>
+                    <div class="video-placeholder"><span class="video-placeholder-icon">▶</span> Add a related video</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event" id="ev-farewellhajj">
+        <div class="event-card">
+          <div class="event-header" onclick="toggleEvent('ev-farewellhajj')">
+            <div class="event-date-badge">632 CE · 10 AH</div>
+            <div class="event-meta">
+              <div class="event-age">Age: 62</div>
+              <div class="event-title">Hajjat al-Wada' — The Farewell Pilgrimage & Sermon</div>
+            </div>
+            <div class="event-toggle">▾</div>
+          </div>
+          <div class="event-body">
+            <div class="event-body-inner">
+              <div class="event-desc-col">
+                <p class="event-desc">His only complete Hajj, with 100,000–140,000 Muslims. On the Day of Arafah, atop his camel on Mount Arafah, he delivered the Farewell Sermon — among humanity's greatest speeches. He declared: the inviolability of life and property, abolition of riba, rights of women, equality of all races, finality of prophethood, and permanence of Quran and Sunnah. He asked: "Have I conveyed?" — they roared: "Yes!" He pointed to heaven: "O Allah, bear witness." Quran 5:3 was revealed: "Today I have perfected your religion."</p>
+                <div class="event-refs">
+                  <div class="event-refs-label">📖 Reference</div>
+                  <div class="event-refs-text">Quran 5:3: "Today I have perfected for you your religion…" · Bukhari & Muslim: The Farewell Sermon · Tirmidhi: "I leave among you two things — the Quran and my Sunnah."</div>
+                </div>
+                <div class="event-lesson">
+                  <div class="event-lesson-label">✦ Key Lesson</div>
+                  <div class="event-lesson-text">The Farewell Sermon is Islam's charter of human rights: sanctity of life, social justice, racial equality, and women's rights — delivered 14 centuries ago. It is a complete civilization in a single speech.</div>
+                </div>
+              </div>
+              <div class="event-media-col">
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🖼</span><span class="media-slot-text">Photo / Image</span></div>
+                  <div class="media-image-area" onclick="triggerImageUpload('img-ev-farewellhajj')">
+                    <input type="file" accept="image/*" class="media-img-hidden-input" id="img-ev-farewellhajj" onchange="handleImageUpload(this, 'ev-farewellhajj')">
+                    <div class="media-image-placeholder" id="img-placeholder-ev-farewellhajj">
+                      <span class="upload-icon">📷</span><p>Click to add a photo</p><small>e.g. Mount Arafah, Hajj pilgrims, Jabal al-Rahmah</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🎬</span><span class="media-slot-text">Video</span></div>
+                  <div class="media-video-area" id="video-ev-farewellhajj">
+                    <div class="video-input-row">
+                      <input type="text" class="video-url-input" placeholder="Paste YouTube / Vimeo URL…" id="videourl-ev-farewellhajj">
+                      <button class="video-embed-btn" onclick="embedVideo('ev-farewellhajj')">Embed</button>
+                    </div>
+                    <div class="video-placeholder"><span class="video-placeholder-icon">▶</span> Add a related video</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event" id="ev-death">
+        <div class="event-card">
+          <div class="event-header" onclick="toggleEvent('ev-death')">
+            <div class="event-date-badge">12 Rabi' al-Awwal · 11 AH · 632 CE</div>
+            <div class="event-meta">
+              <div class="event-age">Age: 63</div>
+              <div class="event-title">The Passing of the Prophet ﷺ — Return to the Most High</div>
+            </div>
+            <div class="event-toggle">▾</div>
+          </div>
+          <div class="event-body">
+            <div class="event-body-inner">
+              <div class="event-desc-col">
+                <p class="event-desc">On Monday morning, the Prophet ﷺ passed away in the lap of Aisha (RA), his hand in a bowl of water to cool his fever. His last words: "With the Most High Companion" (al-Rafiq al-A'la) — spoken three times. Umar (RA) could not accept it; he threatened those who said so. Abu Bakr (RA) entered, kissed the Prophet's forehead, and delivered the most pivotal speech: "Whoever worshipped Muhammad — Muhammad has died. Whoever worshipped Allah — Allah is Ever-Living, never dying." Then he recited Quran 3:144 and all hearts were stilled.</p>
+                <div class="event-refs">
+                  <div class="event-refs-label">📖 Reference</div>
+                  <div class="event-refs-text">Quran 3:144: "Muhammad is not but a messenger. Messengers have passed before him…" · Bukhari: Aisha's account of his final moments · Quran 9:128: "To the believers he is kind and merciful."</div>
+                </div>
+                <div class="event-lesson">
+                  <div class="event-lesson-label">✦ Key Lesson</div>
+                  <div class="event-lesson-text">The greatest human being was also a mortal servant of Allah. The mission did not die with the messenger — it lives in the Quran and Sunnah, preserved for all of humanity until the Day of Judgment. His final concern was his ummah.</div>
+                </div>
+              </div>
+              <div class="event-media-col">
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🖼</span><span class="media-slot-text">Photo / Image</span></div>
+                  <div class="media-image-area" onclick="triggerImageUpload('img-ev-death')">
+                    <input type="file" accept="image/*" class="media-img-hidden-input" id="img-ev-death" onchange="handleImageUpload(this, 'ev-death')">
+                    <div class="media-image-placeholder" id="img-placeholder-ev-death">
+                      <span class="upload-icon">📷</span><p>Click to add a photo</p><small>e.g. Masjid al-Nabawi, the Rawdah, green dome</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-slot">
+                  <div class="media-slot-label"><span class="media-slot-icon">🎬</span><span class="media-slot-text">Video</span></div>
+                  <div class="media-video-area" id="video-ev-death">
+                    <div class="video-input-row">
+                      <input type="text" class="video-url-input" placeholder="Paste YouTube / Vimeo URL…" id="videourl-ev-death">
+                      <button class="video-embed-btn" onclick="embedVideo('ev-death')">Embed</button>
+                    </div>
+                    <div class="video-placeholder"><span class="video-placeholder-icon">▶</span> Add a related video</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div><!-- /timeline -->
+
+<!-- FOOTER -->
+<div class="ornament">· · ✦ · ·</div>
+<footer class="footer">
+  <div class="footer-arabic">صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ</div>
+  <div class="footer-text">"Indeed in the Messenger of Allah you have an excellent example for whoever hopes in Allah and the Last Day." — Quran 33:21</div>
+</footer>
+
+<script>
+// ─── Toggle event open/close ───
+function toggleEvent(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('open');
+}
+
+// ─── Phase filter ───
+function filterPhase(phase, btn) {
+  document.querySelectorAll('.phase-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const timeline = document.getElementById('timeline');
+  timeline.className = 'timeline';
+  if (phase !== 'all') {
+    timeline.classList.add('filter-' + phase);
+    setTimeout(() => {
+      const section = document.getElementById('phase-' + phase);
+      if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+}
+
+// ─── Image upload ───
+function triggerImageUpload(inputId) {
+  document.getElementById(inputId).click();
+}
+
+function handleImageUpload(input, eventId) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const placeholder = document.getElementById('img-placeholder-' + eventId);
+    const area = placeholder.parentElement;
+    placeholder.style.display = 'none';
+    const existing = area.querySelector('img.preview');
+    if (existing) existing.remove();
+    const img = document.createElement('img');
+    img.src = e.target.result;
+    img.className = 'preview';
+    area.insertBefore(img, placeholder);
+  };
+  reader.readAsDataURL(file);
+}
+
+// ─── Video embed ───
+function embedVideo(eventId) {
+  const input = document.getElementById('videourl-' + eventId);
+  const container = document.getElementById('video-' + eventId);
+  const url = input.value.trim();
+  if (!url) return;
+
+  const embedUrl = getEmbedUrl(url);
+  if (!embedUrl) {
+    input.style.borderColor = '#e88';
+    setTimeout(() => input.style.borderColor = '', 1500);
+    return;
+  }
+
+  const videoArea = container.querySelector('.media-video-area') || container;
+  const inputRow = container.querySelector('.video-input-row');
+  const placeholder = container.querySelector('.video-placeholder');
+
+  // Remove old frame if exists
+  const oldFrame = container.querySelector('.video-frame-wrapper');
+  if (oldFrame) oldFrame.remove();
+
+  const wrapper = document.createElement('div');
+  wrapper.className = 'video-frame-wrapper';
+  const iframe = document.createElement('iframe');
+  iframe.src = embedUrl;
+  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+  iframe.allowFullscreen = true;
+  wrapper.appendChild(iframe);
+
+  if (placeholder) placeholder.style.display = 'none';
+
+  // Insert after input row
+  inputRow.insertAdjacentElement('afterend', wrapper);
+
+  // Change button to clear
+  const btn = container.querySelector('.video-embed-btn');
+  btn.textContent = 'Remove';
+  btn.classList.add('clear-btn');
+  btn.onclick = () => clearVideo(eventId);
+}
+
+function clearVideo(eventId) {
+  const container = document.getElementById('video-' + eventId);
+  const frame = container.querySelector('.video-frame-wrapper');
+  if (frame) frame.remove();
+  const placeholder = container.querySelector('.video-placeholder');
+  if (placeholder) placeholder.style.display = 'flex';
+  const input = document.getElementById('videourl-' + eventId);
+  input.value = '';
+  const btn = container.querySelector('.video-embed-btn');
+  btn.textContent = 'Embed';
+  btn.classList.remove('clear-btn');
+  btn.onclick = () => embedVideo(eventId);
+}
+
+function getEmbedUrl(url) {
+  // YouTube
+  let match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/);
+  if (match) return 'https://www.youtube.com/embed/' + match[1];
+
+  // YouTube shorts
+  match = url.match(/youtube\.com\/shorts\/([\w-]+)/);
+  if (match) return 'https://www.youtube.com/embed/' + match[1];
+
+  // Vimeo
+  match = url.match(/vimeo\.com\/(\d+)/);
+  if (match) return 'https://player.vimeo.com/video/' + match[1];
+
+  return null;
+}
+
+// ─── Intersection Observer for entrance animations ───
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animationPlayState = 'running';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.event').forEach(el => {
+  el.style.animationPlayState = 'paused';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
