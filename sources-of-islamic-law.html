@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sources of Islamic Law</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root, [data-theme="light"] {
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+
+  --space-1:  0.25rem; --space-2:  0.5rem; --space-3:  0.75rem;
+  --space-4:  1rem;    --space-5:  1.25rem; --space-6:  1.5rem;
+  --space-8:  2rem;    --space-10: 2.5rem;  --space-12: 3rem;
+  --space-16: 4rem;
+
+  --color-bg:             #f5f3ee;
+  --color-surface:        #faf9f6;
+  --color-surface-2:      #ffffff;
+  --color-surface-offset: #ede9e2;
+  --color-divider:        #dcd8d0;
+  --color-border:         #d0ccc4;
+  --color-text:           #1e1b14;
+  --color-text-muted:     #6e6b65;
+  --color-text-faint:     #a8a59f;
+  --color-text-inverse:   #f9f8f4;
+  --color-primary:        #016b6d;
+  --color-primary-hover:  #014c4e;
+  --color-primary-highlight: #d4e8e8;
+
+  /* Source-specific accent colours */
+  --quran-bg:    #e8f5e9; --quran-dark:  #2e7d32; --quran-light: #a5d6a7;
+  --sunnah-bg:   #fff8e1; --sunnah-dark: #e65100; --sunnah-light: #ffcc80;
+  --ijmaa-bg:    #e3f2fd; --ijmaa-dark:  #1565c0; --ijmaa-light:  #90caf9;
+  --qiyas-bg:    #f3e5f5; --qiyas-dark:  #6a1b9a; --qiyas-light:  #ce93d8;
+
+  --radius-sm: 0.375rem; --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;  --radius-xl: 1rem; --radius-2xl: 1.5rem;
+  --shadow-sm: 0 1px 4px oklch(0.2 0.01 80 / 0.07);
+  --shadow-md: 0 4px 16px oklch(0.2 0.01 80 / 0.1);
+  --shadow-lg: 0 12px 40px oklch(0.2 0.01 80 / 0.14);
+  --font-body: 'Nunito', 'Segoe UI', sans-serif;
+  --font-arabic: 'Amiri', serif;
+  --transition: 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"] {
+  --color-bg:             #141210;
+  --color-surface:        #1a1815;
+  --color-surface-2:      #201e1a;
+  --color-surface-offset: #1d1b18;
+  --color-divider:        #2a2824;
+  --color-border:         #363330;
+  --color-text:           #e8e5e0;
+  --color-text-muted:     #8a877f;
+  --color-text-faint:     #5a5753;
+  --color-text-inverse:   #1e1b14;
+  --color-primary:        #4fa8aa;
+  --color-primary-hover:  #2d8587;
+  --color-primary-highlight: #1f3434;
+  --quran-bg:    #1a2e1b; --quran-dark:  #66bb6a; --quran-light: #2e5230;
+  --sunnah-bg:   #2e2010; --sunnah-dark: #ffa726; --sunnah-light: #4a3018;
+  --ijmaa-bg:    #0f1f35; --ijmaa-dark:  #5c9ddf; --ijmaa-light:  #1a3050;
+  --qiyas-bg:    #24133a; --qiyas-dark:  #ba7de8; --qiyas-light:  #3a1f55;
+  --shadow-sm: 0 1px 4px oklch(0 0 0 / 0.25);
+  --shadow-md: 0 4px 16px oklch(0 0 0 / 0.35);
+  --shadow-lg: 0 12px 40px oklch(0 0 0 / 0.5);
+}
+
+@media (prefers-color-scheme: dark) { :root:not([data-theme]) {
+  --color-bg:#141210;--color-surface:#1a1815;--color-surface-2:#201e1a;
+  --color-surface-offset:#1d1b18;--color-divider:#2a2824;--color-border:#363330;
+  --color-text:#e8e5e0;--color-text-muted:#8a877f;--color-text-faint:#5a5753;
+  --color-text-inverse:#1e1b14;--color-primary:#4fa8aa;--color-primary-hover:#2d8587;
+  --color-primary-highlight:#1f3434;
+  --quran-bg:#1a2e1b;--quran-dark:#66bb6a;--quran-light:#2e5230;
+  --sunnah-bg:#2e2010;--sunnah-dark:#ffa726;--sunnah-light:#4a3018;
+  --ijmaa-bg:#0f1f35;--ijmaa-dark:#5c9ddf;--ijmaa-light:#1a3050;
+  --qiyas-bg:#24133a;--qiyas-dark:#ba7de8;--qiyas-light:#3a1f55;
+  --shadow-sm:0 1px 4px oklch(0 0 0/.25);--shadow-md:0 4px 16px oklch(0 0 0/.35);
+  --shadow-lg:0 12px 40px oklch(0 0 0/.5);
+}}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: none; text-size-adjust: none; }
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100dvh;
+}
+img { display:block; max-width:100%; height:auto; }
+button { cursor:pointer; border:none; background:none; font:inherit; color:inherit; }
+ul[role="list"] { list-style:none; }
+:focus-visible { outline:2px solid var(--color-primary); outline-offset:3px; border-radius:var(--radius-sm); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration:0.01ms!important; transition-duration:0.01ms!important; }
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.logo-icon {
+  width: 40px; height: 40px;
+  background: linear-gradient(135deg, var(--color-primary), color-mix(in oklch, var(--color-primary) 60%, #006b3c));
+  border-radius: var(--radius-lg);
+  display: flex; align-items: center; justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+.logo-text { font-size: var(--text-sm); font-weight: 800; line-height: 1.2; }
+.logo-sub { font-size: var(--text-xs); color: var(--color-text-muted); font-weight: 600; }
+.header-controls { display:flex; align-items:center; gap:var(--space-2); }
+.theme-btn {
+  width: 36px; height: 36px;
+  border-radius: var(--radius-full, 9999px);
+  display: flex; align-items:center; justify-content:center;
+  color: var(--color-text-muted);
+  transition: background var(--transition), color var(--transition);
+}
+.theme-btn:hover { background:var(--color-surface-offset); color:var(--color-text); }
+.grade-badge {
+  background: var(--color-primary);
+  color: white;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  padding: var(--space-1) var(--space-3);
+  border-radius: 9999px;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.hero {
+  text-align: center;
+  padding: var(--space-12) var(--space-6) var(--space-8);
+  background: linear-gradient(160deg,
+    color-mix(in oklch, var(--color-primary) 8%, var(--color-bg)) 0%,
+    var(--color-bg) 60%);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, color-mix(in oklch, var(--color-primary) 12%, transparent) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--color-primary-highlight);
+  color: var(--color-primary);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: var(--space-2) var(--space-4);
+  border-radius: 9999px;
+  margin-bottom: var(--space-4);
+}
+.hero-title {
+  font-size: var(--text-2xl);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: var(--space-3);
+  color: var(--color-text);
+}
+.hero-title span { color: var(--color-primary); }
+.hero-desc {
+  max-width: 55ch;
+  margin: 0 auto var(--space-8);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+/* four-dot source indicators in hero */
+.source-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+.dot-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  padding: var(--space-2) var(--space-4);
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.dot-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.dot-item.quran  { background:var(--quran-bg);  color:var(--quran-dark); }
+.dot-item.sunnah { background:var(--sunnah-bg); color:var(--sunnah-dark); }
+.dot-item.ijmaa  { background:var(--ijmaa-bg);  color:var(--ijmaa-dark); }
+.dot-item.qiyas  { background:var(--qiyas-bg);  color:var(--qiyas-dark); }
+.dot-num {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: flex; align-items:center; justify-content:center;
+  font-size: 0.65rem;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+.quran  .dot-num { background:var(--quran-dark);  color:white; }
+.sunnah .dot-num { background:var(--sunnah-dark); color:white; }
+.ijmaa  .dot-num { background:var(--ijmaa-dark);  color:white; }
+.qiyas  .dot-num { background:var(--qiyas-dark);  color:white; }
+
+/* ============================================================
+   GRID
+   ============================================================ */
+.grid-section {
+  padding: var(--space-6) var(--space-6) var(--space-16);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.big-four-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+@media (max-width: 900px) {
+  .big-four-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   SOURCE CARD
+   ============================================================ */
+.source-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: box-shadow var(--transition), transform var(--transition);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+}
+.source-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+
+.card-header {
+  padding: var(--space-6);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  border-bottom: 1px solid var(--color-divider);
+}
+.card-header.quran  { background: linear-gradient(135deg, var(--quran-bg), color-mix(in oklch, var(--quran-bg) 70%, var(--color-surface))); }
+.card-header.sunnah { background: linear-gradient(135deg, var(--sunnah-bg), color-mix(in oklch, var(--sunnah-bg) 70%, var(--color-surface))); }
+.card-header.ijmaa  { background: linear-gradient(135deg, var(--ijmaa-bg), color-mix(in oklch, var(--ijmaa-bg) 70%, var(--color-surface))); }
+.card-header.qiyas  { background: linear-gradient(135deg, var(--qiyas-bg), color-mix(in oklch, var(--qiyas-bg) 70%, var(--color-surface))); }
+
+.card-icon {
+  width: 52px; height: 52px;
+  border-radius: var(--radius-xl);
+  display: flex; align-items:center; justify-content:center;
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.quran  .card-icon { background:var(--quran-dark);  color:white; }
+.sunnah .card-icon { background:var(--sunnah-dark); color:white; }
+.ijmaa  .card-icon { background:var(--ijmaa-dark);  color:white; }
+.qiyas  .card-icon { background:var(--qiyas-dark);  color:white; }
+
+.card-title-group { flex:1; min-width:0; }
+.card-number {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-1);
+}
+.quran  .card-number { color:var(--quran-dark); }
+.sunnah .card-number { color:var(--sunnah-dark); }
+.ijmaa  .card-number { color:var(--ijmaa-dark); }
+.qiyas  .card-number { color:var(--qiyas-dark); }
+.card-title { font-size: var(--text-xl); font-weight: 900; line-height: 1.1; }
+.card-subtitle { font-size: var(--text-xs); color: var(--color-text-muted); font-weight: 600; margin-top: var(--space-1); }
+
+/* ============================================================
+   TABS
+   ============================================================ */
+.card-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--color-divider);
+  overflow-x: auto;
+  scrollbar-width: none;
+  background: var(--color-surface-2);
+}
+.card-tabs::-webkit-scrollbar { display:none; }
+.tab-btn {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--color-text-muted);
+  border-bottom: 2.5px solid transparent;
+  white-space: nowrap;
+  transition: color var(--transition), border-color var(--transition);
+  flex-shrink: 0;
+}
+.tab-btn:hover { color: var(--color-text); }
+.tab-btn.active { color: var(--color-text); }
+.tab-btn.active.quran  { border-color: var(--quran-dark); }
+.tab-btn.active.sunnah { border-color: var(--sunnah-dark); }
+.tab-btn.active.ijmaa  { border-color: var(--ijmaa-dark); }
+.tab-btn.active.qiyas  { border-color: var(--qiyas-dark); }
+
+/* ============================================================
+   TAB PANELS
+   ============================================================ */
+.card-body { padding: var(--space-5); flex:1; }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ============================================================
+   COMMON COMPONENTS
+   ============================================================ */
+.section-label {
+  font-size: var(--text-xs);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-faint);
+  margin-bottom: var(--space-3);
+}
+.definition-box {
+  background: var(--color-surface-offset);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+  border-left: 4px solid;
+  font-size: var(--text-sm);
+  line-height: 1.7;
+}
+.quran  .definition-box { border-color: var(--quran-dark); }
+.sunnah .definition-box { border-color: var(--sunnah-dark); }
+.ijmaa  .definition-box { border-color: var(--ijmaa-dark); }
+.qiyas  .definition-box { border-color: var(--qiyas-dark); }
+
+.key-facts { display:flex; flex-direction:column; gap:var(--space-2); margin-bottom:var(--space-4); }
+.fact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  background: var(--color-surface-2);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+}
+.fact-emoji { font-size: 1.1rem; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+.fact-text { line-height: 1.55; }
+.fact-text strong { font-weight: 700; }
+
+.verse-box {
+  background: color-mix(in oklch, var(--quran-bg) 80%, var(--color-surface));
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  margin-bottom: var(--space-3);
+  border: 1px solid var(--quran-light);
+}
+.sunnah .verse-box, .hadith-box {
+  background: color-mix(in oklch, var(--sunnah-bg) 80%, var(--color-surface));
+  border: 1px solid var(--sunnah-light);
+}
+.arabic-text {
+  font-family: var(--font-arabic);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  direction: rtl;
+  text-align: right;
+  line-height: 2;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+.translation-text {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  font-style: italic;
+  line-height: 1.65;
+  margin-bottom: var(--space-2);
+}
+.verse-ref {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.hadith-box {
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  margin-bottom: var(--space-3);
+  border: 1px solid var(--sunnah-light);
+}
+.hadith-text {
+  font-size: var(--text-sm);
+  font-style: italic;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  margin-bottom: var(--space-2);
+}
+.hadith-ref {
+  font-size: var(--text-xs);
+  font-weight: 700;
+}
+.sunnah .hadith-ref { color: var(--sunnah-dark); }
+
+.type-card {
+  background: var(--color-surface-2);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  margin-bottom: var(--space-3);
+  border: 1px solid var(--color-border);
+}
+.type-card-title {
+  font-size: var(--text-sm);
+  font-weight: 800;
+  margin-bottom: var(--space-2);
+  display:flex; align-items:center; gap:var(--space-2);
+}
+.type-badge {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+.badge-qawli  { background:var(--sunnah-bg); color:var(--sunnah-dark); }
+.badge-fili   { background:var(--ijmaa-bg);  color:var(--ijmaa-dark); }
+.badge-taqriri{ background:var(--qiyas-bg);  color:var(--qiyas-dark); }
+
+.example-block {
+  background: color-mix(in oklch, var(--color-primary-highlight) 40%, var(--color-surface));
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-xs);
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin-top: var(--space-2);
+}
+.example-block strong { color: var(--color-text); }
+
+.info-callout {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  background: var(--color-surface-offset);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+  font-size: var(--text-sm);
+  line-height: 1.65;
+}
+.callout-icon { font-size: 1.2rem; flex-shrink:0; margin-top:2px; }
+
+.step-list { display:flex; flex-direction:column; gap:var(--space-3); margin-bottom:var(--space-4); }
+.step-item {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  font-size: var(--text-sm);
+}
+.step-num {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  display: flex; align-items:center; justify-content:center;
+  font-size: var(--text-xs);
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.ijmaa .step-num { background:var(--ijmaa-dark); color:white; }
+.qiyas .step-num { background:var(--qiyas-dark); color:white; }
+
+.accordion-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-2);
+  overflow: hidden;
+}
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-align: left;
+  background: var(--color-surface-2);
+  transition: background var(--transition);
+  gap: var(--space-3);
+}
+.accordion-trigger:hover { background: var(--color-surface-offset); }
+.accordion-trigger[aria-expanded="true"] { background: var(--color-surface-offset); }
+.accordion-chevron {
+  flex-shrink: 0;
+  transition: transform var(--transition);
+  color: var(--color-text-faint);
+}
+.accordion-trigger[aria-expanded="true"] .accordion-chevron {
+  transform: rotate(180deg);
+}
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.accordion-content.open { max-height: 1000px; }
+.accordion-inner {
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-divider);
+}
+
+.components-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+@media (max-width: 500px) { .components-grid { grid-template-columns: 1fr; } }
+.component-card {
+  background: var(--color-surface-offset);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  text-align: center;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  border: 1px solid var(--color-border);
+}
+.component-card .big-emoji { font-size: 1.5rem; margin-bottom: var(--space-2); }
+.qiyas .component-card { border-color: var(--qiyas-light); }
+
+.pill-row { display:flex; flex-wrap:wrap; gap:var(--space-2); margin-bottom:var(--space-3); }
+.pill {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  padding: var(--space-1) var(--space-3);
+  border-radius: 9999px;
+}
+.pill-green  { background:var(--quran-bg);  color:var(--quran-dark); }
+.pill-orange { background:var(--sunnah-bg); color:var(--sunnah-dark); }
+.pill-blue   { background:var(--ijmaa-bg);  color:var(--ijmaa-dark); }
+.pill-purple { background:var(--qiyas-bg);  color:var(--qiyas-dark); }
+
+/* Miracle interactive */
+.miracle-tabs { display:flex; gap:var(--space-2); flex-wrap:wrap; margin-bottom:var(--space-3); }
+.miracle-tab {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  border-radius: 9999px;
+  background: var(--color-surface-offset);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition);
+}
+.miracle-tab.active, .miracle-tab:hover {
+  background: var(--quran-dark);
+  color: white;
+  border-color: var(--quran-dark);
+}
+.miracle-panel { display:none; }
+.miracle-panel.active { display:block; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  text-align: center;
+  padding: var(--space-8) var(--space-6);
+  border-top: 1px solid var(--color-divider);
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  font-weight: 600;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeIn { from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:none} }
+.source-card { animation: fadeIn 0.5s ease both; }
+.source-card:nth-child(1) { animation-delay: 0.05s; }
+.source-card:nth-child(2) { animation-delay: 0.12s; }
+.source-card:nth-child(3) { animation-delay: 0.18s; }
+.source-card:nth-child(4) { animation-delay: 0.24s; }
+
+/* ============================================================
+   SCROLL TO NAV
+   ============================================================ */
+.scroll-hint {
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+  font-weight: 600;
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+  HEADER
+============================================================ -->
+<header class="site-header">
+  <div class="site-logo">
+    <div class="logo-icon" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+    </div>
+    <div>
+      <div class="logo-text">Islamic Studies</div>
+      <div class="logo-sub">Sources of Islamic Law</div>
+    </div>
+  </div>
+  <div class="header-controls">
+    <span class="grade-badge">Grade 7</span>
+    <button class="theme-btn" data-theme-toggle aria-label="Toggle dark mode">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ============================================================
+  HERO
+============================================================ -->
+<section class="hero">
+  <div class="hero-eyebrow">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+    Fiqh · Islamic Jurisprudence
+  </div>
+  <h1 class="hero-title">The <span>Big Four</span> Sources<br>of Islamic Law</h1>
+  <p class="hero-desc">
+    How do Muslims know what's allowed and what's not? 
+    Islam has four main sources that scholars use to figure out the rules — click on any tab to explore! 📚
+  </p>
+  <div class="source-dots" role="list">
+    <div class="dot-item quran" role="listitem" onclick="scrollToCard('card-quran')" tabindex="0">
+      <span class="dot-num">1</span> Al-Qur'an
+    </div>
+    <div class="dot-item sunnah" role="listitem" onclick="scrollToCard('card-sunnah')" tabindex="0">
+      <span class="dot-num">2</span> Sunnah &amp; Hadeeth
+    </div>
+    <div class="dot-item ijmaa" role="listitem" onclick="scrollToCard('card-ijmaa')" tabindex="0">
+      <span class="dot-num">3</span> Ijmaa'
+    </div>
+    <div class="dot-item qiyas" role="listitem" onclick="scrollToCard('card-qiyas')" tabindex="0">
+      <span class="dot-num">4</span> Qiyaas
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 7l5 5 5-5"/></svg>
+    Scroll down to explore each source
+  </div>
+</section>
+
+<!-- ============================================================
+  MAIN GRID
+============================================================ -->
+<main class="grid-section" aria-label="Big Four Sources of Islamic Law">
+  <div class="big-four-grid">
+
+    <!-- ══════════════════════════════════════════════════════
+      CARD 1: QUR'AN
+    ══════════════════════════════════════════════════════ -->
+    <article class="source-card" id="card-quran" aria-labelledby="quran-title">
+      <div class="card-header quran">
+        <div class="card-icon quran" aria-hidden="true">📖</div>
+        <div class="card-title-group">
+          <div class="card-number quran">Source 1</div>
+          <h2 class="card-title" id="quran-title">Al-Qur'an</h2>
+          <div class="card-subtitle">The Word of Allah ﷻ — the #1 Source</div>
+        </div>
+      </div>
+      <div class="card-tabs" role="tablist" aria-label="Al-Qur'an sections">
+        <button class="tab-btn quran active" role="tab" aria-selected="true" aria-controls="quran-tab-definition" onclick="switchTab(this,'quran')">📋 Definition</button>
+        <button class="tab-btn quran" role="tab" aria-selected="false" aria-controls="quran-tab-miracle" onclick="switchTab(this,'quran')">✨ Miracle</button>
+        <button class="tab-btn quran" role="tab" aria-selected="false" aria-controls="quran-tab-laws" onclick="switchTab(this,'quran')">⚖️ Laws</button>
+      </div>
+      <div class="card-body quran">
+
+        <!-- TAB: DEFINITION -->
+        <div id="quran-tab-definition" class="tab-panel quran active" role="tabpanel">
+          <div class="section-label">What is the Qur'an?</div>
+          <div class="definition-box quran">
+            The <strong>Qur'an</strong> is the direct Word of Allah ﷻ, revealed to Prophet Muhammad ﷺ through the Angel Jibreel (Gabriel). It is the <em>number one</em> source of Islamic law — everything else must agree with it!
+          </div>
+          <div class="key-facts">
+            <div class="fact-item">
+              <span class="fact-emoji">🕰️</span>
+              <div class="fact-text"><strong>Revealed over 23 years</strong> — from when the Prophet ﷺ was 40 years old until he passed away.</div>
+            </div>
+            <div class="fact-item">
+              <span class="fact-emoji">🌟</span>
+              <div class="fact-text"><strong>It is a miracle</strong> — no human could produce anything like it. Allah ﷻ challenged the Arabs (who were masters of poetry!) to make just one chapter like it.</div>
+            </div>
+            <div class="fact-item">
+              <span class="fact-emoji">🔒</span>
+              <div class="fact-text"><strong>100% preserved</strong> — the Qur'an has not changed a single letter since it was revealed. Millions have memorised it completely!</div>
+            </div>
+            <div class="fact-item">
+              <span class="fact-emoji">📜</span>
+              <div class="fact-text"><strong>114 Surahs (chapters)</strong> and over 6,000 verses, covering belief, worship, law, stories, and guidance for life.</div>
+            </div>
+            <div class="fact-item">
+              <span class="fact-emoji">💬</span>
+              <div class="fact-text"><strong>Originally in Arabic</strong> — the language was so perfectly chosen that it is still a living language today, used by over 400 million people.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: MIRACLE -->
+        <div id="quran-tab-miracle" class="tab-panel quran" role="tabpanel">
+          <div class="section-label">Why is the Qur'an a Miracle?</div>
+          <div class="info-callout">
+            <span class="callout-icon">🎯</span>
+            <div>Allah ﷻ challenged all of humanity to produce something like the Qur'an — and nobody has succeeded in 1,400+ years! This challenge (called <strong>al-Tahaddi</strong>) is still open today.</div>
+          </div>
+          <div class="miracle-tabs" role="tablist" aria-label="Types of Qur'anic miracles">
+            <button class="miracle-tab active" onclick="switchMiracleTab(this, 'challenge')" role="tab" aria-selected="true">📢 The Challenge</button>
+            <button class="miracle-tab" onclick="switchMiracleTab(this, 'science')" role="tab" aria-selected="false">🔬 Science</button>
+            <button class="miracle-tab" onclick="switchMiracleTab(this, 'arabic')" role="tab" aria-selected="false">✍️ Arabic Miracle</button>
+          </div>
+
+          <div id="miracle-challenge" class="miracle-panel active">
+            <div class="verse-box">
+              <div class="arabic-text">وَإِن كُنتُمْ فِي رَيْبٍ مِّمَّا نَزَّلْنَا عَلَىٰ عَبْدِنَا فَأْتُوا بِسُورَةٍ مِّن مِّثْلِهِ</div>
+              <div class="translation-text">"And if you are in doubt about what We have revealed to Our servant, then produce a surah (chapter) like it..."</div>
+              <div class="verse-ref">📍 Surah Al-Baqarah (2:23)</div>
+            </div>
+            <p style="font-size:var(--text-sm); line-height:1.7; color:var(--color-text-muted);">
+              The Arabs of Makkah were <em>experts</em> in poetry and language. They would compete in giant poetry contests. Yet when Allah ﷻ challenged them to produce just ONE surah like the Qur'an — they couldn't! Instead, they chose to fight wars against the Muslims. That's how impossible the challenge was. 💪
+            </p>
+          </div>
+
+          <div id="miracle-science" class="miracle-panel">
+            <div class="fact-item" style="margin-bottom:var(--space-3)">
+              <span class="fact-emoji">🌊</span>
+              <div class="fact-text"><strong>Barrier between seas:</strong> The Qur'an mentions that two seas meet but don't mix. Modern science confirmed this — different densities create a thin barrier! <span style="font-size:var(--text-xs); color:var(--color-text-faint);">(Surah Al-Rahman 55:19-20)</span></div>
+            </div>
+            <div class="verse-box" style="margin-bottom:var(--space-3)">
+              <div class="arabic-text" style="font-size:1.2rem;">مَرَجَ الْبَحْرَيْنِ يَلْتَقِيَانِ بَيْنَهُمَا بَرْزَخٌ لَّا يَبْغِيَانِ</div>
+              <div class="translation-text">"He released the two seas, meeting [side by side]; Between them is a barrier [so] neither of them transgresses."</div>
+              <div class="verse-ref">📍 Surah Al-Rahman (55:19-20)</div>
+            </div>
+            <div class="fact-item" style="margin-bottom:var(--space-3)">
+              <span class="fact-emoji">🌍</span>
+              <div class="fact-text"><strong>Expanding Universe:</strong> Scientists only discovered the universe is expanding in 1929. The Qur'an mentioned it 1,400 years ago! <span style="font-size:var(--text-xs); color:var(--color-text-faint);">(Surah Adh-Dhariyat 51:47)</span></div>
+            </div>
+            <div class="fact-item">
+              <span class="fact-emoji">🤰</span>
+              <div class="fact-text"><strong>Human embryo stages:</strong> The Qur'an describes how a baby forms in stages — confirmed by modern embryology! <span style="font-size:var(--text-xs); color:var(--color-text-faint);">(Surah Al-Mu'minoon 23:12-14)</span></div>
+            </div>
+          </div>
+
+          <div id="miracle-arabic" class="miracle-panel">
+            <div class="info-callout" style="margin-bottom:var(--space-3);">
+              <span class="callout-icon">✍️</span>
+              <div>The <strong>literary style</strong> of the Qur'an is totally unique — it's not poetry, not prose, not rhyme — it's in its own category that Arab language experts have never been able to copy.</div>
+            </div>
+            <div class="verse-box">
+              <div class="arabic-text">إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ فَصَلِّ لِرَبِّكَ وَانْحَرْ إِنَّ شَانِئَكَ هُوَ الْأَبْتَرُ</div>
+              <div class="translation-text">"Indeed, We have granted you, [O Muhammad], al-Kawthar. So pray to your Lord and sacrifice [to Him alone]. Indeed, your enemy is the one cut off."</div>
+              <div class="verse-ref">📍 Surah Al-Kawthar (108:1-3) — the shortest surah, yet perfect in rhyme, rhythm &amp; meaning</div>
+            </div>
+            <p style="font-size:var(--text-sm); color:var(--color-text-muted); line-height:1.7;">
+              Even the short surahs have a perfect internal structure — every word fits exactly, carries deep meaning, AND sounds beautiful when recited. No human author has matched this.
+            </p>
+          </div>
+        </div>
+
+        <!-- TAB: LAWS -->
+        <div id="quran-tab-laws" class="tab-panel quran" role="tabpanel">
+          <div class="section-label">Laws Derived from the Qur'an</div>
+          <p style="font-size:var(--text-sm); color:var(--color-text-muted); margin-bottom:var(--space-4); line-height:1.7;">
+            The Qur'an directly sets many Islamic laws. Here are two important ones:
+          </p>
+
+          <!-- Inheritance -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" onclick="toggleAccordion(this)">
+              <span>🏠 Inheritance — How to divide wealth after death</span>
+              <svg class="accordion-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <p style="margin-bottom:var(--space-3);">The Qur'an gives <em>exact fractions</em> for who gets what from a person's wealth when they die. This is called <strong>Ilm al-Faraa'id</strong> (the science of inheritance). For example:</p>
+                <div class="verse-box" style="margin-bottom:var(--space-3);">
+                  <div class="arabic-text" style="font-size:1.1rem;">يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ ۖ لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ</div>
+                  <div class="translation-text">"Allah instructs you regarding your children: for the male, what is equal to the share of two females..."</div>
+                  <div class="verse-ref">📍 Surah An-Nisaa' (4:11)</div>
+                </div>
+                <div class="pill-row">
+                  <span class="pill pill-green">👨 Son = 2x daughter's share</span>
+                  <span class="pill pill-green">👩 Daughter = ½ of son's share</span>
+                  <span class="pill pill-green">👨‍👩‍👧 Parents each get 1/6</span>
+                </div>
+                <div class="example-block">
+                  <strong>Quick example:</strong> If a man leaves behind RM 60,000 and has one son and one daughter — the son gets RM 40,000 (2 parts) and the daughter gets RM 20,000 (1 part). This is exact and fair according to Islamic law.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Theft -->
+          <div class="accordion-item" style="margin-top:var(--space-2);">
+            <button class="accordion-trigger" aria-expanded="false" onclick="toggleAccordion(this)">
+              <span>✋ Theft — Punishment &amp; justice</span>
+              <svg class="accordion-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <div class="verse-box" style="margin-bottom:var(--space-3);">
+                  <div class="arabic-text" style="font-size:1.1rem;">وَالسَّارِقُ وَالسَّارِقَةُ فَاقْطَعُوا أَيْدِيَهُمَا جَزَاءً بِمَا كَسَبَا نَكَالًا مِّنَ اللَّهِ</div>
+                  <div class="translation-text">"As for the thief, the male and the female, cut off their hands as recompense for what they committed as a deterrent [punishment] from Allah..."</div>
+                  <div class="verse-ref">📍 Surah Al-Maa'idah (5:38)</div>
+                </div>
+                <div class="info-callout" style="margin-bottom:var(--space-2);">
+                  <span class="callout-icon">⚠️</span>
+                  <div>This verse sets the <em>maximum</em> punishment for theft. But it only applies when <strong>very strict conditions</strong> are met (you'll learn those in the Sunnah section!) — Islam is very careful before applying this.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- ══════════════════════════════════════════════════════
+      CARD 2: SUNNAH / HADEETH
+    ══════════════════════════════════════════════════════ -->
+    <article class="source-card sunnah" id="card-sunnah" aria-labelledby="sunnah-title">
+      <div class="card-header sunnah">
+        <div class="card-icon sunnah" aria-hidden="true">🕌</div>
+        <div class="card-title-group">
+          <div class="card-number sunnah">Source 2</div>
+          <h2 class="card-title" id="sunnah-title">Sunnah &amp; Hadeeth</h2>
+          <div class="card-subtitle">The Prophet's ﷺ sayings, actions &amp; approvals</div>
+        </div>
+      </div>
+      <div class="card-tabs" role="tablist" aria-label="Sunnah sections">
+        <button class="tab-btn sunnah active" role="tab" aria-selected="true" aria-controls="sunnah-tab-definition" onclick="switchTab(this,'sunnah')">📋 Definition</button>
+        <button class="tab-btn sunnah" role="tab" aria-selected="false" aria-controls="sunnah-tab-types" onclick="switchTab(this,'sunnah')">🔢 3 Types</button>
+        <button class="tab-btn sunnah" role="tab" aria-selected="false" aria-controls="sunnah-tab-laws" onclick="switchTab(this,'sunnah')">⚖️ Laws</button>
+      </div>
+      <div class="card-body sunnah">
+
+        <!-- TAB: DEFINITION -->
+        <div id="sunnah-tab-definition" class="tab-panel sunnah active" role="tabpanel">
+          <div class="section-label">What is the Sunnah?</div>
+          <div class="definition-box sunnah">
+            <strong>Sunnah</strong> means "the way" or "practice" of Prophet Muhammad ﷺ. It is the <em>second</em> source of Islamic law. Whatever the Prophet ﷺ said, did, or allowed is part of the Sunnah.
+          </div>
+          <div class="definition-box sunnah" style="margin-top:var(--space-3);">
+            <strong>Hadeeth</strong> means "narration" — these are the written records of the Prophet's ﷺ Sunnah. Scholars worked very hard to collect and verify them to make sure they are authentic (real).
+          </div>
+          <div class="key-facts">
+            <div class="fact-item">
+              <span class="fact-emoji">🔢</span>
+              <div class="fact-text"><strong>The Sunnah has 3 types:</strong> Qawli (sayings), Fi'li (actions), and Taqriri (approvals). Click the "3 Types" tab to explore each one!</div>
+            </div>
+            <div class="fact-item">
+              <span class="fact-emoji">📚</span>
+              <div class="fact-text"><strong>Why do we follow the Sunnah?</strong> Allah ﷻ commands us to: <em>"Obey Allah and obey the Messenger"</em> (Surah An-Nisaa' 4:59)</div>
+            </div>
+            <div class="fact-item">
+              <span class="fact-emoji">🔍</span>
+              <div class="fact-text"><strong>It explains the Qur'an</strong> — the Qur'an says "establish prayer" but doesn't tell us HOW. The Sunnah shows us exactly how to pray.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: 3 TYPES -->
+        <div id="sunnah-tab-types" class="tab-panel sunnah" role="tabpanel">
+          <div class="section-label">The 3 Types of Sunnah</div>
+
+          <!-- Type 1: Qawli -->
+          <div class="type-card">
+            <div class="type-card-title">
+              <span>💬</span>
+              <span>1. Qawli — Sayings</span>
+              <span class="type-badge badge-qawli">Words</span>
+            </div>
+            <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-2);line-height:1.65;">
+              Things the Prophet ﷺ <strong>said</strong> — these are direct instructions or advice in his own words.
+            </p>
+            <div class="hadith-box">
+              <div class="hadith-text">"The best of you is the one who learned the Qur'an and taught it to others."</div>
+              <div class="hadith-ref sunnah">📍 Hadeeth — Saheeh Al-Bukhari #5027</div>
+            </div>
+            <div class="hadith-box" style="margin-top:var(--space-2);">
+              <div class="hadith-text">"Actions are judged by their intentions, and every person will get what they intended."</div>
+              <div class="hadith-ref sunnah">📍 Hadeeth — Saheeh Al-Bukhari #1</div>
+            </div>
+          </div>
+
+          <!-- Type 2: Fi'li -->
+          <div class="type-card">
+            <div class="type-card-title">
+              <span>🤲</span>
+              <span>2. Fi'li — Actions</span>
+              <span class="type-badge badge-fili">Deeds</span>
+            </div>
+            <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-2);line-height:1.65;">
+              Things the Prophet ﷺ <strong>did</strong> — Muslims follow his example in how he prayed, fasted, dressed, etc.
+            </p>
+            <div class="example-block">
+              <strong>Example:</strong> The Prophet ﷺ prayed Salaah a specific way — with exact movements, positions, and words. His companions watched him and wrote it down. That's how we know how to pray today!
+            </div>
+            <div class="example-block" style="margin-top:var(--space-2);">
+              <strong>Example:</strong> The Prophet ﷺ used to eat with his right hand and start from the edge of the plate, not the middle. Muslims follow this sunnah of eating.
+            </div>
+          </div>
+
+          <!-- Type 3: Taqriri -->
+          <div class="type-card">
+            <div class="type-card-title">
+              <span>✅</span>
+              <span>3. Taqriri — Approvals</span>
+              <span class="type-badge badge-taqriri">Silent OK</span>
+            </div>
+            <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-2);line-height:1.65;">
+              Things the Prophet ﷺ <strong>saw or heard</strong> a companion doing but <strong>did NOT correct</strong>. His silence means it was OK!
+            </p>
+            <div class="example-block">
+              <strong>Example:</strong> A companion was eating a lizard in front of the Prophet ﷺ. The Prophet ﷺ didn't eat it himself, but he also didn't stop the companion. His silence = approval. Therefore eating lizard is permissible (though not everyone's favourite! 🦎).
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: LAWS -->
+        <div id="sunnah-tab-laws" class="tab-panel sunnah" role="tabpanel">
+          <div class="section-label">Laws Derived from the Sunnah</div>
+          <p style="font-size:var(--text-sm); color:var(--color-text-muted); margin-bottom:var(--space-4); line-height:1.7;">
+            The Sunnah fills in the <em>details</em> that the Qur'an doesn't mention. Here are two examples:
+          </p>
+
+          <!-- Inheritance details -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" onclick="toggleAccordion(this)">
+              <span>🏠 Inheritance — Details NOT in the Qur'an</span>
+              <svg class="accordion-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <div class="hadith-box">
+                  <div class="hadith-text">"A Muslim does not inherit from a non-Muslim, and a non-Muslim does not inherit from a Muslim."</div>
+                  <div class="hadith-ref sunnah">📍 Hadeeth — Saheeh Al-Bukhari #6764</div>
+                </div>
+                <div class="fact-item" style="margin-top:var(--space-3);">
+                  <span class="fact-emoji">🚫</span>
+                  <div class="fact-text">A <strong>murderer</strong> cannot inherit from the person they killed. The Qur'an didn't mention this — the Prophet ﷺ clarified it in his Sunnah.</div>
+                </div>
+                <div class="example-block" style="margin-top:var(--space-3);">
+                  <strong>Why is this important?</strong> Without the Sunnah, people could misuse the Qur'anic inheritance laws. The Sunnah protects fairness!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Theft details -->
+          <div class="accordion-item" style="margin-top:var(--space-2);">
+            <button class="accordion-trigger" aria-expanded="false" onclick="toggleAccordion(this)">
+              <span>✋ Theft — The Nisaab (minimum amount)</span>
+              <svg class="accordion-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <p style="margin-bottom:var(--space-3); font-size:var(--text-sm); line-height:1.7; color:var(--color-text-muted);">
+                  The Qur'an says the punishment for theft is cutting the hand. But <em>how much must be stolen</em> before this applies? The Sunnah tells us!
+                </p>
+                <div class="hadith-box">
+                  <div class="hadith-text">"The hand is cut off for [stealing] a quarter of a dinar or more."</div>
+                  <div class="hadith-ref sunnah">📍 Hadeeth — Saheeh Al-Bukhari #6789</div>
+                </div>
+                <div class="pill-row" style="margin-top:var(--space-3);">
+                  <span class="pill pill-orange">💰 Nisaab = ¼ dinar of gold</span>
+                  <span class="pill pill-orange">≈ About 1.06 grams of gold</span>
+                  <span class="pill pill-orange">≈ Approximately RM 380+ today</span>
+                </div>
+                <div class="info-callout" style="margin-top:var(--space-3); margin-bottom:0;">
+                  <span class="callout-icon">🧠</span>
+                  <div>If someone steals <em>less</em> than the nisaab (minimum amount), the severe punishment does NOT apply. Islam is very precise and just in how punishments are applied!</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- ══════════════════════════════════════════════════════
+      CARD 3: IJMAA'
+    ══════════════════════════════════════════════════════ -->
+    <article class="source-card ijmaa" id="card-ijmaa" aria-labelledby="ijmaa-title">
+      <div class="card-header ijmaa">
+        <div class="card-icon ijmaa" aria-hidden="true">🤝</div>
+        <div class="card-title-group">
+          <div class="card-number ijmaa">Source 3</div>
+          <h2 class="card-title" id="ijmaa-title">Ijmaa'</h2>
+          <div class="card-subtitle">Unanimous agreement of the Sahaabah</div>
+        </div>
+      </div>
+      <div class="card-tabs" role="tablist" aria-label="Ijmaa sections">
+        <button class="tab-btn ijmaa active" role="tab" aria-selected="true" aria-controls="ijmaa-tab-definition" onclick="switchTab(this,'ijmaa')">📋 Definition</button>
+        <button class="tab-btn ijmaa" role="tab" aria-selected="false" aria-controls="ijmaa-tab-process" onclick="switchTab(this,'ijmaa')">🔄 How It Works</button>
+        <button class="tab-btn ijmaa" role="tab" aria-selected="false" aria-controls="ijmaa-tab-examples" onclick="switchTab(this,'ijmaa')">📚 Examples</button>
+      </div>
+      <div class="card-body ijmaa">
+
+        <!-- TAB: DEFINITION -->
+        <div id="ijmaa-tab-definition" class="tab-panel ijmaa active" role="tabpanel">
+          <div class="section-label">What is Ijmaa'?</div>
+          <div class="definition-box ijmaa">
+            <strong>Ijmaa'</strong> (إجماع) means <strong>"agreement"</strong> or <strong>"consensus"</strong>. It is the <em>joint agreement</em> of the Sahaabah (the Companions of the Prophet ﷺ) on a point of Islamic law that is NOT directly found in the Qur'an or Sunnah — but is <em>based on them</em> and does not contradict them.
+          </div>
+          <div class="key-facts">
+            <div class="fact-item">
+              <span class="fact-emoji">👥</span>
+              <div class="fact-text"><strong>Who are the Sahaabah?</strong> They are the companions who lived with the Prophet ﷺ, heard him, saw him, and learned directly from him. They are the most trustworthy people in Islamic history.</div>
+            </div>
+            <div class="fact-item">
+              <span class="fact-emoji">📅</span>
+              <div class="fact-text"><strong>When is it used?</strong> After the Prophet ﷺ passed away, new situations arose that were not directly covered. The Sahaabah would gather and figure out the ruling together.</div>
+            </div>
+            <div class="fact-item">
+              <span class="fact-emoji">⚡</span>
+              <div class="fact-text"><strong>Why is it important?</strong> It shows that Islam can adapt to new situations in all times and places, while staying true to the Qur'an and Sunnah.</div>
+            </div>
+            <div class="fact-item">
+              <span class="fact-emoji">🔗</span>
+              <div class="fact-text"><strong>It's always secondary</strong> — Ijmaa' never overrides the Qur'an or Sunnah. It only fills gaps where direct guidance wasn't given.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: PROCESS -->
+        <div id="ijmaa-tab-process" class="tab-panel ijmaa" role="tabpanel">
+          <div class="section-label">How Does Ijmaa' Work?</div>
+          <div class="info-callout">
+            <span class="callout-icon">🏛️</span>
+            <div>Imagine the leaders and scholars of the Muslim community sitting together to solve a new problem. Here's the step-by-step process:</div>
+          </div>
+          <div class="step-list">
+            <div class="step-item">
+              <span class="step-num ijmaa">1</span>
+              <div style="font-size:var(--text-sm); line-height:1.65;">A <strong>new problem arises</strong> that Muslims haven't faced before (e.g., a new law, a new situation in society).</div>
+            </div>
+            <div class="step-item">
+              <span class="step-num ijmaa">2</span>
+              <div style="font-size:var(--text-sm); line-height:1.65;">The <strong>Caliph (Muslim leader)</strong> gathers the knowledgeable Sahaabah together.</div>
+            </div>
+            <div class="step-item">
+              <span class="step-num ijmaa">3</span>
+              <div style="font-size:var(--text-sm); line-height:1.65;">They search the <strong>Qur'an</strong> — did Allah ﷻ say anything about this? If yes → done! If not → next step.</div>
+            </div>
+            <div class="step-item">
+              <span class="step-num ijmaa">4</span>
+              <div style="font-size:var(--text-sm); line-height:1.65;">They check the <strong>Sunnah</strong> — did the Prophet ﷺ say or do anything about this? If yes → done! If not → next step.</div>
+            </div>
+            <div class="step-item">
+              <span class="step-num ijmaa">5</span>
+              <div style="font-size:var(--text-sm); line-height:1.65;"><strong>Everyone gives their opinion</strong> based on Islamic principles. The opinions are discussed and debated.</div>
+            </div>
+            <div class="step-item">
+              <span class="step-num ijmaa">6</span>
+              <div style="font-size:var(--text-sm); line-height:1.65;">They reach <strong>full agreement</strong> — the best option becomes the new law for all Muslims.</div>
+            </div>
+          </div>
+          <div class="example-block">
+            <strong>Think of it like this:</strong> It's like a school assembly where all the teachers and principals discuss a new school rule. They can't make a rule that breaks the school constitution (Qur'an) or the headmaster's guidelines (Sunnah) — but for new issues, they work together!
+          </div>
+        </div>
+
+        <!-- TAB: EXAMPLES -->
+        <div id="ijmaa-tab-examples" class="tab-panel ijmaa" role="tabpanel">
+          <div class="section-label">Famous Examples of Ijmaa'</div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" onclick="toggleAccordion(this)">
+              <span>📖 Collection of the Qur'an into One Book</span>
+              <svg class="accordion-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <p style="font-size:var(--text-sm); line-height:1.7; color:var(--color-text-muted); margin-bottom:var(--space-3);">
+                  The Qur'an was revealed in pieces over 23 years. After the Prophet ﷺ passed away, parts were written on <em>palm leaves, animal bones, and tree bark</em>. Many companions had memorised it, but there was no single book!
+                </p>
+                <div class="step-list" style="margin-bottom:var(--space-3);">
+                  <div class="step-item">
+                    <span class="step-num ijmaa">⚔️</span>
+                    <div style="font-size:var(--text-sm); line-height:1.65;">Many Huffaaz (Qur'an memorisers) were killed in the Battle of Yamaamah under Caliph <strong>Abu Bakr ؓ</strong>.</div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-num ijmaa">🤝</span>
+                    <div style="font-size:var(--text-sm); line-height:1.65;">The Sahaabah agreed by <strong>Ijmaa'</strong> to collect all pieces into ONE official book.</div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-num ijmaa">✍️</span>
+                    <div style="font-size:var(--text-sm); line-height:1.65;"><strong>Zayd ibn Thaabit ؓ</strong> was chosen for the task — he was the Prophet's ﷺ personal scribe and had memorised the entire Qur'an.</div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-num ijmaa">✅</span>
+                    <div style="font-size:var(--text-sm); line-height:1.65;">He collected all written pieces, compared them with what people had memorised, and produced the official Mushaf (written Qur'an).</div>
+                  </div>
+                </div>
+                <div class="info-callout" style="margin-bottom:0;">
+                  <span class="callout-icon">💡</span>
+                  <div>This is why today, every Qur'an in the world — in Malaysia, Saudi Arabia, America, Indonesia — has the exact same text. This was made possible by Ijmaa'!</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-top:var(--space-2);">
+            <button class="accordion-trigger" aria-expanded="false" onclick="toggleAccordion(this)">
+              <span>🕌 The Two Adhaans for Jumu'ah</span>
+              <svg class="accordion-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <div class="pill-row">
+                  <span class="pill pill-blue">In the Prophet's ﷺ time: 1 Adhaan</span>
+                </div>
+                <p style="font-size:var(--text-sm); line-height:1.7; color:var(--color-text-muted); margin-bottom:var(--space-3);">
+                  During the Prophet's ﷺ time, there was only ONE Adhaan for Jumu'ah (Friday prayer). It was called when the Prophet ﷺ entered the mosque and said "Assalamu Alaykum". During Abu Bakr ؓ and Umar ؓ, it stayed the same.
+                </p>
+                <p style="font-size:var(--text-sm); line-height:1.7; color:var(--color-text-muted); margin-bottom:var(--space-3);">
+                  During Caliph <strong>Uthmaan ibn Affaan ؓ</strong>, the city of Madeenah had grown very large, and the marketplace was so noisy that people couldn't hear the Adhaan in time!
+                </p>
+                <div class="step-list" style="margin-bottom:var(--space-3);">
+                  <div class="step-item">
+                    <span class="step-num ijmaa">🏙️</span>
+                    <div style="font-size:var(--text-sm); line-height:1.65;">Problem: Market noise drowned out the Friday Adhaan.</div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-num ijmaa">💡</span>
+                    <div style="font-size:var(--text-sm); line-height:1.65;">Uthmaan ؓ suggested adding a <em>second early Adhaan</em> in the marketplace before the main one.</div>
+                  </div>
+                  <div class="step-item">
+                    <span class="step-num ijmaa">✅</span>
+                    <div style="font-size:var(--text-sm); line-height:1.65;">All the Sahaabah agreed — this became law by <strong>Ijmaa'</strong>.</div>
+                  </div>
+                </div>
+                <div class="pill-row">
+                  <span class="pill pill-blue">Now: 2 Adhaans for Jumu'ah</span>
+                </div>
+                <div class="example-block">
+                  This is why in many mosques today, there are two Adhaans before the Friday Khutbah (sermon)!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- ══════════════════════════════════════════════════════
+      CARD 4: QIYAAS
+    ══════════════════════════════════════════════════════ -->
+    <article class="source-card qiyas" id="card-qiyas" aria-labelledby="qiyas-title">
+      <div class="card-header qiyas">
+        <div class="card-icon qiyas" aria-hidden="true">⚖️</div>
+        <div class="card-title-group">
+          <div class="card-number qiyas">Source 4</div>
+          <h2 class="card-title" id="qiyas-title">Qiyaas</h2>
+          <div class="card-subtitle">Analogical reasoning — Islam &amp; modern life</div>
+        </div>
+      </div>
+      <div class="card-tabs" role="tablist" aria-label="Qiyas sections">
+        <button class="tab-btn qiyas active" role="tab" aria-selected="true" aria-controls="qiyas-tab-definition" onclick="switchTab(this,'qiyas')">📋 Definition</button>
+        <button class="tab-btn qiyas" role="tab" aria-selected="false" aria-controls="qiyas-tab-components" onclick="switchTab(this,'qiyas')">🔧 4 Components</button>
+        <button class="tab-btn qiyas" role="tab" aria-selected="false" aria-controls="qiyas-tab-examples" onclick="switchTab(this,'qiyas')">🧪 Examples</button>
+      </div>
+      <div class="card-body qiyas">
+
+        <!-- TAB: DEFINITION -->
+        <div id="qiyas-tab-definition" class="tab-panel qiyas active" role="tabpanel">
+          <div class="section-label">What is Qiyaas?</div>
+          <div class="definition-box qiyas">
+            <strong>Qiyaas</strong> (قياس) means <strong>"analogy"</strong> or <strong>"comparison"</strong>. It is the 4th and last source of Islamic law. When a new situation arises that isn't in the Qur'an, Sunnah, or Ijmaa', scholars <em>compare it to a similar existing ruling</em> and apply the same reason (cause) to figure out the ruling.
+          </div>
+          <div class="key-facts">
+            <div class="fact-item">
+              <span class="fact-emoji">🧠</span>
+              <div class="fact-text"><strong>Think of it like a logic puzzle:</strong> If A = B, and C is similar to A, then C = B. We use the <em>same reason</em> to reach the same conclusion.</div>
+            </div>
+            <div class="fact-item">
+              <span class="fact-emoji">🌍</span>
+              <div class="fact-text"><strong>Why is it needed?</strong> Islam was revealed 1,400+ years ago. New things like smartphones, drugs, cars, internet, etc. didn't exist. Qiyaas helps scholars figure out their rulings!</div>
+            </div>
+            <div class="fact-item">
+              <span class="fact-emoji">⚠️</span>
+              <div class="fact-text"><strong>Only scholars can do Qiyaas</strong> — you need deep knowledge of the Qur'an, Sunnah, and Arabic language to correctly identify which rulings can be compared.</div>
+            </div>
+          </div>
+          <div class="info-callout" style="margin-bottom:0;">
+            <span class="callout-icon">💡</span>
+            <div><strong>Simple example:</strong> The Qur'an forbids alcohol (khamr) because it intoxicates. What about cocaine? It also intoxicates! So by Qiyaas, cocaine is also forbidden — same reason, same ruling. 🧪</div>
+          </div>
+        </div>
+
+        <!-- TAB: 4 COMPONENTS -->
+        <div id="qiyas-tab-components" class="tab-panel qiyas" role="tabpanel">
+          <div class="section-label">The 4 Required Components of Qiyaas</div>
+          <p style="font-size:var(--text-sm); color:var(--color-text-muted); margin-bottom:var(--space-4); line-height:1.7;">
+            For Qiyaas to be valid, 4 things must be present. Think of it like a formula! 🔬
+          </p>
+          <div class="components-grid">
+            <div class="component-card">
+              <div class="big-emoji">📜</div>
+              <div style="font-size:var(--text-xs); font-weight:800; color:var(--qiyas-dark); margin-bottom:var(--space-1);">1. Al-Asl</div>
+              <div style="font-size:var(--text-xs); font-weight:700; margin-bottom:4px;">The Original Case</div>
+              <div style="font-size:var(--text-xs); color:var(--color-text-muted);">The known ruling from Qur'an/Sunnah</div>
+              <div class="example-block" style="margin-top:var(--space-2); text-align:left;">
+                <strong>e.g.</strong> Alcohol (khamr) is haram
+              </div>
+            </div>
+            <div class="component-card">
+              <div class="big-emoji">🆕</div>
+              <div style="font-size:var(--text-xs); font-weight:800; color:var(--qiyas-dark); margin-bottom:var(--space-1);">2. Al-Far'</div>
+              <div style="font-size:var(--text-xs); font-weight:700; margin-bottom:4px;">The New Case</div>
+              <div style="font-size:var(--text-xs); color:var(--color-text-muted);">The new situation needing a ruling</div>
+              <div class="example-block" style="margin-top:var(--space-2); text-align:left;">
+                <strong>e.g.</strong> What about cocaine?
+              </div>
+            </div>
+            <div class="component-card">
+              <div class="big-emoji">⚖️</div>
+              <div style="font-size:var(--text-xs); font-weight:800; color:var(--qiyas-dark); margin-bottom:var(--space-1);">3. Al-Hukm</div>
+              <div style="font-size:var(--text-xs); font-weight:700; margin-bottom:4px;">The Ruling</div>
+              <div style="font-size:var(--text-xs); color:var(--color-text-muted);">The verdict applied to both cases</div>
+              <div class="example-block" style="margin-top:var(--space-2); text-align:left;">
+                <strong>e.g.</strong> It is forbidden (Haram)
+              </div>
+            </div>
+            <div class="component-card">
+              <div class="big-emoji">🔑</div>
+              <div style="font-size:var(--text-xs); font-weight:800; color:var(--qiyas-dark); margin-bottom:var(--space-1);">4. Al-'Illah</div>
+              <div style="font-size:var(--text-xs); font-weight:700; margin-bottom:4px;">The Reason (Cause)</div>
+              <div style="font-size:var(--text-xs); color:var(--color-text-muted);">The shared reason linking both cases</div>
+              <div class="example-block" style="margin-top:var(--space-2); text-align:left;">
+                <strong>e.g.</strong> It causes intoxication
+              </div>
+            </div>
+          </div>
+          <div class="info-callout" style="margin-bottom:0;">
+            <span class="callout-icon">🧮</span>
+            <div><strong>The Qiyaas formula:</strong> If the new case shares the same <em>'Illah</em> (reason/cause) as the original case, it gets the same ruling. The key is finding the correct 'Illah!</div>
+          </div>
+        </div>
+
+        <!-- TAB: EXAMPLES -->
+        <div id="qiyas-tab-examples" class="tab-panel qiyas" role="tabpanel">
+          <div class="section-label">Real-Life Examples of Qiyaas</div>
+
+          <!-- Drugs -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" onclick="toggleAccordion(this)">
+              <span>💊 Drugs — Marijuana &amp; Cocaine</span>
+              <svg class="accordion-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <p style="font-size:var(--text-sm); line-height:1.7; color:var(--color-text-muted); margin-bottom:var(--space-3);">
+                  Drugs like marijuana and cocaine didn't exist in the Prophet's ﷺ time. So the Qur'an and Sunnah don't mention them <em>by name</em>. But the Prophet ﷺ said:
+                </p>
+                <div class="hadith-box">
+                  <div class="hadith-text">"Every intoxicant is Khamr, and every intoxicant is Haraam."</div>
+                  <div class="hadith-ref" style="color:var(--qiyas-dark);">📍 Hadeeth — Saheeh Muslim #2003</div>
+                </div>
+                <div class="hadith-box" style="margin-top:var(--space-2);">
+                  <div class="hadith-text">"Whatever intoxicates in large amounts is Haraam in small amounts."</div>
+                  <div class="hadith-ref" style="color:var(--qiyas-dark);">📍 Hadeeth — Abu Dawood #3681</div>
+                </div>
+                <div class="components-grid" style="margin-top:var(--space-3);">
+                  <div class="component-card">
+                    <div style="font-size:var(--text-xs); font-weight:800; color:var(--qiyas-dark);">Original (Asl)</div>
+                    <div style="font-size:var(--text-xs);">Alcohol = Haram</div>
+                  </div>
+                  <div class="component-card">
+                    <div style="font-size:var(--text-xs); font-weight:800; color:var(--qiyas-dark);">New Case (Far')</div>
+                    <div style="font-size:var(--text-xs);">Cocaine/Marijuana</div>
+                  </div>
+                  <div class="component-card">
+                    <div style="font-size:var(--text-xs); font-weight:800; color:var(--qiyas-dark);">Reason ('Illah)</div>
+                    <div style="font-size:var(--text-xs);">Causes intoxication</div>
+                  </div>
+                  <div class="component-card">
+                    <div style="font-size:var(--text-xs); font-weight:800; color:var(--qiyas-dark);">Ruling (Hukm)</div>
+                    <div style="font-size:var(--text-xs);">Also Haram! ❌</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Smoking -->
+          <div class="accordion-item" style="margin-top:var(--space-2);">
+            <button class="accordion-trigger" aria-expanded="false" onclick="toggleAccordion(this)">
+              <span>🚬 Smoking — From Makrooh to Haraam</span>
+              <svg class="accordion-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <p style="font-size:var(--text-sm); line-height:1.7; color:var(--color-text-muted); margin-bottom:var(--space-3);">
+                  Cigarettes reached the Muslim world in the <strong>17th century</strong>. At that time, the only known bad effect was bad breath. So scholars ruled it was <em>Makrooh</em> (disliked but not haram), based on a hadeeth about smelly food like garlic.
+                </p>
+                <p style="font-size:var(--text-sm); line-height:1.7; color:var(--color-text-muted); margin-bottom:var(--space-3);">
+                  Now, modern medicine has proven that <strong>smoking causes cancer and can kill</strong>. This changes things! Look at what Allah ﷻ says:
+                </p>
+                <div class="verse-box" style="border:1px solid var(--qiyas-light); background:color-mix(in oklch, var(--qiyas-bg) 80%, var(--color-surface));">
+                  <div class="arabic-text">وَلَا تَقْتُلُوا أَنفُسَكُمْ إِنَّ اللَّهَ كَانَ بِكُمْ رَحِيمًا</div>
+                  <div class="translation-text">"And do not kill yourselves, for Allah is indeed merciful to you."</div>
+                  <div class="verse-ref">📍 Surah An-Nisaa' (4:29)</div>
+                </div>
+                <div class="verse-box" style="border:1px solid var(--qiyas-light); background:color-mix(in oklch, var(--qiyas-bg) 80%, var(--color-surface)); margin-top:var(--space-3);">
+                  <div class="arabic-text" style="font-size:1.1rem;">وَلَا تُلْقُوا بِأَيْدِيكُمْ إِلَى التَّهْلُكَةِ</div>
+                  <div class="translation-text">"...and do not throw yourselves into destruction with your own hands."</div>
+                  <div class="verse-ref">📍 Surah Al-Baqarah (2:195)</div>
+                </div>
+                <div class="pill-row" style="margin-top:var(--space-3);">
+                  <span class="pill pill-purple">17th century → Makrooh (disliked)</span>
+                  <span class="pill pill-purple">Today → Haraam (forbidden)</span>
+                </div>
+                <div class="info-callout" style="margin-bottom:0; margin-top:var(--space-3);">
+                  <span class="callout-icon">🧠</span>
+                  <div>This shows how Qiyaas can <em>change</em> as new knowledge is discovered. If taking small amounts of something slowly kills you, Islam says it's haram — same ruling as suicide.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+  </div><!-- .big-four-grid -->
+</main>
+
+<footer class="site-footer">
+  <p>Grade 7 Islamic Studies — Sources of Islamic Law (Usool al-Fiqh)</p>
+  <p style="margin-top:var(--space-2);">International Islamic School Malaysia 🌙</p>
+</footer>
+
+<!-- ============================================================
+  JAVASCRIPT
+============================================================ -->
+<script>
+// ── Theme Toggle ───────────────────────────────────────────────
+(function(){
+  const btn = document.querySelector('[data-theme-toggle]');
+  const root = document.documentElement;
+  let theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  root.setAttribute('data-theme', theme);
+  if(btn) {
+    updateIcon();
+    btn.addEventListener('click', () => {
+      theme = theme === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', theme);
+      updateIcon();
+    });
+  }
+  function updateIcon() {
+    if(!btn) return;
+    btn.setAttribute('aria-label', 'Switch to ' + (theme === 'dark' ? 'light' : 'dark') + ' mode');
+    btn.innerHTML = theme === 'dark'
+      ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+      : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  }
+})();
+
+// ── Tab Switching ─────────────────────────────────────────────
+function switchTab(clickedBtn, cardType) {
+  const card = clickedBtn.closest('.source-card');
+  const tabs = card.querySelectorAll('.tab-btn');
+  const panels = card.querySelectorAll('.tab-panel');
+  tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+  panels.forEach(p => p.classList.remove('active'));
+  clickedBtn.classList.add('active');
+  clickedBtn.setAttribute('aria-selected','true');
+  const target = clickedBtn.getAttribute('aria-controls');
+  const panel = card.querySelector('#' + target);
+  if(panel) panel.classList.add('active');
+}
+
+// ── Miracle Tabs ──────────────────────────────────────────────
+function switchMiracleTab(clickedBtn, panelId) {
+  const container = clickedBtn.closest('.tab-panel');
+  container.querySelectorAll('.miracle-tab').forEach(t => {
+    t.classList.remove('active'); t.setAttribute('aria-selected','false');
+  });
+  container.querySelectorAll('.miracle-panel').forEach(p => p.classList.remove('active'));
+  clickedBtn.classList.add('active'); clickedBtn.setAttribute('aria-selected','true');
+  const panel = document.getElementById('miracle-' + panelId);
+  if(panel) panel.classList.add('active');
+}
+
+// ── Accordion ────────────────────────────────────────────────
+function toggleAccordion(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!expanded));
+  const content = btn.nextElementSibling;
+  content.classList.toggle('open', !expanded);
+}
+
+// ── Scroll to Card ────────────────────────────────────────────
+function scrollToCard(id) {
+  const el = document.getElementById(id);
+  if(el) el.scrollIntoView({ behavior:'smooth', block:'start' });
+}
+
+// ── Keyboard for dot items ────────────────────────────────────
+document.querySelectorAll('.dot-item').forEach(el => {
+  el.addEventListener('keydown', e => {
+    if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+  });
+});
+
+// ── Lucide Icons ──────────────────────────────────────────────
+if(typeof lucide !== 'undefined') lucide.createIcons();
+</script>
+</body>
+</html>
