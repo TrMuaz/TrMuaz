@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grade 9 - The Format of the Prophet's Prayer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Amiri+Quran&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f5ef;
+      --surface: #fffdf8;
+      --surface-2: #f1eee6;
+      --border: #d8d2c5;
+      --text: #1f1d18;
+      --muted: #666258;
+      --primary: #1f6f78;
+      --primary-soft: #dcecef;
+      --accent: #8a6b4f;
+      --shadow: 0 10px 30px rgba(31, 29, 24, 0.08);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, sans-serif;
+      line-height: 1.7;
+    }
+    .app {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    .hero {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      color: var(--primary);
+    }
+    .hero p {
+      margin: 0;
+      max-width: 78ch;
+      color: var(--muted);
+    }
+    .note-bar {
+      margin-top: 18px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px 16px;
+      color: var(--accent);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .accordion-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .accordion-item + .accordion-item {
+      border-top: 1px solid var(--border);
+    }
+    .accordion-trigger {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      text-align: left;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+    }
+    .accordion-trigger:hover {
+      background: var(--surface-2);
+    }
+    .trigger-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .num {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      flex: 0 0 auto;
+      margin-top: 2px;
+    }
+    .trigger-text strong {
+      display: block;
+      font-size: 1.03rem;
+      line-height: 1.35;
+    }
+    .trigger-text span {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .chev {
+      font-size: 1.1rem;
+      color: var(--muted);
+      transition: transform 0.25s ease;
+    }
+    .accordion-trigger[aria-expanded="true"] .chev {
+      transform: rotate(180deg);
+    }
+    .accordion-panel {
+      display: none;
+      padding: 0 22px 22px 22px;
+      background: var(--surface);
+    }
+    .accordion-item.open .accordion-panel {
+      display: block;
+    }
+    .intro-box,
+    .card,
+    .term-box,
+    .hadith-box,
+    .recitation-box {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+    .intro-box {
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+    .intro-box p {
+      margin: 0;
+      color: var(--muted);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .card, .term-box, .hadith-box, .recitation-box {
+      padding: 18px;
+    }
+    .card h3, .term-box h3, .hadith-box h3, .recitation-box h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      color: var(--accent);
+    }
+    .card p, .term-box p, .hadith-box p {
+      margin: 0;
+      color: var(--muted);
+    }
+    .point-list {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .point-list li {
+      margin: 7px 0;
+    }
+    .arabic {
+      font-family: 'Amiri Quran', 'Noto Naskh Arabic', 'Amiri', serif;
+      font-size: clamp(1.55rem, 2.4vw, 2.15rem);
+      line-height: 2;
+      direction: rtl;
+      text-align: right;
+      color: #151515;
+      margin-bottom: 8px;
+    }
+    .translit {
+      color: var(--accent);
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+    .meaning {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+    .recitation-box + .recitation-box,
+    .hadith-box + .hadith-box,
+    .term-box + .term-box {
+      margin-top: 14px;
+    }
+    .section-stack > * + * {
+      margin-top: 16px;
+    }
+    .small-note {
+      margin-top: 12px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: 1fr; }
+      .app { padding: 16px; }
+      .hero, .accordion-wrap { border-radius: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="hero">
+      <div class="eyebrow">Grade 9 Islamic Studies</div>
+      <h1>The Format of the Prophet’s Prayer ﷺ</h1>
+      <p>
+        Study these 13 sections carefully. Open one section at a time, read the explanation, learn the recitations,
+        and pay attention to the names of the prayer positions. Your aim is not only to memorise the words, but also
+        to understand the correct manner of the salaah as taught by the Prophet ﷺ.
+      </p>
+      <div class="note-bar">
+        Instruction to students: revise section by section, compare the positions, and practise the recitations with correct pronunciation.
+      </div>
+    </header>
+
+    <section class="accordion-wrap">
+
+      <article class="accordion-item open">
+        <button class="accordion-trigger" aria-expanded="true">
+          <span class="trigger-left"><span class="num">1</span><span class="trigger-text"><strong>The Opening Takbeer and Raising of the Hands</strong><span>How the prayer begins</span></span></span>
+          <span class="chev">⌄</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="section-stack">
+            <div class="intro-box"><p>The Prophet ﷺ began the prayer with the opening takbeer. He would sometimes raise his hands before the takbeer, sometimes with it, and sometimes just after it. His hands were raised to the shoulders or parallel to the earlobes, with the fingers kept natural.</p></div>
+            <div class="grid">
+              <div class="card"><h3>Key points</h3><ul class="point-list"><li>Begin the prayer by saying the opening takbeer.</li><li>Raise the hands calmly and properly.</li><li>This takbeer marks the start of the salaah.</li></ul></div>
+              <div class="recitation-box"><h3>Recitation</h3><div class="arabic">اللّٰهُ أَكْبَرُ</div><div class="translit">Allāhu Akbar</div><div class="meaning">Allah is the Greatest.</div></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="trigger-left"><span class="num">2</span><span class="trigger-text"><strong>Placement of the Hands</strong><span>Standing posture after the opening takbeer</span></span></span>
+          <span class="chev">⌄</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="section-stack">
+            <div class="intro-box"><p>After the opening takbeer, the Prophet ﷺ placed his right hand over his left hand. Reports mention placing the right hand on the back of the left hand, wrist, and forearm, and also placing the hands on the chest while standing.</p></div>
+            <div class="grid">
+              <div class="card"><h3>Key points</h3><ul class="point-list"><li>The right hand is placed over the left hand.</li><li>The standing posture should be calm and humble.</li><li>This is part of the dignity and discipline of the prayer.</li></ul></div>
+              <div class="hadith-box"><h3>Reported meaning</h3><p>The text explains that the Prophets were ordered to place the right hand over the left in salaah. This shows that the posture is not random; it is part of the taught form of prayer.</p></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="trigger-left"><span class="num">3</span><span class="trigger-text"><strong>Looking at the Place of Sujood and Concentration</strong><span>Khushoo‘ in prayer</span></span></span>
+          <span class="chev">⌄</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="section-stack">
+            <div class="intro-box"><p>When standing in prayer, the Prophet ﷺ lowered his head and looked towards the place of sujood. He forbade looking around and warned against actions that distract a person during prayer. The purpose is to increase khushoo‘, concentration, and reward.</p></div>
+            <div class="grid">
+              <div class="card"><h3>Key points</h3><ul class="point-list"><li>Keep your gaze towards the place of sujood.</li><li>Avoid looking around or upwards.</li><li>Do not pray while distracted by food or a pressing need to relieve yourself.</li><li>Pray as though it may be your farewell prayer.</li></ul></div>
+              <div class="hadith-box"><h3>Hadeeth meaning</h3><p>The lesson text mentions that looking around in prayer is something Shaytaan steals from the worshipper’s salaah. It also teaches that only part of a prayer may be recorded for a person depending on the level of concentration.</p></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="trigger-left"><span class="num">4</span><span class="trigger-text"><strong>Introductory Du‘aa</strong><span>Supplications before al-Fatihah</span></span></span>
+          <span class="chev">⌄</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="section-stack">
+            <div class="intro-box"><p>Before reciting Surah al-Fatihah, the Prophet ﷺ would sometimes say different opening supplications. These du‘aas are recited quietly. More than one authentic wording is reported, so a student may learn any reliable form.</p></div>
+            <div class="recitation-box"><h3>Recitation 1</h3><div class="arabic">سُبْحَانَكَ اللّٰهُمَّ وَبِحَمْدِكَ وَتَبَارَكَ اسْمُكَ وَتَعَالَى جَدُّكَ وَلَا إِلٰهَ غَيْرُكَ</div><div class="translit">Subḥānakallāhumma wa biḥamdik, wa tabārakasmuk, wa ta‘ālā jadduk, wa lā ilāha ghayruk.</div><div class="meaning">Glory and praise be to You, O Allah. Blessed is Your name, exalted is Your majesty, and there is no god besides You.</div></div>
+            <div class="recitation-box"><h3>Recitation 2</h3><div class="arabic">اللّٰهُ أَكْبَرُ كَبِيرًا وَالْحَمْدُ لِلّٰهِ كَثِيرًا وَسُبْحَانَ اللّٰهِ بُكْرَةً وَأَصِيلًا</div><div class="translit">Allāhu akbaru kabīrā, wal-ḥamdu lillāhi kathīrā, wa subḥānallāhi bukratan wa aṣīlā.</div><div class="meaning">Allah is truly the Greatest, praise belongs abundantly to Allah, and glory be to Allah morning and evening.</div></div>
+            <div class="recitation-box"><h3>Recitation 3</h3><div class="arabic">اللّٰهُمَّ بَاعِدْ بَيْنِي وَبَيْنَ خَطَايَايَ كَمَا بَاعَدْتَ بَيْنَ الْمَشْرِقِ وَالْمَغْرِبِ، اللّٰهُمَّ نَقِّنِي مِنْ خَطَايَايَ كَمَا يُنَقَّى الثَّوْبُ الْأَبْيَضُ مِنَ الدَّنَسِ، اللّٰهُمَّ اغْسِلْنِي مِنْ خَطَايَايَ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ</div><div class="translit">Allāhumma bā‘id baynī wa bayna khaṭāyāya kamā bā‘adta bayna al-mashriqi wal-maghrib. Allāhumma naqqinī min khaṭāyāya kamā yunaqqā ath-thawbul-abyaḍu min ad-danas. Allāhumma ighsilnī min khaṭāyāya bil-mā’i wath-thalji wal-barad.</div><div class="meaning">O Allah, distance me from my sins as You have distanced the east from the west. O Allah, cleanse me of my sins as a white garment is cleansed of dirt. O Allah, wash me of my sins with water, snow, and hail.</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="trigger-left"><span class="num">5</span><span class="trigger-text"><strong>Recitation of Qur’an</strong><span>Ta‘awwudh, basmalah, al-Fatihah, and additional recitation</span></span></span>
+          <span class="chev">⌄</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="section-stack">
+            <div class="intro-box"><p>After the opening du‘aa, the Prophet ﷺ would seek refuge in Allah, then say the basmalah quietly and recite Surah al-Fatihah carefully, pausing at the end of each verse. After al-Fatihah, he would recite another surah or some verses from the Qur’an.</p></div>
+            <div class="recitation-box"><h3>Ta‘awwudh</h3><div class="arabic">أَعُوذُ بِاللّٰهِ مِنَ الشَّيْطَانِ الرَّجِيمِ</div><div class="translit">A‘ūdhu billāhi min ash-shayṭānir-rajīm.</div><div class="meaning">I seek refuge in Allah from the accursed Shaytaan.</div></div>
+            <div class="recitation-box"><h3>Basmalah</h3><div class="arabic">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ</div><div class="translit">Bismillāhir-Raḥmānir-Raḥīm.</div><div class="meaning">In the name of Allah, the Most Merciful, the Especially Merciful.</div></div>
+            <div class="recitation-box"><h3>Surah al-Fatihah</h3><div class="arabic">الْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ<br>الرَّحْمٰنِ الرَّحِيمِ<br>مَالِكِ يَوْمِ الدِّينِ<br>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ<br>اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ<br>صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ<br>غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ</div><div class="translit">Al-ḥamdu lillāhi Rabbil-‘ālamīn. Ar-Raḥmānir-Raḥīm. Māliki yawmid-dīn. Iyyāka na‘budu wa iyyāka nasta‘īn. Ihdinaṣ-ṣirāṭal-mustaqīm. Ṣirāṭallaḏīna an‘amta ‘alayhim. Ghayril-maghḍūbi ‘alayhim wa laḍ-ḍāllīn.</div><div class="meaning">All praise is for Allah, Lord of the worlds, the Most Merciful, the Especially Merciful, Master of the Day of Judgement. You alone we worship and You alone we ask for help. Guide us to the straight path, the path of those whom You have favoured, not of those who earned anger nor of those who went astray.</div></div>
+            <div class="recitation-box"><h3>Aameen</h3><div class="arabic">آمِين</div><div class="translit">Āmīn.</div><div class="meaning">O Allah, answer.</div></div>
+            <div class="recitation-box"><h3>For one who cannot yet memorise al-Fatihah</h3><div class="arabic">سُبْحَانَ اللّٰهِ وَالْحَمْدُ لِلّٰهِ وَلَا إِلٰهَ إِلَّا اللّٰهُ وَاللّٰهُ أَكْبَرُ وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللّٰهِ</div><div class="translit">Subḥānallāhi wal-ḥamdu lillāhi wa lā ilāha illallāhu wallāhu akbar wa lā ḥawla wa lā quwwata illā billāh.</div><div class="meaning">Glory be to Allah, praise belongs to Allah, there is no god but Allah, Allah is the Greatest, and there is no power and no might except with Allah.</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="trigger-left"><span class="num">6</span><span class="trigger-text"><strong>The Format of Rukoo‘</strong><span>The bowing posture and its recitations</span></span></span>
+          <span class="chev">⌄</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="section-stack">
+            <div class="intro-box"><p>After completing the recitation, the Prophet ﷺ would pause, raise his hands, say takbeer, and bow into rukoo‘. He placed his hands firmly on his knees, spread his fingers, straightened his back, and kept his head level. He warned against rushing in rukoo‘ and sujood.</p></div>
+            <div class="hadith-box"><h3>Hadeeth meaning</h3><p>The Prophet ﷺ said that the worst thief is the one who steals from his prayer by not completing his rukoo‘ or sujood. This teaches that calmness and completeness are essential.</p></div>
+            <div class="recitation-box"><h3>Recitation 1</h3><div class="arabic">سُبْحَانَ رَبِّيَ الْعَظِيمِ</div><div class="translit">Subḥāna Rabbiyal-‘Aẓīm.</div><div class="meaning">Glory be to my Lord, the Magnificent.</div></div>
+            <div class="recitation-box"><h3>Recitation 2</h3><div class="arabic">سُبْحَانَ رَبِّيَ الْعَظِيمِ وَبِحَمْدِهِ</div><div class="translit">Subḥāna Rabbiyal-‘Aẓīmi wa biḥamdih.</div><div class="meaning">Glory be to my Lord, the Magnificent, and praise belongs to Him.</div></div>
+            <div class="recitation-box"><h3>Recitation 3</h3><div class="arabic">سُبُّوحٌ قُدُّوسٌ رَبُّ الْمَلَائِكَةِ وَالرُّوحِ</div><div class="translit">Subbūḥun Quddūs, Rabbul-malā’ikati war-rūḥ.</div><div class="meaning">The Most Glorified, the Most Holy, Lord of the angels and the Spirit.</div></div>
+            <div class="recitation-box"><h3>Recitation 4</h3><div class="arabic">اللّٰهُمَّ لَكَ رَكَعْتُ وَبِكَ آمَنْتُ وَلَكَ أَسْلَمْتُ وَعَلَيْكَ تَوَكَّلْتُ أَنْتَ رَبِّي خَشَعَ سَمْعِي وَبَصَرِي وَدَمِي وَلَحْمِي وَعَظْمِي وَعَصَبِي لِلّٰهِ رَبِّ الْعَالَمِينَ</div><div class="translit">Allāhumma laka raka‘tu wa bika āmantu wa laka aslamtu wa ‘alayka tawakkaltu anta Rabbī, khasha‘a sam‘ī wa baṣarī wa damī wa laḥmī wa ‘aẓmī wa ‘aṣabī lillāhi Rabbil-‘ālamīn.</div><div class="meaning">O Allah, for You I have bowed, in You I have believed, to You I have submitted, and upon You I have relied. My hearing, sight, blood, flesh, bones, and nerves are humbled to Allah, Lord of the worlds.</div></div>
+            <div class="small-note">The text also states that the Qur’an is not to be recited in rukoo‘.</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="trigger-left"><span class="num">7</span><span class="trigger-text"><strong>Coming Out of Rukoo‘ (I‘tidal)</strong><span>Standing upright after bowing</span></span></span>
+          <span class="chev">⌄</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="section-stack">
+            <div class="intro-box"><p>When rising from rukoo‘, the Prophet ﷺ would raise his hands and say “Sami‘allāhu liman ḥamidah.” After standing completely upright, he would praise Allah. A person should not move into sujood before standing upright and pausing properly.</p></div>
+            <div class="recitation-box"><h3>Recitation when rising</h3><div class="arabic">سَمِعَ اللّٰهُ لِمَنْ حَمِدَهُ</div><div class="translit">Sami‘allāhu liman ḥamidah.</div><div class="meaning">Allah hears the one who praises Him.</div></div>
+            <div class="recitation-box"><h3>Recitation after standing</h3><div class="arabic">رَبَّنَا لَكَ الْحَمْدُ<br>رَبَّنَا وَلَكَ الْحَمْدُ<br>اللّٰهُمَّ رَبَّنَا وَلَكَ الْحَمْدُ</div><div class="translit">Rabbanā lakal-ḥamd. Rabbanā wa lakal-ḥamd. Allāhumma Rabbanā wa lakal-ḥamd.</div><div class="meaning">Our Lord, to You belongs all praise. / Our Lord, and to You belongs all praise. / O Allah, our Lord, and to You belongs all praise.</div></div>
+            <div class="recitation-box"><h3>Additional praise</h3><div class="arabic">مِلْءَ السَّمَاوَاتِ وَمِلْءَ الْأَرْضِ وَمِلْءَ مَا شِئْتَ مِنْ شَيْءٍ بَعْدُ</div><div class="translit">Mil’as-samāwāti wa mil’al-arḍi wa mil’a mā shi’ta min shay’in ba‘d.</div><div class="meaning">Filling the heavens, filling the earth, and filling whatever else You wish after that.</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="trigger-left"><span class="num">8</span><span class="trigger-text"><strong>Going into Sujood, Sujood, and Juloos Between the Two Sajdahs</strong><span>The prostration and the sitting between the two sajdahs</span></span></span>
+          <span class="chev">⌄</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="section-stack">
+            <div class="intro-box"><p>After the standing position following rukoo‘, the Prophet ﷺ would say takbeer and go into sujood. In sujood, he placed the forehead and nose firmly on the ground, kept the arms away from the sides, lifted the forearms off the floor, and pointed the toes towards the qiblah. After the first sajdah, he sat between the two sajdahs before returning to sujood again.</p></div>
+            <div class="term-box"><h3>What is juloos?</h3><p><strong>Juloos</strong> means sitting in prayer. In this section it refers to the sitting between the two sajdahs.</p></div>
+            <div class="term-box"><h3>What is iftiraash?</h3><p><strong>Iftiraash</strong> is to sit on the left foot while keeping the right foot upright, with its toes pointing towards the qiblah. This is the common form of sitting between the two sajdahs and in the first tashahhud.</p></div>
+            <div class="term-box"><h3>What is iq‘aa’?</h3><p><strong>Iq‘aa’</strong> is another reported form of sitting in which one sits on the heels with the feet upright and toes pointing towards the qiblah.</p></div>
+            <div class="hadith-box"><h3>Hadeeth meaning</h3><p>The text states that there is no prayer for the one whose nose does not touch the ground as the forehead does. It also warns against spreading the forearms on the floor like a dog.</p></div>
+            <div class="recitation-box"><h3>Recitation in sujood 1</h3><div class="arabic">سُبْحَانَ رَبِّيَ الْأَعْلَى</div><div class="translit">Subḥāna Rabbiyal-A‘lā.</div><div class="meaning">Glory be to my Lord, the Most High.</div></div>
+            <div class="recitation-box"><h3>Recitation in sujood 2</h3><div class="arabic">سُبُّوحٌ قُدُّوسٌ رَبُّ الْمَلَائِكَةِ وَالرُّوحِ</div><div class="translit">Subbūḥun Quddūs, Rabbul-malā’ikati war-rūḥ.</div><div class="meaning">The Most Glorified, the Most Holy, Lord of the angels and the Spirit.</div></div>
+            <div class="recitation-box"><h3>Recitation in sujood 3</h3><div class="arabic">اللّٰهُمَّ لَكَ سَجَدْتُ وَبِكَ آمَنْتُ وَلَكَ أَسْلَمْتُ، سَجَدَ وَجْهِيَ لِلَّذِي خَلَقَهُ وَصَوَّرَهُ وَشَقَّ سَمْعَهُ وَبَصَرَهُ، تَبَارَكَ اللّٰهُ أَحْسَنُ الْخَالِقِينَ</div><div class="translit">Allāhumma laka sajadtu wa bika āmantu wa laka aslamtu. Sajada wajhī lilladhī khalaqahu wa ṣawwarahu wa shaqqa sam‘ahu wa baṣarahu, tabārakallāhu aḥsanul-khāliqīn.</div><div class="meaning">O Allah, for You I have prostrated, in You I have believed, and to You I have submitted. My face has prostrated to the One who created it, formed it, and opened its hearing and sight. Blessed is Allah, the Best of creators.</div></div>
+            <div class="recitation-box"><h3>Recitation in sujood 4</h3><div class="arabic">اللّٰهُمَّ إِنِّي أَعُوذُ بِرِضَاكَ مِنْ سَخَطِكَ وَبِمُعَافَاتِكَ مِنْ عُقُوبَتِكَ وَأَعُوذُ بِكَ مِنْكَ، لَا أُحْصِي ثَنَاءً عَلَيْكَ، أَنْتَ كَمَا أَثْنَيْتَ عَلَى نَفْسِكَ</div><div class="translit">Allāhumma innī a‘ūdhu biriḍāka min sakhaṭik, wa bimu‘āfātika min ‘uqūbatik, wa a‘ūdhu bika minka, lā uḥṣī thanā’an ‘alayk, anta kamā athnayta ‘alā nafsik.</div><div class="meaning">O Allah, I seek refuge in Your pleasure from Your anger, in Your protection from Your punishment, and in You from You. I cannot fully praise You; You are as You have praised Yourself.</div></div>
+            <div class="recitation-box"><h3>Recitation while sitting between the two sajdahs 1</h3><div class="arabic">اللّٰهُمَّ اغْفِرْ لِي وَارْحَمْنِي وَعَافِنِي وَاهْدِنِي وَارْزُقْنِي</div><div class="translit">Allāhum-maghfir lī warḥamnī wa ‘āfinī wahdinī وارزقني.</div><div class="meaning">O Allah, forgive me, have mercy on me, grant me well-being, guide me, and provide for me.</div></div>
+            <div class="recitation-box"><h3>Recitation while sitting between the two sajdahs 2</h3><div class="arabic">رَبِّ اغْفِرْ لِي رَبِّ اغْفِرْ لِي</div><div class="translit">Rabbighfir lī, Rabbighfir lī.</div><div class="meaning">My Lord, forgive me; my Lord, forgive me.</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="trigger-left"><span class="num">9</span><span class="trigger-text"><strong>The Juloos of the First Tashahhud</strong><span>The sitting after the second rak‘ah</span></span></span>
+          <span class="chev">⌄</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="section-stack">
+            <div class="intro-box"><p>After the second sujood of the second rak‘ah, the Prophet ﷺ would sit in iftiraash for the first tashahhud. He placed the left hand on the left knee, made a fist or circle with the fingers of the right hand, and pointed with the index finger while making du‘aa.</p></div>
+            <div class="term-box"><h3>What is iftiraash?</h3><p>Iftiraash is to sit on the left foot while the right foot remains upright with the toes facing the qiblah. This sitting is used in the first tashahhud.</p></div>
+            <div class="hadith-box"><h3>Hadeeth meaning</h3><p>The Prophet ﷺ taught the tashahhud to the companions as carefully as he taught them a surah from the Qur’an. This shows its importance and precision.</p></div>
+            <div class="recitation-box"><h3>Tashahhud</h3><div class="arabic">التَّحِيَّاتُ لِلّٰهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ، السَّلَامُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللّٰهِ وَبَرَكَاتُهُ، السَّلَامُ عَلَيْنَا وَعَلَىٰ عِبَادِ اللّٰهِ الصَّالِحِينَ، أَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا اللّٰهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ</div><div class="translit">At-taḥiyyātu lillāhi waṣ-ṣalawātu waṭ-ṭayyibāt. As-salāmu ‘alayka ayyuhan-nabiyyu wa raḥmatullāhi wa barakātuh. As-salāmu ‘alaynā wa ‘alā ‘ibādillāhiṣ-ṣāliḥīn. Ashhadu an lā ilāha illallāh wa ashhadu anna Muḥammadan ‘abduhu wa rasūluh.</div><div class="meaning">All greetings, prayers, and pure words are for Allah. Peace be upon you, O Prophet, and the mercy of Allah and His blessings. Peace be upon us and upon the righteous servants of Allah. I testify that there is no god except Allah and I testify that Muhammad is His servant and Messenger.</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="trigger-left"><span class="num">10</span><span class="trigger-text"><strong>Salāh on the Prophet ﷺ</strong><span>Sending prayers after tashahhud</span></span></span>
+          <span class="chev">⌄</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="section-stack">
+            <div class="intro-box"><p>After the tashahhud, the Prophet ﷺ taught his companions to send salāh upon him in different authentic forms. These are all acceptable. A student should memorise one carefully and understand its meaning.</p></div>
+            <div class="recitation-box"><h3>Form 1</h3><div class="arabic">اللّٰهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَىٰ إِبْرَاهِيمَ وَعَلَىٰ آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ، اللّٰهُمَّ بَارِكْ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَىٰ إِبْرَاهِيمَ وَعَلَىٰ آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ</div><div class="translit">Allāhumma ṣalli ‘alā Muḥammad wa ‘alā āli Muḥammad kamā ṣallayta ‘alā Ibrāhīm wa ‘alā āli Ibrāhīm innaka Ḥamīdun Majīd. Allāhumma bārik ‘alā Muḥammad wa ‘alā āli Muḥammad kamā bārakta ‘alā Ibrāhīm wa ‘alā āli Ibrāhīm innaka Ḥamīdun Majīd.</div><div class="meaning">O Allah, send prayers upon Muhammad and the family of Muhammad as You sent prayers upon Ibrahim and the family of Ibrahim. Indeed, You are Praiseworthy and Glorious. O Allah, bless Muhammad and the family of Muhammad as You blessed Ibrahim and the family of Ibrahim. Indeed, You are Praiseworthy and Glorious.</div></div>
+            <div class="recitation-box"><h3>Form 2</h3><div class="arabic">اللّٰهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ عَبْدِكَ وَرَسُولِكَ كَمَا صَلَّيْتَ عَلَىٰ آلِ إِبْرَاهِيمَ، وَبَارِكْ عَلَىٰ مُحَمَّدٍ عَبْدِكَ وَرَسُولِكَ وَعَلَىٰ آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَىٰ إِبْرَاهِيمَ وَعَلَىٰ آلِ إِبْرَاهِيمَ</div><div class="translit">Allāhumma ṣalli ‘alā Muḥammad ‘abdika wa rasūlika kamā ṣallayta ‘alā āli Ibrāhīm, wa bārik ‘alā Muḥammad ‘abdika wa rasūlika wa ‘alā āli Muḥammad kamā bārakta ‘alā Ibrāhīm wa ‘alā āli Ibrāhīm.</div><div class="meaning">O Allah, send prayers upon Muhammad, Your servant and Messenger, as You sent prayers upon the family of Ibrahim; and bless Muhammad, Your servant and Messenger, and the family of Muhammad, as You blessed Ibrahim and the family of Ibrahim.</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="trigger-left"><span class="num">11</span><span class="trigger-text"><strong>Standing for the Third and Fourth Rak‘ahs, the Last Tashahhud, and Seeking Refuge</strong><span>The later part of the prayer</span></span></span>
+          <span class="chev">⌄</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="section-stack">
+            <div class="intro-box"><p>After the second rak‘ah, the Prophet ﷺ would stand for the third rak‘ah with takbeer. In the final sitting, he would sit differently from the first tashahhud. This final sitting is called tawarruq.</p></div>
+            <div class="term-box"><h3>What is tawarruq?</h3><p><strong>Tawarruq</strong> is the sitting of the final tashahhud in prayers with more than two rak‘ahs. In this position, the person sits on the ground with the left leg placed under the right side, while the right foot remains upright or is sometimes laid to one side. This makes it different from iftiraash.</p></div>
+            <div class="term-box"><h3>Difference between iftiraash and tawarruq</h3><p><strong>Iftiraash</strong> is used in the first tashahhud and often between the two sajdahs; the person sits on the left foot. <strong>Tawarruq</strong> is used in the last tashahhud; the person sits more deeply on the ground with the left leg coming out from under the body.</p></div>
+            <div class="recitation-box"><h3>Seeking refuge from the trials</h3><div class="arabic">اللّٰهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ عَذَابِ جَهَنَّمَ وَمِنْ عَذَابِ الْقَبْرِ وَمِنْ فِتْنَةِ الْمَحْيَا وَالْمَمَاتِ وَمِنْ شَرِّ فِتْنَةِ الْمَسِيحِ الدَّجَّالِ</div><div class="translit">Allāhumma innī a‘ūdhu bika min ‘adhābi Jahannam wa min ‘adhābil-qabr wa min fitnatil-maḥyā wal-mamāt wa min sharri fitnatil-Masīḥid-Dajjāl.</div><div class="meaning">O Allah, I seek refuge in You from the punishment of Hell, the punishment of the grave, the trials of life and death, and the evil trial of al-Masih ad-Dajjal.</div></div>
+            <div class="recitation-box"><h3>Another form</h3><div class="arabic">اللّٰهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ عَذَابِ الْقَبْرِ وَأَعُوذُ بِكَ مِنْ فِتْنَةِ الْمَسِيحِ الدَّجَّالِ وَأَعُوذُ بِكَ مِنْ فِتْنَةِ الْمَحْيَا وَالْمَمَاتِ، اللّٰهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْمَأْثَمِ وَالْمَغْرَمِ</div><div class="translit">Allāhumma innī a‘ūdhu bika min ‘adhābil-qabr wa a‘ūdhu bika min fitnatil-Masīḥid-Dajjāl wa a‘ūdhu bika min fitnatil-maḥyā wal-mamāt. Allāhumma innī a‘ūdhu bika minal-ma’thami wal-maghram.</div><div class="meaning">O Allah, I seek refuge in You from the punishment of the grave, from the trial of al-Masih ad-Dajjal, from the trial of life and death, and I seek refuge in You from sin and debt.</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="trigger-left"><span class="num">12</span><span class="trigger-text"><strong>Du‘aas Before Tasleem</strong><span>Supplications before ending the prayer</span></span></span>
+          <span class="chev">⌄</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="section-stack">
+            <div class="intro-box"><p>Before ending the prayer, the Prophet ﷺ would say different supplications. He also encouraged the companions to make du‘aa before tasleem. This is an important point in the prayer for personal supplication.</p></div>
+            <div class="recitation-box"><h3>Du‘aa taught to Abu Bakr رضي الله عنه</h3><div class="arabic">اللّٰهُمَّ إِنِّي ظَلَمْتُ نَفْسِي ظُلْمًا كَثِيرًا وَلَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ فَاغْفِرْ لِي مَغْفِرَةً مِنْ عِنْدِكَ وَارْحَمْنِي إِنَّكَ أَنْتَ الْغَفُورُ الرَّحِيمُ</div><div class="translit">Allāhumma innī ẓalamtu nafsī ẓulman kathīrā wa lā yaghfirudh-dhunūba illā anta, faghfir lī maghfiratan min ‘indik وارحمني innaka anta al-Ghafūrur-Raḥīm.</div><div class="meaning">O Allah, I have greatly wronged myself, and none forgives sins except You, so forgive me with a forgiveness from You and have mercy on me. Surely You are the Most Forgiving, the Most Merciful.</div></div>
+            <div class="recitation-box"><h3>Another du‘aa before tasleem</h3><div class="arabic">اللّٰهُمَّ اغْفِرْ لِي مَا قَدَّمْتُ وَمَا أَخَّرْتُ وَمَا أَسْرَرْتُ وَمَا أَعْلَنْتُ وَمَا أَسْرَفْتُ وَمَا أَنْتَ أَعْلَمُ بِهِ مِنِّي، أَنْتَ الْمُقَدِّمُ وَأَنْتَ الْمُؤَخِّرُ لَا إِلٰهَ إِلَّا أَنْتَ</div><div class="translit">Allāhummaghfir lī mā qaddamtu wa mā akhkhartu wa mā asrartu wa mā a‘lantu wa mā asraftu wa mā anta a‘lamu bihi minnī. Antal-Muqaddimu wa antal-Mu’akhkhiru lā ilāha illā anta.</div><div class="meaning">O Allah, forgive me for what I have done before and what I have delayed, what I have hidden and what I have made public, what I have exceeded in, and what You know better than I. You are the One who brings forward and the One who puts back. There is no god except You.</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="trigger-left"><span class="num">13</span><span class="trigger-text"><strong>Tasleem</strong><span>How the prayer ends</span></span></span>
+          <span class="chev">⌄</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="section-stack">
+            <div class="intro-box"><p>The Prophet ﷺ ended the prayer by giving tasleem to the right and left. Different authentic forms are reported. The lesson text also mentions that he corrected those who waved their hands while making tasleem.</p></div>
+            <div class="hadith-box"><h3>Hadeeth meaning</h3><p>The Prophet ﷺ told the companions that it is enough to keep the hand on the thigh and give salaam to the right and left. Tasleem is not done with hand-waving.</p></div>
+            <div class="recitation-box"><h3>Form 1</h3><div class="arabic">السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللّٰهِ وَبَرَكَاتُهُ</div><div class="translit">As-salāmu ‘alaykum wa raḥmatullāhi wa barakātuh.</div><div class="meaning">Peace, the mercy of Allah, and His blessings be upon you.</div></div>
+            <div class="recitation-box"><h3>Form 2</h3><div class="arabic">السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللّٰهِ</div><div class="translit">As-salāmu ‘alaykum wa raḥmatullāh.</div><div class="meaning">Peace and the mercy of Allah be upon you.</div></div>
+            <div class="recitation-box"><h3>Shorter form</h3><div class="arabic">السَّلَامُ عَلَيْكُمْ</div><div class="translit">As-salāmu ‘alaykum.</div><div class="meaning">Peace be upon you.</div></div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+  </div>
+
+  <script>
+    const items = document.querySelectorAll('.accordion-item');
+    items.forEach(item => {
+      const btn = item.querySelector('.accordion-trigger');
+      btn.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        items.forEach(other => {
+          other.classList.remove('open');
+          other.querySelector('.accordion-trigger').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
