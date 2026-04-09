@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hadeeth Lesson – Jealousy (Hasad)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #f7f6f2;
+      --surface: #fffdf9;
+      --surface-2: #f1eee8;
+      --border: #d8d2c8;
+      --text: #201d18;
+      --muted: #6d695f;
+      --primary: #116d73;
+      --accent: #8b6142;
+      --shadow: 0 12px 34px rgba(32, 29, 24, 0.08);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+      line-height: 1.7;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    .hero, .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 26px 22px;
+      margin-bottom: 18px;
+    }
+
+    .kicker {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--primary);
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+      line-height: 1.15;
+      color: var(--primary);
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 70ch;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .section {
+      padding: 20px 18px 22px;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+      color: var(--accent);
+    }
+
+    h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+      color: var(--primary);
+    }
+
+    p {
+      margin: 0 0 8px;
+      font-size: 0.96rem;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .arabic-card {
+      background: var(--surface-2);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      padding: 18px 16px;
+      margin-top: 4px;
+    }
+
+    .arabic {
+      font-family: "Amiri", "Scheherazade", serif;
+      font-size: 1.7rem;
+      line-height: 1.8;
+      text-align: right;
+      direction: rtl;
+      color: #16130d;
+      margin-bottom: 8px;
+    }
+
+    .translit {
+      font-size: 0.95rem;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .meaning {
+      font-size: 0.96rem;
+      color: var(--muted);
+    }
+
+    .source {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      color: var(--muted);
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1.1fr;
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--surface-2);
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      padding: 14px 12px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    li {
+      margin: 4px 0;
+      font-size: 0.95rem;
+    }
+
+    .art-box {
+      background: var(--surface-2);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      padding: 14px 12px;
+    }
+
+    .art-caption {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .video-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 16px;
+    }
+
+    .video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .quiz-q {
+      padding: 12px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .quiz-q:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .quiz-q p {
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .option {
+      display: block;
+      background: var(--surface-2);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      margin: 4px 0;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .option input {
+      margin-right: 6px;
+    }
+
+    .btn {
+      margin-top: 10px;
+      background: var(--primary);
+      color: #ffffff;
+      border-radius: 14px;
+      border: 0;
+      padding: 9px 14px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 10px;
+      padding: 10px 12px;
+      background: var(--surface-2);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      display: none;
+      font-size: 0.9rem;
+    }
+
+    .tagline {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    @media (max-width: 800px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .hero, .section {
+        border-radius: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="kicker">Interactive Lesson Note</div>
+    <h1>Hadeeth on Jealousy (Hasad)</h1>
+    <p>This lesson helps us understand the hadeeth about jealousy, see how it appears in real life, and learn simple ways to clean the heart from hasad.</p>
+  </header>
+
+  <!-- HADEETH -->
+  <section class="section">
+    <h2>The Hadeeth</h2>
+    <div class="arabic-card">
+      <div class="arabic">
+        إِيَّاكُمْ وَالْحَسَدَ، فَإِنَّ الْحَسَدَ يَأْكُلُ الْحَسَنَاتِ كَمَا تَأْكُلُ النَّارُ الْحَطَبَ
+      </div>
+      <div class="translit">
+        Iyyākum wal‑ḥasad, fa‑inna al‑ḥasada yaʾkulu al‑ḥasanāt kamā taʾkulu an‑nāru al‑ḥaṭab.
+      </div>
+      <div class="meaning">
+        “Beware of jealousy, for jealousy eats up good deeds just as fire eats up wood.”
+      </div>
+      <div class="source">
+        Reported in Sunan Abī Dāwūd and mentioned with similar wording in other collections.
+      </div>
+    </div>
+    <p class="tagline">Read the hadeeth slowly and imagine what happens to good deeds when jealousy stays in the heart.</p>
+  </section>
+
+  <!-- FIRE EATING WOOD PICTURE -->
+  <section class="section">
+    <h2>Picture Reflection: Fire and Wood</h2>
+    <div class="art-box">
+      <!-- Simple SVG: fire "eating" wood -->
+      <svg viewBox="0 0 900 360" role="img" aria-label="Illustration of fire eating wood" width="100%" height="auto">
+        <defs>
+          <linearGradient id="bgGlow" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f8eee2"/>
+            <stop offset="1" stop-color="#f4e2cd"/>
+          </linearGradient>
+          <linearGradient id="wood" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#8b6142"/>
+            <stop offset="1" stop-color="#5f3f2c"/>
+          </linearGradient>
+          <linearGradient id="flame1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ff6a00"/>
+            <stop offset="0.55" stop-color="#ffb100"/>
+            <stop offset="1" stop-color="#fff2a8"/>
+          </linearGradient>
+          <linearGradient id="flame2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#d73800"/>
+            <stop offset="0.7" stop-color="#ff8a00"/>
+            <stop offset="1" stop-color="#ffd26a"/>
+          </linearGradient>
+        </defs>
+
+        <!-- background -->
+        <rect width="900" height="360" rx="26" fill="url(#bgGlow)"/>
+        <ellipse cx="450" cy="290" rx="260" ry="40" fill="#dbcbb7" opacity="0.65"/>
+
+        <!-- wood logs -->
+        <g>
+          <rect x="210" y="260" width="260" height="44" rx="18" fill="url(#wood)" transform="rotate(-8 210 260)"/>
+          <rect x="410" y="250" width="280" height="44" rx="18" fill="url(#wood)" transform="rotate(7 410 250)"/>
+          <circle cx="255" cy="280" r="7" fill="#3c2417" opacity="0.35"/>
+          <circle cx="520" cy="272" r="7" fill="#3c2417" opacity="0.35"/>
+          <circle cx="620" cy="292" r="7" fill="#3c2417" opacity="0.35"/>
+        </g>
+
+        <!-- flames -->
+        <g opacity="0.96">
+          <path d="M360 280 C330 238, 350 186, 398 144 C390 188, 430 214, 422 268 C418 294, 396 312, 374 313 C352 313, 338 301, 360 280 Z"
+                fill="url(#flame2)"/>
+          <path d="M422 298 C380 238, 420 166, 492 110 C486 178, 556 206, 538 286 C530 326, 492 354, 454 354 C424 354, 392 334, 422 298 Z"
+                fill="url(#flame1)"/>
+          <path d="M510 292 C486 256, 498 212, 550 170 C546 206, 584 232, 578 282 C572 308, 552 328, 530 329 C512 329, 496 318, 510 292 Z"
+                fill="url(#flame2)"/>
+          <path d="M460 306 C440 278, 454 246, 488 220 C484 250, 510 270, 504 304 C500 324, 484 338, 466 338 C452 338, 438 328, 460 306 Z"
+                fill="#fff6c6" opacity="0.95"/>
+        </g>
+
+        <!-- small smoke circles -->
+        <g fill="#6f6a61" opacity="0.65">
+          <circle cx="332" cy="110" r="7"/>
+          <circle cx="355" cy="90" r="10"/>
+          <circle cx="375" cy="70" r="12"/>
+          <circle cx="570" cy="110" r="7"/>
+          <circle cx="595" cy="88" r="11"/>
+          <circle cx="615" cy="66" r="14"/>
+        </g>
+
+        <!-- text -->
+        <text x="450" y="45" text-anchor="middle"
+              font-family="system-ui, sans-serif"
+              font-size="24"
+              font-weight="700"
+              fill="#8b6142">
+          Like fire eating wood
+        </text>
+      </svg>
+
+      <div class="art-caption">
+        The picture shows how fire quickly eats the wood. In the same way, jealousy can slowly eat the reward of our good actions if we choose not to remove it.
+      </div>
+    </div>
+  </section>
+
+  <!-- TABS: MEANING / ROOT CAUSES / CURE -->
+  <section class="section">
+    <h2>Understanding Jealousy</h2>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="meaning">Meaning</button>
+      <button class="tab-btn" data-tab="causes">Root causes</button>
+      <button class="tab-btn" data-tab="cure">Ways to cure</button>
+    </div>
+
+    <div id="meaning" class="tab-content active">
+      <div class="grid">
+        <div class="card">
+          <h3>What is hasad?</h3>
+          <p>Hasad means wanting a blessing to be removed from another person, as if we do not want them to enjoy what Allah has given.</p>
+          <p>It is different from admiring a good quality and asking Allah to give us something similar without wishing any harm for them.</p>
+        </div>
+        <div class="card">
+          <h3>Why is it dangerous?</h3>
+          <p>The hadeeth reminds us that jealousy can destroy the reward of good deeds, similar to how fire burns and finishes dry wood.</p>
+          <p>Hasad also damages relationships, makes the heart hard, and steals inner peace from the one who feels it.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="causes" class="tab-content">
+      <div class="grid">
+        <div class="card">
+          <h3>Root causes in the heart</h3>
+          <ul>
+            <li>Weak trust that Allah gives everyone their share with perfect wisdom and justice.</li>
+            <li>Ingratitude and forgetting to count our own blessings and favors from Allah.</li>
+            <li>Constant comparison with others in looks, marks, wealth, or popularity.</li>
+            <li>Low self-worth, feeling that another person’s success reduces our own value.</li>
+            <li>Too much love for dunya, where status and praise become more important than the pleasure of Allah.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Hasad in daily life</h3>
+          <p>Jealousy can begin with a small thought when we see someone praised, gifted, or successful, and we feel tightness in the chest.</p>
+          <p>If it is not treated, this feeling can turn into bad words, cold behaviour, or even actions that try to harm the other person.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="cure" class="tab-content">
+      <div class="grid">
+        <div class="card">
+          <h3>Training the heart</h3>
+          <ul>
+            <li>Say “Allāhumma bārik” and make du‘ā for the person when you see a blessing that you like.</li>
+            <li>Make a habit of daily shukr by writing down three things you are grateful for each day.</li>
+            <li>Remember that Allah’s treasures never finish, so another person’s blessing does not block your rizq.</li>
+            <li>Ask Allah often: “O Allah, purify my heart from hasad and fill it with contentment.”</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Training the mind</h3>
+          <ul>
+            <li>Limit unhealthy scrolling and comparison on social media.</li>
+            <li>Look at effort, good character, and obedience to Allah more than outside appearance.</li>
+            <li>Turn jealousy into motivation: do more good deeds instead of wishing for someone to lose theirs.</li>
+            <li>Remind yourself that real honor comes from being close to Allah, not from people’s attention.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY OF PROPHET YUSUF -->
+  <section class="section">
+    <h2>Story of Prophet Yusuf عليه السلام</h2>
+    <div class="art-box" style="margin-bottom: 10px;">
+      <!-- Simple illustration of brothers and well -->
+      <svg viewBox="0 0 900 360" role="img"
+           aria-label="Illustration of Prophet Yusuf's brothers near a well"
+           width="100%" height="auto">
+        <defs>
+          <linearGradient id="skyY" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#efe7d7"/>
+            <stop offset="1" stop-color="#f8f5ee"/>
+          </linearGradient>
+          <linearGradient id="sandY" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#d8c29e"/>
+            <stop offset="1" stop-color="#c6ab82"/>
+          </linearGradient>
+        </defs>
+
+        <rect width="900" height="360" rx="26" fill="url(#skyY)"/>
+        <rect y="220" width="900" height="140" fill="url(#sandY)"/>
+
+        <!-- well -->
+        <ellipse cx="460" cy="250" rx="110" ry="35" fill="#7b6249"/>
+        <ellipse cx="460" cy="250" rx="80" ry="26" fill="#3a2d21"/>
+
+        <!-- Yusuf in well (simplified figure) -->
+        <g>
+          <circle cx="460" cy="214" r="16" fill="#8a6b4f"/>
+          <rect x="446" y="228" width="28" height="45" rx="12" fill="#c8d7a5"/>
+        </g>
+
+        <!-- two brothers standing -->
+        <g>
+          <circle cx="270" cy="166" r="18" fill="#8a6b4f"/>
+          <rect x="256" y="184" width="30" height="70" rx="14" fill="#6c8790"/>
+          <circle cx="640" cy="166" r="18" fill="#8a6b4f"/>
+          <rect x="626" y="184" width="30" height="70" rx="14" fill="#92785c"/>
+        </g>
+
+        <!-- title text -->
+        <text x="450" y="48" text-anchor="middle"
+              font-family="system-ui, sans-serif"
+              font-size="22"
+              font-weight="700"
+              fill="#8b6142">
+          Jealousy led Yusuf’s brothers to do wrong
+        </text>
+      </svg>
+      <div class="art-caption">
+        The picture reminds us of how the jealousy of Prophet Yusuf’s brothers pushed them toward a very wrong decision, even though Yusuf عليه السلام was innocent.
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>The story in brief</h3>
+        <p>Prophet Yusuf عليه السلام was loved deeply by his father, Prophet Ya‘qub عليه السلام. His brothers became jealous and allowed envy to grow in their hearts.</p>
+        <p>That jealousy led them to plot against Yusuf, throw him into a well, and lie to their father. Even with their harm, Allah protected Yusuf and later raised his status in a beautiful way.</p>
+      </div>
+      <div class="card">
+        <h3>Key lessons</h3>
+        <ul>
+          <li>Jealousy can push a person from a feeling in the heart to serious actions like lying, betrayal, and cruelty.</li>
+          <li>Yusuf عليه السلام chose patience and trust in Allah instead of hatred, and Allah honoured him in the end.</li>
+          <li>When the brothers later regretted, Yusuf forgave them, showing that mercy heals what jealousy once damaged.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HASAD IN MODERN WORLD -->
+  <section class="section">
+    <h2>Hasad in the Modern World</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Where we see it today</h3>
+        <ul>
+          <li>On social media, when people compare followers, holidays, gifts, or results and feel upset inside.</li>
+          <li>In school, when someone is unhappy that a classmate got higher marks or was chosen for a special role.</li>
+          <li>In friendships, when a person wants attention only for themselves and dislikes when others are praised.</li>
+          <li>In families, when brothers or sisters are compared and the heart becomes bitter instead of loving.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>How to respond</h3>
+        <ul>
+          <li>Remember that online life shows only the best moments, not the full story of people’s struggles.</li>
+          <li>Reduce time spent scrolling and increase time spent on Qur’an, du‘ā, and useful skills.</li>
+          <li>When you notice hasad starting, pause and say: “Allāhumma bārik lahum wa‘ṭinā min faḍlik.”</li>
+          <li>Replace comparison with gratitude and ask, “What is one good deed I can do right now instead?”</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="section">
+    <h2>Video Review</h2>
+    <div class="art-box">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/yINB1jJMUkU"
+                title="Hadeeth on Jealousy"
+                allowfullscreen></iframe>
+      </div>
+      <div class="art-caption">
+        Watch the video and note one sentence that touched your heart. After watching, share with a partner what you learned about jealousy and how to cure it.
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="section">
+    <h2>Quick Self‑Check Quiz</h2>
+
+    <div class="quiz-q">
+      <p>1. According to the hadeeth, jealousy “eats up” what?</p>
+      <label class="option">
+        <input type="radio" name="q1" value="a">
+        Food and drink
+      </label>
+      <label class="option">
+        <input type="radio" name="q1" value="b">
+        Good deeds
+      </label>
+      <label class="option">
+        <input type="radio" name="q1" value="c">
+        Time during the day
+      </label>
+    </div>
+
+    <div class="quiz-q">
+      <p>2. What does the hadeeth compare jealousy to?</p>
+      <label class="option">
+        <input type="radio" name="q2" value="a">
+        Fire eating wood
+      </label>
+      <label class="option">
+        <input type="radio" name="q2" value="b">
+        Rain watering plants
+      </label>
+      <label class="option">
+        <input type="radio" name="q2" value="c">
+        Wind moving clouds
+      </label>
+    </div>
+
+    <div class="quiz-q">
+      <p>3. Which of the following is a root cause of jealousy?</p>
+      <label class="option">
+        <input type="radio" name="q3" value="a">
+        Strong gratitude for Allah’s gifts
+      </label>
+      <label class="option">
+        <input type="radio" name="q3" value="b">
+        Too much comparison and insecurity
+      </label>
+      <label class="option">
+        <input type="radio" name="q3" value="c">
+        Being patient and calm
+      </label>
+    </div>
+
+    <div class="quiz-q">
+      <p>4. Which action helps cure jealousy?</p>
+      <label class="option">
+        <input type="radio" name="q4" value="a">
+        Making du‘ā for the person you feel jealous of
+      </label>
+      <label class="option">
+        <input type="radio" name="q4" value="b">
+        Hoping their blessing disappears
+      </label>
+      <label class="option">
+        <input type="radio" name="q4" value="c">
+        Speaking badly about them to others
+      </label>
+    </div>
+
+    <div class="quiz-q">
+      <p>5. What lesson do we learn from the story of Prophet Yusuf عليه السلام?</p>
+      <label class="option">
+        <input type="radio" name="q5" value="a">
+        Jealousy can lead to serious wrongdoing
+      </label>
+      <label class="option">
+        <input type="radio" name="q5" value="b">
+        Jealousy always improves family relationships
+      </label>
+      <label class="option">
+        <input type="radio" name="q5" value="c">
+        Jealousy is harmless if we hide it
+      </label>
+    </div>
+
+    <div class="quiz-q">
+      <p>6. How can hasad appear in the modern world?</p>
+      <label class="option">
+        <input type="radio" name="q6" value="a">
+        By helping others sincerely
+      </label>
+      <label class="option">
+        <input type="radio" name="q6" value="b">
+        Through social media comparison and competition
+      </label>
+      <label class="option">
+        <input type="radio" name="q6" value="c">
+        By making shukr every day
+      </label>
+    </div>
+
+    <button class="btn" onclick="checkQuiz()">Check answers</button>
+    <div id="result" class="result"></div>
+  </section>
+
+</div>
+
+<script>
+  // Tabs
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+      tabButtons.forEach(b => b.classList.remove('active'));
+      tabContents.forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(target).classList.add('active');
+    });
+  });
+
+  // Quiz
+  function checkQuiz() {
+    let score = 0;
+    const answers = {
+      q1: 'b',
+      q2: 'a',
+      q3: 'b',
+      q4: 'a',
+      q5: 'a',
+      q6: 'b'
+    };
+
+    Object.keys(answers).forEach(q => {
+      const selected = document.querySelector('input[name="' + q + '"]:checked');
+      if (selected && selected.value === answers[q]) {
+        score++;
+      }
+    });
+
+    const result = document.getElementById('result');
+    result.style.display = 'block';
+
+    if (score === 6) {
+      result.innerHTML = '<strong>Excellent.</strong> You understood the main message of the hadeeth and the story very well.';
+    } else if (score >= 4) {
+      result.innerHTML = '<strong>Good effort.</strong> You scored ' + score + ' out of 6. Review the causes and cures of hasad, then try again.';
+    } else {
+      result.innerHTML = '<strong>Keep revising.</strong> Read the notes again, especially the story of Yusuf and the ways to cure jealousy, then attempt the quiz once more.';
+    }
+  }
+</script>
+</body>
+</html>
