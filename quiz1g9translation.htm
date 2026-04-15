@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz 1 G9 – Multilingual (Tabbed)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: left;
+      margin-bottom: 10px;
+    }
+    .tabs {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 10px;
+      gap: 8px;
+    }
+    .tab-btn {
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: 1px solid #1976d2;
+      background: #ffffff;
+      color: #1976d2;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .tab-btn.active {
+      background: #1976d2;
+      color: #ffffff;
+    }
+    .section {
+      max-width: 900px;
+      margin: 10px auto 20px auto;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      padding: 20px;
+      display: none;
+    }
+    .section.active {
+      display: block;
+    }
+    h2 {
+      text-align: left;
+      margin-top: 0;
+    }
+    .question-block {
+      margin: 16px auto;
+      text-align: left;
+    }
+    .question-text {
+      white-space: pre-line;
+      font-size: 1rem;
+    }
+    hr {
+      margin: 18px 0;
+      border: none;
+      border-top: 1px solid #ddd;
+    }
+    .b-statement-box {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 10px;
+      margin: 8px auto;
+      max-width: 800px;
+      text-align: left;
+      background: #fafafa;
+    }
+
+    /* ---------- Print styles ---------- */
+    @media print {
+      @page {
+        size: A4;
+        margin: 15mm;
+      }
+      body {
+        background: #ffffff !important;
+        margin: 0;
+        padding: 0;
+      }
+      .tabs {
+        display: none; /* hide language tabs on print */
+      }
+      .section {
+        box-shadow: none !important;
+        border-radius: 0;
+        margin: 0;
+        max-width: 100%;
+        padding: 0;
+      }
+      .b-statement-box {
+        background: #ffffff;
+        border-color: #000000;
+        box-shadow: none !important;
+      }
+      h1 {
+        margin: 0 0 8px 0;
+      }
+      .question-block {
+        margin: 12px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Quiz 1 – Grade 9</h1>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showLang('cn')">中文 Chinese</button>
+    <button class="tab-btn" onclick="showLang('th')">ภาษาไทย Thai</button>
+    <button class="tab-btn" onclick="showLang('bn')">বাংলা Bengali</button>
+  </div>
+
+  <!-- ========== CHINESE SECTION ========== -->
+  <div class="section active" id="sec-cn">
+    <h2>中文 Chinese Version</h2>
+
+    <div class="question-block">
+      <div class="question-text">
+A) Read the questions carefully and circle the correct answer.
+
+A）请认真阅读以下问题，并圈出正确答案。
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+1. What main human problem is highlighted in the Surah Al-Aadiyaat after the oaths by the horses?
+A. Humans are too weak physically
+B. Humans are very intelligent but lazy
+C. Humans are ungrateful to their Lord
+D. Humans are always kind and generous
+
+1. 在《震撼战马章》（Al-Aadiyaat）中，在以战马起誓之后，强调了人类的哪一个主要问题？
+A. 人在身体上太软弱
+B. 人非常聪明但很懒惰
+C. 人对他们的主忘恩负义
+D. 人总是善良而慷慨
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+2. Why does Allah make an oath (swear) by certain creations in the Qur’an?
+A. To show that He also needs to prove His words
+B. To make us think about the message that comes after the oath
+C. To praise those creations because they are equal to Him
+D. To make the Qur’an longer and more detailed
+
+2. 为什么安拉会在《古兰经》中以某些被造物起誓？
+A. 为了表示祂也需要证明自己的话
+B. 为了让我们思考誓言之后的讯息
+C. 为了赞美这些被造物，因为它们与祂相等
+D. 为了让《古兰经》变得更长、更详细
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+3. All of the following are examples of ingratitude (kanud), except:
+A. Always counting problems and forgetting Allah’s blessings
+B. Using Allah’s gifts and blessings to do sins
+C. Blaming Allah whenever a calamity happens
+D. Thanking Allah for blessings in ease and hardship
+
+3. 以下各项都是忘恩负义（kanud）的例子，除了：
+A. 总是在数数问题而忘记安拉的恩典
+B. 利用安拉的恩赐去作罪
+C. 一遇灾难就责怪安拉
+D. 在顺境和逆境中都感谢安拉的恩典
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+4. Someone can scroll on TikTok and Instagram for hours without feeling tired, but feels very lazy to
+perform the obligatory and sunnah prayers. Based on what you have learned from Surah
+Al-Aadiyaat, explain why you think this happens and how a Muslim can start changing this
+situation.
+
+4. 有人可以在抖音和 Instagram 上刷视频好几个小时也不觉得累，但在履行主命和圣行拜时却非常懒惰。根据你从《震撼战马章》（Al-Aadiyaat）中所学的内容，说明你认为为什么会出现这种情况，以及穆斯林可以如何开始改变这种状况。
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="question-block">
+      <div class="question-text">
+B) Read each statement carefully. If the statement is correct according to the Islamic rulings of
+fasting, write T for True. If the statement is not correct, write F for False.
+
+B）请认真阅读每一句话。如果该句根据伊斯兰有关斋戒的教法规是正确的，就写 T（True）。如果不正确，就写 F（False）。
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+In Islamic law, fasting means to intentionally refrain from food, drink and
+invalidators from sunrise until sunset for the sake of Allah.
+
+在伊斯兰教法中，斋戒是指为了安拉而从日出到日落，有意识地远离饮食和一切会使斋戒无效的事物。
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+Kaffarah fasting is a voluntary fast that a Muslim can do anytime to get more
+reward.
+
+赎罪斋（Kaffarah）是一种自愿性斋戒，穆斯林可以在任何时间为获取更多回赐而进行。
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+The time to make the intention (niyyah) for an obligatory fast is during the night,
+from Maghrib until before Fajr.
+
+为履行主命斋而立意（niyyah）的时间是在夜间，从昏礼（Maghrib）之后到晨礼（Fajr）之前。
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+Accidental vomiting does not break the fast, but intentionally making yourself
+vomit does.
+
+无意呕吐不会使斋戒无效，但故意让自己呕吐则会破坏斋戒。
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+Fasting for health reasons is not permissible and is sinful; a Muslim must never
+think about health when fasting and should only be sincere to Allah.
+
+为了健康而斋戒是不被允许的，是有罪的；穆斯林在斋戒时绝不能想到健康，只应当只为安拉而真诚。
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+Taraweeh prayer in Ramadan is highly recommended (sunnah mu’akkadah), not
+compulsory.
+
+在斋月里的台拉维哈（Taraweeh）拜是非常被强调的圣行（sunnah mu’akkadah），但并非强制性的。
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+Muslims should eat suhoor as early as possible and delay iftar as late as possible
+in order to gain more reward from Allah.
+
+穆斯林应该尽量在很早的时候吃封斋饭（suhoor），并尽量推迟开斋（iftar），以从安拉那里获得更多的回赐。
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+A traveller (generally 89 km or more) is allowed to break the fast and doesn't
+need to make up the missed days (qada) later.
+
+旅行者（通常为 89 公里或以上）被允许开斋，并且不需要日后补还所缺的斋日（qada）。
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="question-block">
+      <div class="question-text">
+C) Bonus question.
+1. List a few specific good deeds that you plan to start doing from now until the last day of Ramadan, in
+order to improve yourself and to sincerely hope for Allah’s reward on Laylatul Qadr (an unknown
+night in the last 10 days of Ramadan that is better than 83 years of worship)
+
+C）加分题。
+1. 列出几项你打算从现在开始一直做到斋月最后一天的具体善行，以提升自己，并真诚地期望在前定之夜（Laylatul Qadr —— 斋月最后十夜中一个未知的夜晚，其功价胜过 83 年的敬拜）获得安拉的回赐。
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="question-block">
+      <div class="question-text">
+D) Answer all the questions.
+اتَّقِ اللَّهَ حَيْثُ مَا كُنْتَ، وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا،
+وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ
+Have Taqwa of Allah wherever you are, follow up a bad deed with a good deed which will wipe it
+out, and behave towards people with good character.
+
+D）回答所有问题。
+在任何地方都要敬畏安拉；
+做了坏事之后，要用一件善行来抹去它；
+并且要以良好的品德对待众人。
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+1. The hadith seems to mention three separate messages. Explain how these three messages are actually
+connected.
+
+1. 这段圣训似乎提到了三个不同的信息。请解释这三个信息实际上是如何彼此相连的。
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+2. A student cheated in a test and now feels guilty. Based on the hadith, explain the steps he should take
+to repent from the sin, in his relationship with Allah and with his teacher.
+
+2. 有一位学生在考试中作弊，现在感到内疚。根据这段圣训，说明他在与安拉和老师的关系中，为了忏悔这项罪行应该采取哪些步骤。
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+3. Give one example of good character (husn al-akhlaq) that a Muslim can practise every day.
+
+3. 举出一个穆斯林可以每天实践的良好品德（husn al-akhlaq）的例子。
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== THAI SECTION ========== -->
+  <div class="section" id="sec-th">
+    <h2>ภาษาไทย Thai Version</h2>
+
+    <div class="question-block">
+      <div class="question-text">
+A) Read the questions carefully and circle the correct answer.
+
+ก) อ่านคำถามอย่างรอบคอบ แล้ววงคำตอบที่ถูกต้อง
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+1. What main human problem is highlighted in the Surah Al-Aadiyaat after the oaths by the horses?
+A. Humans are too weak physically
+B. Humans are very intelligent but lazy
+C. Humans are ungrateful to their Lord
+D. Humans are always kind and generous
+
+1. ปัญหาหลักของมนุษย์อะไรที่ถูกเน้นในซูเราะฮฺอัลอาดียาตหลังจากการปฏิญาณด้วยม้า?
+ก. มนุษย์อ่อนแอด้านร่างกายเกินไป
+ข. มนุษย์ฉลาดมากแต่ขี้เกียจ
+ค. มนุษย์เนรคุณต่อพระผู้อภิบาลของตน
+ง. มนุษย์มักใจดีและใจกว้างอยู่เสมอ
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+2. Why does Allah make an oath (swear) by certain creations in the Qur’an?
+A. To show that He also needs to prove His words
+B. To make us think about the message that comes after the oath
+C. To praise those creations because they are equal to Him
+D. To make the Qur’an longer and more detailed
+
+2. เหตุใดอัลลอฮ์จึงทรงปฏิญาณ (สาบาน) ด้วยสิ่งถูกสร้างบางอย่างในอัลกุรอาน?
+ก. เพื่อแสดงว่าพระองค์ก็จำเป็นต้องพิสูจน์พระดำรัสของพระองค์
+ข. เพื่อทำให้เราคิดใคร่ครวญถึงสาระที่ตามมาหลังจากการปฏิญาณ
+ค. เพื่อสรรเสริญสิ่งถูกสร้างนั้นเพราะพวกมันเท่าเทียมกับพระองค์
+ง. เพื่อทำให้อัลกุรอานยาวและละเอียดมากขึ้น
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+3. All of the following are examples of ingratitude (kanud), except:
+A. Always counting problems and forgetting Allah’s blessings
+B. Using Allah’s gifts and blessings to do sins
+C. Blaming Allah whenever a calamity happens
+D. Thanking Allah for blessings in ease and hardship
+
+3. ข้อต่อไปนี้ทั้งหมดเป็นตัวอย่างของความเนรคุณ (กะนูด) ยกเว้น:
+ก. เอาแต่คิดถึงปัญหาและลืมนึกถึงความเมตตาของอัลลอฮ์
+ข. ใช้พรและของขวัญจากอัลลอฮ์ไปทำบาป
+ค. โทษอัลลอฮ์ทุกครั้งที่เกิดภัยพิบัติ
+ง. ขอบคุณอัลลอฮ์ต่อความเมตตาในยามสะดวกและยากลำบาก
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+4. Someone can scroll on TikTok and Instagram for hours without feeling tired, but feels very lazy to
+perform the obligatory and sunnah prayers. Based on what you have learned from Surah
+Al-Aadiyaat, explain why you think this happens and how a Muslim can start changing this
+situation.
+
+4. บางคนสามารถเลื่อนดูติ๊กต็อกและอินสตาแกรมได้หลายชั่วโมงโดยไม่รู้สึกเหนื่อย แต่กลับขี้เกียจมากเมื่อต้องละหมาดฟัรฏูและสุนนะฮฺ จากสิ่งที่คุณได้เรียนรู้จากซูเราะฮฺอัลอาดียาต จงอธิบายว่าคุณคิดว่าสิ่งนี้เกิดขึ้นเพราะอะไร และมุสลิมจะเริ่มเปลี่ยนสถานการณ์นี้ได้อย่างไร
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="question-block">
+      <div class="question-text">
+B) Read each statement carefully. If the statement is correct according to the Islamic rulings of
+fasting, write T for True. If the statement is not correct, write F for False.
+
+ข) อ่านแต่ละข้อความอย่างระมัดระวัง ถ้าข้อความนั้นถูกต้องตามหลักฟิกฮฺเรื่องการถือศีลอดให้เขียน T (True) ถ้าไม่ถูกต้องให้เขียน F (False)
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+In Islamic law, fasting means to intentionally refrain from food, drink and
+invalidators from sunrise until sunset for the sake of Allah.
+
+ตามหลักกฎหมายอิสลาม การถือศีลอดคือการตั้งใจเว้นจากอาหาร น้ำ และสิ่งที่ทำให้ศีลอดเสีย ตั้งแต่พระอาทิตย์ขึ้นจนพระอาทิตย์ตก เพื่ออัลลอฮ์
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+Kaffarah fasting is a voluntary fast that a Muslim can do anytime to get more
+reward.
+
+การถือศีลอดกาแฟเราะฮฺ (kaffarah) เป็นการถือศีลอดสมัครใจที่มุสลิมสามารถทำเมื่อไรก็ได้เพื่อให้ได้ผลบุญมากขึ้น
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+The time to make the intention (niyyah) for an obligatory fast is during the night,
+from Maghrib until before Fajr.
+
+เวลาสำหรับตั้งเจตนา (นิยยะฮฺ) ในการถือศีลอดฟัรฎู คือช่วงเวลากลางคืน ตั้งแต่มักริบถึงก่อนฟัญญ์ร
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+Accidental vomiting does not break the fast, but intentionally making yourself
+vomit does.
+
+การอาเจียนโดยไม่ตั้งใจไม่ทำให้ศีลอดเสีย แต่การจงใจทำให้ตัวเองอาเจียนทำให้ศีลอดเสีย
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+Fasting for health reasons is not permissible and is sinful; a Muslim must never
+think about health when fasting and should only be sincere to Allah.
+
+การถือศีลอดด้วยเหตุผลด้านสุขภาพไม่อนุญาตและถือเป็นบาป มุสลิมต้องไม่คิดเรื่องสุขภาพเมื่อถือศีลอดและต้องมีแต่ความบริสุทธิ์ใจต่ออัลลอฮ์เท่านั้น
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+Taraweeh prayer in Ramadan is highly recommended (sunnah mu’akkadah), not
+compulsory.
+
+ละหมาดตะรอเวี๊ยะฮฺในเดือนรอมฎอนเป็นสุนนะฮฺมุอักกะดะฮฺที่ถูกเน้นย้ำอย่างสูง แต่ไม่ใช่ฟัรฎู
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+Muslims should eat suhoor as early as possible and delay iftar as late as possible
+in order to gain more reward from Allah.
+
+มุสลิมควรกินซะฮูรให้เร็วที่สุดและชะลอการละศีลอดให้สายที่สุดเพื่อให้ได้ผลบุญมากขึ้นจากอัลลอฮ์
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+A traveller (generally 89 km or more) is allowed to break the fast and doesn't
+need to make up the missed days (qada) later.
+
+ผู้เดินทาง (โดยทั่วไปประมาณ 89 กม. หรือมากกว่า) ได้รับอนุญาตให้ละศีลอด และไม่จำเป็นต้องชดใช้ (ก่อฎอ) วันที่ขาดไปภายหลัง
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="question-block">
+      <div class="question-text">
+C) Bonus question.
+1. List a few specific good deeds that you plan to start doing from now until the last day of Ramadan, in
+order to improve yourself and to sincerely hope for Allah’s reward on Laylatul Qadr (an unknown
+night in the last 10 days of Ramadan that is better than 83 years of worship)
+
+ค) คำถามพิเศษ
+1. จงเขียนรายการการงานดี ๆ ที่เฉพาะเจาะจงบางข้อที่คุณตั้งใจจะเริ่มทำตั้งแต่ตอนนี้จนถึงวันสุดท้ายของเดือนรอมฎอน เพื่อพัฒนาตัวเอง และหวังอย่างจริงใจต่อผลบุญจากอัลลอฮ์ในคืนลัยละตุลก็อดรฺ (ค่ำคืนที่ไม่ทราบแน่ชัดในสิบคืนสุดท้ายของรอมฎอน ซึ่งดีกว่าการทำอิบาดะฮ์ถึง 83 ปี)
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="question-block">
+      <div class="question-text">
+D) Answer all the questions.
+اتَّقِ اللَّهَ حَيْثُ مَا كُنْتَ، وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا،
+وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ
+Have Taqwa of Allah wherever you are, follow up a bad deed with a good deed which will wipe it
+out, and behave towards people with good character.
+
+ง) ตอบคำถามทั้งหมด
+จงยำเกรงอัลลอฮ์ไม่ว่าท่านจะอยู่ที่ใด
+เมื่อทำความผิดก็จงตามด้วยความดีเพื่อจะลบล้างมัน
+และจงประพฤติต่อผู้คนด้วยอุปนิสัยที่ดีงาม
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+1. The hadith seems to mention three separate messages. Explain how these three messages are actually
+connected.
+
+1. ฮะดีษบทนี้ดูเหมือนจะกล่าวถึงสาระสามข้อ แท้จริงแล้วทั้งสามข้อนี้เชื่อมโยงกันอย่างไร? จงอธิบาย
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+2. A student cheated in a test and now feels guilty. Based on the hadith, explain the steps he should take
+to repent from the sin, in his relationship with Allah and with his teacher.
+
+2. มีนักเรียนคนหนึ่งโกงข้อสอบและรู้สึกผิด จากฮะดีษบทนี้ จงอธิบายขั้นตอนที่เขาควรทำเพื่อเตาบะฮฺจากบาปนี้ ทั้งในความสัมพันธ์ของเขากับอัลลอฮ์และกับครูของเขา
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+3. Give one example of good character (husn al-akhlaq) that a Muslim can practise every day.
+
+3. จงยกตัวอย่างหนึ่งข้อของอุปนิสัยที่ดี (husn al-akhlaq) ที่มุสลิมสามารถปฏิบัติได้เป็นประจำทุกวัน
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== BENGALI SECTION ========== -->
+  <div class="section" id="sec-bn">
+    <h2>বাংলা Bengali Version</h2>
+
+    <div class="question-block">
+      <div class="question-text">
+A) Read the questions carefully and circle the correct answer.
+
+ক) প্রশ্নগুলো ভালোভাবে পড়ো এবং সঠিক উত্তরে বৃত্ত আঁকো।
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+1. What main human problem is highlighted in the Surah Al-Aadiyaat after the oaths by the horses?
+A. Humans are too weak physically
+B. Humans are very intelligent but lazy
+C. Humans are ungrateful to their Lord
+D. Humans are always kind and generous
+
+1. সূরা আল-আদিয়াতে ঘোড়ার শপথের পর মানবজাতির কোন মূল সমস্যাটি তুলে ধরা হয়েছে?
+ক. মানুষ শারীরিকভাবে খুব দুর্বল
+খ. মানুষ খুব বুদ্ধিমান কিন্তু অলস
+গ. মানুষ তার রবের প্রতি অকৃতজ্ঞ
+ঘ. মানুষ সবসময় দয়ালু ও উদার
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+2. Why does Allah make an oath (swear) by certain creations in the Qur’an?
+A. To show that He also needs to prove His words
+B. To make us think about the message that comes after the oath
+C. To praise those creations because they are equal to Him
+D. To make the Qur’an longer and more detailed
+
+2. আল্লাহ কেন কুরআনে কিছু সৃষ্ট বস্তু দ্বারা শপথ করেন?
+ক. দেখানোর জন্য যে তাকেও নিজের কথা প্রমাণ করতে হয়
+খ. আমাদের যেন শপথের পরের বার্তাটি নিয়ে চিন্তা করি
+গ. ঐ সৃষ্ট বস্তুগুলোকে প্রশংসা করার জন্য, কারণ তারা তাঁর সমান
+ঘ. কুরআনকে আরও দীর্ঘ ও বিস্তারিত করার জন্য
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+3. All of the following are examples of ingratitude (kanud), except:
+A. Always counting problems and forgetting Allah’s blessings
+B. Using Allah’s gifts and blessings to do sins
+C. Blaming Allah whenever a calamity happens
+D. Thanking Allah for blessings in ease and hardship
+
+3. নিম্নলিখিত সবগুলোই অকৃতজ্ঞতা (কানুদ)-এর উদাহরণ, ব্যতীত:
+ক. সবসময় সমস্যা গুনে গুনে দেখা এবং আল্লাহর নিয়ামত ভুলে থাকা
+খ. আল্লাহর দেয়া নিয়ামত ও দান পাপের কাজে ব্যবহার করা
+গ. কোনো বিপদ এলে আল্লাহকেই দোষ দেওয়া
+ঘ. স্বচ্ছলতা ও কষ্ট—উভয় অবস্থায় আল্লাহর নিয়ামতের জন্য শুকরিয়া আদায় করা
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+4. Someone can scroll on TikTok and Instagram for hours without feeling tired, but feels very lazy to
+perform the obligatory and sunnah prayers. Based on what you have learned from Surah
+Al-Aadiyaat, explain why you think this happens and how a Muslim can start changing this
+situation.
+
+4. কেউ টিকটক ও ইনস্টাগ্রামে ঘণ্টার পর ঘণ্টা স্ক্রল করতে পারে, ক্লান্তি অনুভব করে না; কিন্তু ফরজ ও সুন্নত নামাজ আদায় করতে খুব আলসেমি লাগে। সূরা আল-আদিয়াত থেকে যা শিখেছ তার আলোকে ব্যাখ্যা করো, তুমি কেন মনে করো এমন হয় এবং একজন মুসলিম কীভাবে এই অবস্থা পরিবর্তন শুরু করতে পারে।
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="question-block">
+      <div class="question-text">
+B) Read each statement carefully. If the statement is correct according to the Islamic rulings of
+fasting, write T for True. If the statement is not correct, write F for False.
+
+খ) প্রতিটি বাক্য মনোযোগ দিয়ে পড়ো। যদি বাক্যটি ইসলামি শরয়ি রোজার বিধান অনুযায়ী সঠিক হয়, তবে T (True) লেখো; সঠিক না হলে F (False) লেখো।
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+In Islamic law, fasting means to intentionally refrain from food, drink and
+invalidators from sunrise until sunset for the sake of Allah.
+
+ইসলামি শরিয়তে রোজা হল আল্লাহর সন্তুষ্টির জন্য সচেতনভাবে ভোর থেকে সূর্যাস্ত পর্যন্ত খাদ্য, পানীয় এবং রোজা ভঙ্গকারী সবকিছু থেকে বিরত থাকা।
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+Kaffarah fasting is a voluntary fast that a Muslim can do anytime to get more
+reward.
+
+কাফফারা রোজা হল একটি নফল রোজা, যা মুসলিম যেকোনো সময় বেশি সওয়াবের জন্য রাখতে পারে।
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+The time to make the intention (niyyah) for an obligatory fast is during the night,
+from Maghrib until before Fajr.
+
+ফরজ রোজার নিয়ত করার সময় হল রাতের মধ্যে, মাগরিব থেকে ফজরের আগে পর্যন্ত।
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+Accidental vomiting does not break the fast, but intentionally making yourself
+vomit does.
+
+অনিচ্ছাকৃত বমি রোজা নষ্ট করে না, তবে ইচ্ছাকৃতভাবে নিজেকে বমি করালে রোজা ভেঙে যায়।
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+Fasting for health reasons is not permissible and is sinful; a Muslim must never
+think about health when fasting and should only be sincere to Allah.
+
+স্বাস্থ্যগত কারণে রোজা রাখা জায়েয নয় এবং এটি গুনাহ; একজন মুসলিম রোজা রাখার সময় কখনোই স্বাস্থ্য নিয়ে ভাবতে পারবে না, শুধু আল্লাহর জন্যই নিয়ত রাখতে হবে।
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+Taraweeh prayer in Ramadan is highly recommended (sunnah mu’akkadah), not
+compulsory.
+
+রমজানে তারাবিহ নামাজ অত্যন্ত জোর দেওয়া সুন্নাত (সুন্নাতে মুয়াক্কাদাহ), ফরজ নয়।
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+Muslims should eat suhoor as early as possible and delay iftar as late as possible
+in order to gain more reward from Allah.
+
+মুসলমানদের উচিত সাহরি যত তাড়াতাড়ি সম্ভব খাওয়া এবং ইফতার যত দেরিতে সম্ভব করা, যাতে আল্লাহর নিকট থেকে বেশি সওয়াব পাওয়া যায়।
+      </div>
+    </div>
+
+    <div class="b-statement-box">
+      <div class="question-text">
+A traveller (generally 89 km or more) is allowed to break the fast and doesn't
+need to make up the missed days (qada) later.
+
+একজন মুসাফির (সাধারণভাবে প্রায় ৮৯ কিমি বা তার বেশি দূরত্বের যাত্রী) রোজা ভেঙে দিতে পারে এবং পরে সেই মিস করা দিনগুলো কাজা করার প্রয়োজন নেই।
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="question-block">
+      <div class="question-text">
+C) Bonus question.
+1. List a few specific good deeds that you plan to start doing from now until the last day of Ramadan, in
+order to improve yourself and to sincerely hope for Allah’s reward on Laylatul Qadr (an unknown
+night in the last 10 days of Ramadan that is better than 83 years of worship)
+
+গ) বোনাস প্রশ্ন।
+1. কয়েকটি নির্দিষ্ট সৎকর্মের তালিকা লিখো যা তুমি এখন থেকে রমজানের শেষ দিন পর্যন্ত শুরু করতে চাও—নিজেকে সংশোধন করার জন্য এবং লাইলাতুল কদরের রাতে (রমজানের শেষ দশ দিনের কোন এক অজানা রাত, যা ৮৩ বছরের ইবাদতের থেকেও উত্তম) আল্লাহর পক্ষ থেকে সওয়াব পাওয়ার আশায়।
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="question-block">
+      <div class="question-text">
+D) Answer all the questions.
+اتَّقِ اللَّهَ حَيْثُ مَا كُنْتَ، وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا،
+وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ
+Have Taqwa of Allah wherever you are, follow up a bad deed with a good deed which will wipe it
+out, and behave towards people with good character.
+
+ঘ) সব প্রশ্নের উত্তর দাও।
+যেখানেই থাকো না কেন, আল্লাহকে ভয় করো;
+কোনো গুনাহ করে ফেললে তার পরেই একটি নেক আমল করো, তা সেই গুনাহ মুছে দেবে;
+এবং মানুষের সাথে সুন্দর চরিত্রের সাথে আচরণ করো।
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+1. The hadith seems to mention three separate messages. Explain how these three messages are actually
+connected.
+
+1. এই হাদীসে তিনটি আলাদা বার্তা উল্লেখ করা হয়েছে বলে মনে হয়। ব্যাখ্যা করো, আসলে কিভাবে এই তিনটি বার্তা পরস্পরের সাথে যুক্ত।
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+2. A student cheated in a test and now feels guilty. Based on the hadith, explain the steps he should take
+to repent from the sin, in his relationship with Allah and with his teacher.
+
+2. এক ছাত্র পরীক্ষায় নকল করেছে এবং এখন অপরাধবোধে ভুগছে। হাদীসের আলোকে ব্যাখ্যা করো, আল্লাহর সাথে এবং তার শিক্ষকের সাথে সম্পর্কের ক্ষেত্রে এই গুনাহ থেকে তাওবা করতে তাকে কী কী ধাপ অনুসরণ করতে হবে।
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-text">
+3. Give one example of good character (husn al-akhlaq) that a Muslim can practise every day.
+
+3. এমন একটি উত্তম চরিত্রের (হুসনুল আখলাক) উদাহরণ দাও, যা একজন মুসলিম প্রতিদিন নিজের জীবনে বাস্তবায়ন করতে পারে।
+      </div>
+    </div>
+  </div>
+
+ <script>
+    function showLang(lang) {
+      const codes = ['cn', 'th', 'bn'];
+      codes.forEach(code => {
+        const sec = document.getElementById('sec-' + code);
+        if (sec) sec.classList.toggle('active', code === lang);
+      });
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      if (lang === 'cn') buttons[0].classList.add('active');
+      if (lang === 'th') buttons[1].classList.add('active');
+      if (lang === 'bn') buttons[2].classList.add('active');
+    }
+  </script>
+</body>
+</html>
