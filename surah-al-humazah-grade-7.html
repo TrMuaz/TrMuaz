@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Surah Al-Humazah Grade 7 Lesson Notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.05rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.4rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem;
+      --color-bg: #f7f6f2;
+      --color-surface: #fcfbf8;
+      --color-surface-2: #f1eee8;
+      --color-border: #d9d2c7;
+      --color-text: #1f1d18;
+      --color-muted: #666158;
+      --color-primary: #0b6b68;
+      --color-primary-2: #dff0ee;
+      --color-accent: #c68b2c;
+      --color-good: #3f7a2b;
+      --color-warn: #9a3d2d;
+      --shadow: 0 12px 30px rgba(31,29,24,0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font-body: 'Inter', sans-serif;
+      --font-display: 'Amiri', serif;
+    }
+    [data-theme="dark"] {
+      --color-bg: #181715;
+      --color-surface: #201f1c;
+      --color-surface-2: #292724;
+      --color-border: #3b3833;
+      --color-text: #eeeadf;
+      --color-muted: #b6ae9f;
+      --color-primary: #66b5ae;
+      --color-primary-2: #243a38;
+      --color-accent: #e0b25c;
+      --color-good: #8cc96f;
+      --color-warn: #f08b73;
+      --shadow: 0 14px 34px rgba(0,0,0,0.28);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: var(--font-body);
+      background: radial-gradient(circle at top right, rgba(11,107,104,0.08), transparent 24%), var(--color-bg);
+      color: var(--color-text);
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    button, input { font: inherit; }
+    .app {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      min-height: 100vh;
+    }
+    .sidebar {
+      border-right: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+      padding: var(--space-8) var(--space-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+    .brand {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: var(--space-3);
+    }
+    .brand-mark {
+      width: 52px; height: 52px; border-radius: 16px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      box-shadow: var(--shadow);
+      display:flex; align-items:center; justify-content:center; color:white; font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .brand h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      line-height: 1.05;
+      margin-bottom: var(--space-2);
+    }
+    .muted { color: var(--color-muted); }
+    .theme-toggle {
+      width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--color-border);
+      background: var(--color-surface-2); color: var(--color-text); cursor: pointer;
+    }
+    .nav-grid {
+      display: grid;
+      gap: var(--space-3);
+    }
+    .nav-btn {
+      width: 100%; text-align: left; padding: var(--space-4);
+      border-radius: var(--radius-sm); border: 1px solid var(--color-border);
+      background: var(--color-surface); cursor: pointer;
+      display: flex; gap: var(--space-3); align-items: center;
+      transition: 0.2s ease;
+    }
+    .nav-btn:hover, .nav-btn.active { background: var(--color-primary-2); border-color: var(--color-primary); transform: translateY(-1px); }
+    .nav-emoji { font-size: 1.2rem; }
+    .tip-box {
+      margin-top: auto; padding: var(--space-5); border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      border: 1px solid var(--color-border);
+    }
+    .main {
+      padding: var(--space-8);
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+    .panel-wrap {
+      width: min(100%, 1100px);
+      height: calc(100vh - 4rem);
+      position: relative;
+    }
+    .panel {
+      position: absolute; inset: 0;
+      background: color-mix(in srgb, var(--color-surface) 95%, transparent);
+      border: 1px solid var(--color-border);
+      border-radius: 28px;
+      padding: clamp(1.25rem, 2vw, 2rem);
+      overflow: auto;
+      box-shadow: var(--shadow);
+      display: none;
+    }
+    .panel.active { display: block; }
+    .hero {
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--space-8); align-items: center;
+      min-height: 100%;
+    }
+    .eyebrow { font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-primary); font-weight: 700; }
+    .hero h2, .section-title { font-family: var(--font-display); font-size: var(--text-2xl); line-height: 1.05; margin: var(--space-3) 0 var(--space-4); }
+    .hero-card, .card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: var(--space-5);
+    }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-5); }
+    .pill {
+      padding: 0.55rem 0.9rem; border-radius: 999px; background: var(--color-surface-2); border: 1px solid var(--color-border); font-size: var(--text-sm);
+    }
+    .video-wrap iframe, .video-wrap img { width: 100%; border: 0; border-radius: 18px; }
+    .video-wrap iframe { aspect-ratio: 16/9; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); }
+    .section-stack { display: grid; gap: var(--space-5); }
+    .ayah-box {
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      border: 1px solid var(--color-border); border-radius: 20px; padding: var(--space-5);
+    }
+    .ayah-num {
+      width: 36px; height: 36px; border-radius: 50%; background: var(--color-primary-2); color: var(--color-primary);
+      display: inline-flex; align-items: center; justify-content: center; font-weight: 800; margin-bottom: var(--space-3);
+    }
+    .arabic {
+      font-family: var(--font-display); font-size: clamp(1.7rem, 2.2vw, 2.2rem); line-height: 1.7; text-align: right; margin-bottom: var(--space-3);
+    }
+    .lesson-list, .mini-list { display: grid; gap: var(--space-3); }
+    .lesson-list li, .mini-list li {
+      list-style: none; padding: var(--space-4); border-radius: 16px; background: var(--color-surface-2); border: 1px solid var(--color-border);
+    }
+    .quiz-card { padding: var(--space-5); border-radius: var(--radius); border: 1px solid var(--color-border); background: var(--color-surface); }
+    .options { display: grid; gap: var(--space-3); margin-top: var(--space-4); }
+    .option {
+      width: 100%; text-align: left; padding: var(--space-4); border-radius: 14px; border: 1px solid var(--color-border); background: var(--color-surface-2); cursor: pointer;
+    }
+    .option.correct { border-color: var(--color-good); background: color-mix(in srgb, var(--color-good) 18%, var(--color-surface)); }
+    .option.wrong { border-color: var(--color-warn); background: color-mix(in srgb, var(--color-warn) 14%, var(--color-surface)); }
+    .feedback { margin-top: var(--space-3); font-weight: 600; }
+    .top-actions { display:flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-5); }
+    .action-btn {
+      padding: 0.85rem 1.15rem; border-radius: 999px; border: 1px solid var(--color-border); background: var(--color-surface); cursor: pointer;
+    }
+    .primary { background: var(--color-primary); color: white; border-color: var(--color-primary); }
+    .reference-note { font-size: var(--text-sm); color: var(--color-muted); }
+    .image-box img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 18px; border: 1px solid var(--color-border); }
+    .footer-note { margin-top: var(--space-6); color: var(--color-muted); font-size: var(--text-sm); }
+    .hidden { display: none; }
+    @media (max-width: 900px) {
+      body { overflow: auto; }
+      .app { grid-template-columns: 1fr; }
+      .sidebar { border-right: 0; border-bottom: 1px solid var(--color-border); }
+      .main { padding: var(--space-4); }
+      .panel-wrap { height: auto; min-height: 70vh; }
+      .panel { position: relative; min-height: 70vh; }
+      .hero, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div style="display:flex; gap:1rem; align-items:flex-start;">
+          <div class="brand-mark">📖</div>
+          <div>
+            <h1>Surah Al-Humazah</h1>
+            <p class="muted">Grade 7 lesson notes with simple tafsir, reflection, and quiz.</p>
+          </div>
+        </div>
+        <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">🌙</button>
+      </div>
+
+      <div class="nav-grid" role="tablist" aria-label="Lesson sections">
+        <button class="nav-btn active" data-target="intro"><span class="nav-emoji">🏠</span><span><strong>Intro</strong><br><small class="muted">Overview and video</small></span></button>
+        <button class="nav-btn" data-target="surah"><span class="nav-emoji">🕋</span><span><strong>Surah text</strong><br><small class="muted">Ayat and meanings</small></span></button>
+        <button class="nav-btn" data-target="tafsir"><span class="nav-emoji">💬</span><span><strong>Simple tafsir</strong><br><small class="muted">Student-friendly summary</small></span></button>
+        <button class="nav-btn" data-target="lessons"><span class="nav-emoji">✨</span><span><strong>Lessons</strong><br><small class="muted">What we learn</small></span></button>
+        <button class="nav-btn" data-target="quiz"><span class="nav-emoji">🧠</span><span><strong>Quiz</strong><br><small class="muted">Check understanding</small></span></button>
+        <button class="nav-btn" data-target="references"><span class="nav-emoji">📚</span><span><strong>References</strong><br><small class="muted">Major tafsir used</small></span></button>
+      </div>
+
+      <div class="tip-box">
+        <p class="eyebrow">Quick focus</p>
+        <p><strong>Main warning:</strong> Do not mock people, backbite, or become proud because of wealth.</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="panel-wrap">
+        <section class="panel active" id="intro">
+          <div class="hero">
+            <div class="section-stack">
+              <div>
+                <p class="eyebrow">Grade 7 Qur'an studies</p>
+                <h2>Learn how Allah warns against backbiting, mocking, and love of wealth ⚖️</h2>
+                <p class="muted">Surah Al-Humazah is a short Makki surah with 9 verses. It teaches us to protect our tongue, our manners, and our heart.</p>
+                <div class="hero-meta">
+                  <span class="pill">9 ayat</span>
+                  <span class="pill">Makki surah</span>
+                  <span class="pill">Character building</span>
+                </div>
+                <div class="top-actions">
+                  <button class="action-btn primary" data-jump="surah">Start lesson</button>
+                  <button class="action-btn" data-jump="quiz">Go to quiz</button>
+                </div>
+              </div>
+              <div class="card">
+                <h3 style="margin-bottom: .8rem;">Learning goals</h3>
+                <ul class="mini-list">
+                  <li>Understand the main meaning of Surah Al-Humazah.</li>
+                  <li>Identify bad behaviors mentioned in the surah.</li>
+                  <li>Explain what Al-Hutamah means in simple words.</li>
+                  <li>Apply the message in school, family, and online life.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="section-stack">
+              <div class="video-wrap hero-card">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/cPfcguMAlbk?si=zgHXBlLtWmpmH4FF" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="hero-card image-box">
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80" alt="Students whispering together, representing the harms of slander and backbiting" width="1200" height="900" loading="lazy">
+                <p class="footer-note">Think before you speak: words can hurt hearts even when no wound can be seen.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="surah">
+          <div class="section-stack">
+            <div>
+              <p class="eyebrow">Surah overview</p>
+              <h2 class="section-title">Ayat and simple meanings</h2>
+              <p class="muted">Read each verse, then focus on the key idea in easy English.</p>
+            </div>
+            <div class="grid-2">
+              <div class="ayah-box"><div class="ayah-num">1</div><div class="arabic">وَيْلٌ لِّكُلِّ هُمَزَةٍ لُّمَزَةٍ</div><p><strong>Meaning:</strong> Destruction and warning for every person who insults and mocks others.</p></div>
+              <div class="ayah-box"><div class="ayah-num">2</div><div class="arabic">ٱلَّذِى جَمَعَ مَالًا وَعَدَّدَهُۥ</div><p><strong>Meaning:</strong> The one who keeps collecting wealth and counting it again and again.</p></div>
+              <div class="ayah-box"><div class="ayah-num">3</div><div class="arabic">يَحْسَبُ أَنَّ مَالَهُۥٓ أَخْلَدَهُۥ</div><p><strong>Meaning:</strong> He thinks his wealth will make him live forever or protect him from loss.</p></div>
+              <div class="ayah-box"><div class="ayah-num">4</div><div class="arabic">كَلَّا ۖ لَيُنۢبَذَنَّ فِى ٱلْحُطَمَةِ</div><p><strong>Meaning:</strong> Never. He will be thrown into Al-Hutamah, the crushing fire.</p></div>
+              <div class="ayah-box"><div class="ayah-num">5-7</div><div class="arabic">وَمَآ أَدْرَىٰكَ مَا ٱلْحُطَمَةُ ۝ نَارُ ٱللَّهِ ٱلْمُوقَدَةُ ۝ ٱلَّتِى تَطَّلِعُ عَلَى ٱلْأَفْـِٔدَةِ</div><p><strong>Meaning:</strong> Al-Hutamah is Allah's blazing fire that reaches the hearts.</p></div>
+              <div class="ayah-box"><div class="ayah-num">8-9</div><div class="arabic">إِنَّهَا عَلَيْهِم مُّؤْصَدَةٌ ۝ فِى عَمَدٍ مُّمَدَّدَةٍۭ</div><p><strong>Meaning:</strong> The fire will be closed over them in stretched columns.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="tafsir">
+          <div class="section-stack">
+            <div>
+              <p class="eyebrow">Simple tafsir</p>
+              <h2 class="section-title">What the surah is teaching us</h2>
+            </div>
+            <div class="grid-2">
+              <div class="card">
+                <h3>1. Humazah and Lumazah</h3>
+                <p class="muted" style="margin-top:.7rem;">The surah begins with a strong warning against people who hurt others by mocking, insulting, or speaking badly about them. Scholars explain that this can happen through words, facial expressions, gestures, or actions.</p>
+              </div>
+              <div class="card">
+                <h3>2. Wealth can become a test</h3>
+                <p class="muted" style="margin-top:.7rem;">The problem is not having money. The problem is becoming obsessed with it, counting it proudly, and thinking it gives safety, status, or forever life.</p>
+              </div>
+              <div class="card">
+                <h3>3. Al-Hutamah</h3>
+                <p class="muted" style="margin-top:.7rem;">Al-Hutamah means the crushing or breaking fire. It shows a punishment that crushes pride and reaches the heart, because the sins started from a diseased heart.</p>
+              </div>
+              <div class="card">
+                <h3>4. Why the heart is mentioned</h3>
+                <p class="muted" style="margin-top:.7rem;">The surah mentions hearts to teach that sins like arrogance, cruelty, and mocking begin inside. A clean tongue needs a clean heart.</p>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Student summary</h3>
+              <p class="muted" style="margin-top:.8rem;">This surah teaches that bullying, gossip, backbiting, and showing off wealth are serious sins. A Muslim should speak kindly, respect others, and remember that only Allah gives true safety.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="lessons">
+          <div class="section-stack">
+            <div>
+              <p class="eyebrow">Life lessons</p>
+              <h2 class="section-title">How to apply it today</h2>
+            </div>
+            <div class="grid-3">
+              <div class="card"><h3>At school 🎒</h3><p class="muted" style="margin-top:.7rem;">Do not laugh at classmates, create hurtful nicknames, or spread rumors.</p></div>
+              <div class="card"><h3>Online 📱</h3><p class="muted" style="margin-top:.7rem;">Avoid nasty comments, screenshots for gossip, and posting to shame others.</p></div>
+              <div class="card"><h3>At home 🏡</h3><p class="muted" style="margin-top:.7rem;">Speak with adab, especially when angry, jealous, or upset.</p></div>
+            </div>
+            <div class="grid-2">
+              <div class="card">
+                <h3>Signs to avoid</h3>
+                <ul class="lesson-list" style="margin-top:1rem;">
+                  <li>Mocking someone's looks, accent, clothes, or mistakes.</li>
+                  <li>Talking about people behind their back.</li>
+                  <li>Feeling better than others because of money or status.</li>
+                  <li>Forgetting the Hereafter because of dunya.</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h3>Better habits</h3>
+                <ul class="lesson-list" style="margin-top:1rem;">
+                  <li>Use words that heal, not words that break.</li>
+                  <li>Make du'a for people instead of insulting them.</li>
+                  <li>Share wealth and blessings with gratitude.</li>
+                  <li>Remember that Allah sees what is in the heart.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="quiz">
+          <div class="section-stack">
+            <div>
+              <p class="eyebrow">Quick quiz</p>
+              <h2 class="section-title">Test your understanding</h2>
+              <p class="muted">Choose the best answer. Your score appears at the end.</p>
+            </div>
+            <div id="quiz-area" class="section-stack"></div>
+            <div class="card">
+              <h3>Your score</h3>
+              <p id="scoreText" class="muted" style="margin-top:.7rem;">Answer the questions to see your result.</p>
+              <div class="top-actions">
+                <button class="action-btn primary" id="checkScore">Check score</button>
+                <button class="action-btn" id="resetQuiz">Reset quiz</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="references">
+          <div class="section-stack">
+            <div>
+              <p class="eyebrow">References</p>
+              <h2 class="section-title">Major tafsir used for this lesson</h2>
+              <p class="muted">These notes simplify classical and modern commentary for Grade 7 students.</p>
+            </div>
+            <div class="grid-2">
+              <div class="card">
+                <h3>Tafsir Ibn Kathir</h3>
+                <p class="muted" style="margin-top:.7rem;">Used for the explanation that humazah and lumazah refer to insulting, belittling, and fault-finding through speech, actions, eyes, or gestures, and that Al-Hutamah is a crushing fire that reaches the hearts.</p>
+              </div>
+              <div class="card">
+                <h3>Maarif al-Qur'an</h3>
+                <p class="muted" style="margin-top:.7rem;">Used for the summary that the surah warns against three major wrongs: backbiting, deriding people, and selfish hoarding of wealth.</p>
+              </div>
+              <div class="card">
+                <h3>Classroom note</h3>
+                <p class="muted" style="margin-top:.7rem;">The wording here is intentionally made simple and age-appropriate so students can understand the message and apply it in daily life.</p>
+              </div>
+              <div class="card">
+                <h3>Teacher reminder</h3>
+                <p class="muted" style="margin-top:.7rem;">Use this page together with recitation practice, discussion, and examples from school life to make the lesson more meaningful.</p>
+              </div>
+            </div>
+            <p class="reference-note">External learning video included in the intro section. The image is illustrative for classroom reflection.</p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const panels = document.querySelectorAll('.panel');
+    const navButtons = document.querySelectorAll('.nav-btn');
+    function showPanel(id) {
+      panels.forEach(panel => panel.classList.toggle('active', panel.id === id));
+      navButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.target === id));
+    }
+    navButtons.forEach(btn => btn.addEventListener('click', () => showPanel(btn.dataset.target)));
+    document.querySelectorAll('[data-jump]').forEach(btn => btn.addEventListener('click', () => showPanel(btn.dataset.jump)));
+
+    const themeToggle = document.querySelector('[data-theme-toggle]');
+    let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+    themeToggle.addEventListener('click', () => {
+      theme = theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+      themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+    });
+
+    const quizData = [
+      {
+        question: 'What does Surah Al-Humazah strongly warn against?',
+        options: ['Mocking and backbiting others', 'Traveling often', 'Speaking different languages'],
+        answer: 0,
+        explain: 'Correct. The surah warns against insulting, mocking, and speaking badly about others.'
+      },
+      {
+        question: 'What is the problem with wealth in this surah?',
+        options: ['Having any money at all', 'Being obsessed with wealth and trusting it too much', 'Buying food for the family'],
+        answer: 1,
+        explain: 'Correct. The issue is pride, obsession, and false trust in wealth.'
+      },
+      {
+        question: 'What does Al-Hutamah refer to?',
+        options: ['A mountain', 'A garden', 'A crushing fire'],
+        answer: 2,
+        explain: 'Correct. Al-Hutamah is the crushing fire mentioned in the surah.'
+      },
+      {
+        question: 'Why does the surah mention the hearts?',
+        options: ['Because bad character begins inside the heart', 'Because the heart is the largest organ', 'Because people only sin with their hands'],
+        answer: 0,
+        explain: 'Correct. Pride, cruelty, and mockery begin in the heart.'
+      }
+    ];
+
+    const quizArea = document.getElementById('quiz-area');
+    const scoreText = document.getElementById('scoreText');
+
+    function renderQuiz() {
+      quizArea.innerHTML = '';
+      quizData.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = 'quiz-card';
+        card.innerHTML = `
+          <h3>Q${index + 1}. ${item.question}</h3>
+          <div class="options">
+            ${item.options.map((opt, i) => `<button class="option" data-q="${index}" data-i="${i}">${opt}</button>`).join('')}
+          </div>
+          <p class="feedback hidden" id="fb-${index}"></p>
+        `;
+        quizArea.appendChild(card);
+      });
+
+      document.querySelectorAll('.option').forEach(button => {
+        button.addEventListener('click', () => {
+          const q = Number(button.dataset.q);
+          const i = Number(button.dataset.i);
+          const buttons = document.querySelectorAll(`.option[data-q="${q}"]`);
+          buttons.forEach(btn => {
+            btn.disabled = true;
+            btn.classList.remove('correct', 'wrong');
+          });
+          const feedback = document.getElementById(`fb-${q}`);
+          if (i === quizData[q].answer) {
+            button.classList.add('correct');
+          } else {
+            button.classList.add('wrong');
+            buttons[quizData[q].answer].classList.add('correct');
+          }
+          button.closest('.quiz-card').dataset.answered = 'true';
+          button.closest('.quiz-card').dataset.correct = String(i === quizData[q].answer);
+          feedback.textContent = quizData[q].explain;
+          feedback.classList.remove('hidden');
+        });
+      });
+    }
+
+    document.getElementById('checkScore').addEventListener('click', () => {
+      const cards = [...document.querySelectorAll('.quiz-card')];
+      const answered = cards.filter(card => card.dataset.answered === 'true');
+      const correct = cards.filter(card => card.dataset.correct === 'true').length;
+      scoreText.textContent = `You answered ${correct} out of ${quizData.length} correctly. ${answered.length < quizData.length ? 'Finish all questions for your full result.' : correct === quizData.length ? 'Excellent work! 🌟' : 'Keep reviewing and try again!'} `;
+    });
+
+    document.getElementById('resetQuiz').addEventListener('click', () => {
+      scoreText.textContent = 'Answer the questions to see your result.';
+      renderQuiz();
+    });
+
+    renderQuiz();
+  </script>
+</body>
+</html>

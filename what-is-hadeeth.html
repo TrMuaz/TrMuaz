@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>What is Hadeeth? — Lesson Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Work+Sans:wght@400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root, [data-theme="light"] {
+  --bg:#f7f6f2; --surface:#fbfbf9; --surface-2:#f3f0ec; --border:#d4d1ca;
+  --text:#28251d; --muted:#7a7974; --faint:#bab9b4; --inverse:#f9f8f4;
+  --primary:#01696f; --primary-hover:#0c4e54; --accent-soft:#cedcd8;
+  --gold:#d19900; --success:#437a22;
+  --radius-sm:.375rem; --radius-md:.5rem; --radius-lg:.75rem; --radius-xl:1rem;
+  --s1:.25rem; --s2:.5rem; --s3:.75rem; --s4:1rem; --s5:1.25rem; --s6:1.5rem;
+  --s8:2rem; --s10:2.5rem; --s12:3rem; --s16:4rem;
+  --shadow-sm: 0 1px 2px rgba(40,37,29,.06);
+  --shadow-md: 0 6px 20px rgba(40,37,29,.08);
+  --font-display:'Fraunces', Georgia, serif;
+  --font-body:'Work Sans', system-ui, sans-serif;
+  --font-ar:'Amiri', serif;
+  --transition:200ms cubic-bezier(.16,1,.3,1);
+}
+[data-theme="dark"]{
+  --bg:#171614; --surface:#1c1b19; --surface-2:#22211f; --border:#393836;
+  --text:#e8e6e2; --muted:#a4a29e; --faint:#5a5957; --inverse:#2b2a28;
+  --primary:#4f98a3; --primary-hover:#6fb4bf; --accent-soft:#263538;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.3);
+  --shadow-md: 0 6px 20px rgba(0,0,0,.4);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.6;min-height:100dvh}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:none}
+img,svg{display:block;max-width:100%}
+
+/* Layout */
+.app{max-width:1100px;margin:0 auto;padding:var(--s6) var(--s5)}
+header.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--s8);gap:var(--s4);flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:var(--s3)}
+.brand-mark{width:36px;height:36px;border-radius:var(--radius-md);background:var(--primary);display:grid;place-items:center;color:var(--inverse);font-family:var(--font-display);font-weight:700}
+.brand h1{font-family:var(--font-display);font-size:1.1rem;font-weight:600;letter-spacing:-.01em}
+.brand p{font-size:.75rem;color:var(--muted)}
+.theme-toggle{width:40px;height:40px;border-radius:var(--radius-full);border:1px solid var(--border);display:grid;place-items:center;transition:var(--transition);background:var(--surface)}
+.theme-toggle:hover{border-color:var(--primary)}
+
+/* Home grid */
+.hero{margin-bottom:var(--s10)}
+.hero .eyebrow{color:var(--primary);font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;font-weight:600;margin-bottom:var(--s3)}
+.hero h2{font-family:var(--font-display);font-size:clamp(2rem,1.2rem + 3.5vw,3.5rem);font-weight:700;line-height:1.05;letter-spacing:-.02em;margin-bottom:var(--s4)}
+.hero p{color:var(--muted);max-width:60ch;font-size:1.05rem}
+
+.section-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:var(--s4)}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--s6);text-align:left;transition:var(--transition);display:flex;flex-direction:column;gap:var(--s3);min-height:160px;position:relative;overflow:hidden}
+.tile:hover{transform:translateY(-2px);border-color:var(--primary);box-shadow:var(--shadow-md)}
+.tile .num{font-family:var(--font-display);font-size:.8rem;color:var(--faint);font-weight:500}
+.tile .title{font-family:var(--font-display);font-size:1.15rem;font-weight:600;line-height:1.25}
+.tile .desc{font-size:.85rem;color:var(--muted);margin-top:auto}
+.tile .emoji{font-size:1.25rem;margin-bottom:var(--s1)}
+.tile.quiz{background:var(--primary);color:var(--inverse);border-color:var(--primary)}
+.tile.quiz .num,.tile.quiz .desc{color:rgba(249,248,244,.75)}
+
+/* Section view */
+.view{display:none;animation:fadeIn .35s ease}
+.view.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.back{display:inline-flex;align-items:center;gap:var(--s2);color:var(--muted);font-size:.9rem;margin-bottom:var(--s5);padding:var(--s2) var(--s3);border-radius:var(--radius-md);transition:var(--transition)}
+.back:hover{color:var(--primary);background:var(--surface)}
+
+.section-head{margin-bottom:var(--s8)}
+.section-head .eyebrow{color:var(--primary);font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;font-weight:600;margin-bottom:var(--s2)}
+.section-head h2{font-family:var(--font-display);font-size:clamp(1.75rem,1.2rem + 2vw,2.75rem);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--s6);margin-bottom:var(--s5)}
+.card h3{font-family:var(--font-display);font-size:1.25rem;margin-bottom:var(--s3);font-weight:600}
+.card p{color:var(--text);margin-bottom:var(--s3)}
+.card p:last-child{margin-bottom:0}
+.callout{background:var(--accent-soft);border-radius:var(--radius-md);padding:var(--s4) var(--s5);color:var(--text);font-size:.95rem}
+.callout strong{color:var(--primary)}
+
+.arabic{font-family:var(--font-ar);font-size:1.6rem;direction:rtl;text-align:right;line-height:2;color:var(--text);padding:var(--s3) 0}
+
+/* Purpose list */
+.purpose-list{list-style:none;display:grid;gap:var(--s3)}
+.purpose-list li{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--s4) var(--s5);display:flex;gap:var(--s3);align-items:flex-start}
+.purpose-list .dot{color:var(--primary);font-weight:700;font-family:var(--font-display)}
+
+/* Sanad & Matan diagram */
+.diagram{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--s6);margin-bottom:var(--s5)}
+.chain{display:flex;flex-direction:column;gap:var(--s2);align-items:stretch}
+.chain-link{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--s3) var(--s4);display:flex;align-items:center;gap:var(--s3);position:relative}
+.chain-link.sanad{border-left:3px solid var(--primary)}
+.chain-link.matan{border-left:3px solid var(--gold);background:color-mix(in oklch, var(--gold) 8%, var(--surface))}
+.chain-link .tag{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;min-width:64px}
+.chain-link .text{font-size:.95rem}
+.arrow{text-align:center;color:var(--faint);font-size:1.1rem}
+.legend{display:flex;gap:var(--s5);margin-top:var(--s5);flex-wrap:wrap;font-size:.85rem}
+.legend span{display:flex;align-items:center;gap:var(--s2)}
+.swatch{width:14px;height:14px;border-radius:3px}
+
+/* Types */
+.types{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--s4)}
+.type-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--s5);display:flex;flex-direction:column;gap:var(--s3)}
+.type-card h4{font-family:var(--font-display);font-size:1.15rem}
+.type-card .type-label{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--primary);font-weight:600}
+.type-card .example{background:var(--surface-2);border-radius:var(--radius-md);padding:var(--s3) var(--s4);font-size:.9rem;color:var(--text);border-left:3px solid var(--primary)}
+.type-card .example em{color:var(--muted);font-style:normal;font-size:.8rem;display:block;margin-top:var(--s1)}
+
+/* Books */
+.books{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--s3)}
+.book{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--s4);transition:var(--transition)}
+.book:hover{border-color:var(--primary)}
+.book h4{font-family:var(--font-display);font-size:1rem;margin-bottom:var(--s1)}
+.book .author{font-size:.8rem;color:var(--muted);margin-bottom:var(--s2)}
+.book .note{font-size:.8rem;color:var(--text)}
+
+/* Levels */
+.levels{display:grid;gap:var(--s3)}
+.level{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--s4) var(--s5);display:grid;grid-template-columns:auto 1fr;gap:var(--s4);align-items:center}
+.level-badge{width:48px;height:48px;border-radius:var(--radius-full);display:grid;place-items:center;font-family:var(--font-display);font-weight:700;color:var(--inverse)}
+.b1{background:#2d8a4f}.b2{background:#4fa370}.b3{background:#d19900}.b4{background:#a13544}
+.level h4{font-family:var(--font-display);font-size:1.05rem;margin-bottom:var(--s1)}
+.level p{font-size:.85rem;color:var(--muted)}
+
+/* Quiz */
+.quiz-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--s6)}
+.q-progress{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--s5);font-size:.8rem;color:var(--muted)}
+.q-bar{height:4px;background:var(--surface-2);border-radius:99px;overflow:hidden;margin-bottom:var(--s5)}
+.q-bar-fill{height:100%;background:var(--primary);transition:width .4s ease;width:0%}
+.q-question{font-family:var(--font-display);font-size:1.35rem;font-weight:600;margin-bottom:var(--s5);line-height:1.3}
+.q-options{display:grid;gap:var(--s3)}
+.q-option{background:var(--surface-2);border:1.5px solid var(--border);border-radius:var(--radius-md);padding:var(--s4) var(--s5);text-align:left;font-size:.95rem;transition:var(--transition)}
+.q-option:hover:not(:disabled){border-color:var(--primary)}
+.q-option.correct{background:color-mix(in oklch, var(--success) 15%, var(--surface));border-color:var(--success);color:var(--text)}
+.q-option.wrong{background:color-mix(in oklch, #a13544 15%, var(--surface));border-color:#a13544}
+.q-option:disabled{cursor:default}
+.q-feedback{margin-top:var(--s4);padding:var(--s3) var(--s4);border-radius:var(--radius-md);font-size:.9rem;display:none}
+.q-feedback.show{display:block}
+.q-feedback.good{background:color-mix(in oklch, var(--success) 12%, var(--surface));color:var(--text)}
+.q-feedback.bad{background:color-mix(in oklch, #a13544 10%, var(--surface));color:var(--text)}
+.q-next{margin-top:var(--s5);background:var(--primary);color:var(--inverse);padding:var(--s3) var(--s6);border-radius:var(--radius-md);font-weight:500;transition:var(--transition);display:none}
+.q-next.show{display:inline-block}
+.q-next:hover{background:var(--primary-hover)}
+.q-result{text-align:center;padding:var(--s8) var(--s4)}
+.q-result .score{font-family:var(--font-display);font-size:4rem;font-weight:700;color:var(--primary);line-height:1}
+.q-result h3{font-family:var(--font-display);font-size:1.5rem;margin:var(--s4) 0 var(--s2)}
+.q-result p{color:var(--muted);margin-bottom:var(--s5)}
+.q-retry{background:var(--primary);color:var(--inverse);padding:var(--s3) var(--s6);border-radius:var(--radius-md)}
+
+footer{text-align:center;color:var(--faint);font-size:.8rem;padding:var(--s10) 0 var(--s5)}
+
+@media (max-width:600px){
+  .app{padding:var(--s4)}
+  .level{grid-template-columns:1fr;text-align:left}
+}
+</style>
+</head>
+<body data-theme="light">
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">ح</div>
+      <div>
+        <h1>What is Hadeeth?</h1>
+        <p>Lesson Notes · Grade 7–9</p>
+      </div>
+    </div>
+    <button class="theme-toggle" id="themeBtn" aria-label="Toggle theme">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+    </button>
+  </header>
+
+  <!-- HOME -->
+  <section class="view active" id="home">
+    <div class="hero">
+      <div class="eyebrow">Islamic Studies</div>
+      <h2>The Sayings, Actions &amp; Wisdom of Prophet Muhammad ﷺ</h2>
+      <p>We have learned about the Quran, how it was revealed, and the life (seerah) of Prophet Muhammad ﷺ. But what about his <strong>sayings</strong>, <strong>wisdom</strong>, and <strong>teachings</strong>? Today we learn about <em>Hadeeth</em>. Click a card to begin.</p>
+    </div>
+
+    <div class="section-grid">
+      <button class="tile" data-go="s1">
+        <div class="emoji">📖</div>
+        <div class="num">01</div>
+        <div class="title">Definition of Hadeeth</div>
+        <div class="desc">What does "hadeeth" mean?</div>
+      </button>
+      <button class="tile" data-go="s2">
+        <div class="emoji">🎯</div>
+        <div class="num">02</div>
+        <div class="title">Purpose of Hadeeth</div>
+        <div class="desc">Why is it important in Islam?</div>
+      </button>
+      <button class="tile" data-go="s3">
+        <div class="emoji">🔗</div>
+        <div class="num">03</div>
+        <div class="title">Sanad &amp; Matan</div>
+        <div class="desc">The two parts of a hadeeth.</div>
+      </button>
+      <button class="tile" data-go="s4">
+        <div class="emoji">🗣️</div>
+        <div class="num">04</div>
+        <div class="title">Types of Hadeeth</div>
+        <div class="desc">Saying, action, and approval.</div>
+      </button>
+      <button class="tile" data-go="s5">
+        <div class="emoji">📚</div>
+        <div class="num">05</div>
+        <div class="title">Books of Hadeeth</div>
+        <div class="desc">Famous collections.</div>
+      </button>
+      <button class="tile" data-go="s6">
+        <div class="emoji">⭐</div>
+        <div class="num">06</div>
+        <div class="title">Levels of Hadeeth</div>
+        <div class="desc">Based on the sanad (chain).</div>
+      </button>
+      <button class="tile quiz" data-go="quiz">
+        <div class="emoji">✏️</div>
+        <div class="num">07</div>
+        <div class="title">Quiz Time</div>
+        <div class="desc">Test what you learned.</div>
+      </button>
+    </div>
+  </section>
+
+  <!-- S1 Definition -->
+  <section class="view" id="s1">
+    <button class="back" data-back>← Back to Lessons</button>
+    <div class="section-head"><div class="eyebrow">Section 01</div><h2>Definition of Hadeeth</h2></div>
+    <div class="card">
+      <h3>What is Hadeeth? 📖</h3>
+      <p><strong>Hadeeth</strong> (حديث) means "a report" or "a story". In Islam, hadeeth is anything that <strong>Prophet Muhammad ﷺ</strong> said, did, or approved.</p>
+      <div class="arabic">الحديث</div>
+      <p>It is a record of the Prophet's ﷺ words and actions, taught by his companions (sahabah) and passed down carefully to us today.</p>
+    </div>
+    <div class="card">
+      <h3>Easy Meaning ✨</h3>
+      <div class="callout"><strong>Quran</strong> = the Words of Allah. <strong>Hadeeth</strong> = the words and actions of Prophet Muhammad ﷺ.</div>
+    </div>
+  </section>
+
+  <!-- S2 Purpose -->
+  <section class="view" id="s2">
+    <button class="back" data-back>← Back to Lessons</button>
+    <div class="section-head"><div class="eyebrow">Section 02</div><h2>The Purpose of Hadeeth in Islam</h2></div>
+    <div class="card">
+      <h3>Why do we need Hadeeth? 🎯</h3>
+      <p>The Quran is our main guide. But sometimes the Quran gives a rule in short words. Hadeeth <strong>explains</strong> and <strong>shows</strong> us how to follow it.</p>
+    </div>
+    <ul class="purpose-list">
+      <li><span class="dot">1.</span><span>To <strong>explain the Quran</strong>. Example: Quran says "pray", hadeeth shows us <em>how</em> to pray.</span></li>
+      <li><span class="dot">2.</span><span>To <strong>teach Islamic rules</strong> not mentioned in detail in the Quran.</span></li>
+      <li><span class="dot">3.</span><span>To give us a <strong>good example</strong> from the Prophet's ﷺ life.</span></li>
+      <li><span class="dot">4.</span><span>To teach us <strong>good manners</strong> (akhlaq), worship, and how to treat others.</span></li>
+      <li><span class="dot">5.</span><span>To <strong>protect the religion</strong> from mistakes and wrong ideas.</span></li>
+    </ul>
+  </section>
+
+  <!-- S3 Sanad & Matan -->
+  <section class="view" id="s3">
+    <button class="back" data-back>← Back to Lessons</button>
+    <div class="section-head"><div class="eyebrow">Section 03</div><h2>The Parts: Sanad &amp; Matan</h2></div>
+    <div class="card">
+      <h3>Every hadeeth has two parts 🔗</h3>
+      <p><strong>Sanad</strong> = the chain of people who told the hadeeth (like a list of narrators).</p>
+      <p><strong>Matan</strong> = the text or the actual words of the hadeeth.</p>
+    </div>
+    <div class="diagram">
+      <h3 style="font-family:var(--font-display);margin-bottom:var(--s4);font-size:1.1rem">📊 Example: "Actions are by intentions"</h3>
+      <div class="chain">
+        <div class="chain-link sanad"><span class="tag">Sanad</span><span class="text">Imam Bukhari heard from →</span></div>
+        <div class="arrow">↓</div>
+        <div class="chain-link sanad"><span class="tag">Sanad</span><span class="text">Al-Humaydi heard from →</span></div>
+        <div class="arrow">↓</div>
+        <div class="chain-link sanad"><span class="tag">Sanad</span><span class="text">Sufyan heard from →</span></div>
+        <div class="arrow">↓</div>
+        <div class="chain-link sanad"><span class="tag">Sanad</span><span class="text">Yahya → Muhammad → Alqamah →</span></div>
+        <div class="arrow">↓</div>
+        <div class="chain-link sanad"><span class="tag">Sanad</span><span class="text">Umar ibn al-Khattab (RA) heard from →</span></div>
+        <div class="arrow">↓</div>
+        <div class="chain-link sanad"><span class="tag">Sanad</span><span class="text">The Prophet Muhammad ﷺ said:</span></div>
+        <div class="arrow">↓</div>
+        <div class="chain-link matan"><span class="tag">Matan</span><span class="text">"Actions are only by intentions, and every person will get what they intended."</span></div>
+      </div>
+      <div class="legend">
+        <span><span class="swatch" style="background:var(--primary)"></span>Sanad (chain of narrators)</span>
+        <span><span class="swatch" style="background:var(--gold)"></span>Matan (the actual text)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- S4 Types -->
+  <section class="view" id="s4">
+    <button class="back" data-back>← Back to Lessons</button>
+    <div class="section-head"><div class="eyebrow">Section 04</div><h2>Types of Hadeeth</h2></div>
+    <div class="card">
+      <p>Hadeeth has <strong>three main types</strong>, based on what came from the Prophet ﷺ: his <strong>sayings</strong>, his <strong>actions</strong>, and his <strong>approvals</strong>.</p>
+    </div>
+    <div class="types">
+      <div class="type-card">
+        <div class="type-label">Type 1 · Qawli</div>
+        <h4>🗣️ Saying (Qawli)</h4>
+        <p>Words that the Prophet ﷺ <strong>said</strong> with his mouth.</p>
+        <div class="example">"The best of you is the one who learns the Quran and teaches it."<em>— Sahih Bukhari</em></div>
+      </div>
+      <div class="type-card">
+        <div class="type-label">Type 2 · Fi'li</div>
+        <h4>🤲 Action (Fi'li)</h4>
+        <p>Things the Prophet ﷺ <strong>did</strong>, and the companions saw and reported.</p>
+        <div class="example">The way the Prophet ﷺ prayed (standing, ruku, sujood) — the companions watched and then taught us.<em>— Reported by many sahabah</em></div>
+      </div>
+      <div class="type-card">
+        <div class="type-label">Type 3 · Taqriri</div>
+        <h4>✅ Approval (Taqriri)</h4>
+        <p>Things the Prophet ﷺ <strong>saw or heard</strong> a companion do, and he did not stop it. His silence = approval.</p>
+        <div class="example">The companions ate dhabb (a type of lizard) in front of the Prophet ﷺ. He did not eat it, but he did not stop them either — so it is allowed.<em>— Sahih Bukhari</em></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S5 Books -->
+  <section class="view" id="s5">
+    <button class="back" data-back>← Back to Lessons</button>
+    <div class="section-head"><div class="eyebrow">Section 05</div><h2>Famous Books of Hadeeth</h2></div>
+    <div class="card">
+      <p>After the Prophet ﷺ passed away, great scholars travelled and collected hadeeth. They wrote them in books so we can read them today.</p>
+      <div class="callout">The six most trusted books are called <strong>Kutub al-Sittah</strong> (The Six Books) 📚.</div>
+    </div>
+    <div class="books">
+      <div class="book"><h4>Sahih al-Bukhari</h4><div class="author">Imam al-Bukhari</div><div class="note">The most authentic book of hadeeth.</div></div>
+      <div class="book"><h4>Sahih Muslim</h4><div class="author">Imam Muslim</div><div class="note">Second most authentic book.</div></div>
+      <div class="book"><h4>Sunan Abu Dawud</h4><div class="author">Imam Abu Dawud</div><div class="note">Focus on rules (fiqh).</div></div>
+      <div class="book"><h4>Jami' at-Tirmidhi</h4><div class="author">Imam at-Tirmidhi</div><div class="note">Grades each hadeeth's strength.</div></div>
+      <div class="book"><h4>Sunan an-Nasa'i</h4><div class="author">Imam an-Nasa'i</div><div class="note">Carefully chosen hadeeth.</div></div>
+      <div class="book"><h4>Sunan ibn Majah</h4><div class="author">Imam Ibn Majah</div><div class="note">Completes the Six Books.</div></div>
+    </div>
+  </section>
+
+  <!-- S6 Levels -->
+  <section class="view" id="s6">
+    <button class="back" data-back>← Back to Lessons</button>
+    <div class="section-head"><div class="eyebrow">Section 06</div><h2>Levels of Hadeeth (by Sanad)</h2></div>
+    <div class="card">
+      <p>Not every hadeeth is the same strength. Scholars check the <strong>sanad</strong> (chain of narrators) to decide the level. If the people in the chain are truthful and have strong memory, the hadeeth is strong.</p>
+    </div>
+    <div class="levels">
+      <div class="level">
+        <div class="level-badge b1">1</div>
+        <div><h4>⭐ Sahih — Authentic</h4><p>The chain is strong and all narrators are trustworthy. We must accept it.</p></div>
+      </div>
+      <div class="level">
+        <div class="level-badge b2">2</div>
+        <div><h4>✅ Hasan — Good</h4><p>The chain is good but a little weaker than sahih. Still accepted.</p></div>
+      </div>
+      <div class="level">
+        <div class="level-badge b3">3</div>
+        <div><h4>⚠️ Da'if — Weak</h4><p>There is a problem in the chain. Scholars are careful when using it.</p></div>
+      </div>
+      <div class="level">
+        <div class="level-badge b4">4</div>
+        <div><h4>❌ Mawdu' — Fabricated</h4><p>Made up. Not really from the Prophet ﷺ. We must not use it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="view" id="quiz">
+    <button class="back" data-back>← Back to Lessons</button>
+    <div class="section-head"><div class="eyebrow">Section 07</div><h2>Quiz Time ✏️</h2></div>
+    <div class="quiz-box" id="quizBox"></div>
+  </section>
+
+  <footer>Lesson notes · Prepared for IISM · Grade 7–9 Islamic Studies</footer>
+</div>
+
+<script>
+// Navigation
+const views = document.querySelectorAll('.view');
+const show = id => {
+  views.forEach(v => v.classList.toggle('active', v.id === id));
+  window.scrollTo({top:0, behavior:'smooth'});
+  if(id === 'quiz') startQuiz();
+};
+document.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => show(b.dataset.go)));
+document.querySelectorAll('[data-back]').forEach(b => b.addEventListener('click', () => show('home')));
+
+// Theme
+const root = document.documentElement;
+const sysDark = matchMedia('(prefers-color-scheme: dark)').matches;
+let theme = sysDark ? 'dark' : 'light';
+document.body.setAttribute('data-theme', theme);
+document.getElementById('themeBtn').addEventListener('click', () => {
+  theme = theme === 'dark' ? 'light' : 'dark';
+  document.body.setAttribute('data-theme', theme);
+});
+
+// Quiz
+const questions = [
+  {q:"What does the word 'hadeeth' mean in Islam?", opts:["The words of Allah","The sayings, actions, and approvals of Prophet Muhammad ﷺ","A book of stories","The history of the sahabah"], a:1, fb:"Hadeeth = what the Prophet ﷺ said, did, or approved."},
+  {q:"What is the MAIN purpose of hadeeth?", opts:["To replace the Quran","To explain the Quran and teach us how to follow Islam","To tell funny stories","Only for scholars"], a:1, fb:"Hadeeth explains the Quran and shows us how to practice Islam."},
+  {q:"A hadeeth has two parts. What are they?", opts:["Sanad and Matan","Quran and Sunnah","Arabic and English","Fard and Sunnah"], a:0, fb:"Sanad = chain of narrators. Matan = the actual text."},
+  {q:"The companions watched how the Prophet ﷺ prayed and taught others. What TYPE of hadeeth is this?", opts:["Qawli (saying)","Fi'li (action)","Taqriri (approval)","Mawdu' (fabricated)"], a:1, fb:"Fi'li = action. We learn by watching what he did."},
+  {q:"Which book is known as the MOST authentic book of hadeeth?", opts:["Sunan Abu Dawud","Sahih Muslim","Sahih al-Bukhari","Sunan Ibn Majah"], a:2, fb:"Sahih al-Bukhari is the most authentic collection."},
+  {q:"A hadeeth with a strong chain and trustworthy narrators is called:", opts:["Da'if","Mawdu'","Hasan","Sahih"], a:3, fb:"Sahih = authentic. The strongest level."},
+  {q:"A hadeeth that is made up and NOT really from the Prophet ﷺ is called:", opts:["Hasan","Mawdu' (fabricated)","Sahih","Sanad"], a:1, fb:"Mawdu' means fabricated. We must not use it."}
+];
+let qi = 0, score = 0;
+function startQuiz(){ qi = 0; score = 0; renderQ(); }
+function renderQ(){
+  const box = document.getElementById('quizBox');
+  if(qi >= questions.length){
+    const pct = Math.round(score/questions.length*100);
+    const msg = pct === 100 ? "Excellent! 🌟" : pct >= 70 ? "Great job! 👍" : pct >= 50 ? "Good try — review and retry." : "Keep learning, you can do it!";
+    box.innerHTML = `<div class="q-result"><div class="score">${score}/${questions.length}</div><h3>${msg}</h3><p>You scored ${pct}%.</p><button class="q-retry" id="retry">Try Again</button></div>`;
+    document.getElementById('retry').addEventListener('click', startQuiz);
+    return;
+  }
+  const q = questions[qi];
+  const pct = (qi/questions.length)*100;
+  box.innerHTML = `
+    <div class="q-progress"><span>Question ${qi+1} of ${questions.length}</span><span>Score: ${score}</span></div>
+    <div class="q-bar"><div class="q-bar-fill" style="width:${pct}%"></div></div>
+    <div class="q-question">${q.q}</div>
+    <div class="q-options">${q.opts.map((o,i)=>`<button class="q-option" data-i="${i}">${o}</button>`).join('')}</div>
+    <div class="q-feedback" id="fb"></div>
+    <button class="q-next" id="next">Next →</button>`;
+  box.querySelectorAll('.q-option').forEach(btn => btn.addEventListener('click', () => {
+    const i = +btn.dataset.i;
+    box.querySelectorAll('.q-option').forEach(b => b.disabled = true);
+    const fb = document.getElementById('fb');
+    if(i === q.a){
+      btn.classList.add('correct'); score++;
+      fb.className = 'q-feedback good show';
+      fb.textContent = "✓ Correct! " + q.fb;
+    } else {
+      btn.classList.add('wrong');
+      box.querySelectorAll('.q-option')[q.a].classList.add('correct');
+      fb.className = 'q-feedback bad show';
+      fb.textContent = "✗ Not quite. " + q.fb;
+    }
+    document.getElementById('next').classList.add('show');
+  }));
+  document.getElementById('next').addEventListener('click', () => { qi++; renderQ(); });
+}
+</script>
+</body>
+</html>
