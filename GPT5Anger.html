@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Anger in Islam</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:        #faf8f4;
+      --surface:   #ffffff;
+      --surface2:  #f5f2ec;
+      --text:      #1e1b18;
+      --muted:     #7a7369;
+      --accent:    #5c6b3a;
+      --accent2:   #8f7b50;
+      --accent-soft: #e8edda;
+      --accent-soft2: #f3ede0;
+      --border:    #e6e1d8;
+      --border2:   #d6cfbf;
+      --red-soft:  #fdecea;
+      --red:       #c0392b;
+      --green-soft:#e8edda;
+      --arabic:    "Scheherazade New", "Amiri", serif;
+      --sans:      "DM Sans", system-ui, sans-serif;
+      --serif:     "DM Serif Display", Georgia, serif;
+      --radius:    14px;
+      --radius-sm: 8px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    /* ─── Layout ─── */
+    .layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      grid-template-rows: auto 1fr;
+      min-height: 100vh;
+    }
+
+    /* ─── Hero header (full width) ─── */
+    .hero {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #3d4a22 0%, #5c6b3a 55%, #8f7b50 100%);
+      color: #fff;
+      padding: 3rem 2.5rem 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      padding: 0.25rem 0.85rem;
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      opacity: 0.8;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ─── Sidebar nav ─── */
+    .sidebar {
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 1.5rem 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .sidebar-title {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      padding: 0 1.2rem 0.6rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.55rem 1.2rem;
+      font-size: 0.86rem;
+      color: var(--muted);
+      cursor: pointer;
+      border-left: 3px solid transparent;
+      transition: all 0.15s ease;
+      text-decoration: none;
+    }
+
+    .nav-link .nav-icon { font-size: 1rem; width: 22px; text-align: center; }
+
+    .nav-link:hover {
+      background: var(--surface2);
+      color: var(--text);
+    }
+
+    .nav-link.active {
+      color: var(--accent);
+      border-left-color: var(--accent);
+      background: var(--accent-soft);
+      font-weight: 500;
+    }
+
+    /* ─── Main content ─── */
+    .main {
+      padding: 2rem 2.2rem 3rem;
+      max-width: 760px;
+    }
+
+    /* ─── Section card ─── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.6rem 1.7rem 1.4rem;
+      margin-bottom: 1.4rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 6px 20px rgba(0,0,0,0.03);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .card-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .card-meta { flex: 1; }
+
+    .card-number {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 0.1rem;
+    }
+
+    .card-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--accent);
+      line-height: 1.25;
+    }
+
+    .card-subtitle {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 0.1rem;
+    }
+
+    /* ─── Typography ─── */
+    p { margin-bottom: 0.7rem; font-size: 0.97rem; }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 0.9rem 0 0.4rem;
+    }
+
+    ul { list-style: none; margin: 0.2rem 0 0.4rem; }
+
+    li {
+      padding-left: 1.1rem;
+      position: relative;
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    li::before {
+      content: "›";
+      position: absolute;
+      left: 0;
+      color: var(--accent2);
+      font-weight: 700;
+    }
+
+    /* ─── Highlight box ─── */
+    .highlight {
+      background: var(--accent-soft2);
+      border-left: 3px solid var(--accent2);
+      border-radius: var(--radius-sm);
+      padding: 0.6rem 0.8rem;
+      margin: 0.5rem 0 0.7rem;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    /* ─── Ayah / Hadith ─── */
+    .ayah, .hadith {
+      background: var(--surface2);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.1rem;
+      margin: 0.8rem 0;
+    }
+
+    .hadith { border-left: 3px solid var(--accent); }
+    .ayah   { border-left: 3px solid var(--accent2); }
+
+    .ref-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .arabic {
+      font-family: var(--arabic);
+      font-size: 1.2rem;
+      direction: rtl;
+      text-align: right;
+      line-height: 2;
+      margin: 0.3rem 0;
+      color: var(--text);
+    }
+
+    .trans {
+      font-size: 0.88rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: 0.5rem;
+      padding-top: 0.5rem;
+      font-style: italic;
+    }
+
+    /* ─── Tags / pills ─── */
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+    }
+
+    .tag {
+      background: var(--surface2);
+      border: 1px solid var(--border2);
+      border-radius: 999px;
+      padding: 0.2rem 0.65rem;
+      font-size: 0.77rem;
+      color: var(--muted);
+    }
+
+    .tag.green { background: var(--green-soft); color: var(--accent); border-color: #c4d49f; }
+    .tag.warm  { background: var(--accent-soft2); color: var(--accent2); border-color: #d6c09f; }
+
+    /* ─── Two column ─── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 0.6rem;
+    }
+
+    .col-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.8rem 0.9rem;
+    }
+
+    .col-box h3 { margin-top: 0; font-size: 0.9rem; color: var(--accent); }
+
+    /* ─── Divider ─── */
+    .sep {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border2), transparent);
+      margin: 0.8rem 0;
+    }
+
+    /* ─── Badge ─── */
+    .badge {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 999px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 0.1rem 0.55rem;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+
+    /* ─── Quiz ─── */
+    .quiz-q {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.8rem 1rem;
+      margin-bottom: 0.7rem;
+      font-size: 0.95rem;
+    }
+
+    .quiz-q .qnum {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent2);
+      margin-bottom: 0.25rem;
+    }
+
+    .quiz-sub {
+      margin: 0.25rem 0 0 1rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .quiz-sub::before { content: "→ "; color: var(--accent); }
+
+    /* ─── Reflection ─── */
+    .reflect-item {
+      display: flex;
+      gap: 0.7rem;
+      align-items: flex-start;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+
+    .reflect-item:last-child { border-bottom: none; }
+    .reflect-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+
+    /* ─── Back to top ─── */
+    .back-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--surface2);
+      border: 1px solid var(--border2);
+      border-radius: 999px;
+      padding: 0.3rem 0.85rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      cursor: pointer;
+      margin-top: 0.4rem;
+      transition: all 0.15s;
+    }
+
+    .back-top:hover { background: var(--accent-soft); color: var(--accent); }
+
+    /* ─── Footer ─── */
+    footer {
+      grid-column: 2;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding: 1rem 2.2rem 2rem;
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 760px) {
+      .layout { grid-template-columns: 1fr; }
+
+      .sidebar {
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 0.8rem 0;
+      }
+
+      .sidebar-title { display: none; }
+
+      .nav-link {
+        display: inline-flex;
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        border-radius: 999px;
+        padding: 0.3rem 0.7rem;
+        font-size: 0.8rem;
+      }
+
+      .nav-link.active {
+        border-left: none;
+        border-bottom-color: var(--accent);
+        background: var(--accent-soft);
+      }
+
+      .sidebar nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+        padding: 0 0.8rem;
+      }
+
+      .hero { grid-column: 1; }
+      .main { padding: 1.4rem 1rem 2.5rem; }
+      .two-col { grid-template-columns: 1fr; }
+      footer { grid-column: 1; }
+      .hero h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-tag">🌿 Tazkiyah • Character • Self‑Control</div>
+    <h1>Anger in Islam 😠 ➡️ 🕊️</h1>
+    <p>Definition, wisdom, management tools, and guidance from the Qur'an and Sunnah.</p>
+  </header>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-title">Contents</div>
+    <nav>
+      <a class="nav-link active" href="#sec1"><span class="nav-icon">🔍</span> What is Anger?</a>
+      <a class="nav-link" href="#sec2"><span class="nav-icon">🌟</span> Why Allah Created It</a>
+      <a class="nav-link" href="#sec3"><span class="nav-icon">📖</span> Qur'anic Guidance</a>
+      <a class="nav-link" href="#sec4"><span class="nav-icon">🕌</span> The Sunnah</a>
+      <a class="nav-link" href="#sec5"><span class="nav-icon">🛠️</span> Practical Tools</a>
+      <a class="nav-link" href="#sec6"><span class="nav-icon">⚖️</span> Types of Anger</a>
+      <a class="nav-link" href="#sec7"><span class="nav-icon">✏️</span> Quiz</a>
+      <a class="nav-link" href="#sec8"><span class="nav-icon">💭</span> Reflection</a>
+    </nav>
+  </aside>
+
+  <!-- Main content -->
+  <main class="main">
+
+    <!-- 1. What is anger? -->
+    <div class="card" id="sec1">
+      <div class="card-header">
+        <div class="card-icon">🔍</div>
+        <div class="card-meta">
+          <div class="card-number">Section 01</div>
+          <div class="card-title">What Is Anger?</div>
+          <div class="card-subtitle">Definition & signs</div>
+        </div>
+      </div>
+
+      <p>Anger (<strong>الغَضَب</strong>) is a natural human emotion that appears when a person feels hurt, threatened, frustrated, or treated unjustly. It is not sinful by itself, but it becomes blameworthy when it is not controlled and leads to wrong actions.</p>
+
+      <div class="highlight">
+        Islam does not ask us to erase anger, but to discipline it and direct it in a way that pleases Allah.
+      </div>
+
+      <div class="two-col">
+        <div class="col-box">
+          <h3>😤 Normal signs of anger</h3>
+          <ul>
+            <li>Fast heartbeat and tense muscles.</li>
+            <li>Feeling hot in the face, neck, or chest.</li>
+            <li>Thoughts of "this is unfair".</li>
+            <li>Urge to speak harshly or break things.</li>
+          </ul>
+        </div>
+        <div class="col-box">
+          <h3>⚠️ When it becomes harmful</h3>
+          <ul>
+            <li>Insulting, shouting, or cursing others.</li>
+            <li>Physical aggression or breaking objects.</li>
+            <li>Holding grudges, cutting off ties.</li>
+            <li>Letting anger push you toward sin.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tag-row">
+        <span class="tag">Emotion is neutral</span>
+        <span class="tag green">Response is accountable</span>
+        <span class="tag warm">Self‑control is strength 💪</span>
+      </div>
+    </div>
+
+    <!-- 2. Why did Allah create anger? -->
+    <div class="card" id="sec2">
+      <div class="card-header">
+        <div class="card-icon">🌟</div>
+        <div class="card-meta">
+          <div class="card-number">Section 02</div>
+          <div class="card-title">Why Did Allah Create Anger?</div>
+          <div class="card-subtitle">Divine wisdom & purpose</div>
+        </div>
+      </div>
+
+      <p>Anger, like all emotions, is created by Allah as a test and a tool: it can drive us to protect truth and justice, or, if left unchecked, pull us into sin and injustice.</p>
+      <p>When anger is for Allah's sake — at clear oppression or violation of His limits — it can motivate us to restore what is right and defend the weak within the boundaries of Sharī'ah.</p>
+
+      <div class="sep"></div>
+
+      <h3>⚖️ Anger as a driver for justice</h3>
+      <ul>
+        <li>Feeling anger at oppression pushes believers to stand up for the oppressed.</li>
+        <li>Without any anger, people might accept humiliation and wrongdoing without resistance.</li>
+        <li>Guided by īmān, anger becomes energy for change, not a weapon of ego.</li>
+      </ul>
+
+      <h3>🧭 Anger as a test of character</h3>
+      <ul>
+        <li>Our reactions in anger reveal our inner discipline and taqwā.</li>
+        <li>Swallowing anger for Allah's sake brings great reward in the Hereafter.</li>
+        <li>By learning to control anger, we train the nafs to follow revelation, not impulse.</li>
+      </ul>
+
+      <div class="sep"></div>
+      <span class="badge">Key Idea</span>
+      <p style="font-size:0.92rem; color:var(--muted);">Anger is not created to destroy us, but to be mastered and used in obedience to Allah — not in service of our ego.</p>
+    </div>
+
+    <!-- 3. Qur'an on anger -->
+    <div class="card" id="sec3">
+      <div class="card-header">
+        <div class="card-icon">📖</div>
+        <div class="card-meta">
+          <div class="card-number">Section 03</div>
+          <div class="card-title">Qur'anic Guidance on Anger</div>
+          <div class="card-subtitle">Ayāt & reflection</div>
+        </div>
+      </div>
+
+      <p>The Qur'an praises those who restrain their anger and forgive people for the sake of Allah.</p>
+
+      <div class="ayah">
+        <div class="ref-label">📗 Qur'an · Āl ʿImrān 3:134</div>
+        <p class="arabic">الَّذِينَ يُنْفِقُونَ فِي السَّرَّاءِ وَالضَّرَّاءِ وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ ۗ وَاللَّهُ يُحِبُّ الْمُحْسِنِينَ</p>
+        <div class="trans">"Those who spend (in Allah's cause) in prosperity and adversity, and who restrain their anger, and who pardon people; and Allah loves the doers of good."</div>
+      </div>
+
+      <p>In this verse, anger is not denied, but it is "swallowed" (<em>الكَاظِمِينَ الْغَيْظَ</em>): a believer feels it yet holds it back and then rises higher by forgiving.</p>
+
+      <div class="tag-row" style="margin-bottom:0.8rem;">
+        <span class="tag green">Restrain</span>
+        <span class="tag green">Forgive</span>
+        <span class="tag green">Excel in good</span>
+      </div>
+
+      <p>Other verses warn against being controlled by rage and hatred in a way that leads to injustice.</p>
+
+      <div class="ayah">
+        <div class="ref-label">📗 Qur'an · Al‑Māʾidah 5:8</div>
+        <p class="arabic">يَا أَيُّهَا الَّذِينَ آمَنُوا كُونُوا قَوَّامِينَ لِلَّهِ شُهَدَاءَ بِالْقِسْطِ ۖ وَلَا يَجْرِمَنَّكُمْ شَنَآنُ قَوْمٍ عَلَىٰ أَلَّا تَعْدِلُوا ۚ اعْدِلُوا هُوَ أَقْرَبُ لِلتَّقْوَىٰ ۖ وَاتَّقُوا اللَّهَ ۚ إِنَّ اللَّهَ خَبِيرٌ بِمَا تَعْمَلُونَ</p>
+        <div class="trans">"O you who believe, stand firm for Allah as witnesses in justice, and do not let the hatred of a people make you swerve to wrong and depart from justice. Be just; that is nearer to taqwa. And fear Allah; indeed Allah is All‑Aware of what you do."</div>
+      </div>
+
+      <p>Even when someone has wronged us, our anger must not push us to oppression or unfairness.</p>
+    </div>
+
+    <!-- 4. Sunnah -->
+    <div class="card" id="sec4">
+      <div class="card-header">
+        <div class="card-icon">🕌</div>
+        <div class="card-meta">
+          <div class="card-number">Section 04</div>
+          <div class="card-title">Anger in the Sunnah</div>
+          <div class="card-subtitle">Prophetic character</div>
+        </div>
+      </div>
+
+      <h3>4.1 Not the absence of anger, but controlling it</h3>
+
+      <div class="hadith">
+        <div class="ref-label">📜 Hadith · Bukhārī & Muslim</div>
+        <p class="arabic">عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ أَنَّ رَسُولَ اللَّهِ ﷺ قَالَ: «لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ، إِنَّمَا الشَّدِيدُ الَّذِي يَمْلِكُ نَفْسَهُ عِنْدَ الْغَضَبِ»</p>
+        <div class="trans">"The strong person is not the one who can overpower others (in wrestling), but the strong person is the one who controls himself when he is angry." — Abu Hurayrah (ra)</div>
+      </div>
+
+      <p>True strength in Islam is the strength of the inner self: the ability to pause, control, and choose obedience to Allah while the emotion is burning inside.</p>
+
+      <div class="sep"></div>
+
+      <h3>4.2 "Do not get angry" — core prophetic advice</h3>
+
+      <div class="hadith">
+        <div class="ref-label">📜 Hadith · Bukhārī</div>
+        <p class="arabic">عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ أَنَّ رَجُلًا قَالَ لِلنَّبِيِّ ﷺ: أَوْصِنِي، قَالَ: «لَا تَغْضَبْ»، فَرَدَّدَ مِرَارًا قَالَ: «لَا تَغْضَبْ»</p>
+        <div class="trans">A man said to the Prophet ﷺ, "Give me advice." He replied, "Do not get angry." The man repeated his request several times and each time he ﷺ said, "Do not get angry."</div>
+      </div>
+
+      <p>Scholars explain that the meaning is: do not act according to your anger and work on removing the causes of excessive anger from your character.</p>
+    </div>
+
+    <!-- 5. Practical tools -->
+    <div class="card" id="sec5">
+      <div class="card-header">
+        <div class="card-icon">🛠️</div>
+        <div class="card-meta">
+          <div class="card-number">Section 05</div>
+          <div class="card-title">Practical Prophetic Tools</div>
+          <div class="card-subtitle">Immediate & long‑term management</div>
+        </div>
+      </div>
+
+      <p>The Sunnah offers simple, practical steps that can be applied immediately when anger rises, and also routines that build a calmer heart over time.</p>
+
+      <h3>⏱️ Immediate steps when anger rises</h3>
+      <ul>
+        <li>
+          <strong>Seek refuge with Allah.</strong> Say:
+          <span style="font-family:var(--arabic); direction:rtl; display:inline-block; font-size:1rem;">أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ</span>
+          — "I seek refuge with Allah from the accursed Shayṭān."
+        </li>
+        <li><strong>Keep silent.</strong> The Prophet ﷺ said: <em style="font-family:var(--arabic); direction:rtl; display:inline-block;">«إِذَا غَضِبَ أَحَدُكُمْ فَلْيَسْكُتْ»</em> — "If any of you becomes angry, let him remain silent." (Ahmad)</li>
+        <li><strong>Change posture.</strong> When we change our body position, the emotion also calms down.</li>
+      </ul>
+
+      <div class="hadith">
+        <div class="ref-label">📜 Hadith · Abū Dāwūd, Ahmad</div>
+        <p class="arabic">«إِذَا غَضِبَ أَحَدُكُمْ وَهُوَ قَائِمٌ فَلْيَجْلِسْ، فَإِنْ ذَهَبَ عَنْهُ الْغَضَبُ وَإِلَّا فَلْيَضْطَجِعْ»</p>
+        <div class="trans">"If any one of you becomes angry while standing, let him sit down. If his anger leaves him, then good; otherwise let him lie down."</div>
+      </div>
+
+      <ul>
+        <li><strong>Perform wuḍūʼ.</strong> Anger is like fire; wuḍūʼ cools the body and heart.</li>
+        <li><strong>Move away from the scene.</strong> Walk away and return later when calm.</li>
+      </ul>
+
+      <div class="sep"></div>
+
+      <h3>🌱 Long‑term spiritual training</h3>
+      <ul>
+        <li><strong>Regular dhikr and Qur'an.</strong> Filling the heart with remembrance softens it and makes self‑control easier.</li>
+        <li><strong>Reflect on reward.</strong> Those who restrain anger and forgive are promised the love of Allah and Jannah.</li>
+        <li><strong>Make du'ā.</strong> Ask Allah to grant a calm heart, wise tongue, and patience in moments of anger.</li>
+      </ul>
+    </div>
+
+    <!-- 6. Types of anger -->
+    <div class="card" id="sec6">
+      <div class="card-header">
+        <div class="card-icon">⚖️</div>
+        <div class="card-meta">
+          <div class="card-number">Section 06</div>
+          <div class="card-title">When Anger Is Blameworthy or Praiseworthy</div>
+          <div class="card-subtitle">Ego vs. for Allah</div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="col-box" style="border-left: 3px solid #c0392b;">
+          <h3 style="color:#c0392b;">🚫 Blameworthy Anger</h3>
+          <p style="font-size:0.88rem;">Anger for personal ego, status, or dunya that leads to injustice and oppression.</p>
+          <ul>
+            <li>Insulting parents, spouse, or children.</li>
+            <li>Causing physical harm or destroying property.</li>
+            <li>Rejecting advice or truth because of pride.</li>
+          </ul>
+        </div>
+        <div class="col-box" style="border-left: 3px solid var(--accent);">
+          <h3 style="color:var(--accent);">✅ Praiseworthy Anger</h3>
+          <p style="font-size:0.88rem;">Anger for the sake of Allah, within the limits of Sharī'ah, at oppression or violation of His commands.</p>
+          <ul>
+            <li>Must still be expressed with justice and wisdom.</li>
+            <li>Never used as an excuse for revenge or excess.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Quiz -->
+    <div class="card" id="sec7">
+      <div class="card-header">
+        <div class="card-icon">✏️</div>
+        <div class="card-meta">
+          <div class="card-number">Section 07</div>
+          <div class="card-title">Quick Quiz</div>
+          <div class="card-subtitle">Check your understanding 🎓</div>
+        </div>
+      </div>
+
+      <p style="color:var(--muted); font-size:0.9rem;">Use these in class or for self‑check — oral, written, or in small groups.</p>
+
+      <div style="margin-top:0.8rem;">
+
+        <div class="quiz-q">
+          <div class="qnum">Question 1</div>
+          Is feeling anger itself a sin in Islam, or is it what we do with the anger that can become sinful? Explain briefly.
+        </div>
+
+        <div class="quiz-q">
+          <div class="qnum">Question 2</div>
+          In Āl ʿImrān 3:134, Allah mentions three qualities: spending, restraining anger, and pardoning people.
+          <div class="quiz-sub">Which of these do you find easiest? Which is hardest for you personally?</div>
+          <div class="quiz-sub">Why do you think Allah links them together in one āyah?</div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="qnum">Question 3</div>
+          According to the hadith, who is the truly "strong" person in Islam?
+        </div>
+
+        <div class="quiz-q">
+          <div class="qnum">Question 4</div>
+          List two Sunnah actions you can take immediately when you start to feel angry.
+        </div>
+
+        <div class="quiz-q">
+          <div class="qnum">Question 5</div>
+          Give one example of <strong>blameworthy</strong> anger from daily life, and one example of anger that could be <strong>for the sake of Allah</strong>.
+        </div>
+
+        <div class="quiz-q">
+          <div class="qnum">Question 6 — True or False</div>
+          <div class="quiz-sub">"If I am angry for a good reason, I can say anything I want."</div>
+          <div class="quiz-sub">"Controlling my anger can be rewarded by Allah."</div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="qnum">Question 7</div>
+          Write one short du'ā asking Allah to help you manage your anger in a way that pleases Him.
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 8. Reflection -->
+    <div class="card" id="sec8">
+      <div class="card-header">
+        <div class="card-icon">💭</div>
+        <div class="card-meta">
+          <div class="card-number">Section 08</div>
+          <div class="card-title">Reflection Prompts</div>
+          <div class="card-subtitle">Apply to your life 📝</div>
+        </div>
+      </div>
+
+      <p>Use these questions personally or with students to connect Qur'anic and prophetic teachings to real life.</p>
+
+      <div style="margin-top:0.5rem;">
+        <div class="reflect-item">
+          <span class="reflect-icon">🌡️</span>
+          <span>What types of situations usually trigger your anger most strongly?</span>
+        </div>
+        <div class="reflect-item">
+          <span class="reflect-icon">💪</span>
+          <span>In the last week, was there a moment where you controlled your anger? What helped you?</span>
+        </div>
+        <div class="reflect-item">
+          <span class="reflect-icon">❤️</span>
+          <span>How does remembering Allah's love for <em>الكاظِمِينَ الغَيْظَ</em> motivate you to pause?</span>
+        </div>
+        <div class="reflect-item">
+          <span class="reflect-icon">🎯</span>
+          <span>Which Sunnah tool will you try first: silence, changing posture, wuḍūʼ, or walking away?</span>
+        </div>
+      </div>
+
+      <div style="margin-top:0.9rem;">
+        <button class="back-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+          🔝 Back to top
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    Based on Qur'anic verses and authentic ahadith about anger, self‑control, and character refinement.
+  </footer>
+
+</div>
+
+<script>
+  const links = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('.card[id]');
+
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const id = link.getAttribute('href').slice(1);
+      const target = document.getElementById(id);
+      if (target) {
+        const offset = 24;
+        const y = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+      links.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      if (window.pageYOffset >= sec.offsetTop - 60) current = sec.id;
+    });
+    links.forEach(l => {
+      l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+
+</body>
+</html>
