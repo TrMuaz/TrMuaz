@@ -4,1038 +4,938 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Friendship in Islam — Comprehensive Notes</title>
-  <meta name="description" content="A comprehensive Islamic studies note on friendship — its meaning, purpose, qualities, rights, and spiritual depth from the Quran and Sunnah." />
-
-  <!-- Fonts -->
   <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,700&f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet" />
-
   <style>
-    /* ─── DESIGN TOKENS ─── */
-    :root, [data-theme="light"] {
-      --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
-      --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
-      --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
-      --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
-      --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
-      --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
-      --text-hero: clamp(2.5rem,   1.5rem  + 3.5vw,  5rem);
+    :root,[data-theme="light"]{
+      --text-xs:clamp(.75rem,.7rem + .25vw,.875rem);--text-sm:clamp(.875rem,.8rem + .35vw,1rem);
+      --text-base:clamp(1rem,.95rem + .25vw,1.125rem);--text-lg:clamp(1.125rem,1rem + .75vw,1.5rem);
+      --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);--text-2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);
+      --text-hero:clamp(2.5rem,1.5rem + 3.5vw,5rem);
+      --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;
+      --space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;--space-24:6rem;
+      --color-bg:#f7f6f2;--color-surface:#f9f8f5;--color-surface-2:#fbfbf9;
+      --color-surface-offset:#f0ede8;--color-divider:#dcd9d5;--color-border:#d4d1ca;
+      --color-text:#28251d;--color-text-muted:#6b6a65;--color-text-faint:#a8a7a2;--color-text-inverse:#f9f8f4;
+      --color-primary:#1a6b47;--color-primary-hover:#145438;--color-primary-highlight:#d0e8dd;--color-primary-soft:#e8f4ee;
+      --color-gold:#b88a00;--color-gold-soft:#fdf6dc;--color-gold-border:#e8d080;--color-warning:#964219;
+      --radius-sm:.375rem;--radius-md:.5rem;--radius-lg:.75rem;--radius-xl:1rem;--radius-full:9999px;
+      --shadow-sm:0 1px 3px oklch(.2 .02 150/.07);--shadow-md:0 4px 16px oklch(.2 .02 150/.09);--shadow-lg:0 12px 40px oklch(.2 .02 150/.13);
+      --tr:180ms cubic-bezier(.16,1,.3,1);
+      --font-display:'Zodiak','Georgia',serif;--font-body:'Satoshi','Helvetica Neue',sans-serif;
+      --content-narrow:640px;--content-default:900px;--content-wide:1140px;
+    }
+    [data-theme="dark"]{
+      --color-bg:#161512;--color-surface:#1b1a17;--color-surface-2:#1f1e1b;--color-surface-offset:#1e1c19;
+      --color-divider:#2a2824;--color-border:#35332e;--color-text:#cccbc8;--color-text-muted:#7a7975;
+      --color-text-faint:#545350;--color-text-inverse:#2a2925;
+      --color-primary:#4aa87a;--color-primary-hover:#2d8f60;--color-primary-highlight:#1f3329;--color-primary-soft:#1a2e22;
+      --color-gold:#d4a422;--color-gold-soft:#2c2510;--color-gold-border:#5a4a10;--color-warning:#bb653b;
+      --shadow-sm:0 1px 3px oklch(0 0 0/.25);--shadow-md:0 4px 16px oklch(0 0 0/.35);--shadow-lg:0 12px 40px oklch(0 0 0/.45);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-behavior:smooth;scroll-padding-top:var(--space-20);}
+    body{min-height:100dvh;line-height:1.65;font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text);background:var(--color-bg);transition:background var(--tr),color var(--tr);}
+    img,svg{display:block;max-width:100%;}ul[role="list"],ol[role="list"]{list-style:none;}
+    input,button,textarea,select{font:inherit;color:inherit;}
+    h1,h2,h3{text-wrap:balance;line-height:1.2;}p,li{text-wrap:pretty;}
+    button{cursor:pointer;background:none;border:none;}a{color:var(--color-primary);text-decoration:none;}a:hover{text-decoration:underline;}
+    ::selection{background:oklch(from var(--color-primary) l c h/.2);color:var(--color-text);}
+    :focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm);}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
 
-      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem;
-      --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem;
-      --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem;
-      --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
+    /* HEADER */
+    .site-header{position:sticky;top:0;z-index:100;background:oklch(from var(--color-bg) l c h/.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--color-divider);transition:box-shadow var(--tr);}
+    .site-header--scrolled{box-shadow:var(--shadow-sm);}
+    .header-inner{max-width:var(--content-wide);margin-inline:auto;padding:var(--space-3) var(--space-6);display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);}
+    .logo-wrap{display:flex;align-items:center;gap:var(--space-3);}
+    .logo-text{font-family:var(--font-display);font-size:var(--text-lg);font-weight:700;color:var(--color-primary);}
+    .logo-sub{font-size:var(--text-xs);color:var(--color-text-muted);}
+    .header-right{display:flex;align-items:center;gap:var(--space-3);}
+    .theme-toggle{width:38px;height:38px;border-radius:var(--radius-full);display:flex;align-items:center;justify-content:center;color:var(--color-text-muted);border:1px solid var(--color-border);transition:all var(--tr);}
+    .theme-toggle:hover{background:var(--color-surface-offset);color:var(--color-text);}
+    .nav-links{display:flex;gap:var(--space-1);}
+    .nav-link{font-size:var(--text-xs);color:var(--color-text-muted);font-weight:600;padding:var(--space-1) var(--space-3);border-radius:var(--radius-md);transition:all var(--tr);}
+    .nav-link:hover{color:var(--color-primary);background:var(--color-primary-soft);text-decoration:none;}
+    @media(max-width:700px){.nav-links{display:none;}}
 
-      --color-bg:             #f7f6f2;
-      --color-surface:        #f9f8f5;
-      --color-surface-2:      #fbfbf9;
-      --color-surface-offset: #f0ede8;
-      --color-divider:        #dcd9d5;
-      --color-border:         #d4d1ca;
-      --color-text:           #28251d;
-      --color-text-muted:     #6b6a65;
-      --color-text-faint:     #a8a7a2;
-      --color-text-inverse:   #f9f8f4;
+    /* HERO */
+    .hero{background:linear-gradient(160deg,var(--color-primary-soft) 0%,var(--color-bg) 60%);border-bottom:1px solid var(--color-divider);padding:clamp(var(--space-16),10vw,var(--space-24)) var(--space-6);text-align:center;position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a6b47' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none;}
+    .hero-content{position:relative;max-width:var(--content-narrow);margin-inline:auto;}
+    .hero-badge{display:inline-flex;align-items:center;gap:var(--space-2);background:var(--color-primary-soft);color:var(--color-primary);border:1px solid color-mix(in oklch,var(--color-primary) 20%,transparent);font-size:var(--text-xs);font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:var(--space-1) var(--space-3);border-radius:var(--radius-full);margin-bottom:var(--space-6);}
+    .hero-arabic{font-size:clamp(1.6rem,4vw,2.8rem);color:var(--color-primary);line-height:1.8;direction:rtl;margin-bottom:var(--space-4);}
+    .hero-title{font-family:var(--font-display);font-size:var(--text-hero);color:var(--color-text);font-weight:700;margin-bottom:var(--space-4);}
+    .hero-sub{font-size:var(--text-lg);color:var(--color-text-muted);max-width:52ch;margin-inline:auto;}
+    .hero-meta{margin-top:var(--space-10);display:flex;gap:var(--space-6);justify-content:center;flex-wrap:wrap;}
+    .hero-meta-item{display:flex;align-items:center;gap:var(--space-2);color:var(--color-text-muted);font-size:var(--text-sm);}
 
-      /* Islamic green as primary accent */
-      --color-primary:        #1a6b47;
-      --color-primary-hover:  #145438;
-      --color-primary-active: #0e3d28;
-      --color-primary-highlight: #d0e8dd;
-      --color-primary-soft:   #e8f4ee;
+    /* LAYOUT */
+    .main-layout{max-width:var(--content-wide);margin-inline:auto;padding:var(--space-12) var(--space-6);display:grid;grid-template-columns:240px 1fr;gap:var(--space-12);align-items:start;}
+    @media(max-width:900px){.main-layout{grid-template-columns:1fr;}}
 
-      /* Gold accent for ayah / hadith */
-      --color-gold:           #b88a00;
-      --color-gold-soft:      #fdf6dc;
-      --color-gold-border:    #e8d080;
+    /* TOC */
+    .toc{position:sticky;top:calc(var(--space-16) + var(--space-4));background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-5);box-shadow:var(--shadow-sm);}
+    .toc-title{font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-muted);margin-bottom:var(--space-4);}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:2px;}
+    .toc-link{display:flex;align-items:flex-start;gap:var(--space-2);font-size:var(--text-xs);color:var(--color-text-muted);padding:5px var(--space-3);border-radius:var(--radius-md);border-left:2px solid transparent;transition:all var(--tr);text-decoration:none;line-height:1.4;}
+    .toc-link:hover,.toc-link.active{color:var(--color-primary);background:var(--color-primary-soft);border-left-color:var(--color-primary);}
+    .toc-num{font-weight:700;color:var(--color-primary);flex-shrink:0;min-width:16px;}
+    @media(max-width:900px){.toc{position:static;}}
 
-      --color-warning:        #964219;
-      --color-error:          #a12c7b;
+    /* SECTIONS */
+    .article{min-width:0;}
+    .section-block{margin-bottom:var(--space-10);background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:clamp(var(--space-6),4vw,var(--space-10));box-shadow:var(--shadow-sm);transition:box-shadow var(--tr);}
+    .section-block:hover{box-shadow:var(--shadow-md);}
+    .section-num{font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--color-primary);display:flex;align-items:center;gap:var(--space-2);margin-bottom:var(--space-3);}
+    .section-num::after{content:'';flex:1;height:1px;background:var(--color-primary-highlight);}
+    .section-title{font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-text);font-weight:700;margin-bottom:var(--space-5);}
+    .section-body{display:flex;flex-direction:column;gap:var(--space-5);}
+    .section-body p{font-size:var(--text-base);color:var(--color-text);max-width:72ch;line-height:1.7;}
+    .section-body p strong{color:var(--color-primary);}
 
-      --radius-sm: 0.375rem; --radius-md: 0.5rem;
-      --radius-lg: 0.75rem;  --radius-xl: 1rem;
-      --radius-full: 9999px;
+    /* DIALOGUE */
+    .dialogue{display:flex;flex-direction:column;gap:var(--space-4);}
+    .db{display:flex;gap:var(--space-3);align-items:flex-start;}
+    .db.right{flex-direction:row-reverse;}
+    .av{width:40px;height:40px;border-radius:var(--radius-full);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;font-weight:700;}
+    .av.T{background:var(--color-primary);color:var(--color-text-inverse);}
+    .av.A{background:#e8d0f4;color:#6a209a;}
+    .av.B{background:#d0e8f4;color:#0a5a8a;}
+    .av.C{background:#f4e8d0;color:#8a5a0a;}
+    [data-theme="dark"] .av.A{background:#3a1a5a;color:#c090e0;}
+    [data-theme="dark"] .av.B{background:#0a2a40;color:#60b0d0;}
+    [data-theme="dark"] .av.C{background:#3a2a0a;color:#d0a060;}
+    .bc{flex:1;}
+    .bn{font-size:var(--text-xs);font-weight:700;color:var(--color-text-muted);margin-bottom:var(--space-1);text-transform:uppercase;letter-spacing:.05em;}
+    .bn.r{text-align:right;}
+    .bt{background:var(--color-surface-offset);border-radius:var(--radius-lg);padding:var(--space-3) var(--space-4);font-size:var(--text-sm);line-height:1.6;color:var(--color-text);border:1px solid var(--color-border);max-width:480px;}
+    .db.right .bt{background:var(--color-primary-soft);border-color:var(--color-primary-highlight);margin-left:auto;}
+    .db.teacher .bt{background:var(--color-primary-soft);border-color:var(--color-primary-highlight);}
 
-      --shadow-sm: 0 1px 3px oklch(0.2 0.02 150 / 0.07);
-      --shadow-md: 0 4px 16px oklch(0.2 0.02 150 / 0.09);
-      --shadow-lg: 0 12px 40px oklch(0.2 0.02 150 / 0.13);
+    /* THINK BOX */
+    .think-box{background:var(--color-gold-soft);border:1px solid var(--color-gold-border);border-radius:var(--radius-lg);padding:var(--space-5) var(--space-6);}
+    .think-label{font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--color-gold);margin-bottom:var(--space-3);}
+    .think-box ul{list-style:none;display:flex;flex-direction:column;gap:var(--space-2);}
+    .think-box li{font-size:var(--text-sm);color:var(--color-text);line-height:1.6;padding-left:var(--space-5);position:relative;}
+    .think-box li::before{content:'💭';position:absolute;left:0;}
 
-      --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    /* PILLS */
+    .pill-group{display:flex;flex-wrap:wrap;gap:var(--space-2);}
+    .pill{display:inline-flex;align-items:center;gap:var(--space-2);background:var(--color-primary-soft);color:var(--color-primary);border:1px solid var(--color-primary-highlight);font-size:var(--text-sm);font-weight:500;padding:var(--space-2) var(--space-4);border-radius:var(--radius-full);}
 
-      --font-display: 'Zodiak', 'Georgia', serif;
-      --font-body: 'Satoshi', 'Helvetica Neue', sans-serif;
+    /* YES/NO */
+    .yesno-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);}
+    @media(max-width:560px){.yesno-grid{grid-template-columns:1fr;}}
+    .ycard{border-radius:var(--radius-xl);padding:var(--space-5);}
+    .ycard.yes{background:var(--color-primary-soft);border:1px solid var(--color-primary-highlight);}
+    .ycard.no{background:var(--color-gold-soft);border:1px solid var(--color-gold-border);}
+    .yicon{font-size:2rem;margin-bottom:var(--space-2);}
+    .ytitle{font-weight:700;font-size:var(--text-base);margin-bottom:var(--space-2);}
+    .ycard.yes .ytitle{color:var(--color-primary);}
+    .ycard.no .ytitle{color:var(--color-gold);}
+    .ydesc{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.6;}
+    .yex{margin-top:var(--space-3);list-style:none;display:flex;flex-direction:column;gap:var(--space-1);}
+    .yex li{font-size:var(--text-sm);color:var(--color-text-muted);padding-left:var(--space-4);position:relative;}
+    .yex li::before{content:'→';position:absolute;left:0;color:var(--color-primary);}
 
-      --content-narrow: 640px;
-      --content-default: 900px;
-      --content-wide: 1140px;
-    }
+    /* MINI REWARD */
+    .mini-reward{display:flex;gap:var(--space-3);align-items:flex-start;background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-3) var(--space-4);}
+    .mr-icon{font-size:1.6rem;flex-shrink:0;line-height:1;}
+    .mr-text{font-size:var(--text-sm);color:var(--color-text);line-height:1.6;}
+    .mr-text strong{color:var(--color-primary);}
 
-    [data-theme="dark"] {
-      --color-bg:             #161512;
-      --color-surface:        #1b1a17;
-      --color-surface-2:      #1f1e1b;
-      --color-surface-offset: #1e1c19;
-      --color-divider:        #2a2824;
-      --color-border:         #35332e;
-      --color-text:           #cccbc8;
-      --color-text-muted:     #7a7975;
-      --color-text-faint:     #545350;
-      --color-text-inverse:   #2a2925;
-      --color-primary:        #4aa87a;
-      --color-primary-hover:  #2d8f60;
-      --color-primary-active: #1a7048;
-      --color-primary-highlight: #1f3329;
-      --color-primary-soft:   #1a2e22;
-      --color-gold:           #d4a422;
-      --color-gold-soft:      #2c2510;
-      --color-gold-border:    #5a4a10;
-      --shadow-sm: 0 1px 3px oklch(0 0 0 / 0.25);
-      --shadow-md: 0 4px 16px oklch(0 0 0 / 0.35);
-      --shadow-lg: 0 12px 40px oklch(0 0 0 / 0.45);
-    }
+    /* QURAN */
+    .quran-block{background:var(--color-gold-soft);border:1px solid var(--color-gold-border);border-radius:var(--radius-lg);padding:var(--space-6) var(--space-8);position:relative;overflow:hidden;}
+    .quran-block::before{content:'&#65020;';position:absolute;top:-10px;left:var(--space-4);font-size:5rem;color:var(--color-gold);opacity:.12;line-height:1;}
+    .q-arabic{font-size:clamp(1.3rem,3vw,1.9rem);color:var(--color-text);direction:rtl;text-align:right;line-height:2;margin-bottom:var(--space-3);}
+    .q-trans{font-size:var(--text-base);color:var(--color-text-muted);font-style:italic;line-height:1.7;border-top:1px solid var(--color-gold-border);padding-top:var(--space-3);margin-top:var(--space-2);}
+    .q-ref{font-size:var(--text-xs);font-weight:600;color:var(--color-gold);text-transform:uppercase;letter-spacing:.06em;margin-top:var(--space-2);display:block;}
 
-    /* ─── BASE ─── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html {
-      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-      text-rendering: optimizeLegibility; scroll-behavior: smooth;
-      scroll-padding-top: var(--space-20);
-    }
-    body {
-      min-height: 100dvh; line-height: 1.65;
-      font-family: var(--font-body); font-size: var(--text-base);
-      color: var(--color-text); background: var(--color-bg);
-      transition: background var(--transition-interactive), color var(--transition-interactive);
-    }
-    img, picture, video, canvas, svg { display: block; max-width: 100%; height: auto; }
-    ul[role="list"], ol[role="list"] { list-style: none; }
-    input, button, textarea, select { font: inherit; color: inherit; }
-    h1, h2, h3, h4, h5, h6 { text-wrap: balance; line-height: 1.2; }
-    p, li, figcaption { text-wrap: pretty; }
-    button { cursor: pointer; background: none; border: none; }
-    a { color: var(--color-primary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    ::selection { background: oklch(from var(--color-primary) l c h / 0.2); color: var(--color-text); }
-    :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-    }
+    /* HADITH */
+    .hadith-block{background:var(--color-primary-soft);border:1px solid color-mix(in oklch,var(--color-primary) 25%,transparent);border-radius:var(--radius-lg);padding:var(--space-5) var(--space-6);}
+    .h-label{font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--color-primary);margin-bottom:var(--space-2);}
+    .h-text{font-size:var(--text-base);line-height:1.7;color:var(--color-text);font-style:italic;}
+    .h-src{font-size:var(--text-xs);color:var(--color-text-muted);margin-top:var(--space-2);}
 
-    /* ─── SCROLL REVEAL ─── */
-    .fade-in { opacity: 1; }
-    @supports (animation-timeline: scroll()) {
-      .fade-in {
-        opacity: 0;
-        animation: reveal-fade linear both;
-        animation-timeline: view();
-        animation-range: entry 0% entry 80%;
-      }
-    }
-    @keyframes reveal-fade { to { opacity: 1; } }
+    /* VOCAB */
+    .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(240px,100%),1fr));gap:var(--space-4);margin-top:var(--space-2);}
+    .vocab-card{background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-4) var(--space-5);transition:box-shadow var(--tr),transform var(--tr);}
+    .vocab-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);}
+    .v-arabic{font-size:clamp(1.5rem,3.5vw,2rem);direction:rtl;color:var(--color-primary);font-weight:700;margin-bottom:var(--space-1);}
+    .v-roman{font-size:var(--text-sm);color:var(--color-text-muted);font-style:italic;margin-bottom:var(--space-2);}
+    .v-meaning{font-size:var(--text-sm);color:var(--color-text);line-height:1.5;}
+    .v-tag{display:inline-block;margin-top:var(--space-2);font-size:var(--text-xs);padding:2px var(--space-2);border-radius:var(--radius-full);background:var(--color-primary-highlight);color:var(--color-primary);font-weight:600;}
 
-    /* ─── STICKY HEADER ─── */
-    .site-header {
-      position: sticky; top: 0; z-index: 100;
-      background: oklch(from var(--color-bg) l c h / 0.88);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--color-divider);
-      transition: box-shadow var(--transition-interactive), background var(--transition-interactive);
-    }
-    .site-header--scrolled { box-shadow: var(--shadow-sm); }
-    .header-inner {
-      max-width: var(--content-wide); margin-inline: auto;
-      padding: var(--space-3) var(--space-6);
-      display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);
-    }
-    .logo-wrap { display: flex; align-items: center; gap: var(--space-3); }
-    .logo-text { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 700; color: var(--color-primary); }
-    .logo-subtitle { font-size: var(--text-xs); color: var(--color-text-muted); }
-    .header-right { display: flex; align-items: center; gap: var(--space-3); }
-    .theme-toggle {
-      width: 38px; height: 38px; border-radius: var(--radius-full);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--color-text-muted); border: 1px solid var(--color-border);
-      transition: all var(--transition-interactive);
-    }
-    .theme-toggle:hover { background: var(--color-surface-offset); color: var(--color-text); }
-    .nav-link {
-      font-size: var(--text-sm); color: var(--color-text-muted); font-weight: 500;
-      padding: var(--space-1) var(--space-3); border-radius: var(--radius-md);
-      transition: all var(--transition-interactive);
-    }
-    .nav-link:hover { color: var(--color-primary); background: var(--color-primary-soft); text-decoration: none; }
-    .nav-links { display: flex; gap: var(--space-1); }
-    @media (max-width: 640px) { .nav-links { display: none; } }
+    /* COMPARE */
+    .cmp-wrap{overflow-x:auto;border-radius:var(--radius-lg);border:1px solid var(--color-border);}
+    .cmp-table{width:100%;border-collapse:collapse;}
+    .cmp-table th{background:var(--color-primary);color:var(--color-text-inverse);font-size:var(--text-sm);font-weight:600;padding:var(--space-3) var(--space-4);text-align:left;}
+    .cmp-table td{padding:var(--space-3) var(--space-4);font-size:var(--text-sm);vertical-align:top;border-bottom:1px solid var(--color-divider);line-height:1.6;}
+    .cmp-table tr:last-child td{border-bottom:none;}
+    .cmp-table tr:nth-child(even) td{background:var(--color-surface-2);}
+    .cd{color:var(--color-text-muted);font-weight:600;}.cm{color:var(--color-text);}.ci{color:var(--color-primary);font-weight:500;}
 
-    /* ─── HERO ─── */
-    .hero {
-      background: linear-gradient(160deg, var(--color-primary-soft) 0%, var(--color-bg) 60%);
-      border-bottom: 1px solid var(--color-divider);
-      padding: clamp(var(--space-16), 10vw, var(--space-24)) var(--space-6);
-      text-align: center; position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a6b47' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      pointer-events: none;
-    }
-    .hero-content { position: relative; max-width: var(--content-narrow); margin-inline: auto; }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: var(--space-2);
-      background: var(--color-primary-soft); color: var(--color-primary);
-      border: 1px solid color-mix(in oklch, var(--color-primary) 20%, transparent);
-      font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
-      padding: var(--space-1) var(--space-3); border-radius: var(--radius-full);
-      margin-bottom: var(--space-6);
-    }
-    .hero-arabic {
-      font-family: 'Amiri', 'Scheherazade New', serif;
-      font-size: clamp(1.6rem, 4vw, 2.8rem); color: var(--color-primary);
-      line-height: 1.8; direction: rtl; margin-bottom: var(--space-4);
-    }
-    .hero-title {
-      font-family: var(--font-display); font-size: var(--text-hero);
-      color: var(--color-text); font-weight: 700; margin-bottom: var(--space-4);
-    }
-    .hero-sub { font-size: var(--text-lg); color: var(--color-text-muted); max-width: 52ch; margin-inline: auto; }
-    .hero-meta {
-      margin-top: var(--space-10); display: flex; gap: var(--space-6); justify-content: center;
-      flex-wrap: wrap;
-    }
-    .hero-meta-item { display: flex; align-items: center; gap: var(--space-2); color: var(--color-text-muted); font-size: var(--text-sm); }
-    .hero-meta-item svg { color: var(--color-primary); }
+    /* QUALITIES */
+    .q-list{display:flex;flex-direction:column;gap:var(--space-4);}
+    .q-item{display:grid;grid-template-columns:48px 1fr;gap:var(--space-4);align-items:start;}
+    .q-icon{width:48px;height:48px;border-radius:var(--radius-lg);background:var(--color-primary-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.4rem;}
+    .q-name{font-weight:700;color:var(--color-text);font-size:var(--text-base);margin-bottom:var(--space-1);}
+    .q-desc{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.6;}
 
-    /* ─── MAIN LAYOUT ─── */
-    .main-layout {
-      max-width: var(--content-wide); margin-inline: auto;
-      padding: var(--space-12) var(--space-6);
-      display: grid; grid-template-columns: 260px 1fr; gap: var(--space-12);
-      align-items: start;
-    }
-    @media (max-width: 900px) { .main-layout { grid-template-columns: 1fr; } }
+    /* RIGHTS */
+    .rights-list{counter-reset:r;list-style:none;display:flex;flex-direction:column;gap:var(--space-3);}
+    .rights-list li{counter-increment:r;display:flex;align-items:flex-start;gap:var(--space-4);padding:var(--space-3) var(--space-4);background:var(--color-surface-2);border-radius:var(--radius-lg);border:1px solid var(--color-divider);}
+    .rights-list li::before{content:counter(r);min-width:32px;height:32px;border-radius:var(--radius-full);background:var(--color-primary);color:var(--color-text-inverse);display:flex;align-items:center;justify-content:center;font-size:var(--text-sm);font-weight:700;flex-shrink:0;}
+    .rights-list li span{font-size:var(--text-sm);line-height:1.6;color:var(--color-text);}
+    .rights-list li strong{color:var(--color-primary);}
 
-    /* ─── SIDEBAR TOC ─── */
-    .toc {
-      position: sticky; top: calc(var(--space-16) + var(--space-4));
-      background: var(--color-surface); border: 1px solid var(--color-border);
-      border-radius: var(--radius-xl); padding: var(--space-6);
-      box-shadow: var(--shadow-sm);
-    }
-    .toc-title {
-      font-size: var(--text-sm); font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.06em; color: var(--color-text-muted); margin-bottom: var(--space-4);
-    }
-    .toc-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-1); }
-    .toc-link {
-      display: block; font-size: var(--text-sm); color: var(--color-text-muted);
-      padding: var(--space-1) var(--space-3); border-radius: var(--radius-md);
-      border-left: 2px solid transparent; transition: all var(--transition-interactive);
-      text-decoration: none; line-height: 1.4;
-    }
-    .toc-link:hover, .toc-link.active {
-      color: var(--color-primary); background: var(--color-primary-soft);
-      border-left-color: var(--color-primary);
-    }
-    .toc-num { font-weight: 700; margin-right: var(--space-2); color: var(--color-primary); }
-    @media (max-width: 900px) { .toc { position: static; } }
+    /* REWARD CARDS */
+    .reward-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(220px,100%),1fr));gap:var(--space-5);}
+    .reward-card{background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-5);text-align:center;transition:box-shadow var(--tr),transform var(--tr);}
+    .reward-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);}
+    .r-icon{font-size:2.4rem;margin-bottom:var(--space-3);}
+    .r-title{font-family:var(--font-display);font-size:var(--text-lg);font-weight:700;color:var(--color-primary);margin-bottom:var(--space-2);}
+    .r-text{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.6;}
+    .r-src{margin-top:var(--space-3);font-size:var(--text-xs);color:var(--color-primary);font-weight:600;text-transform:uppercase;letter-spacing:.05em;}
 
-    /* ─── ARTICLE CONTENT ─── */
-    .article { min-width: 0; }
-    .section-block {
-      margin-bottom: var(--space-16);
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-xl);
-      padding: clamp(var(--space-6), 4vw, var(--space-10));
-      box-shadow: var(--shadow-sm);
-      transition: box-shadow var(--transition-interactive);
-    }
-    .section-block:hover { box-shadow: var(--shadow-md); }
-    .section-num {
-      font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--color-primary); display: flex; align-items: center; gap: var(--space-2);
-      margin-bottom: var(--space-3);
-    }
-    .section-num::after { content: ''; flex: 1; height: 1px; background: var(--color-primary-highlight); }
-    .section-title {
-      font-family: var(--font-display); font-size: var(--text-xl);
-      color: var(--color-text); font-weight: 700; margin-bottom: var(--space-6);
-    }
-    .section-body { display: flex; flex-direction: column; gap: var(--space-5); }
-    .section-body p { font-size: var(--text-base); color: var(--color-text); max-width: 72ch; line-height: 1.7; }
-    .section-body p strong { color: var(--color-primary); }
+    /* LEVELS */
+    .levels-track{display:flex;flex-direction:column;gap:var(--space-4);position:relative;padding-left:var(--space-8);}
+    .levels-track::before{content:'';position:absolute;left:15px;top:20px;bottom:20px;width:2px;background:linear-gradient(to bottom,var(--color-primary),color-mix(in oklch,var(--color-primary) 30%,transparent));border-radius:2px;}
+    .lv{position:relative;}
+    .lv-dot{position:absolute;left:calc(-1 * var(--space-8) + 8px);top:14px;width:14px;height:14px;border-radius:var(--radius-full);background:var(--color-primary);border:2px solid var(--color-bg);box-shadow:0 0 0 2px var(--color-primary);}
+    .lv-card{background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-4) var(--space-5);}
+    .lv-rank{font-size:var(--text-xs);font-weight:700;color:var(--color-gold);text-transform:uppercase;letter-spacing:.06em;margin-bottom:var(--space-1);}
+    .lv-name{font-family:var(--font-display);font-weight:700;font-size:var(--text-lg);color:var(--color-text);margin-bottom:var(--space-2);}
+    .lv-desc{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.6;}
+    .lv-ayah{font-size:var(--text-xs);color:var(--color-primary);margin-top:var(--space-2);font-style:italic;}
 
-    /* ─── AYAH / HADITH QUOTE ─── */
-    .quran-block {
-      background: var(--color-gold-soft);
-      border: 1px solid var(--color-gold-border);
-      border-radius: var(--radius-lg);
-      padding: var(--space-6) var(--space-8);
-      position: relative; overflow: hidden;
-    }
-    .quran-block::before {
-      content: '﴿';
-      position: absolute; top: -10px; left: var(--space-4);
-      font-size: 5rem; color: var(--color-gold); opacity: 0.12;
-      font-family: 'Amiri', serif; line-height: 1;
-    }
-    .quran-arabic {
-      font-size: clamp(1.3rem, 3vw, 1.9rem); color: var(--color-text); direction: rtl;
-      text-align: right; line-height: 2; margin-bottom: var(--space-3);
-      font-family: 'Amiri', 'Scheherazade New', serif;
-    }
-    .quran-translation {
-      font-size: var(--text-base); color: var(--color-text-muted);
-      font-style: italic; line-height: 1.7; border-top: 1px solid var(--color-gold-border);
-      padding-top: var(--space-3); margin-top: var(--space-2);
-    }
-    .quran-ref {
-      font-size: var(--text-xs); font-weight: 600; color: var(--color-gold);
-      text-transform: uppercase; letter-spacing: 0.06em; margin-top: var(--space-2); display: block;
-    }
+    /* MUSK */
+    .musk-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);margin-top:var(--space-2);}
+    @media(max-width:560px){.musk-grid{grid-template-columns:1fr;}}
+    .musk-card{border-radius:var(--radius-xl);padding:var(--space-5);}
+    .musk-card.good{background:var(--color-primary-soft);border:1px solid var(--color-primary-highlight);}
+    .musk-card.bad{background:color-mix(in oklch,#964219 8%,var(--color-bg));border:1px solid color-mix(in oklch,#964219 25%,transparent);}
+    [data-theme="dark"] .musk-card.bad{background:#2a1a10;border-color:#6a3010;}
+    .musk-emoji{font-size:2rem;margin-bottom:var(--space-2);}
+    .musk-title{font-weight:700;font-size:var(--text-base);margin-bottom:var(--space-2);}
+    .musk-card.good .musk-title{color:var(--color-primary);}
+    .musk-card.bad .musk-title{color:var(--color-warning);}
+    .musk-desc{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.6;}
 
-    .hadith-block {
-      background: var(--color-primary-soft);
-      border: 1px solid color-mix(in oklch, var(--color-primary) 25%, transparent);
-      border-radius: var(--radius-lg);
-      padding: var(--space-5) var(--space-6); position: relative;
-    }
-    .hadith-label {
-      font-size: var(--text-xs); font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.07em; color: var(--color-primary); margin-bottom: var(--space-2);
-    }
-    .hadith-text { font-size: var(--text-base); line-height: 1.7; color: var(--color-text); font-style: italic; }
-    .hadith-source { font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-2); }
+    /* COMPANION */
+    .comp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(190px,100%),1fr));gap:var(--space-4);}
+    .comp-card{border-radius:var(--radius-xl);padding:var(--space-5);border:1px solid var(--color-border);}
+    .comp-card.g{background:linear-gradient(135deg,#e8f4ee,#f0f8f4);border-color:#a8d8be;}
+    .comp-card.n{background:linear-gradient(135deg,#fdf6dc,#fdfaee);border-color:#e8d080;}
+    .comp-card.w{background:linear-gradient(135deg,#fde8e0,#fff4f0);border-color:#e8b0a0;}
+    .comp-card.d{background:linear-gradient(135deg,#f8e0e8,#fff0f4);border-color:#d4a0b0;}
+    [data-theme="dark"] .comp-card.g{background:#1a2e22;border-color:#2d5040;}
+    [data-theme="dark"] .comp-card.n{background:#2a240e;border-color:#5a4a10;}
+    [data-theme="dark"] .comp-card.w{background:#2e1a12;border-color:#6a3020;}
+    [data-theme="dark"] .comp-card.d{background:#2a1520;border-color:#5a2030;}
+    .comp-emoji{font-size:2rem;margin-bottom:var(--space-3);}
+    .comp-label{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.07em;font-weight:700;margin-bottom:var(--space-2);}
+    .comp-card.g .comp-label{color:#1a6b47;}.comp-card.n .comp-label{color:#b88a00;}
+    .comp-card.w .comp-label{color:#a04020;}.comp-card.d .comp-label{color:#8a2040;}
+    .comp-title{font-weight:700;font-size:var(--text-base);margin-bottom:var(--space-2);}
+    .comp-desc{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.5;}
 
-    /* ─── VOCAB TABLE ─── */
-    .vocab-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
-      gap: var(--space-4); margin-top: var(--space-2);
-    }
-    .vocab-card {
-      background: var(--color-surface-2); border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg); padding: var(--space-4) var(--space-5);
-      transition: box-shadow var(--transition-interactive), transform var(--transition-interactive);
-    }
-    .vocab-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
-    .vocab-arabic { font-size: clamp(1.5rem, 3.5vw, 2rem); direction: rtl; color: var(--color-primary); font-weight: 700; margin-bottom: var(--space-1); }
-    .vocab-roman { font-size: var(--text-sm); color: var(--color-text-muted); font-style: italic; margin-bottom: var(--space-2); }
-    .vocab-meaning { font-size: var(--text-sm); color: var(--color-text); line-height: 1.5; }
-    .vocab-tag {
-      display: inline-block; margin-top: var(--space-2);
-      font-size: var(--text-xs); padding: 2px var(--space-2); border-radius: var(--radius-full);
-      background: var(--color-primary-highlight); color: var(--color-primary); font-weight: 600;
-    }
+    /* PROPHET */
+    .prophet-box{background:linear-gradient(135deg,var(--color-primary-soft),var(--color-gold-soft));border:1px solid color-mix(in oklch,var(--color-primary) 20%,transparent);border-radius:var(--radius-xl);padding:var(--space-6) var(--space-8);display:grid;grid-template-columns:auto 1fr;gap:var(--space-6);align-items:start;}
+    @media(max-width:600px){.prophet-box{grid-template-columns:1fr;}}
+    .p-sym{font-size:3.5rem;line-height:1;}
+    .p-title{font-family:var(--font-display);font-size:var(--text-xl);font-weight:700;color:var(--color-primary);margin-bottom:var(--space-3);}
+    .p-body{font-size:var(--text-base);line-height:1.7;color:var(--color-text);}
 
-    /* ─── COMPARISON TABLE ─── */
-    .compare-table-wrap { overflow-x: auto; border-radius: var(--radius-lg); border: 1px solid var(--color-border); }
-    .compare-table { width: 100%; border-collapse: collapse; }
-    .compare-table th {
-      background: var(--color-primary); color: var(--color-text-inverse);
-      font-size: var(--text-sm); font-weight: 600; padding: var(--space-3) var(--space-4);
-      text-align: left;
-    }
-    .compare-table th:first-child { border-radius: var(--radius-md) 0 0 0; }
-    .compare-table th:last-child { border-radius: 0 var(--radius-md) 0 0; }
-    .compare-table td { padding: var(--space-3) var(--space-4); font-size: var(--text-sm); vertical-align: top; border-bottom: 1px solid var(--color-divider); line-height: 1.6; }
-    .compare-table tr:last-child td { border-bottom: none; }
-    .compare-table tr:nth-child(even) td { background: var(--color-surface-2); }
-    .compare-table .col-dimension { color: var(--color-text-muted); font-weight: 600; }
-    .compare-table .col-modern { color: var(--color-text); }
-    .compare-table .col-islam { color: var(--color-primary); font-weight: 500; }
+    /* TAKEAWAY */
+    .takeaway{background:var(--color-primary);color:var(--color-text-inverse);border-radius:var(--radius-xl);padding:var(--space-8) var(--space-10);text-align:center;margin-top:var(--space-10);}
+    .takeaway h2{font-family:var(--font-display);font-size:var(--text-xl);margin-bottom:var(--space-4);}
+    .takeaway p{max-width:58ch;margin-inline:auto;line-height:1.7;opacity:.9;font-size:var(--text-base);}
 
-    /* ─── QUALITIES LIST ─── */
-    .quality-list { display: flex; flex-direction: column; gap: var(--space-4); }
-    .quality-item { display: grid; grid-template-columns: 48px 1fr; gap: var(--space-4); align-items: start; }
-    .quality-icon {
-      width: 48px; height: 48px; border-radius: var(--radius-lg);
-      background: var(--color-primary-soft); color: var(--color-primary);
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-      font-size: 1.4rem;
-    }
-    .quality-title { font-weight: 700; color: var(--color-text); font-size: var(--text-base); margin-bottom: var(--space-1); }
-    .quality-desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; }
+    /* FOOTER */
+    .site-footer{border-top:1px solid var(--color-divider);padding:var(--space-8) var(--space-6);text-align:center;color:var(--color-text-faint);font-size:var(--text-xs);}
+    .site-footer span{color:var(--color-primary);}
 
-    /* ─── RIGHTS LIST ─── */
-    .rights-list { counter-reset: rights; list-style: none; display: flex; flex-direction: column; gap: var(--space-3); }
-    .rights-list li {
-      counter-increment: rights;
-      display: flex; align-items: flex-start; gap: var(--space-4);
-      padding: var(--space-3) var(--space-4); background: var(--color-surface-2);
-      border-radius: var(--radius-lg); border: 1px solid var(--color-divider);
-    }
-    .rights-list li::before {
-      content: counter(rights, arabic-indic);
-      min-width: 32px; height: 32px; border-radius: var(--radius-full);
-      background: var(--color-primary); color: var(--color-text-inverse);
-      display: flex; align-items: center; justify-content: center;
-      font-size: var(--text-sm); font-weight: 700; flex-shrink: 0;
-      font-family: var(--font-body);
-    }
-    .rights-list li span { font-size: var(--text-sm); line-height: 1.6; color: var(--color-text); }
-    .rights-list li strong { color: var(--color-primary); }
-
-    /* ─── COMPANION TYPE CARDS ─── */
-    .companion-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(210px, 100%), 1fr)); gap: var(--space-4); }
-    .companion-card { border-radius: var(--radius-xl); padding: var(--space-5); border: 1px solid var(--color-border); }
-    .companion-card.type-good { background: linear-gradient(135deg, #e8f4ee, #f0f8f4); border-color: #a8d8be; }
-    .companion-card.type-neutral { background: linear-gradient(135deg, #fdf6dc, #fdfaee); border-color: #e8d080; }
-    .companion-card.type-warn { background: linear-gradient(135deg, #fde8e0, #fff4f0); border-color: #e8b0a0; }
-    .companion-card.type-danger { background: linear-gradient(135deg, #f8e0e8, #fff0f4); border-color: #d4a0b0; }
-    [data-theme="dark"] .companion-card.type-good { background: #1a2e22; border-color: #2d5040; }
-    [data-theme="dark"] .companion-card.type-neutral { background: #2a240e; border-color: #5a4a10; }
-    [data-theme="dark"] .companion-card.type-warn { background: #2e1a12; border-color: #6a3020; }
-    [data-theme="dark"] .companion-card.type-danger { background: #2a1520; border-color: #5a2030; }
-    .companion-emoji { font-size: 2rem; margin-bottom: var(--space-3); }
-    .companion-type-label { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.07em; font-weight: 700; margin-bottom: var(--space-2); }
-    .companion-card.type-good .companion-type-label { color: #1a6b47; }
-    .companion-card.type-neutral .companion-type-label { color: #b88a00; }
-    .companion-card.type-warn .companion-type-label { color: #a04020; }
-    .companion-card.type-danger .companion-type-label { color: #8a2040; }
-    .companion-title { font-weight: 700; font-size: var(--text-base); margin-bottom: var(--space-2); }
-    .companion-desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.5; }
-
-    /* ─── REWARDS SECTION ─── */
-    .reward-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr)); gap: var(--space-5); }
-    .reward-card {
-      background: var(--color-surface-2); border: 1px solid var(--color-border);
-      border-radius: var(--radius-xl); padding: var(--space-5); text-align: center;
-      transition: box-shadow var(--transition-interactive), transform var(--transition-interactive);
-    }
-    .reward-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
-    .reward-icon { font-size: 2.4rem; margin-bottom: var(--space-3); }
-    .reward-title { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 700; color: var(--color-primary); margin-bottom: var(--space-2); }
-    .reward-text { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; }
-    .reward-source { margin-top: var(--space-3); font-size: var(--text-xs); color: var(--color-primary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
-
-    /* ─── BROTHERHOOD LEVELS ─── */
-    .levels-track { display: flex; flex-direction: column; gap: var(--space-4); position: relative; padding-left: var(--space-8); }
-    .levels-track::before { content: ''; position: absolute; left: 15px; top: 20px; bottom: 20px; width: 2px; background: linear-gradient(to bottom, var(--color-primary), color-mix(in oklch, var(--color-primary) 30%, transparent)); border-radius: 2px; }
-    .level-item { position: relative; }
-    .level-dot { position: absolute; left: calc(-1 * var(--space-8) + 8px); top: 14px; width: 14px; height: 14px; border-radius: var(--radius-full); background: var(--color-primary); border: 2px solid var(--color-bg); box-shadow: 0 0 0 2px var(--color-primary); }
-    .level-card { background: var(--color-surface-2); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: var(--space-4) var(--space-5); }
-    .level-rank { font-size: var(--text-xs); font-weight: 700; color: var(--color-gold); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: var(--space-1); }
-    .level-name { font-family: var(--font-display); font-weight: 700; font-size: var(--text-lg); color: var(--color-text); margin-bottom: var(--space-2); }
-    .level-desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; }
-    .level-ayah { font-size: var(--text-xs); color: var(--color-primary); margin-top: var(--space-2); font-style: italic; }
-
-    /* ─── PROPHET PBUH SECTION ─── */
-    .prophet-callout {
-      background: linear-gradient(135deg, var(--color-primary-soft), var(--color-gold-soft));
-      border: 1px solid color-mix(in oklch, var(--color-primary) 20%, transparent);
-      border-radius: var(--radius-xl); padding: var(--space-6) var(--space-8);
-      display: grid; grid-template-columns: auto 1fr; gap: var(--space-6); align-items: start;
-    }
-    @media (max-width: 640px) { .prophet-callout { grid-template-columns: 1fr; } }
-    .prophet-symbol { font-size: 3.5rem; line-height: 1; }
-    .prophet-title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 700; color: var(--color-primary); margin-bottom: var(--space-3); }
-    .prophet-body { font-size: var(--text-base); line-height: 1.7; color: var(--color-text); }
-
-    /* ─── MUSK ANALOGY ─── */
-    .musk-analogy { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-top: var(--space-2); }
-    @media (max-width: 600px) { .musk-analogy { grid-template-columns: 1fr; } }
-    .musk-card { border-radius: var(--radius-xl); padding: var(--space-5); }
-    .musk-card.good { background: var(--color-primary-soft); border: 1px solid var(--color-primary-highlight); }
-    .musk-card.bad { background: color-mix(in oklch, #964219 8%, var(--color-bg)); border: 1px solid color-mix(in oklch, #964219 25%, transparent); }
-    [data-theme="dark"] .musk-card.bad { background: #2a1a10; border-color: #6a3010; }
-    .musk-emoji { font-size: 2rem; margin-bottom: var(--space-2); }
-    .musk-title { font-weight: 700; font-size: var(--text-base); margin-bottom: var(--space-2); }
-    .musk-card.good .musk-title { color: var(--color-primary); }
-    .musk-card.bad .musk-title { color: var(--color-warning); }
-    .musk-desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; }
-
-    /* ─── KEY TAKEAWAY ─── */
-    .takeaway-banner {
-      background: var(--color-primary);
-      color: var(--color-text-inverse);
-      border-radius: var(--radius-xl); padding: var(--space-8) var(--space-10);
-      text-align: center; margin-top: var(--space-12);
-    }
-    .takeaway-banner h2 { font-family: var(--font-display); font-size: var(--text-xl); margin-bottom: var(--space-4); }
-    .takeaway-banner p { max-width: 58ch; margin-inline: auto; line-height: 1.7; opacity: 0.9; font-size: var(--text-base); }
-
-    /* ─── FOOTER ─── */
-    .site-footer {
-      border-top: 1px solid var(--color-divider);
-      padding: var(--space-8) var(--space-6);
-      text-align: center; color: var(--color-text-faint);
-      font-size: var(--text-xs);
-    }
-    .site-footer span { color: var(--color-primary); }
-
-    /* ─── PRINT ─── */
-    @media print {
-      .site-header, .toc, .hero-meta, .theme-toggle { display: none; }
-      .main-layout { grid-template-columns: 1fr; }
-      .section-block { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
-    }
+    @media print{.site-header,.toc,.hero-meta,.theme-toggle{display:none;}.main-layout{grid-template-columns:1fr;}.section-block{box-shadow:none;break-inside:avoid;}}
   </style>
 </head>
 <body>
 
-  <!-- ── HEADER ── -->
-  <header class="site-header" id="site-header">
-    <div class="header-inner">
-      <div class="logo-wrap">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-label="Islamic Studies Notes Logo" xmlns="http://www.w3.org/2000/svg">
-          <rect width="36" height="36" rx="9" fill="var(--color-primary)" />
-          <path d="M18 8C12.477 8 8 12.477 8 18s4.477 10 10 10 10-4.477 10-10S23.523 8 18 8zm0 3a7 7 0 110 14A7 7 0 0118 11zm0 2a5 5 0 100 10A5 5 0 0018 13z" fill="white" fill-opacity="0.3"/>
-          <path d="M18 10.5l1.5 4.5h4.5l-3.7 2.7 1.4 4.3L18 19.3l-3.7 2.7 1.4-4.3L12 15h4.5z" fill="white" opacity="0.9"/>
-        </svg>
-        <div>
-          <div class="logo-text">Islamic Studies</div>
-          <div class="logo-subtitle">Comprehensive Notes</div>
-        </div>
-      </div>
-      <div class="header-right">
-        <nav class="nav-links" aria-label="Page sections">
-          <a class="nav-link" href="#vocabulary">Vocabulary</a>
-          <a class="nav-link" href="#purpose">Purpose</a>
-          <a class="nav-link" href="#comparison">Comparison</a>
-          <a class="nav-link" href="#qualities">Qualities</a>
-          <a class="nav-link" href="#rewards">Rewards</a>
-        </nav>
-        <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        </button>
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-label="Logo" xmlns="http://www.w3.org/2000/svg">
+        <rect width="36" height="36" rx="9" fill="var(--color-primary)"/>
+        <path d="M18 8C12.477 8 8 12.477 8 18s4.477 10 10 10 10-4.477 10-10S23.523 8 18 8zm0 3a7 7 0 110 14A7 7 0 0118 11zm0 2a5 5 0 100 10A5 5 0 0018 13z" fill="white" fill-opacity=".3"/>
+        <path d="M18 10.5l1.5 4.5h4.5l-3.7 2.7 1.4 4.3L18 19.3l-3.7 2.7 1.4-4.3L12 15h4.5z" fill="white" opacity=".9"/>
+      </svg>
+      <div>
+        <div class="logo-text">Islamic Studies</div>
+        <div class="logo-sub">Comprehensive Notes</div>
       </div>
     </div>
-  </header>
-
-  <!-- ── HERO ── -->
-  <section class="hero" aria-label="Page hero">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M6 1l1.236 2.5 2.764.4-2 1.95.472 2.75L6 7.375 3.528 8.6 4 5.85 2 3.9l2.764-.4z"/></svg>
-        Islamic Studies — Comprehensive Notes
-      </div>
-      <div class="hero-arabic">الصداقة في الإسلام</div>
-      <h1 class="hero-title">Friendship in Islam</h1>
-      <p class="hero-sub">A deep study of Al-Ṣadāqah and Al-Ukhuwwah — from the Quran, Sunnah, and classical scholarship</p>
-      <div class="hero-meta">
-        <div class="hero-meta-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-          9 Sections
-        </div>
-        <div class="hero-meta-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          ~15 min read
-        </div>
-        <div class="hero-meta-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          Grades 7–9
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── MAIN ── -->
-  <div class="main-layout">
-
-    <!-- TABLE OF CONTENTS -->
-    <aside>
-      <nav class="toc" aria-label="Table of contents">
-        <div class="toc-title">Contents</div>
-        <ol class="toc-list" role="list">
-          <li><a class="toc-link" href="#vocabulary"><span class="toc-num">1.</span>Arabic Vocabulary</a></li>
-          <li><a class="toc-link" href="#quranic"><span class="toc-num">2.</span>Quranic Perspective</a></li>
-          <li><a class="toc-link" href="#purpose"><span class="toc-num">3.</span>Purpose of Friendship</a></li>
-          <li><a class="toc-link" href="#comparison"><span class="toc-num">4.</span>Modern vs Islamic View</a></li>
-          <li><a class="toc-link" href="#qualities"><span class="toc-num">5.</span>Qualities of a Good Friend</a></li>
-          <li><a class="toc-link" href="#rights"><span class="toc-num">6.</span>Rights of Friendship</a></li>
-          <li><a class="toc-link" href="#rewards"><span class="toc-num">7.</span>Rewards from Allah</a></li>
-          <li><a class="toc-link" href="#companions"><span class="toc-num">8.</span>Types of Companions</a></li>
-          <li><a class="toc-link" href="#brotherhood"><span class="toc-num">9.</span>Levels of Brotherhood</a></li>
-          <li><a class="toc-link" href="#prophet"><span class="toc-num">10.</span>The Prophet ﷺ as Friend</a></li>
-        </ol>
+    <div class="header-right">
+      <nav class="nav-links" aria-label="Page sections">
+        <a class="nav-link" href="#s1">Intro</a>
+        <a class="nav-link" href="#s5">Purpose</a>
+        <a class="nav-link" href="#s6">Comparison</a>
+        <a class="nav-link" href="#s9">Rewards</a>
+        <a class="nav-link" href="#s13">Prophet ﷺ</a>
       </nav>
-    </aside>
-
-    <!-- ARTICLE -->
-    <main class="article" id="main-content">
-
-      <!-- ─── SECTION 1: VOCABULARY ─── -->
-      <section id="vocabulary" class="section-block fade-in">
-        <div class="section-num">Section 01 — Arabic Vocabulary</div>
-        <h2 class="section-title">The Language of Friendship in Arabic</h2>
-        <div class="section-body">
-          <p>
-            Arabic — the language of the Quran — has <strong>many words for "friend"</strong>, each carrying a distinct depth and shade of meaning. Understanding these terms helps us grasp the rich, nuanced concept of friendship Islam envisions.
-          </p>
-          <div class="vocab-grid">
-            <div class="vocab-card">
-              <div class="vocab-arabic">صديق</div>
-              <div class="vocab-roman">Ṣadīq (pl. Aṣdiqāʾ)</div>
-              <div class="vocab-meaning">A loyal, truthful friend — one whose inner and outer character match. Derived from <em>Ṣidq</em> (truthfulness).</div>
-              <span class="vocab-tag">Most common</span>
-            </div>
-            <div class="vocab-card">
-              <div class="vocab-arabic">خليل</div>
-              <div class="vocab-roman">Khalīl (pl. Akillāʾ)</div>
-              <div class="vocab-meaning">An intimate friend whose love penetrates the heart. Ibrahim (AS) was called <em>Khalīlullāh</em> — Friend of Allah.</div>
-              <span class="vocab-tag">Deepest bond</span>
-            </div>
-            <div class="vocab-card">
-              <div class="vocab-arabic">صاحب</div>
-              <div class="vocab-roman">Ṣāḥib (pl. Aṣḥāb)</div>
-              <div class="vocab-meaning">A constant companion who accompanies you and means well. The Companions of the Prophet ﷺ are called Aṣḥāb.</div>
-              <span class="vocab-tag">Companion</span>
-            </div>
-            <div class="vocab-card">
-              <div class="vocab-arabic">وليّ</div>
-              <div class="vocab-roman">Walī (pl. Awliyāʾ)</div>
-              <div class="vocab-meaning">A protecting friend, helper, or patron. Also used for the "Friends of Allah" — the righteous believers.</div>
-              <span class="vocab-tag">Protector</span>
-            </div>
-            <div class="vocab-card">
-              <div class="vocab-arabic">رفيق</div>
-              <div class="vocab-roman">Rafīq (pl. Rufaqāʾ)</div>
-              <div class="vocab-meaning">A gentle, kind companion on a journey — whether physical or spiritual. Implies care and tenderness.</div>
-              <span class="vocab-tag">Gentle companion</span>
-            </div>
-            <div class="vocab-card">
-              <div class="vocab-arabic">خذول</div>
-              <div class="vocab-roman">Khadhūl</div>
-              <div class="vocab-meaning">A fake friend who deserts you in times of need. Also one of the names for Shaytan — the ultimate betrayer of trust.</div>
-              <span class="vocab-tag" style="background:#fde8e0; color:#964219;">False friend</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─── SECTION 2: QURANIC ─── -->
-      <section id="quranic" class="section-block fade-in">
-        <div class="section-num">Section 02 — Quranic Perspective</div>
-        <h2 class="section-title">What the Quran Says About Friendship</h2>
-        <div class="section-body">
-          <p>The Quran addresses friendship in three powerful dimensions: the <strong>danger of bad friendship</strong>, the <strong>blessing of righteous companionship</strong>, and the <strong>eternal nature of true bonds</strong> built on taqwā.</p>
-
-          <div class="quran-block">
-            <div class="quran-arabic">يَا وَيْلَتَىٰ لَيْتَنِي لَمْ أَتَّخِذْ فُلَانًا خَلِيلًا</div>
-            <div class="quran-translation">"Oh, woe to me! I wish I had not taken so-and-so as a friend (khalīl)!"</div>
-            <span class="quran-ref">Sūrat Al-Furqān (25:28) — The cry of the wrongdoer on the Day of Judgement</span>
-          </div>
-
-          <p>This verse is a chilling warning: on the Day of Judgement, a person will regret the friends who led them away from Allah's remembrance. The wrong companion can cost a person their ākhirah.</p>
-
-          <div class="quran-block">
-            <div class="quran-arabic">الْأَخِلَّاءُ يَوْمَئِذٍ بَعْضُهُمْ لِبَعْضٍ عَدُوٌّ إِلَّا الْمُتَّقِينَ</div>
-            <div class="quran-translation">"Friends on that Day will be enemies one to another — except the muttaqūn (those who are God-conscious)."</div>
-            <span class="quran-ref">Sūrat Az-Zukhruf (43:67)</span>
-          </div>
-
-          <p>This ayah reveals that only friendships built on <em>taqwā</em> will survive into the next world. All other friendships — however close in the dunya — will turn to enmity.</p>
-
-          <div class="quran-block">
-            <div class="quran-arabic">وَالْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بَعْضُهُمْ أَوْلِيَاءُ بَعْضٍ</div>
-            <div class="quran-translation">"The believing men and believing women are allies of one another; they enjoin what is right and forbid what is wrong..."</div>
-            <span class="quran-ref">Sūrat At-Tawbah (9:71)</span>
-          </div>
-
-          <p>Islam frames the entire community of believers as one family of friends — united by a shared commitment to enjoin good and forbid evil. Friendship is thus a collective, communal responsibility.</p>
-        </div>
-      </section>
-
-      <!-- ─── SECTION 3: PURPOSE ─── -->
-      <section id="purpose" class="section-block fade-in">
-        <div class="section-num">Section 03 — Purpose</div>
-        <h2 class="section-title">The True Purpose of Islamic Friendship</h2>
-        <div class="section-body">
-          <p>In Islam, the <strong>fundamental purpose of friendship is the pleasure of Allah and mutual salvation</strong>. This is captured in the concept of <em>Al-Ḥubb fī'llāh</em> — loving one another for the sake of Allah, not for worldly gain.</p>
-
-          <div class="hadith-block">
-            <div class="hadith-label">🌿 Ḥadīth — The Taste of Faith</div>
-            <p class="hadith-text">"No one may taste true faith except by building relationships for the sake of Allah — even if his prayers and fasts are many. People have come to build their relationships around the concerns of the world, but this will not benefit them in any way."</p>
-            <p class="hadith-source">— Reported from Ibn Abbas (RA)</p>
-          </div>
-
-          <p>This profound statement tells us that <strong>the quality of your friendships reflects the quality of your faith</strong>. If your friends are chosen purely for dunya reasons, it suggests a heart not fully oriented toward Allah.</p>
-
-          <div class="hadith-block">
-            <div class="hadith-label">🌿 Ḥadīth — The Religion of Your Friend</div>
-            <p class="hadith-text">"A man follows the religion of his close friend (khalīl); so each one of you should consider carefully whom he takes as a close friend."</p>
-            <p class="hadith-source">— Prophet Muhammad ﷺ (Abu Dawud, authenticated by Al-Albāni)</p>
-          </div>
-
-          <p>This hadith is one of the most important statements about friendship in Islam. It confirms that companionship is not neutral — it has a <strong>direct impact on your dīn, your character, and your destiny</strong>. The Prophet ﷺ is telling us to be deliberate in choosing friends.</p>
-        </div>
-      </section>
-
-      <!-- ─── SECTION 4: COMPARISON ─── -->
-      <section id="comparison" class="section-block fade-in">
-        <div class="section-num">Section 04 — Critical Thinking</div>
-        <h2 class="section-title">Modern Understanding vs. Islamic Understanding</h2>
-        <div class="section-body">
-          <p>
-            Today, especially in the age of social media, the word "friend" has lost much of its depth. Platforms like Facebook use it to describe anyone who clicks "accept" — even strangers. Islam's understanding of friendship is fundamentally different.
-          </p>
-          <div class="compare-table-wrap">
-            <table class="compare-table">
-              <thead>
-                <tr>
-                  <th>Dimension</th>
-                  <th>🌍 Common (Modern) View</th>
-                  <th>☪️ Islamic View</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="col-dimension">Why become friends?</td>
-                  <td class="col-modern">Shared interests, fun, convenience</td>
-                  <td class="col-islam">To help each other reach Jannah</td>
-                </tr>
-                <tr>
-                  <td class="col-dimension">What defines loyalty?</td>
-                  <td class="col-modern">Being available when it's easy</td>
-                  <td class="col-islam">Present especially in hardship; makes duʿāʾ in your absence</td>
-                </tr>
-                <tr>
-                  <td class="col-dimension">Who qualifies?</td>
-                  <td class="col-modern">Anyone who "clicks" with you</td>
-                  <td class="col-islam">Someone with good character and taqwā</td>
-                </tr>
-                <tr>
-                  <td class="col-dimension">What matters most?</td>
-                  <td class="col-modern">Your feelings and happiness now</td>
-                  <td class="col-islam">Your soul's state in the Hereafter</td>
-                </tr>
-                <tr>
-                  <td class="col-dimension">What ends it?</td>
-                  <td class="col-modern">Conflict, distance, boredom</td>
-                  <td class="col-islam">Only clear harm to dīn — and even then with wisdom and patience</td>
-                </tr>
-                <tr>
-                  <td class="col-dimension">Depth of honesty?</td>
-                  <td class="col-modern">Tell you what you want to hear</td>
-                  <td class="col-islam">Truthful even when painful — prioritises your ākhirah over your ego</td>
-                </tr>
-                <tr>
-                  <td class="col-dimension">Spiritual dimension?</td>
-                  <td class="col-modern">None — it's a social relationship</td>
-                  <td class="col-islam">An act of worship; brings Allah's love and shade on Qiyāmah</td>
-                </tr>
-                <tr>
-                  <td class="col-dimension">Ultimate outcome?</td>
-                  <td class="col-modern">Temporary social satisfaction</td>
-                  <td class="col-islam">Allah's love, shade on Judgement Day, entry into Jannah together</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p>The core contrast: modern culture sees friendship as a means of personal happiness. Islam sees it as a means of <strong>mutual salvation</strong>. A true Islamic friend is someone whose companionship is itself an act of worship.</p>
-        </div>
-      </section>
-
-      <!-- ─── SECTION 5: QUALITIES ─── -->
-      <section id="qualities" class="section-block fade-in">
-        <div class="section-num">Section 05 — Qualities</div>
-        <h2 class="section-title">Qualities of a Good Friend in Islam</h2>
-        <div class="section-body">
-          <p>A righteous friend is one who makes you a better Muslim. Here are the essential qualities the Quran and Sunnah highlight:</p>
-          <div class="quality-list">
-            <div class="quality-item">
-              <div class="quality-icon">🕌</div>
-              <div>
-                <div class="quality-title">Reminds you of Allah</div>
-                <div class="quality-desc">The best friend is one whose presence reminds you of Allah. Their words, actions, and company draw your heart closer to the Creator — not away from Him.</div>
-              </div>
-            </div>
-            <div class="quality-item">
-              <div class="quality-icon">💎</div>
-              <div>
-                <div class="quality-title">Loves you for Allah's sake (fī'llāh)</div>
-                <div class="quality-desc">Their love is not conditional on your looks, wealth, or status. They love you because of your faith and because loving you is an act of worship. This love persists even when life changes.</div>
-              </div>
-            </div>
-            <div class="quality-item">
-              <div class="quality-icon">🗣️</div>
-              <div>
-                <div class="quality-title">Is honest and gives sincere naṣīḥah</div>
-                <div class="quality-desc">They tell you the truth even when it's uncomfortable, because they care more about your ākhirah than your ego. A real friend does not flatter you into sin.</div>
-              </div>
-            </div>
-            <div class="quality-item">
-              <div class="quality-icon">🤲</div>
-              <div>
-                <div class="quality-title">Makes duʿāʾ for you in your absence</div>
-                <div class="quality-desc">The Prophet ﷺ said: "The duʿāʾ of a Muslim for his brother in his absence is answered, and the angel says: 'Āmeen, and for you the same!'" (Muslim). This is a priceless gift.</div>
-              </div>
-            </div>
-            <div class="quality-item">
-              <div class="quality-icon">🛡️</div>
-              <div>
-                <div class="quality-title">Conceals your faults</div>
-                <div class="quality-desc">The Prophet ﷺ said: "He who conceals the faults of a Muslim, Allah would conceal his faults in this world and in the Hereafter." (Muslim). A true friend protects your honour.</div>
-              </div>
-            </div>
-            <div class="quality-item">
-              <div class="quality-icon">⚖️</div>
-              <div>
-                <div class="quality-title">Enjoins good and forbids evil (gently)</div>
-                <div class="quality-desc">Imam Ali (RA) said: "The best of your brothers is he who guides you to good and rushes to pull you away from evil." They correct mistakes with wisdom and compassion.</div>
-              </div>
-            </div>
-            <div class="quality-item">
-              <div class="quality-icon">🌊</div>
-              <div>
-                <div class="quality-title">Patient and forgiving</div>
-                <div class="quality-desc">True friendship requires sabr. A good friend overlooks small mistakes, does not hold grudges, and works to reconcile. The Prophet ﷺ forbade cutting off a Muslim for more than three days.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─── SECTION 6: RIGHTS ─── -->
-      <section id="rights" class="section-block fade-in">
-        <div class="section-num">Section 06 — Rights &amp; Duties</div>
-        <h2 class="section-title">Rights (Ḥuqūq) of Friendship in Islam</h2>
-        <div class="section-body">
-          <p>Islam is practical: it outlines <strong>specific duties</strong> that friends owe one another. These are not optional niceties — they are obligations of the Islamic brotherhood.</p>
-          <ol class="rights-list">
-            <li><span><strong>Material Support:</strong> Assist a friend in financial hardship when you are able. The Quran praises those who give preference to others even when they themselves are in need (59:9).</span></li>
-            <li><span><strong>Sincere Advice (Naṣīḥah):</strong> Guide your friend towards good and deter them from wrongdoing — with wisdom, kindness, and in private when possible.</span></li>
-            <li><span><strong>Keeping Secrets:</strong> What a friend confides in you must never be exposed or shared. Betraying a secret is a form of treachery.</span></li>
-            <li><span><strong>Sharing Joy and Sorrow:</strong> Be present not only in celebration but also in hardship, grief, and illness. Visit the sick; attend funerals; share in happy occasions.</span></li>
-            <li><span><strong>Making Duʿāʾ:</strong> Pray for your friend by name — especially in their absence. This is one of the most powerful gifts you can give.</span></li>
-            <li><span><strong>Forgiveness and Patience:</strong> Overlook human mistakes. Do not keep a record of wrongs. Reconcile quickly when disputes arise.</span></li>
-            <li><span><strong>Defending Their Honour:</strong> Speak well of your friend when they are absent. Never allow their reputation to be wrongly attacked in their presence.</span></li>
-          </ol>
-          <div class="hadith-block">
-            <div class="hadith-label">🌿 Imam Al-Ṣādiq — The Five Signs of True Friendship</div>
-            <p class="hadith-text">A true friend: (1) his inner and outer character match; (2) he sees your good as his own good; (3) wealth and rank never change his bond with you; (4) he never withholds what he is capable of giving; (5) he never abandons you in calamity.</p>
-            <p class="hadith-source">— Imam Jaʿfar al-Ṣādiq (From Al-Islam.org — Ahlul Bayt Ethical Role Models)</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─── SECTION 7: REWARDS ─── -->
-      <section id="rewards" class="section-block fade-in">
-        <div class="section-num">Section 07 — Rewards</div>
-        <h2 class="section-title">Rewards of Friendship for Allah's Sake</h2>
-        <div class="section-body">
-          <p>Friendship for the sake of Allah is one of the <strong>most rewarded acts</strong> in Islamic spirituality. The rewards are extraordinary — both in this life and in the Hereafter.</p>
-          <div class="reward-cards">
-            <div class="reward-card">
-              <div class="reward-icon">☂️</div>
-              <div class="reward-title">Allah's Shade</div>
-              <p class="reward-text">Among the seven groups sheltered by Allah's Throne on the Day of Judgement are "two people who love each other and meet and depart for the sake of Allah."</p>
-              <div class="reward-source">Sahih Muslim</div>
-            </div>
-            <div class="reward-card">
-              <div class="reward-icon">❤️</div>
-              <div class="reward-title">Allah's Direct Love</div>
-              <p class="reward-text">A divine hadith (ḥadīth qudsī): "My love is a right upon those who befriend each other for My sake, sit together for My sake, and visit each other for My sake."</p>
-              <div class="reward-source">Al-Ṭabarānī</div>
-            </div>
-            <div class="reward-card">
-              <div class="reward-icon">✨</div>
-              <div class="reward-title">Faces of Light</div>
-              <p class="reward-text">"Those who love one another for Allah's sake will be on thrones of light on the Day of Resurrection, and the Prophets and martyrs will envy them."</p>
-              <div class="reward-source">Al-Tirmidhī</div>
-            </div>
-            <div class="reward-card">
-              <div class="reward-icon">🏡</div>
-              <div class="reward-title">Jannah Together</div>
-              <p class="reward-text">Friends who love for Allah's sake will be gathered together in Jannah — their bond in this world carries over into eternal life. No separation for true companions of faith.</p>
-              <div class="reward-source">Quran 43:67 + Islamic scholarship</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─── SECTION 8: COMPANION TYPES ─── -->
-      <section id="companions" class="section-block fade-in">
-        <div class="section-num">Section 08 — Choosing Friends Wisely</div>
-        <h2 class="section-title">The Musk Seller &amp; Four Types of Companions</h2>
-        <div class="section-body">
-          <div class="hadith-block">
-            <div class="hadith-label">🌿 Ḥadīth — The Musk Seller and the Bellow Blower</div>
-            <p class="hadith-text">"The example of a good companion is like a musk seller — you either benefit from the scent directly, or you buy from him, or at least you get a pleasant smell. The example of a bad companion is like a bellow blower — he either burns your clothes, or you get a foul smell from him."</p>
-            <p class="hadith-source">— Prophet Muhammad ﷺ (Bukhari &amp; Muslim)</p>
-          </div>
-          <div class="musk-analogy">
-            <div class="musk-card good">
-              <div class="musk-emoji">🌸</div>
-              <div class="musk-title">The Musk Seller (Good Friend)</div>
-              <div class="musk-desc">Even if you don't buy anything, you still benefit from being near him. Good friends elevate you simply by their presence — their character rubs off on you.</div>
-            </div>
-            <div class="musk-card bad">
-              <div class="musk-emoji">🔥</div>
-              <div class="musk-title">The Bellow Blower (Bad Friend)</div>
-              <div class="musk-desc">Even if no direct harm is intended, being near a blacksmith's bellow risks burning or bad smell. Bad companionship harms you even without deliberate effort.</div>
-            </div>
-          </div>
-          <p>Islam classifies companions into four types based on their spiritual impact on you:</p>
-          <div class="companion-grid">
-            <div class="companion-card type-good">
-              <div class="companion-emoji">💊</div>
-              <div class="companion-type-label">Type 1</div>
-              <div class="companion-title">Like Medicine</div>
-              <div class="companion-desc">Friends higher in dīn who cure your spiritual weaknesses through their example and gentle correction.</div>
-            </div>
-            <div class="companion-card type-neutral">
-              <div class="companion-emoji">🍞</div>
-              <div class="companion-type-label">Type 2</div>
-              <div class="companion-title">Like Staple Food</div>
-              <div class="companion-desc">Everyday companions who consistently encourage you in worship and obedience — essential and nourishing.</div>
-            </div>
-            <div class="companion-card type-warn">
-              <div class="companion-emoji">🤒</div>
-              <div class="companion-type-label">Type 3</div>
-              <div class="companion-title">Like Disease</div>
-              <div class="companion-desc">Those who spread envy, gossip, and spiritual rot. Their companionship weakens your faith gradually.</div>
-            </div>
-            <div class="companion-card type-danger">
-              <div class="companion-emoji">☠️</div>
-              <div class="companion-type-label">Type 4</div>
-              <div class="companion-title">Like Fatal Poison</div>
-              <div class="companion-desc">Those who actively drag you into sin, haram, and destruction — harmful to both your dunya and ākhirah.</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─── SECTION 9: BROTHERHOOD LEVELS ─── -->
-      <section id="brotherhood" class="section-block fade-in">
-        <div class="section-num">Section 09 — Brotherhood</div>
-        <h2 class="section-title">Levels of Brotherhood (Al-Ukhuwwah)</h2>
-        <div class="section-body">
-          <p>Brotherhood in Islam operates at <strong>three distinct levels</strong>, each with progressively deeper obligations and spiritual significance:</p>
-          <div class="levels-track">
-            <div class="level-item">
-              <div class="level-dot"></div>
-              <div class="level-card">
-                <div class="level-rank">Level 1</div>
-                <div class="level-name">Brotherhood of Humanity (Insāniyyah)</div>
-                <div class="level-desc">Basic moral obligations toward all human beings — regardless of religion. This includes justice, kindness, and not harming others. It is the foundation of all relationships.</div>
-                <div class="level-ayah">"We have honoured the sons of Adam..." — Sūrat Al-Isrāʾ (17:70)</div>
-              </div>
-            </div>
-            <div class="level-item">
-              <div class="level-dot"></div>
-              <div class="level-card">
-                <div class="level-rank">Level 2</div>
-                <div class="level-name">Brotherhood of Kinship (Qarābah)</div>
-                <div class="level-desc">Strengthened obligations toward blood relatives and family. Silat al-raḥim (maintaining family ties) is a major obligation. Cutting family ties is a serious sin in Islam.</div>
-                <div class="level-ayah">"Allah enjoins you to render back your trusts... and to judge with justice." — Sūrat Al-Nisāʾ (4:58)</div>
-              </div>
-            </div>
-            <div class="level-item">
-              <div class="level-dot"></div>
-              <div class="level-card">
-                <div class="level-rank">Level 3 — Highest</div>
-                <div class="level-name">Brotherhood in Faith (Dīniyyah / Ukhuwwah fī'llāh)</div>
-                <div class="level-desc">The deepest level — brotherhood among believers working together toward divine goals. This bond can transcend blood ties; it carries the greatest rewards and the most obligations.</div>
-                <div class="level-ayah">"The believers are nothing else than brothers." — Sūrat Al-Ḥujurāt (49:10)</div>
-              </div>
-            </div>
-          </div>
-          <div class="hadith-block">
-            <div class="hadith-label">🌿 Ḥadīth — The Unity of Believers</div>
-            <p class="hadith-text">"A faithful believer to a faithful believer is like the bricks of a wall — each one reinforces the other." (And the Prophet ﷺ interlaced his fingers to illustrate.)</p>
-            <p class="hadith-source">— Prophet Muhammad ﷺ (Bukhari &amp; Muslim)</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─── SECTION 10: PROPHET ─── -->
-      <section id="prophet" class="section-block fade-in">
-        <div class="section-num">Section 10 — The Living Example</div>
-        <h2 class="section-title">The Prophet ﷺ as the Model Friend</h2>
-        <div class="section-body">
-          <div class="prophet-callout">
-            <div class="prophet-symbol">🕌</div>
-            <div>
-              <div class="prophet-title">Uswah Ḥasanah — The Perfect Example</div>
-              <p class="prophet-body">
-                Prophet Muhammad ﷺ was known for his warmth, gentleness, and deep care for his companions. He remembered their names, honoured their feelings, made time for them personally, and was never too busy or too proud to sit with the poor or the young. His friendship was never conditional.
-              </p>
-            </div>
-          </div>
-          <p>The most celebrated example of Islamic friendship is the bond between the Prophet ﷺ and <strong>Sayyidunā Abu Bakr al-Ṣiddīq (RA)</strong> — the truest <em>khalīl</em>-level friendship in Islamic history:</p>
-          <div class="quality-list">
-            <div class="quality-item">
-              <div class="quality-icon">💰</div>
-              <div>
-                <div class="quality-title">Abu Bakr gave his entire wealth</div>
-                <div class="quality-desc">When asked what he left for his family, Abu Bakr (RA) said: "Allah and His Messenger." He held nothing back in supporting the cause of Islam.</div>
-              </div>
-            </div>
-            <div class="quality-item">
-              <div class="quality-icon">🏔️</div>
-              <div>
-                <div class="quality-title">Shared the Cave of Thawr</div>
-                <div class="quality-desc">During the Hijrah (migration to Madinah), Abu Bakr risked his life by accompanying the Prophet ﷺ in the cave while enemies searched for them. The Quran recorded this moment (9:40).</div>
-              </div>
-            </div>
-            <div class="quality-item">
-              <div class="quality-icon">🌹</div>
-              <div>
-                <div class="quality-title">The Prophet's deliberate act of brotherhood</div>
-                <div class="quality-desc">In Madinah, the Prophet ﷺ paired the Anṣār (local helpers) and Muhājirūn (emigrants) as brothers — creating a model society built on sincere, structured friendship for Allah's sake.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- KEY TAKEAWAY BANNER -->
-      <div class="takeaway-banner fade-in">
-        <h2>The Core Principle</h2>
-        <p>
-          "Islamic scripture says that friendship is the end product of good faith, good belief, and good acts. A society that is not friendly is not in good faith." A true Islamic friend is someone whose companionship is an act of worship — and whose presence makes your scale heavier on the Day of Judgement.
-        </p>
-      </div>
-
-    </main>
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
   </div>
+</header>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <p>Compiled for Islamic Studies — Grades 7–9 | <span>IIUM School</span> | Based on the Quran, Sunnah, and classical scholarship</p>
-  </footer>
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">&#9733; Islamic Studies — Comprehensive Notes</div>
+    <div class="hero-arabic">الصداقة في الإسلام</div>
+    <h1 class="hero-title">Friendship in Islam</h1>
+    <p class="hero-sub">A deep study of Al-Ṣadāqah and Al-Ukhuwwah — from the Quran, Sunnah, and classical scholarship</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        13 Sections
+      </div>
+      <div class="hero-meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        ~20 min read
+      </div>
+      <div class="hero-meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Grades 7–9
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- JS -->
-  <script>
-    // Theme toggle
-    (function(){
-      const t = document.querySelector('[data-theme-toggle]');
-      const r = document.documentElement;
-      let d = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      r.setAttribute('data-theme', d);
-      const sunIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
-      const moonIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-      if (t) {
-        t.innerHTML = d === 'dark' ? sunIcon : moonIcon;
-        t.addEventListener('click', () => {
-          d = d === 'dark' ? 'light' : 'dark';
-          r.setAttribute('data-theme', d);
-          t.innerHTML = d === 'dark' ? sunIcon : moonIcon;
-          t.setAttribute('aria-label', 'Switch to ' + (d === 'dark' ? 'light' : 'dark') + ' mode');
-        });
-      }
-    })();
+<div class="main-layout">
+  <aside>
+    <nav class="toc" aria-label="Table of contents">
+      <div class="toc-title">Contents</div>
+      <ol class="toc-list" role="list">
+        <li><a class="toc-link" href="#s1"><span class="toc-num">1</span>What is a friend to you?</a></li>
+        <li><a class="toc-link" href="#s1b"><span class="toc-num"></span>Arabic Vocabulary</a></li>
+        <li><a class="toc-link" href="#s2"><span class="toc-num">2</span>What makes us friends?</a></li>
+        <li><a class="toc-link" href="#s3"><span class="toc-num">3</span>Intentional or unintentional?</a></li>
+        <li><a class="toc-link" href="#s4"><span class="toc-num">4</span>Rewards from making friends?</a></li>
+        <li><a class="toc-link" href="#s5"><span class="toc-num">5</span>True Purpose of Friendship</a></li>
+        <li><a class="toc-link" href="#s6"><span class="toc-num">6</span>Modern vs Islamic View</a></li>
+        <li><a class="toc-link" href="#s7"><span class="toc-num">7</span>Qualities of a Good Friend</a></li>
+        <li><a class="toc-link" href="#s8"><span class="toc-num">8</span>Rights of Friendship</a></li>
+        <li><a class="toc-link" href="#s9"><span class="toc-num">9</span>Rewards for Allah's Sake</a></li>
+        <li><a class="toc-link" href="#s10"><span class="toc-num">10</span>Levels of Brotherhood</a></li>
+        <li><a class="toc-link" href="#s11"><span class="toc-num">11</span>Musk Seller &amp; Companions</a></li>
+        <li><a class="toc-link" href="#s12"><span class="toc-num">12</span>Quran on Friendship</a></li>
+        <li><a class="toc-link" href="#s13"><span class="toc-num">13</span>The Prophet ﷺ as Friend</a></li>
+      </ol>
+    </nav>
+  </aside>
 
-    // Sticky header shadow
-    const header = document.getElementById('site-header');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('site-header--scrolled', window.scrollY > 10);
-    }, { passive: true });
+  <main class="article" id="main-content">
 
-    // Active TOC links
-    const sections = document.querySelectorAll('section[id], div[id]');
-    const tocLinks = document.querySelectorAll('.toc-link');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          tocLinks.forEach(link => {
-            link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
-          });
-        }
-      });
-    }, { rootMargin: '-20% 0px -70% 0px' });
-    sections.forEach(s => observer.observe(s));
-  </script>
+    <!-- S1 -->
+    <section id="s1" class="section-block">
+      <div class="section-num">Section 01 — Warm-Up Discussion</div>
+      <h2 class="section-title">What is a Friend to You?</h2>
+      <div class="section-body">
+        <p>Before we open our books, let's think about something we experience every day — <strong>friendship</strong>. What does the word "friend" actually mean to you? Let's hear what some students think...</p>
+        <div class="dialogue">
+          <div class="db teacher">
+            <div class="av T">T</div>
+            <div class="bc"><div class="bn">Teacher</div><div class="bt">Good morning everyone! Let's start with a simple question — what do you think a "friend" is? What makes someone your friend?</div></div>
+          </div>
+          <div class="db right">
+            <div class="av A">A</div>
+            <div class="bc"><div class="bn r">Aiman</div><div class="bt">Someone I sit with at lunch and talk to every day? Like, someone I feel comfortable around.</div></div>
+          </div>
+          <div class="db">
+            <div class="av B">B</div>
+            <div class="bc"><div class="bn">Bilal</div><div class="bt">For me it's someone who keeps my secrets and doesn't talk behind my back. Someone I can truly trust.</div></div>
+          </div>
+          <div class="db right">
+            <div class="av C">C</div>
+            <div class="bc"><div class="bn r">Cynthia</div><div class="bt">Someone who helps me when I'm sad or in trouble — not just when things are fun.</div></div>
+          </div>
+          <div class="db teacher">
+            <div class="av T">T</div>
+            <div class="bc"><div class="bn">Teacher</div><div class="bt">Those are wonderful answers — comfort, trust, loyalty. Now here is a deeper question: do you have one best friend or many friends? And what is the difference between them?</div></div>
+          </div>
+          <div class="db right">
+            <div class="av A">A</div>
+            <div class="bc"><div class="bn r">Aiman</div><div class="bt">My best friend is different — I tell her things I'd never tell anyone else. Other friends are more like... "fun friends."</div></div>
+          </div>
+          <div class="db">
+            <div class="av B">B</div>
+            <div class="bc"><div class="bn">Bilal</div><div class="bt">Yeah, I have many friends but only two or three I actually trust with important things.</div></div>
+          </div>
+          <div class="db teacher">
+            <div class="av T">T</div>
+            <div class="bc"><div class="bn">Teacher</div><div class="bt">Interesting! So not all friendships are equal — some are deeper. Did you know Arabic — the language of the Quran — has <em>different words</em> for different kinds of friends? Let's explore that!</div></div>
+          </div>
+        </div>
+        <div class="think-box">
+          <div class="think-label">🧠 Think About It</div>
+          <ul>
+            <li>How would you describe a "best friend" versus a regular friend?</li>
+            <li>What is the most important quality a friend should have?</li>
+            <li>Have you ever lost a friend? What happened and how did it feel?</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- S1b -->
+    <section id="s1b" class="section-block">
+      <div class="section-num">Section 01b — Arabic Vocabulary</div>
+      <h2 class="section-title">The Language of Friendship in Arabic</h2>
+      <div class="section-body">
+        <p>Arabic — the language of the Quran — has <strong>many words for "friend"</strong>, each carrying a distinct depth of meaning. This rich vocabulary shows us that Islam takes friendship very seriously — it is not one-size-fits-all.</p>
+        <div class="vocab-grid">
+          <div class="vocab-card">
+            <div class="v-arabic">صديق</div>
+            <div class="v-roman">Ṣadīq (pl. Aṣdiqāʾ)</div>
+            <div class="v-meaning">A loyal, truthful friend. Derived from <em>Ṣidq</em> (truthfulness) — someone whose inner and outer character match.</div>
+            <span class="v-tag">Most common</span>
+          </div>
+          <div class="vocab-card">
+            <div class="v-arabic">خليل</div>
+            <div class="v-roman">Khalīl (pl. Akillāʾ)</div>
+            <div class="v-meaning">A deeply intimate friend whose love penetrates the heart. Prophet Ibrāhīm (AS) was called <em>Khalīlullāh</em> — Friend of Allah.</div>
+            <span class="v-tag">Deepest bond</span>
+          </div>
+          <div class="vocab-card">
+            <div class="v-arabic">صاحب</div>
+            <div class="v-roman">Ṣāḥib (pl. Aṣḥāb)</div>
+            <div class="v-meaning">A constant companion who means well. The Companions of the Prophet ﷺ are called Aṣḥāb — Companions.</div>
+            <span class="v-tag">Companion</span>
+          </div>
+          <div class="vocab-card">
+            <div class="v-arabic">وليّ</div>
+            <div class="v-roman">Walī (pl. Awliyāʾ)</div>
+            <div class="v-meaning">A protecting friend or helper. Also "Friends of Allah" — the righteous servants who are close to Him.</div>
+            <span class="v-tag">Protector</span>
+          </div>
+          <div class="vocab-card">
+            <div class="v-arabic">رفيق</div>
+            <div class="v-roman">Rafīq (pl. Rufaqāʾ)</div>
+            <div class="v-meaning">A gentle, kind companion on a journey — physical or spiritual. Implies care and tenderness along the way.</div>
+            <span class="v-tag">Journey companion</span>
+          </div>
+          <div class="vocab-card">
+            <div class="v-arabic">خذول</div>
+            <div class="v-roman">Khadhūl</div>
+            <div class="v-meaning">A fake friend who abandons you in need. Also a name for Shaytan — the ultimate betrayer of trust.</div>
+            <span class="v-tag" style="background:#fde8e0;color:#964219;">False friend ⚠️</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S2 -->
+    <section id="s2" class="section-block">
+      <div class="section-num">Section 02 — How Friendships Form</div>
+      <h2 class="section-title">What Makes Us Become Friends?</h2>
+      <div class="section-body">
+        <p>Have you ever thought about <strong>why</strong> you became friends with the people around you? Most friendships begin naturally from shared circumstances or common ground. Here are the most common starting points:</p>
+        <div class="pill-group">
+          <div class="pill">🏫 Same class or school</div>
+          <div class="pill">🏠 Same neighbourhood</div>
+          <div class="pill">⚽ Same hobby or sport</div>
+          <div class="pill">🎮 Same interests (games, music)</div>
+          <div class="pill">🕌 Same masjid or Islamic class</div>
+          <div class="pill">👨‍👩‍👧 Family connection</div>
+          <div class="pill">📱 Met online or via social media</div>
+          <div class="pill">😄 Same sense of humour</div>
+        </div>
+        <p>Psychologists call this <strong>proximity + similarity</strong> — we tend to befriend people who are nearby and who share something with us. But notice: none of these reasons are about <em>values</em> or <em>character</em>. That is exactly the difference Islam wants to point out.</p>
+        <div class="dialogue">
+          <div class="db teacher">
+            <div class="av T">T</div>
+            <div class="bc"><div class="bn">Teacher</div><div class="bt">You became friends with your classmates because you sit together every day, right? But does being in the same class automatically make someone a <em>good</em> friend for you?</div></div>
+          </div>
+          <div class="db right">
+            <div class="av B">B</div>
+            <div class="bc"><div class="bn r">Bilal</div><div class="bt">Not really... some classmates are not good people to be close to.</div></div>
+          </div>
+          <div class="db teacher">
+            <div class="av T">T</div>
+            <div class="bc"><div class="bn">Teacher</div><div class="bt">Exactly! Being nearby creates opportunity — but Islam teaches that what <em>should</em> bond us is something far more important than just proximity. We will discover what that is soon. 😊</div></div>
+          </div>
+        </div>
+        <div class="think-box">
+          <div class="think-label">🧠 Think About It</div>
+          <ul>
+            <li>Is being in the same class enough to be close friends? Why or why not?</li>
+            <li>Would you become close friends with someone who has the same hobby but bad character?</li>
+            <li>What is one thing you and your best friend have in common — besides being in the same class?</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- S3 -->
+    <section id="s3" class="section-block">
+      <div class="section-num">Section 03 — Critical Thinking</div>
+      <h2 class="section-title">Is Making Friends Intentional or Unintentional?</h2>
+      <div class="section-body">
+        <p>This is one of the most important questions in this topic. Most friendships happen <strong>without us thinking much about it</strong> — we drift into them. But Islam challenges us: should choosing a friend be a deliberate, conscious decision?</p>
+        <div class="yesno-grid">
+          <div class="ycard no">
+            <div class="yicon">🌊</div>
+            <div class="ytitle">Unintentional (How it usually happens)</div>
+            <div class="ydesc">We drift into friendships based on circumstance, comfort, and convenience — without evaluating whether this person is good for our dīn or our future.</div>
+            <ul class="yex">
+              <li>You sit next to someone, you start talking</li>
+              <li>You play the same game online</li>
+              <li>They are funny so you hang out more</li>
+              <li>You never consciously chose them</li>
+            </ul>
+          </div>
+          <div class="ycard yes">
+            <div class="yicon">🎯</div>
+            <div class="ytitle">Intentional (What Islam encourages)</div>
+            <div class="ydesc">Islam wants us to be deliberate and thoughtful — to choose companions based on their character, faith, and spiritual impact on our soul.</div>
+            <ul class="yex">
+              <li>Ask: will this friendship help my ākhirah?</li>
+              <li>Observe their character before getting close</li>
+              <li>Seek friends who remind you of Allah</li>
+              <li>Consciously invest in righteous companions</li>
+            </ul>
+          </div>
+        </div>
+        <div class="hadith-block">
+          <div class="h-label">🌿 Ḥadīth — The Religion of Your Friend</div>
+          <p class="h-text">"A man follows the religion (dīn) of his close friend (khalīl). So each one of you should consider carefully whom he takes as a close friend."</p>
+          <p class="h-src">— Prophet Muhammad ﷺ (Abu Dawud — authenticated by Al-Albāni)</p>
+        </div>
+        <p>The Arabic word <em>yanẓur</em> — "should consider carefully" — means to look, examine, and evaluate before choosing. This single hadith makes clear: friendship in Islam is meant to be <strong>intentional, not accidental</strong>.</p>
+        <div class="think-box">
+          <div class="think-label">🧠 Think About It</div>
+          <ul>
+            <li>Were your closest friendships formed intentionally or by accident?</li>
+            <li>If you were to intentionally choose a friend today, what criteria would you use?</li>
+            <li>Does this hadith mean we should refuse all unplanned friendships?</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- S4 -->
+    <section id="s4" class="section-block">
+      <div class="section-num">Section 04 — Exciting Preview</div>
+      <h2 class="section-title">Can We Get Rewards from Making Friends?</h2>
+      <div class="section-body">
+        <p>Here is something that might surprise you: <strong>yes — friendship can earn you rewards from Allah!</strong> But not just any friendship. It is friendship built on the right foundation — loving someone <em>for the sake of Allah</em> — that unlocks incredible spiritual rewards.</p>
+        <div class="dialogue">
+          <div class="db teacher">
+            <div class="av T">T</div>
+            <div class="bc"><div class="bn">Teacher</div><div class="bt">Who can tell me — do we get reward (pahala) just for making friends?</div></div>
+          </div>
+          <div class="db right">
+            <div class="av C">C</div>
+            <div class="bc"><div class="bn r">Cynthia</div><div class="bt">I'm not sure... maybe if we help them?</div></div>
+          </div>
+          <div class="db">
+            <div class="av A">A</div>
+            <div class="bc"><div class="bn">Aiman</div><div class="bt">Like if we make duʿāʾ for them? I heard that earns rewards for us too!</div></div>
+          </div>
+          <div class="db teacher">
+            <div class="av T">T</div>
+            <div class="bc"><div class="bn">Teacher</div><div class="bt">Aiman, you are absolutely right — and it goes even further than that! Let's look at a preview of what Islam says about the rewards of sincere friendship...</div></div>
+          </div>
+        </div>
+        <div class="mini-reward">
+          <div class="mr-icon">☂️</div>
+          <div class="mr-text"><strong>Allah's shade on the Day of Judgement</strong> — Two people who love each other for Allah's sake are among the seven groups protected under Allah's Throne when the sun is brought near. (Sahih Muslim)</div>
+        </div>
+        <div class="mini-reward">
+          <div class="mr-icon">🤲</div>
+          <div class="mr-text"><strong>A duʿāʾ answered by angels</strong> — When you make duʿāʾ for your friend in their absence, an angel says "Āmeen — and the same for you!" (Sahih Muslim). Your duʿāʾ is answered AND returned to you!</div>
+        </div>
+        <div class="mini-reward">
+          <div class="mr-icon">❤️</div>
+          <div class="mr-text"><strong>Direct love from Allah</strong> — A ḥadīth qudsī (divine hadith) states: "My love is a right upon those who befriend each other for My sake." (Al-Ṭabarānī)</div>
+        </div>
+        <div class="mini-reward">
+          <div class="mr-icon">✨</div>
+          <div class="mr-text"><strong>Thrones of light on Qiyāmah</strong> — "Those who love one another for Allah's sake will be on thrones of light — even the Prophets and martyrs will envy them." (Al-Tirmidhī)</div>
+        </div>
+        <p>We will explore these rewards in full detail in <strong>Section 9</strong>. For now, remember the key phrase: <em>fī sabīlillāh</em> — <strong>for Allah's sake</strong>. That is what transforms a regular friendship into an act of worship worth enormous reward.</p>
+      </div>
+    </section>
+
+    <!-- S5 -->
+    <section id="s5" class="section-block">
+      <div class="section-num">Section 05 — Islamic Concept</div>
+      <h2 class="section-title">The True Purpose of Islamic Friendship</h2>
+      <div class="section-body">
+        <p>In Islam, the <strong>fundamental purpose of friendship is the pleasure of Allah and mutual salvation</strong>. This is the concept of <em>Al-Ḥubb fī'llāh</em> — loving one another for Allah's sake alone, not for worldly gain.</p>
+        <div class="hadith-block">
+          <div class="h-label">🌿 Ḥadīth — The Taste of True Faith</div>
+          <p class="h-text">"No one may taste the sweetness of true faith except through building relationships for the sake of Allah — even if his prayers and fasts are many. People have come to build their relationships around the concerns of the world, but this will not benefit them in any way."</p>
+          <p class="h-src">— Reported from Ibn Abbas (RA)</p>
+        </div>
+        <p>This statement is striking: <strong>the quality of your friendships reflects the quality of your faith</strong>. A person whose friendships are entirely built on dunya reasons is missing a core dimension of genuine Islam.</p>
+        <p>True Islamic friendship has three defining characteristics:</p>
+        <div class="q-list">
+          <div class="q-item">
+            <div class="q-icon">🕌</div>
+            <div><div class="q-name">Lillāh — For Allah alone</div><div class="q-desc">The bond exists because both people love Allah and seek His pleasure. It is not conditional on looks, wealth, status, or what you can get from each other.</div></div>
+          </div>
+          <div class="q-item">
+            <div class="q-icon">🌱</div>
+            <div><div class="q-name">Builds your Ākhirah</div><div class="q-desc">A true Islamic friend helps you grow closer to Allah — through reminders, shared worship, honest advice, and duʿāʾ. They make your scale heavier on the Day of Judgement.</div></div>
+          </div>
+          <div class="q-item">
+            <div class="q-icon">♾️</div>
+            <div><div class="q-name">Eternal in nature</div><div class="q-desc">Friendships built on taqwā (God-consciousness) survive into the next life. Righteous friends will be companions in Jannah — this is what makes Islamic friendship truly unique.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S6 -->
+    <section id="s6" class="section-block">
+      <div class="section-num">Section 06 — Critical Thinking</div>
+      <h2 class="section-title">Modern Understanding vs. Islamic Understanding</h2>
+      <div class="section-body">
+        <p>Today — especially in the age of social media — the word "friend" has lost much of its depth. Platforms like Facebook use "friend" to describe anyone who clicks accept. Instagram followers. TikTok mutuals. Islam's understanding is fundamentally different.</p>
+        <div class="cmp-wrap">
+          <table class="cmp-table">
+            <thead>
+              <tr><th>Dimension</th><th>🌍 Common (Modern) View</th><th>☪️ Islamic View</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="cd">Why become friends?</td><td class="cm">Shared interests, fun, convenience</td><td class="ci">To help each other reach Jannah</td></tr>
+              <tr><td class="cd">What defines loyalty?</td><td class="cm">Being there when it's easy</td><td class="ci">Present in hardship; makes duʿāʾ in your absence</td></tr>
+              <tr><td class="cd">Who qualifies?</td><td class="cm">Anyone who "clicks" with you</td><td class="ci">Someone with good character and taqwā</td></tr>
+              <tr><td class="cd">What matters most?</td><td class="cm">Your feelings and happiness now</td><td class="ci">Your soul's state in the Hereafter</td></tr>
+              <tr><td class="cd">What ends it?</td><td class="cm">Conflict, boredom, distance</td><td class="ci">Only clear harm to dīn — even then with wisdom</td></tr>
+              <tr><td class="cd">Level of honesty?</td><td class="cm">Tell you what you want to hear</td><td class="ci">Truthful even when painful — for your ākhirah</td></tr>
+              <tr><td class="cd">Spiritual dimension?</td><td class="cm">None — purely social</td><td class="ci">An act of worship; earns Allah's love and reward</td></tr>
+              <tr><td class="cd">Where does it end?</td><td class="cm">Ends at death (or before)</td><td class="ci">Continues into Jannah if built on taqwā</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The core contrast: modern culture sees friendship as a means of <strong>personal happiness</strong>. Islam sees it as a means of <strong>mutual salvation</strong>. A true Islamic friend is one whose companionship is itself an act of worship.</p>
+        <div class="think-box">
+          <div class="think-label">🧠 Think About It</div>
+          <ul>
+            <li>Do you think having 500 "friends" on social media makes a person less lonely or more lonely?</li>
+            <li>If your friend asked you to do something haram to "fit in" — what would a true Islamic friend do?</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- S7 -->
+    <section id="s7" class="section-block">
+      <div class="section-num">Section 07 — Good Friend Checklist</div>
+      <h2 class="section-title">Qualities of a Good Friend in Islam</h2>
+      <div class="section-body">
+        <p>A righteous friend is one who makes you a <strong>better Muslim</strong>. Use this as a checklist to evaluate your friendships — and to evaluate yourself as a friend to others:</p>
+        <div class="q-list">
+          <div class="q-item">
+            <div class="q-icon">🕌</div>
+            <div><div class="q-name">Reminds you of Allah</div><div class="q-desc">Their presence draws your heart closer to the Creator. Their words, habits, and company pull you toward worship — not away from it.</div></div>
+          </div>
+          <div class="q-item">
+            <div class="q-icon">💎</div>
+            <div><div class="q-name">Loves you for Allah's sake (fī'llāh)</div><div class="q-desc">Their love is not conditional on your looks, wealth, or status. It persists even when life changes — because its foundation is faith, not convenience.</div></div>
+          </div>
+          <div class="q-item">
+            <div class="q-icon">🗣️</div>
+            <div><div class="q-name">Is honest — gives sincere naṣīḥah</div><div class="q-desc">They tell you the truth even when it's uncomfortable, because they care more about your ākhirah than your ego. A real friend does NOT flatter you into sin.</div></div>
+          </div>
+          <div class="q-item">
+            <div class="q-icon">🤲</div>
+            <div><div class="q-name">Makes duʿāʾ for you in your absence</div><div class="q-desc">The Prophet ﷺ said: "The duʿāʾ of a Muslim for his brother in his absence is answered, and the angel says: Āmeen — and for you the same!" (Muslim)</div></div>
+          </div>
+          <div class="q-item">
+            <div class="q-icon">🛡️</div>
+            <div><div class="q-name">Conceals your faults</div><div class="q-desc">The Prophet ﷺ said: "He who conceals the faults of a Muslim, Allah will conceal his faults in this world and the Hereafter." (Muslim) They protect your honour.</div></div>
+          </div>
+          <div class="q-item">
+            <div class="q-icon">⚖️</div>
+            <div><div class="q-name">Enjoins good and forbids evil (gently)</div><div class="q-desc">Imam Ali (RA): "The best of your brothers is he who guides you to good and pulls you away from evil." They correct mistakes with wisdom — not harshness.</div></div>
+          </div>
+          <div class="q-item">
+            <div class="q-icon">🌊</div>
+            <div><div class="q-name">Patient and forgiving</div><div class="q-desc">They overlook small mistakes, do not keep a record of wrongs, and reconcile quickly. The Prophet ﷺ forbade cutting off a Muslim for more than three days.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S8 -->
+    <section id="s8" class="section-block">
+      <div class="section-num">Section 08 — Rights &amp; Duties</div>
+      <h2 class="section-title">Rights (Ḥuqūq) of Friendship in Islam</h2>
+      <div class="section-body">
+        <p>Islam is practical: it outlines <strong>specific duties</strong> friends owe one another. These are not optional niceties — they are obligations of Islamic brotherhood that carry accountability before Allah.</p>
+        <ol class="rights-list">
+          <li><span><strong>Material Support:</strong> Assist a friend in financial hardship when you are able. The Quran praises those who give preference to others even when they themselves are in need (59:9).</span></li>
+          <li><span><strong>Sincere Advice (Naṣīḥah):</strong> Guide your friend towards good and deter them from wrongdoing — with wisdom and kindness, in private when possible.</span></li>
+          <li><span><strong>Keeping Secrets:</strong> What a friend confides must never be exposed. Betraying a secret is a form of treachery (khiyānah).</span></li>
+          <li><span><strong>Sharing Joy and Sorrow:</strong> Be present in both celebration and hardship, grief, and illness. Visit the sick; attend funerals; share in happy occasions.</span></li>
+          <li><span><strong>Making Duʿāʾ:</strong> Pray for your friend by name — especially in their absence. This is one of the most powerful and rewarded gifts you can give.</span></li>
+          <li><span><strong>Forgiveness and Patience:</strong> Overlook mistakes, do not keep a record of wrongs, and reconcile quickly. The Prophet ﷺ said believers should not stay angry for more than three days.</span></li>
+          <li><span><strong>Defending Their Honour:</strong> Speak well of your friend when absent. Never allow their reputation to be wrongly attacked behind their back — intervene with wisdom.</span></li>
+        </ol>
+        <div class="hadith-block">
+          <div class="h-label">🌿 Imam Al-Ṣādiq — Five Signs of True Friendship</div>
+          <p class="h-text">A true friend: (1) his inner and outer character match; (2) he sees your good as his own and your hardship as his own; (3) wealth and rank never change his bond with you; (4) he never withholds what he is capable of giving; (5) he never abandons you in calamity.</p>
+          <p class="h-src">— Imam Jaʿfar al-Ṣādiq (Al-Islam.org — Ahlul Bayt Ethical Role Models)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- S9 -->
+    <section id="s9" class="section-block">
+      <div class="section-num">Section 09 — Divine Rewards</div>
+      <h2 class="section-title">Rewards of Friendship for Allah's Sake</h2>
+      <div class="section-body">
+        <p>Friendship for the sake of Allah is one of the <strong>most richly rewarded acts</strong> in Islam. Here is the complete picture of what awaits those who love one another sincerely for His sake:</p>
+        <div class="reward-cards">
+          <div class="reward-card">
+            <div class="r-icon">☂️</div>
+            <div class="r-title">Allah's Shade</div>
+            <p class="r-text">Among the seven groups sheltered under Allah's Throne on the Day of Judgement are "two people who love each other and meet and depart for the sake of Allah."</p>
+            <div class="r-src">Sahih Muslim</div>
+          </div>
+          <div class="reward-card">
+            <div class="r-icon">❤️</div>
+            <div class="r-title">Allah's Direct Love</div>
+            <p class="r-text">A ḥadīth qudsī: "My love is a right upon those who befriend each other for My sake, sit together for My sake, and visit each other for My sake."</p>
+            <div class="r-src">Al-Ṭabarānī</div>
+          </div>
+          <div class="reward-card">
+            <div class="r-icon">✨</div>
+            <div class="r-title">Thrones of Light</div>
+            <p class="r-text">"Those who love one another for Allah's sake will be on thrones of light on the Day of Resurrection — and the Prophets and martyrs will wish they had the same."</p>
+            <div class="r-src">Al-Tirmidhī</div>
+          </div>
+          <div class="reward-card">
+            <div class="r-icon">🏡</div>
+            <div class="r-title">Jannah Together</div>
+            <p class="r-text">Righteous friends will be gathered in Jannah together. Their bond in this world carries over into eternal life — no separation for true companions of faith.</p>
+            <div class="r-src">Quran 43:67 + Scholarship</div>
+          </div>
+        </div>
+        <div class="hadith-block">
+          <div class="h-label">🌿 Ḥadīth — Faces of Light</div>
+          <p class="h-text">"Those who love one another for the sake of My glory will have faces of light, and they will be upon light. They will feel no fear when people are fearing and no grief when people are grieving."</p>
+          <p class="h-src">— Prophet Muhammad ﷺ (Abu Dawud)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- S10 -->
+    <section id="s10" class="section-block">
+      <div class="section-num">Section 10 — Brotherhood</div>
+      <h2 class="section-title">Levels of Brotherhood (Al-Ukhuwwah)</h2>
+      <div class="section-body">
+        <p>Brotherhood in Islam operates at <strong>three distinct levels</strong>, each with progressively deeper obligations and spiritual significance:</p>
+        <div class="levels-track">
+          <div class="lv">
+            <div class="lv-dot"></div>
+            <div class="lv-card">
+              <div class="lv-rank">Level 1 — Foundation</div>
+              <div class="lv-name">Brotherhood of Humanity (Insāniyyah)</div>
+              <div class="lv-desc">Basic moral obligations toward all human beings — regardless of religion. This includes justice, kindness, and not harming others. All humans share honour as children of Adam (AS).</div>
+              <div class="lv-ayah">"We have honoured the children of Adam..." — Sūrat Al-Isrāʾ (17:70)</div>
+            </div>
+          </div>
+          <div class="lv">
+            <div class="lv-dot"></div>
+            <div class="lv-card">
+              <div class="lv-rank">Level 2 — Family</div>
+              <div class="lv-name">Brotherhood of Kinship (Qarābah)</div>
+              <div class="lv-desc">Strengthened obligations toward blood relatives. <em>Silat al-raḥim</em> (maintaining family ties) is a major obligation in Islam. Cutting family ties is a serious sin.</div>
+              <div class="lv-ayah">"...and fulfil every covenant — covenants will be questioned." — Sūrat Al-Isrāʾ (17:34)</div>
+            </div>
+          </div>
+          <div class="lv">
+            <div class="lv-dot"></div>
+            <div class="lv-card">
+              <div class="lv-rank">Level 3 — Highest</div>
+              <div class="lv-name">Brotherhood in Faith (Ukhuwwah fī'llāh)</div>
+              <div class="lv-desc">The deepest level — brotherhood among believers united by faith and working together toward Allah's pleasure. This bond can transcend blood ties and carries the greatest rewards.</div>
+              <div class="lv-ayah">"The believers are nothing else than brothers." — Sūrat Al-Ḥujurāt (49:10)</div>
+            </div>
+          </div>
+        </div>
+        <div class="hadith-block">
+          <div class="h-label">🌿 Ḥadīth — The Bricks of a Wall</div>
+          <p class="h-text">"A faithful believer to a faithful believer is like the bricks of a wall — each one reinforces and supports the other." (And the Prophet ﷺ interlaced his fingers to illustrate.)</p>
+          <p class="h-src">— Prophet Muhammad ﷺ (Bukhari &amp; Muslim)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- S11 -->
+    <section id="s11" class="section-block">
+      <div class="section-num">Section 11 — Choosing Friends Wisely</div>
+      <h2 class="section-title">The Musk Seller &amp; Four Types of Companions</h2>
+      <div class="section-body">
+        <div class="hadith-block">
+          <div class="h-label">🌿 Ḥadīth — The Musk Seller and the Bellow Blower</div>
+          <p class="h-text">"The example of a good companion is like a musk seller — you either benefit from the scent directly, buy from him, or at least get a pleasant smell. The example of a bad companion is like a bellow blower — he either burns your clothes or you get a foul smell."</p>
+          <p class="h-src">— Prophet Muhammad ﷺ (Bukhari &amp; Muslim)</p>
+        </div>
+        <div class="musk-grid">
+          <div class="musk-card good">
+            <div class="musk-emoji">🌸</div>
+            <div class="musk-title">The Musk Seller (Good Friend)</div>
+            <div class="musk-desc">Even if you don't buy anything, you still benefit from just being near him. The pleasant scent stays on you. Good friends elevate you simply by their presence — their good character rubs off on you gradually.</div>
+          </div>
+          <div class="musk-card bad">
+            <div class="musk-emoji">🔥</div>
+            <div class="musk-title">The Bellow Blower (Bad Friend)</div>
+            <div class="musk-desc">Even without deliberate harm, being near a blacksmith's bellow risks burning your clothes or smelling of smoke. Bad companionship harms you gradually, invisibly — even without effort from them.</div>
+          </div>
+        </div>
+        <p>Islam classifies companions into <strong>four types</strong> based on their spiritual impact on you. Evaluate your friendships honestly:</p>
+        <div class="comp-grid">
+          <div class="comp-card g">
+            <div class="comp-emoji">💊</div>
+            <div class="comp-label">Type 1 — Best</div>
+            <div class="comp-title">Like Medicine</div>
+            <div class="comp-desc">Friends stronger in dīn who cure your spiritual weaknesses through example and gentle correction. Seek these actively.</div>
+          </div>
+          <div class="comp-card n">
+            <div class="comp-emoji">🍞</div>
+            <div class="comp-label">Type 2 — Good</div>
+            <div class="comp-title">Like Staple Food</div>
+            <div class="comp-desc">Everyday companions who consistently encourage you in worship. Essential and nourishing — your daily spiritual bread.</div>
+          </div>
+          <div class="comp-card w">
+            <div class="comp-emoji">🤒</div>
+            <div class="comp-label">Type 3 — Dangerous</div>
+            <div class="comp-title">Like Disease</div>
+            <div class="comp-desc">Those who spread envy, gossip, and spiritual weakness. Their companionship weakens your dīn — like a slow illness.</div>
+          </div>
+          <div class="comp-card d">
+            <div class="comp-emoji">☠️</div>
+            <div class="comp-label">Type 4 — Avoid</div>
+            <div class="comp-title">Like Fatal Poison</div>
+            <div class="comp-desc">Those who actively drag you into sin, harming both your dunya and ākhirah. Distance with wisdom and continue to make duʿāʾ for them.</div>
+          </div>
+        </div>
+        <div class="think-box">
+          <div class="think-label">🧠 Self-Assessment</div>
+          <ul>
+            <li>Which type of companion are YOU to your friends?</li>
+            <li>Do you have any Type 3 or Type 4 companions right now? What can you do?</li>
+            <li>How can you become a "musk seller" to those around you?</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- S12 -->
+    <section id="s12" class="section-block">
+      <div class="section-num">Section 12 — Quranic Evidence</div>
+      <h2 class="section-title">What the Quran Says About Friendship</h2>
+      <div class="section-body">
+        <p>The Quran addresses friendship in three powerful dimensions: the <strong>danger of bad friendship</strong>, the <strong>blessing of righteous companionship</strong>, and the <strong>eternal nature of bonds built on taqwā</strong>.</p>
+        <div class="quran-block">
+          <div class="q-arabic">يَا وَيْلَتَىٰ لَيْتَنِي لَمْ أَتَّخِذْ فُلَانًا خَلِيلًا</div>
+          <div class="q-trans">"Oh, woe to me! I wish I had not taken so-and-so as a close friend (khalīl)!"</div>
+          <span class="q-ref">Sūrat Al-Furqān (25:28) — The cry of the wrongdoer on the Day of Judgement</span>
+        </div>
+        <p>This is a chilling warning: on the Day of Judgement, people will regret the friends who led them away from Allah's remembrance. The wrong companion can cost a person their ākhirah — and there will be no second chance to choose again.</p>
+        <div class="quran-block">
+          <div class="q-arabic">الْأَخِلَّاءُ يَوْمَئِذٍ بَعْضُهُمْ لِبَعْضٍ عَدُوٌّ إِلَّا الْمُتَّقِينَ</div>
+          <div class="q-trans">"Friends on that Day will be enemies one to another — except the muttaqūn (those who are God-conscious)."</div>
+          <span class="q-ref">Sūrat Az-Zukhruf (43:67)</span>
+        </div>
+        <p>This ayah confirms that only friendships built on <em>taqwā</em> survive into the next world. All other friendships — however close in the dunya — will turn to bitter enmity on that Day.</p>
+        <div class="quran-block">
+          <div class="q-arabic">وَالْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بَعْضُهُمْ أَوْلِيَاءُ بَعْضٍ يَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنكَرِ</div>
+          <div class="q-trans">"The believing men and believing women are allies (awliyāʾ) of one another; they enjoin what is right and forbid what is wrong..."</div>
+          <span class="q-ref">Sūrat At-Tawbah (9:71)</span>
+        </div>
+        <p>Islam frames the <strong>entire community of believers as one extended friendship</strong> — united by a shared commitment to good. Friendship is not a personal luxury but a communal, collective responsibility.</p>
+        <div class="quran-block">
+          <div class="q-arabic">إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ</div>
+          <div class="q-trans">"The believers are nothing else than brothers (and sisters)."</div>
+          <span class="q-ref">Sūrat Al-Ḥujurāt (49:10)</span>
+        </div>
+        <p>In a single short ayah, Allah declares every believer on earth to be your brother or sister. This makes the entire ummah itself the ultimate friendship — 1.8 billion people connected by the bond of īmān.</p>
+      </div>
+    </section>
+
+    <!-- S13 -->
+    <section id="s13" class="section-block">
+      <div class="section-num">Section 13 — Living Example</div>
+      <h2 class="section-title">The Prophet ﷺ as the Model Friend</h2>
+      <div class="section-body">
+        <div class="prophet-box">
+          <div class="p-sym">🕌</div>
+          <div>
+            <div class="p-title">Uswah Ḥasanah — The Perfect Example</div>
+            <p class="p-body">Prophet Muhammad ﷺ was known for his warmth, gentleness, and deep care for his companions. He remembered their names, honoured their feelings, made time for them personally, and was never too busy or too proud to sit with the poor or the young. His friendship was never conditional — it was pure, loyal, and lifelong.</p>
+          </div>
+        </div>
+        <p>The most celebrated example of Islamic friendship is the bond between the Prophet ﷺ and <strong>Sayyidunā Abu Bakr al-Ṣiddīq (RA)</strong> — the truest <em>khalīl</em>-level friendship in Islamic history:</p>
+        <div class="q-list">
+          <div class="q-item">
+            <div class="q-icon">💰</div>
+            <div><div class="q-name">Abu Bakr gave his entire wealth</div><div class="q-desc">When asked what he left for his family after giving everything for Islam, Abu Bakr (RA) answered: "Allah and His Messenger." He held nothing back — the highest standard of loyalty.</div></div>
+          </div>
+          <div class="q-item">
+            <div class="q-icon">🏔️</div>
+            <div><div class="q-name">Shared the Cave of Thawr (Hijrah)</div><div class="q-desc">During the migration to Madinah, Abu Bakr risked his life accompanying the Prophet ﷺ while enemies searched for them. The Quran honoured this: "Do not grieve — indeed Allah is with us." (9:40)</div></div>
+          </div>
+          <div class="q-item">
+            <div class="q-icon">🌉</div>
+            <div><div class="q-name">The Prophet ﷺ built brotherhood deliberately</div><div class="q-desc">In Madinah, the Prophet ﷺ formally paired the Anṣār (local helpers) and Muhājirūn (emigrants) as brothers — creating a model Islamic society built on intentional, structured friendship for Allah's sake.</div></div>
+          </div>
+          <div class="q-item">
+            <div class="q-icon">🌹</div>
+            <div><div class="q-name">He never forgot his friends</div><div class="q-desc">Years after the death of Sayyidah Khadijah (RA), the Prophet ﷺ still honoured her memory, sent gifts to her friends, and spoke of her with deep love. True friendship never expires.</div></div>
+          </div>
+        </div>
+        <div class="hadith-block">
+          <div class="h-label">🌿 The Prophet's ﷺ words about Abu Bakr (RA)</div>
+          <p class="h-text">"If I were to take a khalīl (intimate friend) from among my ummah, I would have taken Abu Bakr — but the brotherhood of Islam is sufficient. Every door to the masjid shall be closed except the door of Abu Bakr."</p>
+          <p class="h-src">— Prophet Muhammad ﷺ (Bukhari)</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="takeaway">
+      <h2>The Core Principle</h2>
+      <p>"A true Islamic friend is someone whose companionship is an act of worship — whose presence makes your scale heavier on the Day of Judgement, and whose love for you is rooted not in what you can give them, but in what you both give to Allah."</p>
+    </div>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>Compiled for Islamic Studies — Grades 7–9 | <span>IIUM School</span> | Based on the Quran, Sunnah, and classical scholarship</p>
+</footer>
+
+<script>
+(function(){
+  const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;
+  let d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+  r.setAttribute('data-theme',d);
+  const sun='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+  const moon='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  if(t){t.innerHTML=d==='dark'?sun:moon;t.addEventListener('click',()=>{d=d==='dark'?'light':'dark';r.setAttribute('data-theme',d);t.innerHTML=d==='dark'?sun:moon;});}
+  const hdr=document.getElementById('site-header');
+  window.addEventListener('scroll',()=>hdr.classList.toggle('site-header--scrolled',scrollY>10),{passive:true});
+  const secs=document.querySelectorAll('section[id]');
+  const links=document.querySelectorAll('.toc-link');
+  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+x.target.id));});},{rootMargin:'-20% 0px -70% 0px'});
+  secs.forEach(s=>obs.observe(s));
+})();
+</script>
 </body>
 </html>
