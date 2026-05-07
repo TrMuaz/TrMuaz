@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hadith Slides – Patience, Speech & Anger (Light, Big Arabic)</title>
+  <style>
+    :root {
+      --bg: #f3f4f6;
+      --card: #ffffff;
+      --border: #d1d5db;
+      --accent: #f97316;
+      --accent-soft: #c2410c;
+      --text-main: #111827;
+      --text-sub: #4b5563;
+      --muted: #6b7280;
+    }
+
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #e5e7eb 0, #f3f4f6 45%, #e5e7eb 100%);
+      color: var(--text-main);
+    }
+
+    .slide {
+      width: 100vw;
+      height: 100vh;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      page-break-after: always;
+      break-after: page;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 1120px;
+      height: 100%;
+      max-height: 620px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+      padding: 20px 26px 18px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 6px;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 6px;
+    }
+
+    .title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      border: 1px solid #fed7aa;
+      background: linear-gradient(90deg, #ffedd5, #ffffff);
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .heading {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-main);
+    }
+
+    .subtitle {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hadith-info {
+      text-align: right;
+      font-size: 0.78rem;
+      color: var(--muted);
+      min-width: 105px;
+    }
+
+    .hadith-info span { display: block; }
+
+    .card-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 16px;
+      padding: 10px 0;
+    }
+
+    .arabic-panel {
+      border-right: 1px solid #e5e7eb;
+      padding-right: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .arabic-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .arabic-text {
+      direction: rtl;
+      text-align: right;
+      font-family: "Amiri", "Scheherazade New", "Traditional Arabic", serif;
+      font-size: 1.6rem;   /* bigger Arabic */
+      line-height: 2.1;    /* more spacing */
+      color: #111827;
+    }
+
+    .arabic-title {
+      font-weight: 700;
+      color: var(--accent-soft);
+      font-size: 1.3rem;
+    }
+
+    .translation-panel {
+      display: grid;
+      grid-template-rows: auto auto auto;
+      gap: 8px;
+    }
+
+    .lang-block {
+      background: #f9fafb;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      padding: 7px 9px;
+    }
+
+    .lang-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3px;
+    }
+
+    .lang-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+    }
+
+    .lang-tag {
+      font-size: 0.68rem;
+      color: var(--muted);
+    }
+
+    .lang-text {
+      font-size: 0.82rem;
+      color: #111827;
+    }
+
+    .lang-text.zh {
+      font-family: "Noto Sans SC", system-ui, sans-serif;
+    }
+
+    .lang-text.th {
+      font-family: "Noto Sans Thai", system-ui, sans-serif;
+    }
+
+    .card-footer {
+      border-top: 1px solid #e5e7eb;
+      padding-top: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .footer-note { max-width: 70%; }
+
+    .footer-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .tag {
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      padding: 1px 8px;
+      font-size: 0.68rem;
+      color: var(--accent-soft);
+      background: #fffbeb;
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    @media print {
+      body { margin: 0; background: #ffffff; }
+      .slide {
+        width: 297mm;
+        height: 210mm;
+        padding: 12mm 12mm 10mm;
+      }
+      .card {
+        max-height: none;
+        box-shadow: none;
+        border-radius: 0;
+        border: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Slide 1 -->
+  <section class="slide">
+    <div class="card">
+      <header class="card-header">
+        <div class="title-block">
+          <div class="badge"><span class="badge-dot"></span><span>Hadith 1</span></div>
+          <div class="heading">Patience in hardship</div>
+          <div class="subtitle">Forgiveness through trials and small pains</div>
+        </div>
+        <div class="hadith-info">
+          <span>صحيح البخاري · صحيح مسلم</span>
+          <span>On patience in calamity</span>
+        </div>
+      </header>
+      <div class="card-body">
+        <div class="arabic-panel">
+          <div class="arabic-label">Arabic text</div>
+          <div class="arabic-text">
+            <div class="arabic-title">الصبر على البلاء وتكفير الذنوب</div>
+            عَن أَبِي سَعِيدٍ الخُدْرِيِّ وَأَبِي هُرَيْرَةَ رضي الله عنهما، عَنِ النَّبِيِّ ﷺ قَالَ:<br>
+            «مَا يُصِيبُ المُسْلِمَ مِنْ نَصَبٍ، وَلَا وَصَبٍ، وَلَا هَمٍّ، وَلَا حُزْنٍ، وَلَا أَذًى، وَلَا غَمٍّ، حَتَّى الشَّوْكَةِ يُشَاكُهَا، إِلَّا كَفَّرَ اللَّهُ بِهَا مِنْ خَطَايَاهُ»
+          </div>
+        </div>
+        <div class="translation-panel">
+          <div class="lang-block">
+            <div class="lang-header">
+              <div class="lang-name">English</div>
+              <div class="lang-tag">Meaning</div>
+            </div>
+            <div class="lang-text">
+              No fatigue, illness, worry, sorrow, harm, or distress afflicts a Muslim, even a prick of a thorn, except that Allah expiates some of his sins through it.
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header">
+              <div class="lang-name">Thai</div>
+              <div class="lang-tag">คำแปลไทย</div>
+            </div>
+            <div class="lang-text th">
+              ไม่มีความเหน็ดเหนื่อย ความเจ็บป่วย ความกังวล ความเศร้า ความเจ็บช้ำ หรือความทุกข์ใด ๆ เกิดขึ้นกับมุสลิม แม้กระทั่งหนามเล็ก ๆ ที่ทิ่มเขา นอกจากอัลลอฮ์จะลบล้างบาปบางส่วนของเขาด้วยสิ่งนั้น
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header">
+              <div class="lang-name">Chinese</div>
+              <div class="lang-tag">中文翻译</div>
+            </div>
+            <div class="lang-text zh">
+              任何劳累、疾病、忧愁、悲伤、伤害或烦恼，甚至是一根刺扎到穆斯林，真主都会以此赎掉他的一部分罪过。
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <div class="footer-note">
+          Every hardship a believer faces becomes a means of forgiveness when met with faith and patience. Help students see small daily difficulties as chances to grow closer to Allah.
+        </div>
+        <div class="footer-tags">
+          <span class="tag">Patience (Sabr)</span>
+          <span class="tag">Trials</span>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Slide 2 -->
+  <section class="slide">
+    <div class="card">
+      <header class="card-header">
+        <div class="title-block">
+          <div class="badge"><span class="badge-dot"></span><span>Hadith 2</span></div>
+          <div class="heading">Living with people</div>
+          <div class="subtitle">Reward for patience with others</div>
+        </div>
+        <div class="hadith-info">
+          <span>سنن ابن ماجه</span>
+          <span>Mixing with people</span>
+        </div>
+      </header>
+      <div class="card-body">
+        <div class="arabic-panel">
+          <div class="arabic-label">Arabic text</div>
+          <div class="arabic-text">
+            <div class="arabic-title">الصابر مع الناس أعظم أجرًا</div>
+            عَنِ ابْنِ عُمَرَ رضي الله عنهما أن النبي ﷺ قال:<br>
+            «المُؤْمِنُ الَّذِي يُخَالِطُ النَّاسَ وَيَصْبِرُ عَلَى أَذَاهُمْ، أَعْظَمُ أَجْرًا مِنَ المُؤْمِنِ الَّذِي لَا يُخَالِطُ النَّاسَ وَلَا يَصْبِرُ عَلَى أَذَاهُمْ»
+          </div>
+        </div>
+        <div class="translation-panel">
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">English</div><div class="lang-tag">Meaning</div></div>
+            <div class="lang-text">
+              The believer who mixes with people and patiently bears their harm has a greater reward than the believer who does not mix with them and does not bear their harm.
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Thai</div><div class="lang-tag">คำแปลไทย</div></div>
+            <div class="lang-text th">
+              ผู้ศรัทธาที่อยู่ร่วมกับผู้คนและอดทนต่อความเดือดร้อนจากพวกเขา จะได้รับผลบุญยิ่งใหญ่กว่าผู้ศรัทธาที่ไม่คบหาผู้คนและไม่อดทนต่อความเดือดร้อนของพวกเขา
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Chinese</div><div class="lang-tag">中文翻译</div></div>
+            <div class="lang-text zh">
+              与人交往并且忍受他们伤害的信士，比不与人交往也不忍受他们伤害的信士，获得的报酬更大。
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <div class="footer-note">
+          Islam encourages healthy interaction, not isolation. Classroom conflicts and hostel life become training grounds for patience and good character.
+        </div>
+        <div class="footer-tags">
+          <span class="tag">Community</span>
+          <span class="tag">Patience</span>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Slide 3 -->
+  <section class="slide">
+    <div class="card">
+      <header class="card-header">
+        <div class="title-block">
+          <div class="badge"><span class="badge-dot"></span><span>Hadith 3</span></div>
+          <div class="heading">Guarding tongue & chastity</div>
+          <div class="subtitle">A guarantee for Paradise</div>
+        </div>
+        <div class="hadith-info">
+          <span>صحيح البخاري</span>
+          <span>Control of desires</span>
+        </div>
+      </header>
+      <div class="card-body">
+        <div class="arabic-panel">
+          <div class="arabic-label">Arabic text</div>
+          <div class="arabic-text">
+            <div class="arabic-title">حفظ اللسان سبب دخول الجنة</div>
+            عَن سَهْلِ بنِ سَعْدٍ رضي الله عنه قالَ: قَالَ رَسُولُ اللهِ ﷺ:<br>
+            «مَنْ يَضْمَنْ لِي مَا بَيْنَ لَحْيَيْهِ وَمَا بَيْنَ رِجْلَيْهِ أَضْمَنْ لَهُ الجَنَّةَ»
+          </div>
+        </div>
+        <div class="translation-panel">
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">English</div><div class="lang-tag">Meaning</div></div>
+            <div class="lang-text">
+              Whoever guarantees for me what is between his jaws (his tongue) and between his legs (his private parts), I guarantee Paradise for him.
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Thai</div><div class="lang-tag">คำแปลไทย</div></div>
+            <div class="lang-text th">
+              ผู้ใดรับประกันให้ฉันได้ ในสิ่งที่อยู่ระหว่างขากรรไกรของเขา (ลิ้น) และสิ่งที่อยู่ระหว่างสองขาของเขา (อวัยวะเพศ) ฉันจะรับประกันสวรรค์ให้กับเขา
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Chinese</div><div class="lang-tag">中文翻译</div></div>
+            <div class="lang-text zh">
+              谁能为我担保他嘴里的舌头和两腿之间（私处），我就为他担保乐园。
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <div class="footer-note">
+          This hadith links everyday speech and private behaviour directly to Jannah. It is powerful for teenage discussions on social media and relationships.
+        </div>
+        <div class="footer-tags">
+          <span class="tag">Tongue</span>
+          <span class="tag">Chastity</span>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Slide 4 -->
+  <section class="slide">
+    <div class="card">
+      <header class="card-header">
+        <div class="title-block">
+          <div class="badge"><span class="badge-dot"></span><span>Hadith 4</span></div>
+          <div class="heading">The best Muslim</div>
+          <div class="subtitle">Safety from tongue and hand</div>
+        </div>
+        <div class="hadith-info">
+          <span>صحيح البخاري · صحيح مسلم</span>
+          <span>Harm-free character</span>
+        </div>
+      </header>
+      <div class="card-body">
+        <div class="arabic-panel">
+          <div class="arabic-label">Arabic text</div>
+          <div class="arabic-text">
+            عَن أَبِي مُوسَى الأشْعَرِيِّ رضي الله عنه قال: قَالُوا: يَا رَسُولَ اللَّهِ، أَيُّ المُسْلِمِينَ أَفْضَلُ؟ قَالَ:<br>
+            «مَنْ سَلِمَ المُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ»
+          </div>
+        </div>
+        <div class="translation-panel">
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">English</div><div class="lang-tag">Meaning</div></div>
+            <div class="lang-text">
+              They asked: “Which Muslim is best?” He said: “The one from whose tongue and hand the Muslims are safe.”
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Thai</div><div class="lang-tag">คำแปลไทย</div></div>
+            <div class="lang-text th">
+              ผู้คนถามว่า “มุสลิมคนใดประเสริฐที่สุด?” ท่านนบีตอบว่า “คือผู้ที่มุสลิมคนอื่นปลอดภัยจากลิ้นและมือของเขา”
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Chinese</div><div class="lang-tag">中文翻译</div></div>
+            <div class="lang-text zh">
+              人们问：“哪种穆斯林最好？” 先知说：“穆斯林们在他的舌头和手那里是安全的那个人。”
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <div class="footer-note">
+          Use this hadith as a behaviour checklist: “Do my classmates feel safe from my words and actions?” It connects iman directly to daily manners.
+        </div>
+        <div class="footer-tags">
+          <span class="tag">Akhlaq</span>
+          <span class="tag">Safety</span>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Slide 5 -->
+  <section class="slide">
+    <div class="card">
+      <header class="card-header">
+        <div class="title-block">
+          <div class="badge"><span class="badge-dot"></span><span>Hadith 5</span></div>
+          <div class="heading">True strength</div>
+          <div class="subtitle">Controlling anger</div>
+        </div>
+        <div class="hadith-info">
+          <span>صحيح البخاري · صحيح مسلم</span>
+          <span>Strength of character</span>
+        </div>
+      </header>
+      <div class="card-body">
+        <div class="arabic-panel">
+          <div class="arabic-label">Arabic text</div>
+          <div class="arabic-text">
+            عَن أَبِي هُرَيْرَةَ رضي الله عنه قالَ: قَالَ رَسُولُ اللهِ ﷺ:<br>
+            «لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ، إِنَّمَا الشَّدِيدُ الَّذِي يَمْلِكُ نَفْسَهُ عِنْدَ الغَضَبِ»
+          </div>
+        </div>
+        <div class="translation-panel">
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">English</div><div class="lang-tag">Meaning</div></div>
+            <div class="lang-text">
+              The strong person is not the one who defeats others in wrestling, but the one who controls himself when he is angry.
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Thai</div><div class="lang-tag">คำแปลไทย</div></div>
+            <div class="lang-text th">
+              คนเข้มแข็งที่แท้จริงไม่ใช่ผู้ที่ล้มผู้อื่นในการต่อสู้ แต่คือผู้ที่ควบคุมตนเองได้เมื่อเขาโกรธ
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Chinese</div><div class="lang-tag">中文翻译</div></div>
+            <div class="lang-text zh">
+              强者不是摔跤打败别人的人，而是在愤怒时能克制自己的人。
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <div class="footer-note">
+          Redefine “strength” for students: not physical power or loudness, but emotional control. Great for SEL and discipline discussions.
+        </div>
+        <div class="footer-tags">
+          <span class="tag">Anger</span>
+          <span class="tag">Self-control</span>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Slide 6 -->
+  <section class="slide">
+    <div class="card">
+      <header class="card-header">
+        <div class="title-block">
+          <div class="badge"><span class="badge-dot"></span><span>Hadith 6</span></div>
+          <div class="heading">Changing posture</div>
+          <div class="subtitle">A practical anger strategy</div>
+        </div>
+        <div class="hadith-info">
+          <span>سنن أبي داود</span>
+          <span>Physical technique</span>
+        </div>
+      </header>
+      <div class="card-body">
+        <div class="arabic-panel">
+          <div class="arabic-label">Arabic text</div>
+          <div class="arabic-text">
+            عَن أَبِي ذَرٍّ رضي الله عنه عن النبي ﷺ قالَ:<br>
+            «إِذَا غَضِبَ أَحَدُكُمْ وَهُوَ قَائِمٌ فَلْيَجْلِسْ، فَإِنْ ذَهَبَ عَنْهُ الغَضَبُ وَإِلَّا فَلْيَضْطَجِعْ»
+          </div>
+        </div>
+        <div class="translation-panel">
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">English</div><div class="lang-tag">Meaning</div></div>
+            <div class="lang-text">
+              If any of you becomes angry while standing, let him sit down; if his anger leaves him, fine, otherwise let him lie down.
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Thai</div><div class="lang-tag">คำแปลไทย</div></div>
+            <div class="lang-text th">
+              หากคนใดในหมู่พวกท่านโกรธในขณะที่ยืนอยู่ ก็ให้เขานั่งลง หากความโกรธหายไปก็เพียงพอ ถ้าไม่หายก็ให้เขานอนลง
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Chinese</div><div class="lang-tag">中文翻译</div></div>
+            <div class="lang-text zh">
+              你们当中谁在站着时生气，就让他坐下；如果怒气消了就好，否则就让他躺下。
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <div class="footer-note">
+          Simple, concrete sunnah: change your body position to help your heart calm down. You can model this in class with role-play.
+        </div>
+        <div class="footer-tags">
+          <span class="tag">Anger tools</span>
+          <span class="tag">Practical Sunnah</span>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Slide 7 -->
+  <section class="slide">
+    <div class="card">
+      <header class="card-header">
+        <div class="title-block">
+          <div class="badge"><span class="badge-dot"></span><span>Hadith 7</span></div>
+          <div class="heading">Anger & Shaytan</div>
+          <div class="subtitle">Cooling the heart with wudu</div>
+        </div>
+        <div class="hadith-info">
+          <span>مسند أحمد · سنن أبي داود</span>
+          <span>Spiritual strategy</span>
+        </div>
+      </header>
+      <div class="card-body">
+        <div class="arabic-panel">
+          <div class="arabic-label">Arabic text</div>
+          <div class="arabic-text">
+            جاء في حديث مُعَاذِ بنِ جَبَلٍ رضي الله عنه مرفوعًا:<br>
+            «إِنَّ الغَضَبَ مِنَ الشَّيْطَانِ، وَإِنَّ الشَّيْطَانَ خُلِقَ مِنَ النَّارِ، وَإِنَّمَا تُطْفَأُ النَّارُ بِالمَاءِ، فَإِذَا غَضِبَ أَحَدُكُمْ فَلْيَتَوَضَّأْ»
+          </div>
+        </div>
+        <div class="translation-panel">
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">English</div><div class="lang-tag">Meaning</div></div>
+            <div class="lang-text">
+              Anger is from Satan, and Satan was created from fire, and fire is only extinguished with water; so when one of you becomes angry, let him perform ablution.
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Thai</div><div class="lang-tag">คำแปลไทย</div></div>
+            <div class="lang-text th">
+              ความโกรธมาจากชัยฏอน และชัยฏอนถูกสร้างมาจากไฟ ไฟนั้นดับได้ด้วยน้ำเท่านั้น ดังนั้นเมื่อใครในหมู่พวกท่านโกรธ ก็ให้เขาทำวุฎูอ์
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Chinese</div><div class="lang-tag">中文翻译</div></div>
+            <div class="lang-text zh">
+              愤怒来自恶魔，而恶魔是用火创造的，而火只能用水熄灭；所以你们当中谁生气，就让他去做小净。
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <div class="footer-note">
+          Combine this hadith with a quick wudu demonstration. Students can connect emotional regulation with acts of worship.
+        </div>
+        <div class="footer-tags">
+          <span class="tag">Wudu</span>
+          <span class="tag">Anger</span>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Slide 8 -->
+  <section class="slide">
+    <div class="card">
+      <header class="card-header">
+        <div class="title-block">
+          <div class="badge"><span class="badge-dot"></span><span>Hadith 8</span></div>
+          <div class="heading">Silence in anger</div>
+          <div class="subtitle">Protecting yourself and others</div>
+        </div>
+        <div class="hadith-info">
+          <span>مسند أحمد</span>
+          <span>Short advice</span>
+        </div>
+      </header>
+      <div class="card-body">
+        <div class="arabic-panel">
+          <div class="arabic-label">Arabic text</div>
+          <div class="arabic-text">
+            رُوي عن النَّبِيِّ ﷺ أنه قال:<br>
+            «إِذَا غَضِبَ أَحَدُكُمْ فَلْيَسْكُتْ»
+          </div>
+        </div>
+        <div class="translation-panel">
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">English</div><div class="lang-tag">Meaning</div></div>
+            <div class="lang-text">
+              When one of you becomes angry, let him keep silent.
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Thai</div><div class="lang-tag">คำแปลไทย</div></div>
+            <div class="lang-text th">
+              เมื่อคนใดในหมู่พวกท่านโกรธ ก็ให้เขาเงียบไว้
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Chinese</div><div class="lang-tag">中文翻译</div></div>
+            <div class="lang-text zh">
+              你们当中谁生气，就让他保持沉默。
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <div class="footer-note">
+          A perfect classroom rule: “If I am angry, I will be silent first.” You can turn this into a class charter statement.
+        </div>
+        <div class="footer-tags">
+          <span class="tag">Silence</span>
+          <span class="tag">Emotional pause</span>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Slide 9 -->
+  <section class="slide">
+    <div class="card">
+      <header class="card-header">
+        <div class="title-block">
+          <div class="badge"><span class="badge-dot"></span><span>Hadith 9</span></div>
+          <div class="heading">Who is a true Muslim</div>
+          <div class="subtitle">Safety from harm</div>
+        </div>
+        <div class="hadith-info">
+          <span>صحيح البخاري · صحيح مسلم</span>
+          <span>Harm-free identity</span>
+        </div>
+      </header>
+      <div class="card-body">
+        <div class="arabic-panel">
+          <div class="arabic-label">Arabic text</div>
+          <div class="arabic-text">
+            عَنِ ابْنِ عَمْرٍو رضي الله عنهما عَنِ النَّبِيِّ ﷺ قَالَ:<br>
+            «الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ»
+          </div>
+        </div>
+        <div class="translation-panel">
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">English</div><div class="lang-tag">Meaning</div></div>
+            <div class="lang-text">
+              A Muslim is the one from whose tongue and hand the Muslims are safe.
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Thai</div><div class="lang-tag">คำแปลไทย</div></div>
+            <div class="lang-text th">
+              มุสลิมคือผู้ที่บรรดามุสลิมอื่นปลอดภัยจากลิ้นและมือของเขา
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Chinese</div><div class="lang-tag">中文翻译</div></div>
+            <div class="lang-text zh">
+              穆斯林是那种使其他穆斯林在他的舌头和手那里感到安全的人。
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <div class="footer-note">
+          This hadith can be used as a school-wide slogan on notice boards: “From my tongue and hand, others are safe.”
+        </div>
+        <div class="footer-tags">
+          <span class="tag">Identity</span>
+          <span class="tag">Safety</span>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Slide 10 -->
+  <section class="slide">
+    <div class="card">
+      <header class="card-header">
+        <div class="title-block">
+          <div class="badge"><span class="badge-dot"></span><span>Hadith 10</span></div>
+          <div class="heading">Speak or be safe</div>
+          <div class="subtitle">Benefit or silence</div>
+        </div>
+        <div class="hadith-info">
+          <span>شُعَبُ الإِيمَان</span>
+          <span>Wise speech</span>
+        </div>
+      </header>
+      <div class="card-body">
+        <div class="arabic-panel">
+          <div class="arabic-label">Arabic text</div>
+          <div class="arabic-text">
+            عَنِ ابْنِ عَبَّاسٍ رضي الله عنهما مَرْفُوعًا:<br>
+            «رَحِمَ اللَّهُ عَبْدًا تَكَلَّمَ فَغَنِمَ، أَوْ سَكَتَ فَسَلِمَ»
+          </div>
+        </div>
+        <div class="translation-panel">
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">English</div><div class="lang-tag">Meaning</div></div>
+            <div class="lang-text">
+              May Allah have mercy on a person who speaks and gains benefit, or keeps silent and stays safe.
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Thai</div><div class="lang-tag">คำแปลไทย</div></div>
+            <div class="lang-text th">
+              ขออัลลอฮ์ทรงเมตตาผู้ที่พูดแล้วได้รับผลดี หรือเงียบไว้แล้วปลอดภัย
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Chinese</div><div class="lang-tag">中文翻译</div></div>
+            <div class="lang-text zh">
+              愿真主怜悯这样的人：他说话而获得益处，或者沉默而得以平安。
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <div class="footer-note">
+          A simple decision rule for students: “Will my words bring benefit? If not, silence is safer.” Link it to social media posting.
+        </div>
+        <div class="footer-tags">
+          <span class="tag">Speech</span>
+          <span class="tag">Wisdom</span>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Slide 11 -->
+  <section class="slide">
+    <div class="card">
+      <header class="card-header">
+        <div class="title-block">
+          <div class="badge"><span class="badge-dot"></span><span>Hadith 11</span></div>
+          <div class="heading">Forwarding everything</div>
+          <div class="subtitle">Spreading lies unknowingly</div>
+        </div>
+        <div class="hadith-info">
+          <span>صحيح مسلم</span>
+          <span>Verify before sharing</span>
+        </div>
+      </header>
+      <div class="card-body">
+        <div class="arabic-panel">
+          <div class="arabic-label">Arabic text</div>
+          <div class="arabic-text">
+            عَنْ أَبِي هُرَيْرَةَ رضي الله عنه قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ:<br>
+            «كَفَى بِالْمَرْءِ كَذِبًا أَنْ يُحَدِّثَ بِكُلِّ مَا سَمِعَ»
+          </div>
+        </div>
+        <div class="translation-panel">
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">English</div><div class="lang-tag">Meaning</div></div>
+            <div class="lang-text">
+              It is enough falsehood for a person that he narrates everything he hears.
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Thai</div><div class="lang-tag">คำแปลไทย</div></div>
+            <div class="lang-text th">
+              ถือว่าเพียงพอแล้วสำหรับการเป็นคนโกหก เมื่อคนหนึ่งเล่าทุกสิ่งที่เขาได้ยินมา
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Chinese</div><div class="lang-tag">中文翻译</div></div>
+            <div class="lang-text zh">
+              一个人把他听到的一切都说出去，这本身就足以被视为撒谎。
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <div class="footer-note">
+          Ideal for digital literacy lessons: students should not forward every message; verification is part of iman.
+        </div>
+        <div class="footer-tags">
+          <span class="tag">Social media</span>
+          <span class="tag">News</span>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Slide 12 -->
+  <section class="slide">
+    <div class="card">
+      <header class="card-header">
+        <div class="title-block">
+          <div class="badge"><span class="badge-dot"></span><span>Hadith 12</span></div>
+          <div class="heading">Speak good or be silent</div>
+          <div class="subtitle">Faith and speech</div>
+        </div>
+        <div class="hadith-info">
+          <span>صحيح البخاري · صحيح مسلم</span>
+          <span>Speech & iman</span>
+        </div>
+      </header>
+      <div class="card-body">
+        <div class="arabic-panel">
+          <div class="arabic-label">Arabic text</div>
+          <div class="arabic-text">
+            عَنْ أَبِي هُرَيْرَةَ رضي الله عنه عَنِ النَّبِيِّ ﷺ قَالَ:<br>
+            «مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ»
+          </div>
+        </div>
+        <div class="translation-panel">
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">English</div><div class="lang-tag">Meaning</div></div>
+            <div class="lang-text">
+              Whoever believes in Allah and the Last Day should speak good or remain silent.
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Thai</div><div class="lang-tag">คำแปลไทย</div></div>
+            <div class="lang-text th">
+              ผู้ใดศรัทธาต่ออัลลอฮ์และวันอาคิเราะห์ ก็จงพูดสิ่งดีงาม หรือไม่ก็จงเงียบ
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Chinese</div><div class="lang-tag">中文翻译</div></div>
+            <div class="lang-text zh">
+              谁信仰真主和末日，他就应当说善言，或者保持沉默。
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <div class="footer-note">
+          This can be a core “classroom language rule” posted on the wall: every comment should be khayr, or kept inside.
+        </div>
+        <div class="footer-tags">
+          <span class="tag">Good words</span>
+          <span class="tag">Silence</span>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Slide 13 -->
+  <section class="slide">
+    <div class="card">
+      <header class="card-header">
+        <div class="title-block">
+          <div class="badge"><span class="badge-dot"></span><span>Hadith 13</span></div>
+          <div class="heading">Do not harm your neighbour</div>
+          <div class="subtitle">Faith shown in how we live</div>
+        </div>
+        <div class="hadith-info">
+          <span>صحيح البخاري · صحيح مسلم</span>
+          <span>Neighbour rights</span>
+        </div>
+      </header>
+      <div class="card-body">
+        <div class="arabic-panel">
+          <div class="arabic-label">Arabic text</div>
+          <div class="arabic-text">
+            عَنْ أَبِي هُرَيْرَةَ رضي الله عنه أَنَّ رَسُولُ اللَّهِ ﷺ قَالَ:<br>
+            «مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الآخِرِ فَلَا يُؤْذِ جَارَهُ»
+          </div>
+        </div>
+        <div class="translation-panel">
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">English</div><div class="lang-tag">Meaning</div></div>
+            <div class="lang-text">
+              Whoever believes in Allah and the Last Day must not harm his neighbor.
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Thai</div><div class="lang-tag">คำแปลไทย</div></div>
+            <div class="lang-text th">
+              ผู้ใดศรัทธาต่ออัลลอฮ์และวันอาคิเราะห์ ก็อย่าทำร้ายเพื่อนบ้านของเขา
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Chinese</div><div class="lang-tag">中文翻译</div></div>
+            <div class="lang-text zh">
+              谁信仰真主和末日，他就不可伤害他的邻居。
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <div class="footer-note">
+          Helps students reflect on dorm life and families living next door. Noise, litter and bullying are all part of “harm”.
+        </div>
+        <div class="footer-tags">
+          <span class="tag">Neighbour</span>
+          <span class="tag">Community</span>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Slide 14 -->
+  <section class="slide">
+    <div class="card">
+      <header class="card-header">
+        <div class="title-block">
+          <div class="badge"><span class="badge-dot"></span><span>Hadith 14</span></div>
+          <div class="heading">Covering faults</div>
+          <div class="subtitle">Dignity and mercy</div>
+        </div>
+        <div class="hadith-info">
+          <span>صحيح مسلم · سنن ابن ماجه</span>
+          <span>Concealing faults</span>
+        </div>
+      </header>
+      <div class="card-body">
+        <div class="arabic-panel">
+          <div class="arabic-label">Arabic text</div>
+          <div class="arabic-text">
+            عَنْ أَبِي هُرَيْرَةَ رضي الله عنه عَنِ النَّبِيِّ ﷺ قَالَ:<br>
+            «وَمَنْ سَتَرَ مُسْلِمًا سَتَرَهُ اللَّهُ يَوْمَ الْقِيَامَةِ»
+          </div>
+        </div>
+        <div class="translation-panel">
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">English</div><div class="lang-tag">Meaning</div></div>
+            <div class="lang-text">
+              Whoever conceals a Muslim’s faults, Allah will conceal his faults on the Day of Resurrection.
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Thai</div><div class="lang-tag">คำแปลไทย</div></div>
+            <div class="lang-text th">
+              ผู้ใดปกปิดข้อบกพร่องของมุสลิม อัลลอฮ์จะทรงปกปิดข้อบกพร่องของเขาในวันกิยามะฮ์
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Chinese</div><div class="lang-tag">中文翻译</div></div>
+            <div class="lang-text zh">
+              谁掩盖了一位穆斯林的过错，真主将在复生日掩盖他的过错。
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <div class="footer-note">
+          Link this to gossip and exposing classmates on social media. Correct privately; do not humiliate publicly.
+        </div>
+        <div class="footer-tags">
+          <span class="tag">Ghiba</span>
+          <span class="tag">Mercy</span>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Slide 15 -->
+  <section class="slide">
+    <div class="card">
+      <header class="card-header">
+        <div class="title-block">
+          <div class="badge"><span class="badge-dot"></span><span>Hadith 15</span></div>
+          <div class="heading">No cheating</div>
+          <div class="subtitle">Honesty in all dealings</div>
+        </div>
+        <div class="hadith-info">
+          <span>صحيح مسلم وغيره</span>
+          <span>Integrity</span>
+        </div>
+      </header>
+      <div class="card-body">
+        <div class="arabic-panel">
+          <div class="arabic-label">Arabic text</div>
+          <div class="arabic-text">
+            عَنْ أَبِي هُرَيْرَةَ رضي الله عنه أَنَّ النَّبِيَّ ﷺ قَالَ:<br>
+            «مَنْ غَشَّ فَلَيْسَ مِنَّا»
+          </div>
+        </div>
+        <div class="translation-panel">
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">English</div><div class="lang-tag">Meaning</div></div>
+            <div class="lang-text">
+              Whoever cheats is not one of us.
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Thai</div><div class="lang-tag">คำแปลไทย</div></div>
+            <div class="lang-text th">
+              ผู้ใดคดโกง เขาไม่ใช่ส่วนหนึ่งจากพวกเรา
+            </div>
+          </div>
+          <div class="lang-block">
+            <div class="lang-header"><div class="lang-name">Chinese</div><div class="lang-tag">中文翻译</div></div>
+            <div class="lang-text zh">
+              谁欺骗，他就不属于我们。
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <div class="footer-note">
+          Apply directly to exam honesty, homework, group work, and business. Cheating is not a “small sin”; it contradicts the Prophet’s ummah.
+        </div>
+        <div class="footer-tags">
+          <span class="tag">Cheating</span>
+          <span class="tag">Trust</span>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+</body>
+</html>
