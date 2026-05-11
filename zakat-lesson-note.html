@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zakat — Islamic Studies Lesson Note</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Sans+3:wght@300..700&display=swap" rel="stylesheet">
+<style>
+/* === ART DIRECTION ===
+   Concept: Islamic scholarly lesson note → reverent, structured, warm
+   Palette: warm cream surfaces, deep green primary accent (symbolic of Islam)
+   Typography: Instrument Serif (display) + Source Sans 3 (body)
+   Density: balanced — spacious headings, readable body, dense tables */
+
+:root, [data-theme="light"] {
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem;
+  --space-4: 1rem;    --space-5: 1.25rem; --space-6: 1.5rem;
+  --space-8: 2rem;    --space-10: 2.5rem; --space-12: 3rem;
+  --space-16: 4rem;   --space-20: 5rem;
+
+  --color-bg:              #f5f3ee;
+  --color-surface:         #f9f8f4;
+  --color-surface-2:       #fdfcfa;
+  --color-surface-offset:  #ede9e2;
+  --color-surface-dynamic: #e4e0d8;
+  --color-divider:         #d8d3c8;
+  --color-border:          #ccc7bb;
+  --color-text:            #1e1c18;
+  --color-text-muted:      #6b6860;
+  --color-text-faint:      #b0ada6;
+  --color-text-inverse:    #f8f6f1;
+
+  /* Deep green primary — symbolic of Islam, nature, growth */
+  --color-primary:          #1a5c3a;
+  --color-primary-hover:    #134830;
+  --color-primary-active:   #0d3422;
+  --color-primary-highlight:#cce0d5;
+
+  /* Gold accent for Quranic verses and key terms */
+  --color-gold:             #9a6f00;
+  --color-gold-light:       #f0e4b8;
+
+  /* Warm amber for important notes */
+  --color-amber:            #8c4d00;
+  --color-amber-light:      #fdecd6;
+
+  --radius-sm: 0.375rem; --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;  --radius-xl: 1rem;
+  --radius-full: 9999px;
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-sm: 0 1px 2px oklch(0.18 0.02 140 / 0.06);
+  --shadow-md: 0 4px 12px oklch(0.18 0.02 140 / 0.08);
+  --shadow-lg: 0 12px 32px oklch(0.18 0.02 140 / 0.11);
+  --content-narrow: 640px; --content-default: 960px; --content-wide: 1200px;
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Source Sans 3', 'Helvetica Neue', sans-serif;
+}
+
+[data-theme="dark"] {
+  --color-bg:              #131210;
+  --color-surface:         #181714;
+  --color-surface-2:       #1d1c19;
+  --color-surface-offset:  #1a1916;
+  --color-surface-dynamic: #28271f;
+  --color-divider:         #222019;
+  --color-border:          #353228;
+  --color-text:            #d4d0c8;
+  --color-text-muted:      #7a7770;
+  --color-text-faint:      #555249;
+  --color-text-inverse:    #1e1c16;
+  --color-primary:         #4d9e71;
+  --color-primary-hover:   #35875a;
+  --color-primary-active:  #236b45;
+  --color-primary-highlight:#1e3529;
+  --color-gold:            #d4a82a;
+  --color-gold-light:      #3a3018;
+  --color-amber:           #d4793a;
+  --color-amber-light:     #3a2615;
+  --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.25);
+  --shadow-md: 0 4px 12px oklch(0 0 0 / 0.35);
+  --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.45);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg:#131210; --color-surface:#181714; --color-surface-2:#1d1c19;
+    --color-surface-offset:#1a1916; --color-surface-dynamic:#28271f;
+    --color-divider:#222019; --color-border:#353228;
+    --color-text:#d4d0c8; --color-text-muted:#7a7770; --color-text-faint:#555249;
+    --color-text-inverse:#1e1c16;
+    --color-primary:#4d9e71; --color-primary-hover:#35875a; --color-primary-active:#236b45;
+    --color-primary-highlight:#1e3529;
+    --color-gold:#d4a82a; --color-gold-light:#3a3018;
+    --color-amber:#d4793a; --color-amber-light:#3a2615;
+    --shadow-sm:0 1px 2px oklch(0 0 0/0.25); --shadow-md:0 4px 12px oklch(0 0 0/0.35);
+    --shadow-lg:0 12px 32px oklch(0 0 0/0.45);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+body { min-height: 100dvh; font-family: var(--font-body); font-size: var(--text-base); color: var(--color-text); background: var(--color-bg); line-height: 1.65; }
+img, svg { display: block; max-width: 100%; }
+ul[role="list"] { list-style: none; }
+h1,h2,h3,h4,h5,h6 { text-wrap: balance; line-height: 1.15; }
+p, li { text-wrap: pretty; }
+button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+table { border-collapse: collapse; width: 100%; }
+a, button, [role="button"], input, select {
+  transition: color var(--transition-interactive), background var(--transition-interactive),
+              border-color var(--transition-interactive), box-shadow var(--transition-interactive);
+}
+:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
+::selection { background: oklch(from var(--color-primary) l c h / 0.2); }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+
+/* === SKIP LINK === */
+.skip-link { position: absolute; top: -100%; left: var(--space-4); padding: var(--space-2) var(--space-4); background: var(--color-primary); color: var(--color-text-inverse); border-radius: var(--radius-md); font-size: var(--text-sm); font-weight: 600; z-index: 200; }
+.skip-link:focus { top: var(--space-4); }
+
+/* === TOP NAVBAR === */
+.navbar {
+  position: sticky; top: 0; z-index: 100;
+  background: color-mix(in oklch, var(--color-surface) 88%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-divider);
+  padding: 0 var(--space-6);
+  height: 3.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--space-4);
+}
+.navbar-brand { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; color: var(--color-text); }
+.navbar-logo { flex-shrink: 0; }
+.navbar-title { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 400; color: var(--color-primary); white-space: nowrap; }
+.navbar-actions { display: flex; align-items: center; gap: var(--space-2); }
+.btn-icon { width: 2.25rem; height: 2.25rem; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-md); color: var(--color-text-muted); }
+.btn-icon:hover { background: var(--color-surface-offset); color: var(--color-text); }
+.btn-icon:active { background: var(--color-surface-dynamic); }
+
+/* Progress bar */
+#reading-progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--color-primary); width: 0%; z-index: 200; transition: width 0.1s; border-radius: 0 var(--radius-full) var(--radius-full) 0; }
+
+/* === LAYOUT === */
+.page-wrapper { display: grid; grid-template-columns: 240px 1fr; gap: 0; max-width: var(--content-wide); margin: 0 auto; min-height: 100vh; }
+@media (max-width: 900px) { .page-wrapper { grid-template-columns: 1fr; } }
+
+/* === SIDEBAR === */
+.sidebar {
+  position: sticky; top: 3.5rem; height: calc(100vh - 3.5rem);
+  overflow-y: auto; padding: var(--space-8) var(--space-4);
+  border-right: 1px solid var(--color-divider);
+  font-size: var(--text-sm);
+}
+.sidebar-label { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: var(--space-4); padding: 0 var(--space-2); }
+.sidebar nav { display: flex; flex-direction: column; gap: var(--space-1); }
+.sidebar-link {
+  display: block; padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md); text-decoration: none;
+  color: var(--color-text-muted); font-size: var(--text-sm);
+  transition: all var(--transition-interactive);
+}
+.sidebar-link:hover { background: var(--color-surface-offset); color: var(--color-text); }
+.sidebar-link.active { background: var(--color-primary-highlight); color: var(--color-primary); font-weight: 600; }
+@media (max-width: 900px) { .sidebar { display: none; } }
+
+/* === MAIN CONTENT === */
+.main-content { padding: var(--space-12) var(--space-8) var(--space-20); min-width: 0; }
+@media (max-width: 768px) { .main-content { padding: var(--space-8) var(--space-4) var(--space-16); } }
+
+/* === HERO === */
+.hero {
+  padding: var(--space-16) 0 var(--space-12);
+  border-bottom: 1px solid var(--color-divider);
+  margin-bottom: var(--space-12);
+}
+.hero-tag { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-primary); background: var(--color-primary-highlight); padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); margin-bottom: var(--space-6); }
+.hero h1 { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 400; color: var(--color-text); margin-bottom: var(--space-4); letter-spacing: -0.01em; }
+.hero h1 span { font-style: italic; color: var(--color-primary); }
+.hero-desc { font-size: var(--text-base); color: var(--color-text-muted); max-width: 60ch; line-height: 1.7; margin-bottom: var(--space-8); }
+.hero-meta { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.meta-chip { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-xs); color: var(--color-text-muted); background: var(--color-surface-offset); padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); border: 1px solid var(--color-border); }
+.meta-chip svg { color: var(--color-primary); }
+
+/* === SECTION HEADINGS === */
+.lesson-section { margin-bottom: var(--space-16); scroll-margin-top: 5rem; }
+.section-header { display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-6); padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-divider); }
+.section-num { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 400; color: var(--color-primary); opacity: 0.35; line-height: 1; flex-shrink: 0; min-width: 2.5ch; font-style: italic; }
+.section-title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 400; color: var(--color-text); letter-spacing: -0.01em; }
+.section-body p { color: var(--color-text-muted); line-height: 1.75; margin-bottom: var(--space-4); max-width: 72ch; }
+.section-body p:last-child { margin-bottom: 0; }
+
+/* === QURAN VERSE BOX === */
+.quran-box {
+  background: var(--color-gold-light);
+  border: 1px solid color-mix(in oklch, var(--color-gold) 30%, transparent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-8);
+  margin: var(--space-6) 0;
+  position: relative;
+}
+.quran-box::before { content: 'C'; font-family: var(--font-display); font-size: 4rem; line-height: 1; color: var(--color-gold); opacity: 0.25; position: absolute; top: var(--space-2); left: var(--space-4); }
+.quran-arabic { font-size: var(--text-lg); line-height: 2; text-align: right; color: var(--color-text); font-weight: 500; margin-bottom: var(--space-3); letter-spacing: 0.03em; }
+.quran-translation { font-style: italic; color: var(--color-text-muted); font-size: var(--text-base); line-height: 1.7; margin-bottom: var(--space-2); }
+.quran-ref { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.06em; color: var(--color-gold); text-transform: uppercase; }
+
+/* === HADITH BOX === */
+.hadith-box {
+  background: var(--color-amber-light);
+  border: 1px solid color-mix(in oklch, var(--color-amber) 25%, transparent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  margin: var(--space-5) 0;
+}
+.hadith-text { font-style: italic; color: var(--color-text); line-height: 1.75; margin-bottom: var(--space-2); }
+.hadith-ref { font-size: var(--text-xs); font-weight: 600; color: var(--color-amber); text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* === DEFINITION BOX === */
+.def-box {
+  background: var(--color-primary-highlight);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin: var(--space-6) 0;
+}
+.def-term { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-primary); margin-bottom: var(--space-2); }
+.def-text { color: var(--color-text); line-height: 1.7; font-size: var(--text-base); }
+
+/* === INFO CARDS === */
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); gap: var(--space-4); margin: var(--space-6) 0; }
+.info-card {
+  background: var(--color-surface);
+  border: 1px solid oklch(from var(--color-text) l c h / 0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-interactive), transform var(--transition-interactive);
+}
+.info-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.card-icon { width: 2.5rem; height: 2.5rem; background: var(--color-primary-highlight); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-4); color: var(--color-primary); }
+.card-title { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 400; color: var(--color-text); margin-bottom: var(--space-2); }
+.card-arabic { font-size: var(--text-sm); color: var(--color-primary); font-weight: 600; margin-bottom: var(--space-2); letter-spacing: 0.02em; }
+.card-body { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.65; }
+.card-rate { display: inline-block; margin-top: var(--space-3); font-size: var(--text-xs); font-weight: 700; background: var(--color-primary); color: var(--color-text-inverse); padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); }
+
+/* === ZAKAT TYPES BIG CARDS === */
+.type-card {
+  background: var(--color-surface);
+  border: 1px solid oklch(from var(--color-text) l c h / 0.1);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6) var(--space-8);
+  margin-bottom: var(--space-5);
+  box-shadow: var(--shadow-sm);
+}
+.type-card-header { display: flex; align-items: flex-start; gap: var(--space-4); margin-bottom: var(--space-5); }
+.type-badge { display: inline-flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; background: var(--color-primary); color: var(--color-text-inverse); border-radius: var(--radius-md); font-family: var(--font-display); font-size: var(--text-lg); font-style: italic; font-weight: 400; flex-shrink: 0; }
+.type-name { font-family: var(--font-display); font-size: var(--text-xl); color: var(--color-text); margin-bottom: var(--space-1); }
+.type-arabic { font-size: var(--text-sm); color: var(--color-primary); font-weight: 600; }
+.type-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr)); gap: var(--space-3); }
+.type-detail { background: var(--color-surface-offset); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); }
+.type-detail-label { font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-faint); margin-bottom: var(--space-1); }
+.type-detail-value { font-size: var(--text-sm); color: var(--color-text); line-height: 1.55; }
+.rate-highlight { color: var(--color-primary); font-weight: 700; }
+
+/* === CONDITIONS LIST === */
+.conditions-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-3); margin: var(--space-6) 0; }
+.condition-item { display: flex; align-items: flex-start; gap: var(--space-4); background: var(--color-surface); border: 1px solid oklch(from var(--color-text) l c h / 0.08); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-5); box-shadow: var(--shadow-sm); }
+.condition-num { display: flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; background: var(--color-primary); color: var(--color-text-inverse); border-radius: var(--radius-full); font-size: var(--text-xs); font-weight: 700; flex-shrink: 0; }
+.condition-content { flex: 1; }
+.condition-title { font-weight: 700; color: var(--color-text); margin-bottom: var(--space-1); font-size: var(--text-sm); }
+.condition-arabic { font-size: var(--text-xs); color: var(--color-primary); font-weight: 600; margin-bottom: var(--space-1); }
+.condition-desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; }
+
+/* === RECIPIENTS TABLE === */
+.recipients-table { margin: var(--space-6) 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--color-border); }
+.recipients-table table { width: 100%; font-size: var(--text-sm); }
+.recipients-table thead { background: var(--color-primary); color: var(--color-text-inverse); }
+.recipients-table thead th { padding: var(--space-3) var(--space-4); text-align: left; font-weight: 600; font-size: var(--text-xs); letter-spacing: 0.06em; text-transform: uppercase; }
+.recipients-table tbody tr { background: var(--color-surface); border-bottom: 1px solid var(--color-divider); transition: background var(--transition-interactive); }
+.recipients-table tbody tr:last-child { border-bottom: none; }
+.recipients-table tbody tr:hover { background: var(--color-surface-offset); }
+.recipients-table td { padding: var(--space-3) var(--space-4); vertical-align: top; color: var(--color-text-muted); }
+.recipients-table td:first-child { font-weight: 600; color: var(--color-text); white-space: nowrap; }
+.recipients-table .asnaf-num { display: inline-flex; align-items: center; justify-content: center; width: 1.5rem; height: 1.5rem; background: var(--color-primary-highlight); color: var(--color-primary); border-radius: var(--radius-full); font-size: var(--text-xs); font-weight: 700; margin-right: var(--space-2); }
+.arabic-cell { color: var(--color-primary) !important; font-weight: 600 !important; }
+
+/* === CALCULATION TABLE === */
+.calc-table { margin: var(--space-6) 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--color-border); }
+.calc-table table { font-size: var(--text-sm); }
+.calc-table thead { background: var(--color-surface-offset); }
+.calc-table thead th { padding: var(--space-3) var(--space-4); text-align: left; font-weight: 700; font-size: var(--text-xs); letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-muted); border-bottom: 2px solid var(--color-primary); }
+.calc-table tbody tr { background: var(--color-surface); border-bottom: 1px solid var(--color-divider); }
+.calc-table tbody tr:nth-child(even) { background: var(--color-surface-2); }
+.calc-table td { padding: var(--space-3) var(--space-4); color: var(--color-text-muted); vertical-align: middle; }
+.calc-table td:first-child { font-weight: 600; color: var(--color-text); }
+.calc-table .rate-cell { color: var(--color-primary); font-weight: 700; }
+
+/* === IMPORTANCE POINTS === */
+.importance-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: var(--space-4); margin: var(--space-6) 0; }
+.importance-item { background: var(--color-surface); border: 1px solid oklch(from var(--color-text) l c h / 0.08); border-radius: var(--radius-lg); padding: var(--space-5); box-shadow: var(--shadow-sm); transition: box-shadow var(--transition-interactive), transform var(--transition-interactive); }
+.importance-item:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.importance-icon { font-size: 1.5rem; margin-bottom: var(--space-3); }
+.importance-title { font-weight: 700; color: var(--color-text); margin-bottom: var(--space-2); font-size: var(--text-sm); }
+.importance-desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.65; }
+
+/* === QUIZ === */
+.quiz-container { background: var(--color-surface); border: 1px solid oklch(from var(--color-text) l c h / 0.1); border-radius: var(--radius-xl); padding: var(--space-8); box-shadow: var(--shadow-md); margin: var(--space-6) 0; }
+.quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6); }
+.quiz-title { font-family: var(--font-display); font-size: var(--text-lg); }
+.quiz-score-display { font-size: var(--text-sm); color: var(--color-text-muted); background: var(--color-surface-offset); padding: var(--space-2) var(--space-4); border-radius: var(--radius-full); }
+.quiz-question { margin-bottom: var(--space-6); }
+.question-num { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: var(--space-2); }
+.question-text { font-weight: 600; color: var(--color-text); line-height: 1.5; margin-bottom: var(--space-4); font-size: var(--text-base); }
+.options-list { display: flex; flex-direction: column; gap: var(--space-2); }
+.option-btn {
+  display: flex; align-items: center; gap: var(--space-3);
+  width: 100%; text-align: left;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  font-size: var(--text-sm); color: var(--color-text);
+  cursor: pointer;
+  transition: all var(--transition-interactive);
+}
+.option-btn:hover:not(:disabled) { background: var(--color-primary-highlight); border-color: var(--color-primary); color: var(--color-primary); }
+.option-btn:disabled { cursor: default; }
+.option-btn.correct { background: #e6f4ec; border-color: #4caf50; color: #1b5e20; }
+.option-btn.wrong { background: #fce8e8; border-color: #e53935; color: #b71c1c; }
+[data-theme="dark"] .option-btn.correct { background: #1a3322; border-color: #4caf50; color: #a5d6a7; }
+[data-theme="dark"] .option-btn.wrong { background: #3a1a1a; border-color: #e53935; color: #ef9a9a; }
+.option-letter { display: flex; align-items: center; justify-content: center; width: 1.5rem; height: 1.5rem; border-radius: var(--radius-full); background: var(--color-surface-offset); font-size: var(--text-xs); font-weight: 700; flex-shrink: 0; }
+.quiz-nav { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); margin-top: var(--space-6); flex-wrap: wrap; }
+.btn-primary { padding: var(--space-2) var(--space-6); background: var(--color-primary); color: var(--color-text-inverse); border-radius: var(--radius-md); font-size: var(--text-sm); font-weight: 600; }
+.btn-primary:hover { background: var(--color-primary-hover); }
+.btn-primary:disabled { opacity: 0.4; cursor: default; }
+.btn-secondary { padding: var(--space-2) var(--space-5); border: 1px solid var(--color-border); border-radius: var(--radius-md); font-size: var(--text-sm); color: var(--color-text-muted); }
+.btn-secondary:hover { background: var(--color-surface-offset); color: var(--color-text); }
+.quiz-result { text-align: center; padding: var(--space-8); }
+.result-score { font-family: var(--font-display); font-size: 4rem; color: var(--color-primary); line-height: 1; margin-bottom: var(--space-2); }
+.result-label { font-size: var(--text-base); color: var(--color-text-muted); margin-bottom: var(--space-6); }
+.progress-bar-wrap { width: 100%; height: 0.5rem; background: var(--color-surface-offset); border-radius: var(--radius-full); margin-bottom: var(--space-8); overflow: hidden; }
+.progress-bar-fill { height: 100%; background: var(--color-primary); border-radius: var(--radius-full); transition: width 0.4s ease; }
+
+/* === VOCAB TABLE === */
+.vocab-search-wrap { margin-bottom: var(--space-4); position: relative; }
+.vocab-search { width: 100%; max-width: 400px; padding: var(--space-2) var(--space-4) var(--space-2) 2.5rem; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); color: var(--color-text); font-size: var(--text-sm); font-family: var(--font-body); }
+.vocab-search:focus { outline: 2px solid var(--color-primary); outline-offset: 2px; border-color: var(--color-primary); }
+.vocab-search-icon { position: absolute; left: var(--space-3); top: 50%; transform: translateY(-50%); color: var(--color-text-faint); pointer-events: none; }
+.vocab-table-wrap { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--color-border); }
+.vocab-table-wrap table { font-size: var(--text-sm); }
+.vocab-table-wrap thead { background: var(--color-primary); color: var(--color-text-inverse); }
+.vocab-table-wrap thead th { padding: var(--space-3) var(--space-4); text-align: left; font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+.vocab-table-wrap tbody tr { border-bottom: 1px solid var(--color-divider); background: var(--color-surface); transition: background var(--transition-interactive); }
+.vocab-table-wrap tbody tr:last-child { border-bottom: none; }
+.vocab-table-wrap tbody tr:hover { background: var(--color-surface-offset); }
+.vocab-table-wrap td { padding: var(--space-3) var(--space-4); color: var(--color-text-muted); vertical-align: middle; }
+.vocab-table-wrap td:first-child { font-weight: 700; color: var(--color-primary); font-size: var(--text-base); }
+.vocab-table-wrap td:nth-child(2) { font-style: italic; color: var(--color-text); }
+.vocab-no-results { padding: var(--space-8); text-align: center; color: var(--color-text-faint); font-size: var(--text-sm); }
+
+/* === OBJECTIVES BOX === */
+.objectives-box { background: var(--color-surface); border: 1px solid oklch(from var(--color-text) l c h / 0.1); border-radius: var(--radius-lg); padding: var(--space-6); margin: var(--space-6) 0; }
+.objectives-title { font-size: var(--text-sm); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-faint); margin-bottom: var(--space-4); }
+.objectives-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); }
+.objectives-list li { display: flex; align-items: flex-start; gap: var(--space-3); font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; }
+.objectives-list li::before { content: ""; width: 6px; height: 6px; background: var(--color-primary); border-radius: 50%; margin-top: 0.45em; flex-shrink: 0; }
+
+/* === COMPARISON TABLE === */
+.compare-wrap { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--color-border); margin: var(--space-6) 0; }
+.compare-wrap table { font-size: var(--text-sm); }
+.compare-wrap thead { background: var(--color-surface-offset); }
+.compare-wrap thead th { padding: var(--space-3) var(--space-4); font-weight: 700; font-size: var(--text-xs); letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-muted); border-bottom: 2px solid var(--color-primary); }
+.compare-wrap tbody tr { background: var(--color-surface); border-bottom: 1px solid var(--color-divider); }
+.compare-wrap tbody tr:nth-child(even) { background: var(--color-surface-2); }
+.compare-wrap td { padding: var(--space-3) var(--space-4); color: var(--color-text-muted); }
+.compare-wrap td:first-child { font-weight: 600; color: var(--color-text); }
+.tag { display: inline-block; padding: 0.1rem 0.5rem; border-radius: var(--radius-full); font-size: var(--text-xs); font-weight: 600; }
+.tag-green { background: #e6f4ec; color: #1b5e20; }
+.tag-gold { background: var(--color-gold-light); color: var(--color-gold); }
+[data-theme="dark"] .tag-green { background: #1a3322; color: #a5d6a7; }
+[data-theme="dark"] .tag-gold { background: #3a3018; color: #d4a82a; }
+
+/* === MOBILE MENU === */
+.mobile-nav-btn { display: none; width: 2.25rem; height: 2.25rem; align-items: center; justify-content: center; border-radius: var(--radius-md); color: var(--color-text-muted); }
+.mobile-nav-btn:hover { background: var(--color-surface-offset); }
+@media (max-width: 900px) { .mobile-nav-btn { display: flex; } }
+
+.mobile-nav-drawer {
+  display: none; position: fixed; top: 3.5rem; left: 0; right: 0;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-divider);
+  padding: var(--space-4);
+  z-index: 90;
+  max-height: calc(100vh - 3.5rem);
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+}
+.mobile-nav-drawer.open { display: block; }
+.mobile-nav-drawer nav { display: flex; flex-direction: column; gap: var(--space-1); }
+.mobile-nav-drawer .sidebar-link { border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); font-size: var(--text-base); }
+
+/* === SCROLL ANIMATIONS === */
+.fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* === FOOTER === */
+footer { border-top: 1px solid var(--color-divider); padding: var(--space-8) var(--space-8); display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-4); font-size: var(--text-xs); color: var(--color-text-faint); }
+
+/* === PRINT === */
+@media print {
+  .navbar, .sidebar, #reading-progress, .quiz-container, .mobile-nav-drawer, .btn-icon { display: none !important; }
+  .page-wrapper { display: block; }
+  .main-content { padding: 0; }
+  .type-card, .info-card { break-inside: avoid; }
+  body { font-size: 11pt; }
+}
+</style>
+</head>
+<body>
+<div id="reading-progress" role="progressbar" aria-label="Reading progress"></div>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- NAVBAR -->
+<header class="navbar" role="banner">
+  <a class="navbar-brand" href="#" aria-label="Zakat Lesson Note Home">
+    <svg class="navbar-logo" aria-label="Zakat lesson logo" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="32" height="32" rx="8" fill="var(--color-primary)"/>
+      <text x="16" y="23" text-anchor="middle" font-family="Georgia,serif" font-size="18" font-style="italic" fill="white">Z</text>
+      <circle cx="24" cy="8" r="3" fill="var(--color-gold)" opacity="0.85"/>
+    </svg>
+    <span class="navbar-title">Zakat — Islamic Studies</span>
+  </a>
+  <div class="navbar-actions">
+    <button class="btn-icon mobile-nav-btn" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <button class="btn-icon" id="print-btn" aria-label="Print this lesson note">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    </button>
+    <button class="btn-icon" data-theme-toggle aria-label="Toggle dark mode">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
+  <nav>
+    <a class="sidebar-link" href="#intro">Introduction</a>
+    <a class="sidebar-link" href="#definition">Definition</a>
+    <a class="sidebar-link" href="#ruling">Islamic Ruling</a>
+    <a class="sidebar-link" href="#conditions">Conditions</a>
+    <a class="sidebar-link" href="#types">Types of Zakat</a>
+    <a class="sidebar-link" href="#nisab">Nisab &amp; Hawl</a>
+    <a class="sidebar-link" href="#calculation">Calculation Guide</a>
+    <a class="sidebar-link" href="#recipients">Recipients (Asnaf)</a>
+    <a class="sidebar-link" href="#importance">Importance</a>
+    <a class="sidebar-link" href="#vocab">Vocabulary</a>
+    <a class="sidebar-link" href="#quiz">Self-Assessment</a>
+  </nav>
+</div>
+
+<!-- PAGE WRAPPER -->
+<div class="page-wrapper">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" aria-label="Lesson sections">
+    <div class="sidebar-label">Lesson Sections</div>
+    <nav id="sidebar-nav">
+      <a class="sidebar-link" href="#intro">Introduction</a>
+      <a class="sidebar-link" href="#definition">Definition</a>
+      <a class="sidebar-link" href="#ruling">Islamic Ruling</a>
+      <a class="sidebar-link" href="#conditions">Conditions</a>
+      <a class="sidebar-link" href="#types">Types of Zakat</a>
+      <a class="sidebar-link" href="#nisab">Nisab &amp; Hawl</a>
+      <a class="sidebar-link" href="#calculation">Calculation Guide</a>
+      <a class="sidebar-link" href="#recipients">Recipients (Asnaf)</a>
+      <a class="sidebar-link" href="#importance">Importance</a>
+      <a class="sidebar-link" href="#vocab">Vocabulary</a>
+      <a class="sidebar-link" href="#quiz">Self-Assessment</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content" id="main">
+
+    <!-- HERO -->
+    <section class="hero" id="intro">
+      <div class="hero-tag">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        Islamic Studies — Grade 9
+      </div>
+      <h1>Zakat: The <span>Third Pillar</span> of Islam</h1>
+      <p class="hero-desc">A comprehensive study of obligatory almsgiving — covering its definition, conditions, types, nisab thresholds, calculation methods, recipients, and spiritual significance. (Zakat Fitrah excluded)</p>
+      <div class="hero-meta">
+        <span class="meta-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 60–90 mins</span>
+        <span class="meta-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Lesson Note</span>
+        <span class="meta-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg> 11 Sections</span>
+      </div>
+      <!-- Learning Objectives -->
+      <div class="objectives-box" style="margin-top:var(--space-8)">
+        <div class="objectives-title">Learning Objectives</div>
+        <ul class="objectives-list" role="list">
+          <li>Define Zakat and distinguish it from Zakat al-Fitr and voluntary charity (sadaqah)</li>
+          <li>State the six conditions that make Zakat obligatory</li>
+          <li>Identify and explain the main types of Zakat (gold/silver, savings, trade, crops, livestock)</li>
+          <li>Calculate Nisab thresholds and determine the correct Zakat rate for each asset type</li>
+          <li>Name and describe the eight categories of Zakat recipients (asnaf)</li>
+          <li>Articulate the spiritual, social, and economic significance of Zakat</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 1. DEFINITION -->
+    <section class="lesson-section fade-in" id="definition">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 class="section-title">Definition of Zakat</h2>
+      </div>
+      <div class="section-body">
+        <div class="def-box">
+          <div class="def-term">Linguistic Definition</div>
+          <div class="def-text">The word <strong>Zakat (الزكاة)</strong> comes from the Arabic root <em>zakā</em>, which carries two primary meanings: <strong>purification (tazkiyah)</strong> — the act of cleansing one's wealth and soul — and <strong>growth (numuw)</strong> — the idea that giving wealth causes it to increase through divine blessing.</div>
+        </div>
+        <div class="def-box" style="margin-top:0">
+          <div class="def-term">Islamic/Technical Definition</div>
+          <div class="def-text">Technically, Zakat is <strong>a fixed portion of specific categories of wealth</strong>, obligatory upon every free, sane, adult Muslim who possesses wealth equal to or above the minimum threshold (nisab) for at least one full lunar year (hawl), which must be distributed to designated categories of recipients as defined by the Quran and Sunnah.</div>
+        </div>
+        <p>Zakat is the <strong>Third Pillar of Islam</strong>, frequently mentioned in the Quran alongside Salah (prayer) — appearing together more than 80 times. It is not merely charity but a <em>religious obligation (fard ayn)</em> with a precisely defined scope, separate from voluntary giving.</p>
+        <p>Zakat must be distinguished from two related concepts: <strong>Zakat al-Fitr</strong> (a separate obligatory charity given at the end of Ramadan, excluded from this lesson) and <strong>Sadaqah</strong> (voluntary charity at any amount, given at any time). Zakat operates within strict rules of wealth type, minimum amount, time period, and eligible recipients.</p>
+      </div>
+    </section>
+
+    <!-- 2. ISLAMIC RULING -->
+    <section class="lesson-section fade-in" id="ruling">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Islamic Ruling &amp; Evidence</h2>
+      </div>
+      <div class="section-body">
+        <p>Zakat is <strong>obligatory (fard)</strong> — its denial is an act of disbelief (kufr) according to the majority of scholars. It was made obligatory in the second year after the Hijrah (approximately 624 CE), at which point its detailed rules were revealed.</p>
+
+        <div class="quran-box">
+          <div class="quran-arabic">وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ وَارْكَعُوا مَعَ الرَّاكِعِينَ</div>
+          <div class="quran-translation">"And establish prayer and give Zakat and bow with those who bow [in worship and obedience]."</div>
+          <div class="quran-ref">Surah Al-Baqarah (2:43)</div>
+        </div>
+
+        <div class="quran-box">
+          <div class="quran-arabic">خُذْ مِنْ أَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا</div>
+          <div class="quran-translation">"Take from their wealth a charity by which you purify them and cause them increase."</div>
+          <div class="quran-ref">Surah At-Tawbah (9:103)</div>
+        </div>
+
+        <div class="hadith-box">
+          <div class="hadith-text">"Islam is built upon five [pillars]: Testimony that there is no god but Allah and that Muhammad is the Messenger of Allah; establishing of the prayer; giving Zakat; the pilgrimage to the House; and fasting in Ramadan."</div>
+          <div class="hadith-ref">Sahih al-Bukhari, No. 8 &amp; Sahih Muslim, No. 16</div>
+        </div>
+
+        <div class="hadith-box">
+          <div class="hadith-text">"Whoever is made wealthy by Allah and does not pay Zakat on his wealth, then on the Day of Resurrection his wealth will be made like a bald-headed poisonous male snake with two black spots over the eyes. The snake will encircle his neck and bite his cheeks saying: 'I am your wealth, I am your treasure.'"</div>
+          <div class="hadith-ref">Sahih al-Bukhari, No. 1403</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. CONDITIONS -->
+    <section class="lesson-section fade-in" id="conditions">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Conditions of Zakat</h2>
+      </div>
+      <div class="section-body">
+        <p>Zakat becomes obligatory only when <strong>all six conditions</strong> are simultaneously fulfilled. If any one condition is absent, Zakat is not due on that wealth.</p>
+        <ul class="conditions-list" role="list">
+          <li class="condition-item">
+            <div class="condition-num">1</div>
+            <div class="condition-content">
+              <div class="condition-title">Islam — Muslim Ownership</div>
+              <div class="condition-arabic">الإسلام</div>
+              <div class="condition-desc">The owner of the wealth must be a Muslim. Zakat is not obligatory upon non-Muslims and is not accepted from them as an act of worship.</div>
+            </div>
+          </li>
+          <li class="condition-item">
+            <div class="condition-num">2</div>
+            <div class="condition-content">
+              <div class="condition-title">Full &amp; Complete Ownership (Milkun Tām)</div>
+              <div class="condition-arabic">الملك التام</div>
+              <div class="condition-desc">The wealth must be in the complete ownership and control of the individual. Wealth that is owed to others, loaned out, or under a trust does not qualify. The owner must have the right to use it freely.</div>
+            </div>
+          </li>
+          <li class="condition-item">
+            <div class="condition-num">3</div>
+            <div class="condition-content">
+              <div class="condition-title">Productive/Growth Potential (Namā')</div>
+              <div class="condition-arabic">النماء</div>
+              <div class="condition-desc">The wealth must have potential for growth — either actual growth (like trade goods, livestock, crops) or potential growth (like gold, silver, and savings which can be invested). Personal items for daily use (home, car, clothing) are exempt.</div>
+            </div>
+          </li>
+          <li class="condition-item">
+            <div class="condition-num">4</div>
+            <div class="condition-content">
+              <div class="condition-title">Reaching the Nisab (Minimum Threshold)</div>
+              <div class="condition-arabic">بلوغ النصاب</div>
+              <div class="condition-desc">The wealth must reach the minimum taxable threshold (nisab). Different categories of wealth have different nisab amounts. If wealth falls below nisab at any point during the year, the hawl (year) resets.</div>
+            </div>
+          </li>
+          <li class="condition-item">
+            <div class="condition-num">5</div>
+            <div class="condition-content">
+              <div class="condition-title">One Full Lunar Year Passes (Hawl)</div>
+              <div class="condition-arabic">حولان الحول</div>
+              <div class="condition-desc">For most categories, the zakatable wealth must remain above nisab for one complete lunar year (approximately 354 days). Exception: crops and minerals are zakatable upon harvest/extraction, not after a year.</div>
+            </div>
+          </li>
+          <li class="condition-item">
+            <div class="condition-num">6</div>
+            <div class="condition-content">
+              <div class="condition-title">Surplus Above Basic Needs (Fāḍil ʿan al-Ḥājah)</div>
+              <div class="condition-arabic">فاضل عن الحاجة الأصلية</div>
+              <div class="condition-desc">The wealth must exceed the basic needs of the individual and their dependents. Essential items such as the primary home, tools of trade, and personal transportation are excluded from the zakatable base.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4. TYPES OF ZAKAT -->
+    <section class="lesson-section fade-in" id="types">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Types of Zakat (Other than Zakat Fitrah)</h2>
+      </div>
+      <div class="section-body">
+        <p>The Quran and Sunnah identify five primary categories of wealth subject to Zakat. Classical scholars unanimously agreed on these; contemporary scholars have extended Zakat to include income and business assets by analogy (qiyās).</p>
+
+        <!-- Type 1 -->
+        <div class="type-card fade-in">
+          <div class="type-card-header">
+            <div class="type-badge">I</div>
+            <div>
+              <div class="type-name">Zakat on Gold &amp; Silver</div>
+              <div class="type-arabic">زكاة الذهب والفضة</div>
+            </div>
+          </div>
+          <div class="type-grid">
+            <div class="type-detail"><div class="type-detail-label">Includes</div><div class="type-detail-value">All gold and silver in any form — coins, jewellery, bars, whether worn or stored. Cash and savings are treated under gold/silver standards.</div></div>
+            <div class="type-detail"><div class="type-detail-label">Nisab (Gold)</div><div class="type-detail-value">85 grams of pure gold (equivalent to 20 mithqal/dinars)</div></div>
+            <div class="type-detail"><div class="type-detail-label">Nisab (Silver)</div><div class="type-detail-value">595 grams of silver (equivalent to 200 dirhams)</div></div>
+            <div class="type-detail"><div class="type-detail-label">Hawl</div><div class="type-detail-value">One full lunar year must pass with wealth at or above nisab</div></div>
+            <div class="type-detail"><div class="type-detail-label">Zakat Rate</div><div class="type-detail-value"><span class="rate-highlight">2.5%</span> of total value</div></div>
+            <div class="type-detail"><div class="type-detail-label">Example</div><div class="type-detail-value">Gold weight: 100g × current price × 2.5% = Zakat due</div></div>
+          </div>
+        </div>
+
+        <!-- Type 2 -->
+        <div class="type-card fade-in">
+          <div class="type-card-header">
+            <div class="type-badge">II</div>
+            <div>
+              <div class="type-name">Zakat on Savings &amp; Cash</div>
+              <div class="type-arabic">زكاة النقود والمدخرات</div>
+            </div>
+          </div>
+          <div class="type-grid">
+            <div class="type-detail"><div class="type-detail-label">Includes</div><div class="type-detail-value">Bank savings, fixed deposits, cash at hand, foreign currency, investment accounts</div></div>
+            <div class="type-detail"><div class="type-detail-label">Nisab</div><div class="type-detail-value">Equivalent value of 85g of gold OR 595g of silver (whichever standard applied)</div></div>
+            <div class="type-detail"><div class="type-detail-label">Hawl</div><div class="type-detail-value">One full lunar year at or above nisab</div></div>
+            <div class="type-detail"><div class="type-detail-label">Zakat Rate</div><div class="type-detail-value"><span class="rate-highlight">2.5%</span> of total savings</div></div>
+            <div class="type-detail"><div class="type-detail-label">Deductions</div><div class="type-detail-value">Outstanding debts due within the year may be deducted before calculating</div></div>
+            <div class="type-detail"><div class="type-detail-label">Note</div><div class="type-detail-value">Scholars recommend using the silver nisab as it is lower, benefiting more poor</div></div>
+          </div>
+        </div>
+
+        <!-- Type 3 -->
+        <div class="type-card fade-in">
+          <div class="type-card-header">
+            <div class="type-badge">III</div>
+            <div>
+              <div class="type-name">Zakat on Trade Goods (ʿUrūḍ al-Tijārah)</div>
+              <div class="type-arabic">زكاة عروض التجارة</div>
+            </div>
+          </div>
+          <div class="type-grid">
+            <div class="type-detail"><div class="type-detail-label">Includes</div><div class="type-detail-value">All merchandise, inventory, stock, real estate held for resale, and business assets intended for trade</div></div>
+            <div class="type-detail"><div class="type-detail-label">Nisab</div><div class="type-detail-value">Total market value of zakatable assets reaches equivalent of 85g gold or 595g silver</div></div>
+            <div class="type-detail"><div class="type-detail-label">Hawl</div><div class="type-detail-value">One full lunar year from when business began or last Zakat anniversary</div></div>
+            <div class="type-detail"><div class="type-detail-label">Zakat Rate</div><div class="type-detail-value"><span class="rate-highlight">2.5%</span> of net zakatable assets (cash + receivables + inventory at market value − current debts)</div></div>
+            <div class="type-detail"><div class="type-detail-label">Fixed Assets</div><div class="type-detail-value">Machinery, vehicles, and property used in production (not held for resale) are exempt</div></div>
+            <div class="type-detail"><div class="type-detail-label">Income Zakat</div><div class="type-detail-value">Contemporary extension: salaries/professional income reaching nisab annually → 2.5% (by qiyās)</div></div>
+          </div>
+        </div>
+
+        <!-- Type 4 -->
+        <div class="type-card fade-in">
+          <div class="type-card-header">
+            <div class="type-badge">IV</div>
+            <div>
+              <div class="type-name">Zakat on Agricultural Produce</div>
+              <div class="type-arabic">زكاة الزروع والثمار</div>
+            </div>
+          </div>
+          <div class="type-grid">
+            <div class="type-detail"><div class="type-detail-label">Eligible Crops</div><div class="type-detail-value">Staple grains (wheat, barley, rice, corn) and storable fruits (dates, raisins) that humans cultivate as food</div></div>
+            <div class="type-detail"><div class="type-detail-label">Nisab</div><div class="type-detail-value">5 wasqs ≈ 653 kg of dry grain or fruit (after threshing/drying)</div></div>
+            <div class="type-detail"><div class="type-detail-label">Hawl</div><div class="type-detail-value">No hawl required — Zakat is due at every harvest</div></div>
+            <div class="type-detail"><div class="type-detail-label">Rate (Rain-fed)</div><div class="type-detail-value"><span class="rate-highlight">10% (ʿUshr)</span> — Crops irrigated by rain, rivers, or natural flooding</div></div>
+            <div class="type-detail"><div class="type-detail-label">Rate (Irrigated)</div><div class="type-detail-value"><span class="rate-highlight">5% (Niṣf ʿUshr)</span> — Crops requiring artificial irrigation (canals, pumps, wells)</div></div>
+            <div class="type-detail"><div class="type-detail-label">Paid From</div><div class="type-detail-value">Zakat is given from the produce itself, not its monetary value (majority view)</div></div>
+          </div>
+        </div>
+
+        <!-- Type 5 -->
+        <div class="type-card fade-in">
+          <div class="type-card-header">
+            <div class="type-badge">V</div>
+            <div>
+              <div class="type-name">Zakat on Livestock</div>
+              <div class="type-arabic">زكاة الأنعام</div>
+            </div>
+          </div>
+          <div class="type-grid">
+            <div class="type-detail"><div class="type-detail-label">Eligible Animals</div><div class="type-detail-value">Camels, cattle (cows/buffalo), and sheep/goats that graze freely on natural pasture (sāʾimah) for most of the year</div></div>
+            <div class="type-detail"><div class="type-detail-label">Nisab (Camels)</div><div class="type-detail-value">5 camels — Zakat: 1 sheep for every 5 camels (up to 25); scales up with herd size</div></div>
+            <div class="type-detail"><div class="type-detail-label">Nisab (Cattle)</div><div class="type-detail-value">30 cows — Zakat: 1 tabi' (one-year-old calf) for every 30; 1 musinnah (two-year-old) for every 40</div></div>
+            <div class="type-detail"><div class="type-detail-label">Nisab (Sheep/Goats)</div><div class="type-detail-value">40 sheep/goats — Zakat: 1 sheep for 40–120; 2 sheep for 121–200; 3 sheep for 201–300; +1 for each additional 100</div></div>
+            <div class="type-detail"><div class="type-detail-label">Hawl</div><div class="type-detail-value">One full lunar year for the herd to remain at or above nisab</div></div>
+            <div class="type-detail"><div class="type-detail-label">Exemption</div><div class="type-detail-value">Animals used for labour (ploughing) or trade (to be sold) fall under trade goods rules, not livestock Zakat</div></div>
+          </div>
+        </div>
+
+        <!-- Type 6 - Rikaz/Minerals -->
+        <div class="type-card fade-in">
+          <div class="type-card-header">
+            <div class="type-badge">VI</div>
+            <div>
+              <div class="type-name">Rikāz — Buried Treasure &amp; Minerals</div>
+              <div class="type-arabic">زكاة الركاز والمعادن</div>
+            </div>
+          </div>
+          <div class="type-grid">
+            <div class="type-detail"><div class="type-detail-label">Rikāz (Buried Treasure)</div><div class="type-detail-value">Pre-Islamic treasures or hoards discovered in the ground — Zakat due immediately upon discovery</div></div>
+            <div class="type-detail"><div class="type-detail-label">Rikāz Rate</div><div class="type-detail-value"><span class="rate-highlight">20% (Khums)</span> — one-fifth, regardless of amount or nisab</div></div>
+            <div class="type-detail"><div class="type-detail-label">Minerals (Maʿdin)</div><div class="type-detail-value">Gold, silver, and other minerals extracted from the earth by human effort</div></div>
+            <div class="type-detail"><div class="type-detail-label">Minerals Rate</div><div class="type-detail-value"><span class="rate-highlight">2.5%</span> — if extracted amount reaches nisab (Hanbali/Hanafi view)</div></div>
+            <div class="type-detail"><div class="type-detail-label">Hawl</div><div class="type-detail-value">No hawl — Zakat is due at extraction (like agricultural crops)</div></div>
+            <div class="type-detail"><div class="type-detail-label">Basis</div><div class="type-detail-value">Hadith: "In rikāz, one-fifth is due." (Bukhari &amp; Muslim)</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. NISAB & HAWL -->
+    <section class="lesson-section fade-in" id="nisab">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2 class="section-title">Nisab &amp; Hawl Explained</h2>
+      </div>
+      <div class="section-body">
+        <div class="def-box">
+          <div class="def-term">Nisab (نِصَاب) — The Minimum Threshold</div>
+          <div class="def-text">Nisab is the minimum amount of wealth a Muslim must possess before Zakat becomes obligatory. It was set by the Prophet ﷺ to ensure only those genuinely above subsistence level are required to pay. It serves as the Islamic "tax-free threshold."</div>
+        </div>
+        <div class="def-box">
+          <div class="def-term">Hawl (حَوْل) — The Lunar Year</div>
+          <div class="def-text">Hawl is the requirement that zakatable wealth remains at or above nisab for one complete lunar year (approximately 354 days). The clock resets if wealth drops below nisab at any point. Exception: agricultural produce and rikāz have no hawl requirement.</div>
+        </div>
+        <div class="calc-table">
+          <table>
+            <thead><tr><th>Wealth Type</th><th>Nisab</th><th>Rate</th><th>Hawl</th></tr></thead>
+            <tbody>
+              <tr><td>Gold</td><td>85 grams</td><td class="rate-cell">2.5%</td><td>1 lunar year</td></tr>
+              <tr><td>Silver</td><td>595 grams</td><td class="rate-cell">2.5%</td><td>1 lunar year</td></tr>
+              <tr><td>Cash / Savings</td><td>Equivalent to 85g gold or 595g silver</td><td class="rate-cell">2.5%</td><td>1 lunar year</td></tr>
+              <tr><td>Trade Goods (Business)</td><td>Value of 85g gold or 595g silver</td><td class="rate-cell">2.5%</td><td>1 lunar year</td></tr>
+              <tr><td>Crops (Rain-irrigated)</td><td>5 wasqs ≈ 653 kg</td><td class="rate-cell">10%</td><td>None (per harvest)</td></tr>
+              <tr><td>Crops (Artificially irrigated)</td><td>5 wasqs ≈ 653 kg</td><td class="rate-cell">5%</td><td>None (per harvest)</td></tr>
+              <tr><td>Camels</td><td>5 camels</td><td class="rate-cell">Variable</td><td>1 lunar year</td></tr>
+              <tr><td>Cattle</td><td>30 cows</td><td class="rate-cell">Variable</td><td>1 lunar year</td></tr>
+              <tr><td>Sheep/Goats</td><td>40 animals</td><td class="rate-cell">Variable</td><td>1 lunar year</td></tr>
+              <tr><td>Rikāz (Buried Treasure)</td><td>None required</td><td class="rate-cell">20%</td><td>None (upon discovery)</td></tr>
+              <tr><td>Minerals (Maʿdin)</td><td>Equivalent to 85g gold</td><td class="rate-cell">2.5%</td><td>None (upon extraction)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CALCULATION GUIDE -->
+    <section class="lesson-section fade-in" id="calculation">
+      <div class="section-header">
+        <span class="section-num">06</span>
+        <h2 class="section-title">Calculation Guide &amp; Examples</h2>
+      </div>
+      <div class="section-body">
+        <p>The general formula for calculating Zakat on wealth (gold, silver, savings, trade): <strong>Total Zakatable Wealth × Rate = Zakat Due</strong>. Debts due within the year may be deducted from the zakatable base before applying the rate.</p>
+
+        <!-- Interactive Zakat Calculator -->
+        <div style="background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h / 0.1);border-radius:var(--radius-xl);padding:var(--space-6);margin:var(--space-6) 0;box-shadow:var(--shadow-sm);">
+          <div style="font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-1);">Zakat Calculator</div>
+          <div style="font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-6);">Calculate obligatory Zakat on wealth, gold, or savings.</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(220px,100%),1fr));gap:var(--space-4);">
+            <div>
+              <label for="calc-type" style="display:block;font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-text-muted);margin-bottom:var(--space-2);">Wealth Type</label>
+              <select id="calc-type" style="width:100%;padding:var(--space-2) var(--space-3);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-bg);font-size:var(--text-sm);color:var(--color-text);">
+                <option value="2.5">Gold / Silver / Savings / Trade (2.5%)</option>
+                <option value="10">Agricultural — Rain-fed (10%)</option>
+                <option value="5">Agricultural — Irrigated (5%)</option>
+                <option value="20">Rikāz / Buried Treasure (20%)</option>
+              </select>
+            </div>
+            <div>
+              <label for="calc-amount" style="display:block;font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-text-muted);margin-bottom:var(--space-2);">Total Zakatable Amount (RM)</label>
+              <input type="number" id="calc-amount" placeholder="e.g. 10000" min="0" step="0.01" style="width:100%;padding:var(--space-2) var(--space-3);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-bg);font-size:var(--text-sm);color:var(--color-text);">
+            </div>
+            <div>
+              <label for="calc-debt" style="display:block;font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-text-muted);margin-bottom:var(--space-2);">Deductible Debts (RM)</label>
+              <input type="number" id="calc-debt" placeholder="e.g. 2000" min="0" step="0.01" value="0" style="width:100%;padding:var(--space-2) var(--space-3);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-bg);font-size:var(--text-sm);color:var(--color-text);">
+            </div>
+          </div>
+          <button onclick="calcZakat()" class="btn-primary" style="margin-top:var(--space-5);">Calculate Zakat</button>
+          <div id="calc-result" style="margin-top:var(--space-5);display:none;padding:var(--space-4) var(--space-5);background:var(--color-primary-highlight);border-radius:var(--radius-md);">
+            <div style="font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-primary);margin-bottom:var(--space-1);">Zakat Due</div>
+            <div id="calc-result-amount" style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-primary);"></div>
+            <div id="calc-result-detail" style="font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-2);"></div>
+          </div>
+        </div>
+
+        <p>Worked examples for key categories:</p>
+        <div class="calc-table">
+          <table>
+            <thead><tr><th>Scenario</th><th>Details</th><th>Calculation</th><th>Zakat Due</th></tr></thead>
+            <tbody>
+              <tr><td>Gold Jewellery (stored)</td><td>200g × RM144/g = RM28,800</td><td>RM28,800 × 2.5%</td><td class="rate-cell">RM 720</td></tr>
+              <tr><td>Bank Savings</td><td>RM 50,000 saved, no debts</td><td>RM 50,000 × 2.5%</td><td class="rate-cell">RM 1,250</td></tr>
+              <tr><td>Savings with Debt</td><td>RM 50,000 savings − RM 10,000 debt = RM 40,000</td><td>RM 40,000 × 2.5%</td><td class="rate-cell">RM 1,000</td></tr>
+              <tr><td>Crops — Rain-fed</td><td>Harvested 2,000 kg rice (above 653 kg nisab)</td><td>2,000 kg × 10%</td><td class="rate-cell">200 kg of rice</td></tr>
+              <tr><td>Crops — Irrigated</td><td>Harvested 2,000 kg (pump-irrigated)</td><td>2,000 kg × 5%</td><td class="rate-cell">100 kg of rice</td></tr>
+              <tr><td>Trade Inventory</td><td>Stock value RM 80,000, receivables RM 10,000, payables RM 15,000 → net RM 75,000</td><td>RM 75,000 × 2.5%</td><td class="rate-cell">RM 1,875</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. RECIPIENTS -->
+    <section class="lesson-section fade-in" id="recipients">
+      <div class="section-header">
+        <span class="section-num">07</span>
+        <h2 class="section-title">Recipients of Zakat — The 8 Asnaf</h2>
+      </div>
+      <div class="section-body">
+        <div class="quran-box">
+          <div class="quran-arabic">إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ وَالْعَامِلِينَ عَلَيْهَا وَالْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِي الرِّقَابِ وَالْغَارِمِينَ وَفِي سَبِيلِ اللَّهِ وَابْنِ السَّبِيلِ فَرِيضَةً مِّنَ اللَّهِ</div>
+          <div class="quran-translation">"Zakah expenditures are only for the poor and for the needy and for those employed to collect [it] and for bringing hearts together [for Islam] and for freeing captives [or slaves] and for those in debt and for the cause of Allah and for the [stranded] traveler — an obligation [imposed] by Allah."</div>
+          <div class="quran-ref">Surah At-Tawbah (9:60)</div>
+        </div>
+        <div class="recipients-table">
+          <table>
+            <thead>
+              <tr><th>#</th><th>Arabic Term</th><th>English Name</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="asnaf-num">1</span></td>
+                <td class="arabic-cell">الفقراء (Al-Fuqarāʾ)</td>
+                <td>The Poor</td>
+                <td>Those who possess less than the nisab and cannot meet their basic needs. Their poverty is severe — they cannot find sufficient means for even half a year.</td>
+              </tr>
+              <tr>
+                <td><span class="asnaf-num">2</span></td>
+                <td class="arabic-cell">المساكين (Al-Masākīn)</td>
+                <td>The Needy</td>
+                <td>Those slightly better off than the fuqarāʾ — they have some income or possessions but not enough to meet all their needs. Can find half their needs but not more.</td>
+              </tr>
+              <tr>
+                <td><span class="asnaf-num">3</span></td>
+                <td class="arabic-cell">العاملون عليها (Al-ʿĀmilūn)</td>
+                <td>Zakat Administrators (Amil)</td>
+                <td>Those officially appointed to collect, manage, and distribute Zakat. They receive a fair wage from the Zakat fund for their administrative services, regardless of their personal wealth.</td>
+              </tr>
+              <tr>
+                <td><span class="asnaf-num">4</span></td>
+                <td class="arabic-cell">المؤلفة قلوبهم (Al-Muʾallafah)</td>
+                <td>Those Whose Hearts Are to Be Reconciled (Muallaf)</td>
+                <td>New Muslims whose faith needs strengthening, or non-Muslims whose goodwill towards Islam is sought for the benefit of the community. Given Zakat to support their transition or goodwill.</td>
+              </tr>
+              <tr>
+                <td><span class="asnaf-num">5</span></td>
+                <td class="arabic-cell">في الرقاب (Al-Riqāb)</td>
+                <td>Those in Bondage / Slavery</td>
+                <td>Historically, to free enslaved people. Contemporary application includes assisting people trapped in oppressive conditions, human trafficking victims, or those in inescapable debt bondage.</td>
+              </tr>
+              <tr>
+                <td><span class="asnaf-num">6</span></td>
+                <td class="arabic-cell">الغارمون (Al-Ghārimūn)</td>
+                <td>Those Overwhelmed by Debt</td>
+                <td>Individuals who have incurred debts to meet lawful basic needs and are unable to repay them. Excludes debts incurred for sinful or wasteful purposes. Debt must have reached its due date.</td>
+              </tr>
+              <tr>
+                <td><span class="asnaf-num">7</span></td>
+                <td class="arabic-cell">في سبيل الله (Fī Sabīl Allāh)</td>
+                <td>In the Cause of Allah</td>
+                <td>Classically, those fighting in jihad (defensive warfare). Contemporary scholars extend this to include students of Islamic knowledge, dawah workers, and those engaged in building Islamic institutions.</td>
+              </tr>
+              <tr>
+                <td><span class="asnaf-num">8</span></td>
+                <td class="arabic-cell">ابن السبيل (Ibn al-Sabīl)</td>
+                <td>The Stranded Traveller (Wayfarer)</td>
+                <td>A traveller who is cut off from their resources, even if wealthy at home. Receives enough Zakat to return home or complete their lawful journey. Does not apply to those who left home knowing they had no funds.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="def-box" style="margin-top:var(--space-4)">
+          <div class="def-term">Important Note on Distribution</div>
+          <div class="def-text">Scholars disagree on whether Zakat must be distributed to all eight categories equally. The <strong>Shāfiʿī</strong> school requires it. The <strong>Ḥanafī</strong> school permits giving to any one category. The <strong>Mālikī</strong> and <strong>Ḥanbalī</strong> schools advise considering local need, prioritising the most deserving. All agree the decision is guided by public interest (maṣlaḥah).</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. IMPORTANCE -->
+    <section class="lesson-section fade-in" id="importance">
+      <div class="section-header">
+        <span class="section-num">08</span>
+        <h2 class="section-title">Importance &amp; Wisdom of Zakat</h2>
+      </div>
+      <div class="section-body">
+        <div class="importance-grid">
+          <div class="importance-item">
+            <div class="importance-icon">🕌</div>
+            <div class="importance-title">Spiritual Purification</div>
+            <div class="importance-desc">Zakat purifies the soul from greed and attachment to material wealth. It is an act of worship (ibādah) that strengthens one's relationship with Allah. The Quran describes it as a means of "purifying" both the wealth and the person.</div>
+          </div>
+          <div class="importance-item">
+            <div class="importance-icon">⚖️</div>
+            <div class="importance-title">Social Justice &amp; Equity</div>
+            <div class="importance-desc">Zakat redistributes wealth from the affluent to the vulnerable, reducing poverty and narrowing economic inequality. It is an institutionalised mechanism of social welfare built into Islamic law itself, not a voluntary act.</div>
+          </div>
+          <div class="importance-item">
+            <div class="importance-icon">🤝</div>
+            <div class="importance-title">Community Solidarity</div>
+            <div class="importance-desc">By caring for the poor, Zakat fosters empathy, compassion, and brotherhood (ukhuwwah) within the Muslim community. It ensures no member of the Ummah is left without basic needs being met.</div>
+          </div>
+          <div class="importance-item">
+            <div class="importance-icon">📈</div>
+            <div class="importance-title">Economic Stimulus</div>
+            <div class="importance-desc">Zakat prevents the hoarding of wealth by putting idle capital into circulation. Economists note that Zakat functions as a wealth tax that encourages investment, as hoarded wealth decreases every year by 2.5%.</div>
+          </div>
+          <div class="importance-item">
+            <div class="importance-icon">🙏</div>
+            <div class="importance-title">Gratitude to Allah</div>
+            <div class="importance-desc">Zakat is an acknowledgement that all wealth ultimately belongs to Allah, and the human is its steward (khalifah). Giving Zakat expresses gratitude for Allah's favour and trust in His provision (tawakkul).</div>
+          </div>
+          <div class="importance-item">
+            <div class="importance-icon">🌱</div>
+            <div class="importance-title">Blessing in Wealth</div>
+            <div class="importance-desc">The Prophet ﷺ taught that charity does not decrease wealth. Zakat invites divine barakah (blessing) — the remaining wealth grows through Allah's grace, contrary to what the human ego fears.</div>
+          </div>
+        </div>
+
+        <div class="hadith-box">
+          <div class="hadith-text">"Protect your wealth by giving Zakat; treat your sick by giving charity; and prepare for the waves of calamity by making supplication."</div>
+          <div class="hadith-ref">Al-Tabarāni (with a good chain) | Also: "Charity does not decrease wealth." — Sahih Muslim, No. 2588</div>
+        </div>
+
+        <!-- Zakat vs Sadaqah comparison -->
+        <h3 style="font-family:var(--font-display);font-size:var(--text-lg);margin:var(--space-8) 0 var(--space-4);color:var(--color-text);">Zakat vs. Sadaqah — Key Distinctions</h3>
+        <div class="compare-wrap">
+          <table>
+            <thead><tr><th>Aspect</th><th>Zakat (زكاة)</th><th>Sadaqah (صدقة)</th></tr></thead>
+            <tbody>
+              <tr><td>Legal Status</td><td><span class="tag tag-green">Fard (Obligatory)</span></td><td><span class="tag tag-gold">Mustahabb (Recommended)</span></td></tr>
+              <tr><td>Amount</td><td>Fixed rate (e.g. 2.5%) on specific wealth</td><td>Any amount, no minimum</td></tr>
+              <tr><td>Timing</td><td>Once per lunar year (when hawl passes)</td><td>Any time, as often as wished</td></tr>
+              <tr><td>Recipients</td><td>Restricted to 8 Asnaf (Quran 9:60)</td><td>Any person or cause</td></tr>
+              <tr><td>Denial</td><td>Major sin; can nullify faith (per some scholars)</td><td>No sin for not giving</td></tr>
+              <tr><td>Management</td><td>Regulated by Islamic authorities/state</td><td>Given directly by individual</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. VOCABULARY -->
+    <section class="lesson-section fade-in" id="vocab">
+      <div class="section-header">
+        <span class="section-num">09</span>
+        <h2 class="section-title">Key Vocabulary</h2>
+      </div>
+      <div class="section-body">
+        <div class="vocab-search-wrap">
+          <svg class="vocab-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input class="vocab-search" type="search" id="vocab-search" placeholder="Search terms..." aria-label="Search vocabulary">
+        </div>
+        <div class="vocab-table-wrap">
+          <table>
+            <thead><tr><th>Arabic Term</th><th>Transliteration</th><th>Meaning</th></tr></thead>
+            <tbody id="vocab-body">
+              <tr><td>الزكاة</td><td>Al-Zakāh</td><td>Obligatory almsgiving; the Third Pillar of Islam; means purification and growth</td></tr>
+              <tr><td>النصاب</td><td>Al-Niṣāb</td><td>Minimum threshold of wealth at which Zakat becomes obligatory</td></tr>
+              <tr><td>الحول</td><td>Al-Ḥawl</td><td>One full lunar year (≈354 days) that zakatable wealth must be held</td></tr>
+              <tr><td>الفرض</td><td>Al-Farḍ</td><td>Religious obligation (mandatory duty); Zakat is fard ayn on every eligible Muslim</td></tr>
+              <tr><td>المصرف</td><td>Al-Maṣrif</td><td>The eligible channels/recipients for Zakat distribution</td></tr>
+              <tr><td>الأصناف / الأسناف</td><td>Al-Aṣnāf / Al-Asnāf</td><td>The eight categories of Zakat recipients as specified in Surah At-Tawbah 9:60</td></tr>
+              <tr><td>النماء</td><td>Al-Namāʾ</td><td>Growth or productive potential — a condition that zakatable wealth must possess</td></tr>
+              <tr><td>العشر</td><td>Al-ʿUshr</td><td>One-tenth (10%) — the Zakat rate on naturally irrigated agricultural produce</td></tr>
+              <tr><td>نصف العشر</td><td>Niṣf al-ʿUshr</td><td>One-twentieth (5%) — the Zakat rate on artificially irrigated crops</td></tr>
+              <tr><td>الركاز</td><td>Al-Rikāz</td><td>Pre-Islamic buried treasure found in the ground; subject to 20% (khums) Zakat</td></tr>
+              <tr><td>الخمس</td><td>Al-Khums</td><td>One-fifth (20%) — the special Zakat rate on rikāz (buried treasure)</td></tr>
+              <tr><td>عروض التجارة</td><td>ʿUrūḍ al-Tijārah</td><td>Trade goods; all assets and inventory held for the purpose of buying and selling</td></tr>
+              <tr><td>الفقراء</td><td>Al-Fuqarāʾ</td><td>The poor; those in severe poverty who cannot meet basic needs</td></tr>
+              <tr><td>المساكين</td><td>Al-Masākīn</td><td>The needy; those with some income but still insufficient to meet all basic needs</td></tr>
+              <tr><td>الغارمون</td><td>Al-Ghārimūn</td><td>Those overwhelmed by debt they incurred for legitimate needs and cannot repay</td></tr>
+              <tr><td>ابن السبيل</td><td>Ibn al-Sabīl</td><td>The stranded wayfarer/traveller who is cut off from their resources away from home</td></tr>
+              <tr><td>في سبيل الله</td><td>Fī Sabīl Allāh</td><td>In the cause of Allah — those engaged in legitimate Islamic activities or defence</td></tr>
+              <tr><td>المؤلفة قلوبهم</td><td>Al-Muʾallafah Qulūbuhum</td><td>Those whose hearts are being reconciled to Islam; new Muslims or potential allies</td></tr>
+            </tbody>
+          </table>
+          <div class="vocab-no-results" id="vocab-no-results" style="display:none;">No matching terms found. Try a different search.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. QUIZ -->
+    <section class="lesson-section fade-in" id="quiz">
+      <div class="section-header">
+        <span class="section-num">10</span>
+        <h2 class="section-title">Self-Assessment Quiz</h2>
+      </div>
+      <div class="quiz-container">
+        <div id="quiz-main">
+          <div class="quiz-header">
+            <div class="quiz-title">Test Your Knowledge</div>
+            <div class="quiz-score-display">Question <span id="q-current">1</span> of 8</div>
+          </div>
+          <div class="progress-bar-wrap"><div class="progress-bar-fill" id="quiz-progress" style="width:12.5%"></div></div>
+          <div id="quiz-question-wrap"></div>
+          <div class="quiz-nav">
+            <button class="btn-secondary" id="quiz-prev" onclick="prevQuestion()" disabled>← Previous</button>
+            <button class="btn-primary" id="quiz-next" onclick="nextQuestion()" disabled>Next →</button>
+          </div>
+        </div>
+        <div id="quiz-result" class="quiz-result" style="display:none;">
+          <div class="result-score" id="result-score"></div>
+          <div class="result-label" id="result-label"></div>
+          <div class="progress-bar-wrap" style="max-width:300px;margin:0 auto var(--space-6)"><div class="progress-bar-fill" id="result-bar"></div></div>
+          <button class="btn-primary" onclick="resetQuiz()">Retake Quiz</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <div>Islamic Studies Lesson Note — Zakat (Other than Zakat Fitrah)</div>
+  <div>Grade 9 · Curriculum Resource · May 2026</div>
+</footer>
+
+<script>
+// === THEME TOGGLE ===
+(function(){
+  const t = document.querySelector('[data-theme-toggle]');
+  const r = document.documentElement;
+  let d = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+  r.setAttribute('data-theme', d);
+  const sunIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+  const moonIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  if (d === 'dark') t.innerHTML = sunIcon; else t.innerHTML = moonIcon;
+  t.addEventListener('click', () => {
+    d = d === 'dark' ? 'light' : 'dark';
+    r.setAttribute('data-theme', d);
+    t.innerHTML = d === 'dark' ? sunIcon : moonIcon;
+  });
+})();
+
+// === READING PROGRESS ===
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const pct = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+  document.getElementById('reading-progress').style.width = pct + '%';
+});
+
+// === ACTIVE SIDEBAR LINK ===
+const sections = document.querySelectorAll('.lesson-section, .hero');
+const links = document.querySelectorAll('#sidebar-nav .sidebar-link');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(l => l.classList.remove('active'));
+      const id = e.target.getAttribute('id');
+      const active = document.querySelector(`#sidebar-nav a[href="#${id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-40% 0px -50% 0px' });
+sections.forEach(s => observer.observe(s));
+
+// === SCROLL ANIMATIONS ===
+const fadeEls = document.querySelectorAll('.fade-in');
+const fadeObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); fadeObs.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+fadeEls.forEach(el => fadeObs.observe(el));
+
+// === MOBILE MENU ===
+const mobileBtn = document.getElementById('mobile-menu-btn');
+const mobileDrawer = document.getElementById('mobile-nav-drawer');
+mobileBtn.addEventListener('click', () => {
+  const open = mobileDrawer.classList.toggle('open');
+  mobileBtn.setAttribute('aria-expanded', open);
+  mobileDrawer.setAttribute('aria-hidden', !open);
+});
+mobileDrawer.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    mobileDrawer.classList.remove('open');
+    mobileBtn.setAttribute('aria-expanded', 'false');
+    mobileDrawer.setAttribute('aria-hidden', 'true');
+  });
+});
+
+// === PRINT ===
+document.getElementById('print-btn').addEventListener('click', () => window.print());
+
+// === ZAKAT CALCULATOR ===
+function calcZakat() {
+  const rate = parseFloat(document.getElementById('calc-type').value) / 100;
+  const amount = parseFloat(document.getElementById('calc-amount').value) || 0;
+  const debt = parseFloat(document.getElementById('calc-debt').value) || 0;
+  const net = Math.max(0, amount - debt);
+  const zakat = net * rate;
+  const resultEl = document.getElementById('calc-result');
+  resultEl.style.display = 'block';
+  document.getElementById('calc-result-amount').textContent = 'RM ' + zakat.toLocaleString('en-MY', {minimumFractionDigits:2, maximumFractionDigits:2});
+  document.getElementById('calc-result-detail').textContent = `Net zakatable wealth: RM ${net.toLocaleString('en-MY', {minimumFractionDigits:2})} × ${(rate*100)}% = RM ${zakat.toLocaleString('en-MY', {minimumFractionDigits:2})}`;
+}
+
+// === VOCABULARY SEARCH ===
+document.getElementById('vocab-search').addEventListener('input', function() {
+  const q = this.value.toLowerCase().trim();
+  const rows = document.querySelectorAll('#vocab-body tr');
+  let visible = 0;
+  rows.forEach(row => {
+    const text = row.textContent.toLowerCase();
+    const show = !q || text.includes(q);
+    row.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  document.getElementById('vocab-no-results').style.display = visible === 0 ? 'block' : 'none';
+});
+
+// === QUIZ ===
+const quizData = [
+  { q: "What does the Arabic word 'Zakat' literally mean?", opts: ["Obligatory payment", "Purification and growth", "Annual tax", "Monthly giving"], ans: 1 },
+  { q: "Zakat is the _____ Pillar of Islam.", opts: ["Second", "Third", "Fourth", "Fifth"], ans: 1 },
+  { q: "What is the nisab for gold?", opts: ["20 grams", "50 grams", "85 grams", "100 grams"], ans: 2 },
+  { q: "What is the standard Zakat rate for gold, silver, savings, and trade goods?", opts: ["1%", "2%", "2.5%", "5%"], ans: 2 },
+  { q: "A farmer harvests crops using only rainfall. What is the Zakat rate on his harvest?", opts: ["2.5%", "5%", "10%", "20%"], ans: 2 },
+  { q: "What is 'Hawl' in Zakat?", opts: ["The minimum threshold of wealth", "The full lunar year that must pass", "The list of eligible recipients", "The amount of Zakat due"], ans: 1 },
+  { q: "How many categories (asnaf) of Zakat recipients are mentioned in Surah At-Tawbah?", opts: ["5", "6", "7", "8"], ans: 3 },
+  { q: "What is the Zakat rate on Rikaz (discovered buried treasure)?", opts: ["2.5%", "5%", "10%", "20%"], ans: 3 }
+];
+
+let currentQ = 0, score = 0, answered = [];
+
+function renderQuestion() {
+  const q = quizData[currentQ];
+  const letters = ['A','B','C','D'];
+  document.getElementById('q-current').textContent = currentQ + 1;
+  document.getElementById('quiz-progress').style.width = ((currentQ + 1) / quizData.length * 100) + '%';
+  const prevBtn = document.getElementById('quiz-prev');
+  const nextBtn = document.getElementById('quiz-next');
+  prevBtn.disabled = currentQ === 0;
+
+  let optionsHtml = q.opts.map((opt, i) => {
+    let cls = 'option-btn';
+    let dis = '';
+    if (answered[currentQ] !== undefined) {
+      dis = 'disabled';
+      if (i === q.ans) cls += ' correct';
+      else if (i === answered[currentQ] && i !== q.ans) cls += ' wrong';
+    }
+    return `<button class="${cls}" ${dis} onclick="selectAnswer(${i})" aria-label="Option ${letters[i]}: ${opt}">
+      <span class="option-letter">${letters[i]}</span>${opt}
+    </button>`;
+  }).join('');
+
+  document.getElementById('quiz-question-wrap').innerHTML = `
+    <div class="quiz-question">
+      <div class="question-num">Question ${currentQ + 1} of ${quizData.length}</div>
+      <div class="question-text">${q.q}</div>
+      <div class="options-list" role="group">${optionsHtml}</div>
+    </div>`;
+  nextBtn.disabled = answered[currentQ] === undefined;
+  nextBtn.textContent = currentQ === quizData.length - 1 ? 'Finish Quiz ✓' : 'Next →';
+}
+
+function selectAnswer(i) {
+  if (answered[currentQ] !== undefined) return;
+  answered[currentQ] = i;
+  if (i === quizData[currentQ].ans) score++;
+  renderQuestion();
+}
+
+function nextQuestion() {
+  if (currentQ < quizData.length - 1) { currentQ++; renderQuestion(); }
+  else showResult();
+}
+
+function prevQuestion() {
+  if (currentQ > 0) { currentQ--; renderQuestion(); }
+}
+
+function showResult() {
+  document.getElementById('quiz-main').style.display = 'none';
+  document.getElementById('quiz-result').style.display = 'block';
+  const pct = Math.round((score / quizData.length) * 100);
+  document.getElementById('result-score').textContent = score + ' / ' + quizData.length;
+  const labels = ['Keep studying — review the lesson notes again.', 'Good effort — review the sections you missed.', 'Well done! You have a solid understanding of Zakat.', 'Excellent! Outstanding mastery of Zakat.'];
+  const li = pct < 50 ? 0 : pct < 75 ? 1 : pct < 90 ? 2 : 3;
+  document.getElementById('result-label').textContent = labels[li];
+  setTimeout(() => { document.getElementById('result-bar').style.width = pct + '%'; }, 100);
+}
+
+function resetQuiz() {
+  currentQ = 0; score = 0; answered = [];
+  document.getElementById('quiz-main').style.display = 'block';
+  document.getElementById('quiz-result').style.display = 'none';
+  renderQuestion();
+}
+
+renderQuestion();
+</script>
+</body>
+</html>
