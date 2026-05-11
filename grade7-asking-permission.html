@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manner: Asking Permission | Grade 7 Islamic Studies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300..700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== DESIGN TOKENS ===== */
+:root, [data-theme="light"] {
+  --color-bg: #faf9f5;
+  --color-surface: #f5f4ef;
+  --color-surface-2: #f0efe9;
+  --color-surface-offset: #e8e6df;
+  --color-divider: #d8d5cc;
+  --color-border: #ccc9bf;
+  --color-text: #1e1c15;
+  --color-text-muted: #6b6960;
+  
+  --color-text-faint: #a8a69f;
+  --color-text-inverse: #f5f4ef;
+  --color-primary: #1a6e40;
+  --color-primary-hover: #125430;
+  --color-primary-light: #d4eade;
+  --color-primary-light: #d4eadb;
+  --color-primary-highlight: #e8f4ec;
+  --color-gold: #c47f00;
+  --color-gold-light: #fef3d0;
+  --color-blue: #1a5276;
+  --color-blue-light: #d6eaf8;
+  --color-rose: #8b2252;
+  --color-rose-light: #f5d5e6;
+  --color-orange: #b84a00;
+  --color-orange-light: #fde8d8;
+  --shadow-sm: 0 1px 3px rgba(30,28,21,0.06);
+  --shadow-md: 0 4px 16px rgba(30,28,21,0.08);
+  --shadow-lg: 0 12px 40px rgba(30,28,21,0.12);
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+  --font-display: 'Amiri', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+  --text-xs:   clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem, 1.2rem + 2.5vw, 3rem);
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem;
+  --space-4: 1rem;    --space-5: 1.25rem; --space-6: 1.5rem;
+  --space-8: 2rem;    --space-10: 2.5rem; --space-12: 3rem;
+  --space-16: 4rem;   --space-20: 5rem;
+  --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"] {
+  --color-bg: #141310;
+  --color-surface: #1a1916;
+  --color-surface-2: #1f1e1b;
+  --color-surface-offset: #252320;
+  --color-divider: #2e2c28;
+  --color-border: #3a3834;
+  --color-text: #e8e6df;
+  --color-text-muted: #8a8880;
+  --color-text-faint: #5c5a54;
+  --color-text-inverse: #1a1916;
+  --color-primary: #4db87a;
+  --color-primary-hover: #3da067;
+  --color-primary-light: #1a3025;
+  --color-primary-highlight: #1f3828;
+  --color-gold: #e8b84a;
+  --color-gold-light: #2e2210;
+  --color-blue: #5aa8d8;
+  --color-blue-light: #102030;
+  --color-rose: #e06090;
+  --color-rose-light: #2a1020;
+  --color-orange: #e89050;
+  --color-orange-light: #2a1808;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.3);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+/* ===== BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.7;
+  min-height: 100dvh;
+  transition: background var(--transition), color var(--transition);
+}
+h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.2; text-wrap: balance; }
+p, li { text-wrap: pretty; max-width: 72ch; }
+img { display:block; max-width:100%; height:auto; }
+button { cursor:pointer; background:none; border:none; font:inherit; color:inherit; }
+
+/* ===== SKIP LINK ===== */
+.skip-link { position:absolute; top:-100%; left:var(--space-4); background:var(--color-primary); color:var(--color-text-inverse); padding:var(--space-2) var(--space-4); border-radius:var(--radius-sm); z-index:999; transition:top 0.2s; }
+.skip-link:focus { top:var(--space-4); }
+
+/* ===== TOPBAR ===== */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-divider);
+  padding: var(--space-3) var(--space-6);
+  display: flex; align-items: center; justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(8px);
+  transition: background var(--transition), border-color var(--transition);
+}
+.topbar-brand { display:flex; align-items:center; gap:var(--space-3); }
+.topbar-logo {
+  width: 36px; height: 36px;
+  background: var(--color-primary);
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.topbar-logo svg { width:20px; height:20px; stroke: #fff; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.topbar-title { font-size: var(--text-sm); font-weight: 600; line-height: 1.2; }
+.topbar-subtitle { font-size: var(--text-xs); color: var(--color-text-muted); }
+.topbar-right { display:flex; align-items:center; gap:var(--space-3); }
+.progress-wrap { display:flex; align-items:center; gap:var(--space-2); }
+.progress-label { font-size: var(--text-xs); color: var(--color-text-muted); }
+.progress-bar-outer { width: 80px; height: 6px; background: var(--color-surface-offset); border-radius: var(--radius-full); overflow:hidden; }
+.progress-bar-inner { height:100%; background: var(--color-primary); border-radius: var(--radius-full); transition: width 0.4s ease; width:0%; }
+.theme-toggle {
+  width:36px; height:36px; border-radius:var(--radius-md);
+  display:flex; align-items:center; justify-content:center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  transition: all var(--transition);
+}
+.theme-toggle:hover { background: var(--color-surface-offset); color: var(--color-text); }
+
+/* ===== LAYOUT ===== */
+.page-wrap {
+  max-width: 860px; margin: 0 auto;
+  padding: var(--space-8) var(--space-6) var(--space-20);
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, var(--color-primary-highlight) 0%, var(--color-surface) 100%);
+  border: 1px solid var(--color-primary-light);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10) var(--space-10);
+  margin-bottom: var(--space-10);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 20%, oklch(from var(--color-primary) l c h / 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  background: var(--color-primary);
+  color: #fff;
+  padding: var(--space-1) var(--space-4);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-4);
+}
+.hero-arabic {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+  direction: rtl;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+.hero-desc {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  max-width: 54ch;
+  margin: 0 auto var(--space-6);
+}
+.hero-meta {
+  display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;
+}
+.hero-meta-item {
+  display:flex; align-items:center; gap:var(--space-2);
+  font-size: var(--text-xs); color: var(--color-text-muted);
+  background: var(--color-surface);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-divider);
+}
+.hero-meta-item svg { width:14px; height:14px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+
+/* ===== TOC ===== */
+.toc {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-10);
+}
+.toc-title { font-size: var(--text-sm); font-weight: 700; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: var(--space-4); display:flex; align-items:center; gap:var(--space-2); }
+.toc-title svg { width:14px; height:14px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.toc-list { list-style: none; display:flex; flex-direction:column; gap:var(--space-1); }
+.toc-list a {
+  display:flex; align-items:center; gap:var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: all var(--transition);
+}
+.toc-list a:hover { background:var(--color-surface-offset); color:var(--color-text); }
+.toc-num {
+  width: 24px; height: 24px; flex-shrink: 0;
+  background: var(--color-surface-offset);
+  border-radius: var(--radius-full);
+  display:flex; align-items:center; justify-content:center;
+  font-size: var(--text-xs); font-weight: 700; color: var(--color-text-muted);
+}
+
+/* ===== SECTION ===== */
+.lesson-section {
+  margin-bottom: var(--space-12);
+  scroll-margin-top: 90px;
+  animation: fadeUp 0.5s ease both;
+}
+@keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+
+.section-header {
+  display: flex; align-items: flex-start; gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+.section-icon {
+  width: 48px; height: 48px; flex-shrink: 0;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+}
+.section-icon.green  { background: var(--color-primary-highlight); }
+.section-icon.gold   { background: var(--color-gold-light); }
+.section-icon.blue   { background: var(--color-blue-light); }
+.section-icon.rose   { background: var(--color-rose-light); }
+.section-icon.orange { background: var(--color-orange-light); }
+
+.section-number { font-size: var(--text-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-muted); margin-bottom: var(--space-1); }
+.section-title { font-size: var(--text-xl); color: var(--color-text); }
+
+/* ===== HADITH CARD ===== */
+.hadith-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.hadith-card-header {
+  background: var(--color-primary);
+  color: #fff;
+  padding: var(--space-3) var(--space-6);
+  display:flex; align-items:center; gap:var(--space-2);
+  font-size: var(--text-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+}
+.hadith-card-body { padding: var(--space-6); }
+.hadith-arabic {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  direction: rtl;
+  text-align: right;
+  line-height: 2;
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+  padding: var(--space-4);
+  background: var(--color-primary-highlight);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-primary-light);
+}
+.hadith-translation {
+  font-size: var(--text-base);
+  font-style: italic;
+  color: var(--color-text);
+  line-height: 1.8;
+  margin-bottom: var(--space-4);
+  padding-left: var(--space-4);
+  border-left: 3px solid var(--color-primary);
+}
+.hadith-source {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  display:flex; align-items:center; gap:var(--space-2);
+}
+
+/* ===== STORY BLOCK ===== */
+.story-block {
+  background: var(--color-gold-light);
+  border: 1px solid oklch(from var(--color-gold) l c h / 0.25);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-top: var(--space-6);
+  position: relative;
+}
+.story-label {
+  font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--color-gold);
+  margin-bottom: var(--space-3);
+  display:flex; align-items:center; gap:var(--space-2);
+}
+.story-block p { color: var(--color-text); max-width: none; }
+.story-block p + p { margin-top: var(--space-3); }
+
+/* ===== BODY TEXT ===== */
+.body-text { font-size: var(--text-base); color: var(--color-text); line-height:1.8; }
+.body-text + .body-text { margin-top: var(--space-4); }
+.body-text strong { color: var(--color-primary); }
+
+/* ===== CALLOUT ===== */
+.callout {
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+  margin: var(--space-5) 0;
+  display:flex; gap:var(--space-4); align-items:flex-start;
+  border: 1px solid transparent;
+}
+.callout.info   { background: var(--color-blue-light);   border-color: oklch(from var(--color-blue) l c h / 0.2); }
+.callout.tip    { background: var(--color-primary-highlight); border-color: var(--color-primary-light); }
+.callout.warn   { background: var(--color-orange-light);  border-color: oklch(from var(--color-orange) l c h / 0.2); }
+.callout.quran  { background: var(--color-rose-light);    border-color: oklch(from var(--color-rose) l c h / 0.2); }
+.callout-icon { font-size: 1.25rem; flex-shrink:0; }
+.callout-body { flex:1; }
+.callout-title { font-size: var(--text-sm); font-weight: 700; margin-bottom: var(--space-1); }
+.callout.info   .callout-title { color: var(--color-blue); }
+.callout.tip    .callout-title { color: var(--color-primary); }
+.callout.warn   .callout-title { color: var(--color-orange); }
+.callout.quran  .callout-title { color: var(--color-rose); }
+.callout p { font-size: var(--text-sm); color: var(--color-text); max-width: none; }
+.callout .arabic-inline { font-family: var(--font-display); font-size: 1.2em; direction:rtl; display:block; text-align:right; margin-top:var(--space-2); }
+
+/* ===== STEPS LIST ===== */
+.steps-list { list-style:none; display:flex; flex-direction:column; gap:var(--space-4); margin-top: var(--space-4); }
+.step-item {
+  display:flex; gap:var(--space-4); align-items:flex-start;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.step-item:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+.step-num {
+  width:32px; height:32px; flex-shrink:0;
+  border-radius:var(--radius-full);
+  display:flex; align-items:center; justify-content:center;
+  font-size: var(--text-sm); font-weight: 700; color: #fff;
+  background: var(--color-primary);
+}
+.step-content { flex:1; }
+.step-title { font-weight: 600; color: var(--color-text); margin-bottom: var(--space-1); }
+.step-desc { font-size: var(--text-sm); color: var(--color-text-muted); max-width: none; }
+.step-arabic { font-family: var(--font-display); font-size: 1.15rem; direction:rtl; color: var(--color-primary); margin-top: var(--space-2); display:block; text-align:right; }
+.step-transliteration { font-size: var(--text-sm); font-style:italic; color: var(--color-text-muted); margin-top: var(--space-1); }
+
+/* ===== ACCORDION ===== */
+.accordion { border-radius: var(--radius-md); overflow:hidden; border: 1px solid var(--color-border); margin-top: var(--space-4); }
+.accordion-item + .accordion-item { border-top: 1px solid var(--color-divider); }
+.accordion-btn {
+  width:100%; padding: var(--space-4) var(--space-5);
+  display:flex; justify-content:space-between; align-items:center; gap:var(--space-4);
+  background: var(--color-surface);
+  text-align:left;
+  transition: background var(--transition);
+}
+.accordion-btn:hover { background: var(--color-surface-offset); }
+.accordion-btn[aria-expanded="true"] { background: var(--color-primary-highlight); }
+.accordion-btn-text { font-weight: 600; font-size: var(--text-sm); color: var(--color-text); display:flex; align-items:center; gap:var(--space-3); }
+.accordion-btn-icon { font-size: 1.1rem; }
+.accordion-chevron { width:18px; height:18px; stroke:var(--color-text-muted); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; transition: transform var(--transition); flex-shrink:0; }
+.accordion-btn[aria-expanded="true"] .accordion-chevron { transform: rotate(180deg); }
+.accordion-body { display:none; padding: var(--space-4) var(--space-5) var(--space-5); background: var(--color-surface-2); }
+.accordion-body.open { display:block; animation: slideDown 0.25s ease; }
+@keyframes slideDown { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
+.accordion-body p { font-size: var(--text-sm); color: var(--color-text); max-width: none; }
+.accordion-body ul { list-style: none; padding:0; margin-top: var(--space-3); display:flex; flex-direction:column; gap:var(--space-2); }
+.accordion-body ul li { font-size: var(--text-sm); color: var(--color-text); padding-left: var(--space-5); position:relative; }
+.accordion-body ul li::before { content:'✦'; position:absolute; left:0; color: var(--color-primary); font-size: 0.65rem; top: 0.2em; }
+
+/* ===== WISDOM GRID ===== */
+.wisdom-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr)); gap: var(--space-4); margin-top: var(--space-6); }
+.wisdom-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.wisdom-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.wisdom-emoji { font-size: 1.8rem; margin-bottom: var(--space-3); display:block; }
+.wisdom-card h4 { font-size: var(--text-sm); font-weight: 700; color: var(--color-text); margin-bottom: var(--space-2); font-family: var(--font-body); }
+.wisdom-card p { font-size: var(--text-xs); color: var(--color-text-muted); max-width: none; }
+
+/* ===== RULE TABLE (three times) ===== */
+.times-table { width:100%; border-collapse: collapse; margin-top: var(--space-6); border-radius: var(--radius-md); overflow:hidden; box-shadow: var(--shadow-sm); }
+.times-table thead tr { background: var(--color-primary); color:#fff; }
+.times-table th { padding: var(--space-3) var(--space-4); text-align:left; font-size: var(--text-sm); font-weight: 600; }
+.times-table td { padding: var(--space-3) var(--space-4); font-size: var(--text-sm); color: var(--color-text); border-bottom: 1px solid var(--color-divider); }
+.times-table tbody tr { background: var(--color-surface); transition: background var(--transition); }
+.times-table tbody tr:hover { background: var(--color-surface-offset); }
+.times-table tbody tr:last-child td { border-bottom: none; }
+.badge { display:inline-block; padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); font-size: var(--text-xs); font-weight:600; }
+.badge.green { background: var(--color-primary-highlight); color: var(--color-primary); }
+.badge.gold  { background: var(--color-gold-light); color: var(--color-gold); }
+.badge.blue  { background: var(--color-blue-light); color: var(--color-blue); }
+
+/* ===== PHONE MOCKUP ===== */
+.phone-section { margin-top: var(--space-8); }
+.chat-mockup {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  max-width: 380px;
+  margin: var(--space-6) auto 0;
+  box-shadow: var(--shadow-lg);
+}
+.chat-topbar {
+  background: var(--color-primary);
+  color: #fff;
+  padding: var(--space-3) var(--space-4);
+  display:flex; align-items:center; gap:var(--space-3);
+}
+.chat-avatar {
+  width:36px; height:36px; border-radius:var(--radius-full);
+  background: rgba(255,255,255,0.25);
+  display:flex; align-items:center; justify-content:center;
+  font-size: 1.1rem;
+}
+.chat-name { font-weight:600; font-size: var(--text-sm); }
+.chat-status { font-size: var(--text-xs); opacity:0.8; }
+.chat-body { padding: var(--space-4); display:flex; flex-direction:column; gap:var(--space-3); background: var(--color-bg); min-height: 260px; }
+.bubble {
+  max-width: 80%; padding: var(--space-2) var(--space-3);
+  border-radius: 16px; font-size: var(--text-sm); line-height:1.5;
+  position: relative;
+  animation: popIn 0.3s ease both;
+}
+@keyframes popIn { from { opacity:0; transform: scale(0.92); } to { opacity:1; transform: scale(1); } }
+.bubble.sent   { background: var(--color-primary); color:#fff; align-self:flex-end; border-bottom-right-radius: 4px; }
+.bubble.recv   { background: var(--color-surface); border: 1px solid var(--color-border); color: var(--color-text); align-self:flex-start; border-bottom-left-radius: 4px; }
+.bubble.correct{ background: #1a6e40; color:#fff; align-self:flex-end; border-bottom-right-radius: 4px; }
+.bubble.wrong  { background: #8b2252; color:#fff; align-self:flex-end; border-bottom-right-radius: 4px; opacity:0.7; }
+.bubble .label { font-size: 0.68rem; margin-top:4px; opacity:0.8; }
+.bubble.sent .label   { text-align:right; }
+.bubble.recv .label   { text-align:left; color:var(--color-text-muted); }
+.chat-tabs { display:flex; gap:var(--space-2); margin-bottom: var(--space-4); }
+.chat-tab {
+  padding: var(--space-2) var(--space-4); border-radius: var(--radius-full);
+  font-size: var(--text-xs); font-weight: 600; cursor:pointer;
+  background: var(--color-surface-offset); color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition);
+}
+.chat-tab.active { background: var(--color-primary); color:#fff; border-color: var(--color-primary); }
+.chat-scene { display:none; }
+.chat-scene.active { display:flex; flex-direction:column; gap:var(--space-3); }
+
+/* ===== DUA BOX ===== */
+.dua-box {
+  background: linear-gradient(135deg, var(--color-primary-highlight), var(--color-gold-light));
+  border: 1px solid var(--color-primary-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  text-align:center;
+  margin-top: var(--space-6);
+}
+.dua-arabic {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--color-primary);
+  direction: rtl;
+  line-height: 2;
+  margin-bottom: var(--space-3);
+}
+.dua-transliteration { font-style:italic; color: var(--color-text-muted); font-size: var(--text-sm); margin-bottom: var(--space-2); }
+.dua-translation { font-size: var(--text-sm); color: var(--color-text); }
+
+/* ===== QUIZ ===== */
+.quiz-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-top: var(--space-8);
+}
+.quiz-header { display:flex; justify-content:space-between; align-items:center; margin-bottom: var(--space-5); }
+.quiz-title { font-size: var(--text-lg); font-family: var(--font-display); color: var(--color-text); }
+.quiz-score { font-size: var(--text-sm); color: var(--color-text-muted); }
+.quiz-question { font-size: var(--text-sm); font-weight: 600; color: var(--color-text); margin-bottom: var(--space-4); line-height:1.6; }
+.quiz-options { display:flex; flex-direction:column; gap:var(--space-2); }
+.quiz-option {
+  padding: var(--space-3) var(--space-4); border-radius: var(--radius-md);
+  border: 1px solid var(--color-border); background: var(--color-bg);
+  font-size: var(--text-sm); color: var(--color-text);
+  cursor:pointer; text-align:left;
+  transition: all var(--transition);
+}
+.quiz-option:hover:not(:disabled) { background: var(--color-surface-offset); border-color: var(--color-primary); }
+.quiz-option.correct { background: var(--color-primary-highlight); border-color: var(--color-primary); color: var(--color-primary); font-weight:600; }
+.quiz-option.wrong   { background: var(--color-rose-light); border-color: var(--color-rose); color: var(--color-rose); }
+.quiz-feedback { margin-top: var(--space-4); font-size: var(--text-sm); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); display:none; }
+.quiz-feedback.show { display:block; animation: fadeUp 0.3s ease; }
+.quiz-feedback.correct { background: var(--color-primary-highlight); color: var(--color-primary); }
+.quiz-feedback.wrong   { background: var(--color-rose-light); color: var(--color-rose); }
+.quiz-nav { display:flex; justify-content:space-between; align-items:center; margin-top: var(--space-5); }
+.quiz-btn {
+  padding: var(--space-2) var(--space-5); border-radius: var(--radius-md);
+  background: var(--color-primary); color:#fff; font-size: var(--text-sm); font-weight:600;
+  transition: background var(--transition);
+  border: none; cursor:pointer;
+}
+.quiz-btn:hover { background: var(--color-primary-hover); }
+.quiz-btn:disabled { opacity:0.4; cursor:not-allowed; }
+.quiz-indicator { display:flex; gap:var(--space-2); }
+.qind { width:8px; height:8px; border-radius:var(--radius-full); background:var(--color-divider); transition: background 0.3s; }
+.qind.done { background:var(--color-primary); }
+.qind.current { background:var(--color-gold); }
+
+/* ===== SUMMARY BOX ===== */
+.summary-box {
+  background: var(--color-primary);
+  color:#fff;
+  border-radius: var(--radius-xl);
+  padding: var(--space-8) var(--space-8);
+  margin-top: var(--space-12);
+}
+.summary-box h3 { font-size: var(--text-xl); margin-bottom: var(--space-4); }
+.summary-list { list-style:none; display:flex; flex-direction:column; gap:var(--space-3); }
+.summary-list li { display:flex; gap:var(--space-3); align-items:flex-start; font-size: var(--text-sm); opacity:0.95; max-width: none; }
+.summary-list li::before { content:'✓'; font-weight:700; flex-shrink:0; margin-top:2px; opacity:0.8; }
+
+/* ===== DIVIDER ===== */
+.section-divider { height:1px; background: var(--color-divider); margin: var(--space-8) 0; }
+
+/* ===== FOOTER ===== */
+.page-footer { text-align:center; font-size: var(--text-xs); color:var(--color-text-faint); margin-top: var(--space-16); padding-top: var(--space-6); border-top: 1px solid var(--color-divider); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .page-wrap { padding: var(--space-6) var(--space-4) var(--space-16); }
+  .hero { padding: var(--space-8) var(--space-5); }
+  .progress-wrap { display:none; }
+  .topbar { padding: var(--space-3) var(--space-4); }
+  .wisdom-grid { grid-template-columns: 1fr 1fr; }
+  .times-table { font-size: var(--text-xs); }
+  .times-table th, .times-table td { padding: var(--space-2) var(--space-3); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<!-- TOPBAR -->
+<header class="topbar" role="banner">
+  <div class="topbar-brand">
+    <div class="topbar-logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+    </div>
+    <div>
+      <div class="topbar-title">Islamic Studies — Grade 7</div>
+      <div class="topbar-subtitle">Manners: Asking Permission</div>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <div class="progress-wrap" aria-label="Reading progress">
+      <span class="progress-label" id="progress-label">0%</span>
+      <div class="progress-bar-outer" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar-inner" id="progress-bar"></div>
+      </div>
+    </div>
+    <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main-content" class="page-wrap">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Islamic Manners · Adab
+    </div>
+    <div class="hero-arabic" aria-label="Isti'dhan - Asking Permission">الاستئذان</div>
+    <h1 class="hero-title" id="hero-title">Manners of Asking Permission</h1>
+    <p class="hero-desc">Islam teaches us to respect privacy and dignity — starting with asking permission before entering anyone's space.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Grade 7 · Semester 2
+      </div>
+      <div class="hero-meta-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        ~45 minutes
+      </div>
+      <div class="hero-meta-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        Surah An-Nur 24:58
+      </div>
+    </div>
+  </section>
+
+  <!-- TABLE OF CONTENTS -->
+  <nav class="toc" aria-label="Lesson contents">
+    <div class="toc-title">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      Lesson Contents
+    </div>
+    <ol class="toc-list">
+      <li><a href="#section-hadith"><span class="toc-num">1</span> The Hadith: Story of Kaladah ibn Hanbal</a></li>
+      <li><a href="#section-wisdom"><span class="toc-num">2</span> Wisdom Behind the Hadith</a></li>
+      <li><a href="#section-manners"><span class="toc-num">3</span> Manners When Visiting Someone's House</a></li>
+      <li><a href="#section-emergency"><span class="toc-num">4</span> Emergencies — When Rules Differ</a></li>
+      <li><a href="#section-empty"><span class="toc-num">5</span> Entering an Empty House</a></li>
+      <li><a href="#section-three"><span class="toc-num">6</span> Asking Permission Three Times (24:58)</a></li>
+      <li><a href="#section-texting"><span class="toc-num">7</span> Modern Manners: Texting & Messaging</a></li>
+      <li><a href="#section-quiz"><span class="toc-num">✦</span> Knowledge Check Quiz</a></li>
+    </ol>
+  </nav>
+
+  <!-- ─── SECTION 1: HADITH ─── -->
+  <section class="lesson-section" id="section-hadith" aria-labelledby="s1-title">
+    <div class="section-header">
+      <div class="section-icon green" aria-hidden="true">📜</div>
+      <div>
+        <div class="section-number">Section 1</div>
+        <h2 class="section-title" id="s1-title">The Story of Kaladah ibn Hanbal</h2>
+      </div>
+    </div>
+
+    <p class="body-text">The Prophet Muhammad ﷺ was a living example of good manners. One day, a Companion named <strong>Kaladah ibn Hanbal</strong> went to visit the Prophet without greeting or asking for permission to enter.</p>
+
+    <div class="story-block" role="blockquote" aria-label="Story narration">
+      <div class="story-label">📖 The Story</div>
+      <p>Kaladah ibn Hanbal was sent by Safwan ibn Umayyah to bring gifts — milk, a young gazelle, and cucumbers — to the Messenger of Allah ﷺ who was in the upper part of Makkah at the time.</p>
+      <p>Kaladah entered the Prophet's house <strong>without greeting with Salam</strong> and <strong>without asking permission</strong>. The Prophet ﷺ immediately noticed this and corrected him with wisdom and gentleness.</p>
+      <p>The Prophet ﷺ said to him: <em>"Go back and say: 'As-salamu ʿalaykum, may I come in?'"</em></p>
+      <p>Kaladah went back, greeted properly, asked for permission, and was then allowed to enter. He had received a lesson that stayed with him — and that we still learn today.</p>
+    </div>
+
+    <div class="hadith-card" role="article" aria-label="Hadith text">
+      <div class="hadith-card-header">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Hadith Reference
+      </div>
+      <div class="hadith-card-body">
+        <div class="hadith-arabic" dir="rtl" lang="ar" aria-label="Arabic hadith text">
+          اِرْجِعْ فَقُلِ: السَّلَامُ عَلَيْكُمْ، أَأَدْخُلُ؟
+        </div>
+        <p class="hadith-translation">"Go back and say: 'As-salamu ʿalaykum (Peace be upon you), may I come in?'"</p>
+        <div class="hadith-source">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          Sunan Abi Dawud 5133 · Sunan al-Tirmidhi 2710
+        </div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-icon">💡</div>
+      <div class="callout-body">
+        <div class="callout-title">Key Lesson</div>
+        <p>Even sending gifts does not give you the right to enter without permission! The Prophet ﷺ corrected Kaladah not with anger, but with a simple instruction. This shows how gentle and educational the Prophet ﷺ was.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ─── SECTION 2: WISDOM ─── -->
+  <section class="lesson-section" id="section-wisdom" aria-labelledby="s2-title">
+    <div class="section-header">
+      <div class="section-icon gold" aria-hidden="true">🌟</div>
+      <div>
+        <div class="section-number">Section 2</div>
+        <h2 class="section-title" id="s2-title">Wisdom Behind the Hadith</h2>
+      </div>
+    </div>
+
+    <p class="body-text">Why did Islam place such importance on asking permission? There are deep wisdoms behind this teaching.</p>
+
+    <div class="callout quran">
+      <div class="callout-icon">📖</div>
+      <div class="callout-body">
+        <div class="callout-title">Quranic Foundation — Surah An-Nur 24:27</div>
+        <p>Allah says: <em>"O you who believe! Do not enter houses other than your own until you have asked permission and greeted their inhabitants. That is best for you, so that perhaps you will be reminded."</em></p>
+        <span class="arabic-inline" dir="rtl" lang="ar">يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تَدْخُلُوا بُيُوتًا غَيْرَ بُيُوتِكُمْ حَتَّىٰ تَسْتَأْنِسُوا وَتُسَلِّمُوا عَلَىٰ أَهْلِهَا</span>
+      </div>
+    </div>
+
+    <div class="wisdom-grid" role="list">
+      <div class="wisdom-card" role="listitem">
+        <span class="wisdom-emoji" aria-hidden="true">🛡️</span>
+        <h4>Protecting Privacy</h4>
+        <p>The Prophet ﷺ said: "Seeking permission was only made obligatory because of the eyesight" — so people are not seen in private moments. (Bukhari)</p>
+      </div>
+      <div class="wisdom-card" role="listitem">
+        <span class="wisdom-emoji" aria-hidden="true">🕊️</span>
+        <h4>Respecting Dignity</h4>
+        <p>Everyone has the right to feel safe in their home. Entering without permission violates this sacred space and the dignity of its residents.</p>
+      </div>
+      <div class="wisdom-card" role="listitem">
+        <span class="wisdom-emoji" aria-hidden="true">🤝</span>
+        <h4>Building Trust</h4>
+        <p>When we ask permission, we show that we respect the other person's choice. This builds stronger, more honest relationships.</p>
+      </div>
+      <div class="wisdom-card" role="listitem">
+        <span class="wisdom-emoji" aria-hidden="true">✨</span>
+        <h4>Spreading Salam</h4>
+        <p>Asking permission is combined with Salam — a greeting of peace. This spreads love and goodwill, which are traits Allah loves for Muslims.</p>
+      </div>
+      <div class="wisdom-card" role="listitem">
+        <span class="wisdom-emoji" aria-hidden="true">🧠</span>
+        <h4>Teaching Self-Control</h4>
+        <p>Not barging in requires patience and self-discipline — qualities that help us in all areas of life and that Islam constantly encourages.</p>
+      </div>
+      <div class="wisdom-card" role="listitem">
+        <span class="wisdom-emoji" aria-hidden="true">🏡</span>
+        <h4>Home as a Sanctuary</h4>
+        <p>Islam treats the home as a private sanctuary — a place of rest and safety. Asking permission preserves this sanctity for every Muslim household.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ─── SECTION 3: MANNERS ─── -->
+  <section class="lesson-section" id="section-manners" aria-labelledby="s3-title">
+    <div class="section-header">
+      <div class="section-icon blue" aria-hidden="true">🚪</div>
+      <div>
+        <div class="section-number">Section 3</div>
+        <h2 class="section-title" id="s3-title">Manners When Visiting Someone's House</h2>
+      </div>
+    </div>
+
+    <p class="body-text">The Prophet ﷺ demonstrated a complete, beautiful system of etiquette when visiting others. Every step has a purpose.</p>
+
+    <ol class="steps-list" role="list" aria-label="Steps for visiting a house">
+      <li class="step-item" role="listitem">
+        <div class="step-num" aria-hidden="true">1</div>
+        <div class="step-content">
+          <div class="step-title">Stand to the Side of the Door</div>
+          <p class="step-desc">Do not stand directly in front of the door. Stand to the right or left side. The Prophet ﷺ used to avoid facing the door directly, to protect the privacy of those inside from accidentally being seen.</p>
+        </div>
+      </li>
+      <li class="step-item" role="listitem">
+        <div class="step-num" aria-hidden="true">2</div>
+        <div class="step-content">
+          <div class="step-title">Knock Gently — Not Aggressively</div>
+          <p class="step-desc">The Companions used to knock on the Prophet's door with the tips of their nails — softly. You are a guest, not a raider. Knock three times at moderate volume, with time between each knock to allow people to respond.</p>
+        </div>
+      </li>
+      <li class="step-item" role="listitem">
+        <div class="step-num" aria-hidden="true">3</div>
+        <div class="step-content">
+          <div class="step-title">Greet with Salam and Ask Permission</div>
+          <p class="step-desc">Say the full greeting together with your request to enter:</p>
+          <span class="step-arabic" dir="rtl" lang="ar">السَّلَامُ عَلَيْكُمْ، أَأَدْخُلُ؟</span>
+          <span class="step-transliteration">"As-salamu ʿalaykum, a-adkhul?" (Peace be upon you, may I enter?)</span>
+        </div>
+      </li>
+      <li class="step-item" role="listitem">
+        <div class="step-num" aria-hidden="true">4</div>
+        <div class="step-content">
+          <div class="step-title">Identify Yourself When Asked</div>
+          <p class="step-desc">If someone asks "Who is there?", give your full name clearly. Do not say "It's me" — the Prophet ﷺ strongly disliked this vague response, as it gives no useful information to the person inside.</p>
+        </div>
+      </li>
+      <li class="step-item" role="listitem">
+        <div class="step-num" aria-hidden="true">5</div>
+        <div class="step-content">
+          <div class="step-title">Wait Patiently Between Knocks</div>
+          <p class="step-desc">Leave enough time between attempts — the person inside may be praying, eating, or in a state of rest. Some scholars say the gap should be long enough to complete four rakaʿat of prayer.</p>
+        </div>
+      </li>
+      <li class="step-item" role="listitem">
+        <div class="step-num" aria-hidden="true">6</div>
+        <div class="step-content">
+          <div class="step-title">Do Not Peek Inside</div>
+          <p class="step-desc">The Prophet ﷺ said: "It is not permissible for a Muslim to look inside any house until he has been given permission." If you peer through windows or doors, you have already violated their privacy.</p>
+        </div>
+      </li>
+      <li class="step-item" role="listitem">
+        <div class="step-num" aria-hidden="true">7</div>
+        <div class="step-content">
+          <div class="step-title">If Refused — Leave Gracefully</div>
+          <p class="step-desc">The Prophet ﷺ said: "If you seek permission three times and are not given it, then go back." This is not an insult — the residents may be busy, tired, or simply not ready for visitors. Accept this with good character.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="callout info">
+      <div class="callout-icon">ℹ️</div>
+      <div class="callout-body">
+        <div class="callout-title">Even Family Members</div>
+        <p>A man once asked the Prophet ﷺ: "Should I seek permission to enter my mother's room?" The Prophet said: "Yes." Even within the same household, privacy must be respected — especially during times of rest.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ─── SECTION 4: EMERGENCY ─── -->
+  <section class="lesson-section" id="section-emergency" aria-labelledby="s4-title">
+    <div class="section-header">
+      <div class="section-icon rose" aria-hidden="true">🚨</div>
+      <div>
+        <div class="section-number">Section 4</div>
+        <h2 class="section-title" id="s4-title">Emergencies — When the Approach Differs</h2>
+      </div>
+    </div>
+
+    <p class="body-text">While asking permission is normally obligatory, Islam is a practical religion. There are specific circumstances where entering without the usual waiting process is allowed or even required.</p>
+
+    <div class="accordion" role="list" aria-label="Emergency exceptions">
+
+      <div class="accordion-item" role="listitem">
+        <button class="accordion-btn" aria-expanded="false" aria-controls="acc1">
+          <span class="accordion-btn-text"><span class="accordion-btn-icon" aria-hidden="true">🔥</span> Fire or Immediate Danger to Life</span>
+          <svg class="accordion-chevron" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body" id="acc1" role="region">
+          <p>If there is a fire, flood, or someone is in immediate mortal danger inside the house, you may enter without waiting for the usual three-knock permission process. Preserving life (<em>hifz al-nafs</em>) is one of the five essential objectives of Islamic Law (Maqasid al-Shariah). Scholars agree: <strong>entering to save a life or property is permitted</strong> when asking and waiting could lead to loss of life or property.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item" role="listitem">
+        <button class="accordion-btn" aria-expanded="false" aria-controls="acc2">
+          <span class="accordion-btn-text"><span class="accordion-btn-icon" aria-hidden="true">🏥</span> Medical Emergency</span>
+          <svg class="accordion-chevron" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body" id="acc2" role="region">
+          <p>If someone inside is seriously injured, unconscious, or having a medical crisis and cannot respond, waiting for permission would be harmful. You should call out loudly first — "Is anyone home? There is an emergency!" — and if no response, act to save the situation. Always <strong>explain yourself clearly</strong> to avoid panic or misunderstanding.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item" role="listitem">
+        <button class="accordion-btn" aria-expanded="false" aria-controls="acc3">
+          <span class="accordion-btn-text"><span class="accordion-btn-icon" aria-hidden="true">👤</span> No One Can Give Permission</span>
+          <svg class="accordion-chevron" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body" id="acc3" role="region">
+          <p>If the person who can give permission has passed away, is travelling far away, or is otherwise unable to be reached — and something urgent must be done that cannot wait — scholars permit entering in this case. This covers situations such as caring for dependents left behind or attending to an urgent matter.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item" role="listitem">
+        <button class="accordion-btn" aria-expanded="false" aria-controls="acc4">
+          <span class="accordion-btn-text"><span class="accordion-btn-icon" aria-hidden="true">🏪</span> Public or Commercial Spaces</span>
+          <svg class="accordion-chevron" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body" id="acc4" role="region">
+          <p>Entering shops, mosques, schools, or other non-residential public buildings does not require permission because <strong>general permission has already been given</strong> by the nature of those places being open to the public. However, back rooms, staff areas, or private offices within those buildings still require permission.</p>
+          <ul>
+            <li>Shop floor — enter freely</li>
+            <li>Staff room behind the counter — ask first</li>
+            <li>Teacher's office — knock and ask</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-icon">⚠️</div>
+      <div class="callout-body">
+        <div class="callout-title">Important Reminder</div>
+        <p>Emergencies are exceptions — not excuses. Do not stretch the definition of "emergency" to justify entering without permission whenever it is convenient. Islam values both saving lives and protecting privacy, and a true emergency must be genuine and urgent.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ─── SECTION 5: EMPTY HOUSE ─── -->
+  <section class="lesson-section" id="section-empty" aria-labelledby="s5-title">
+    <div class="section-header">
+      <div class="section-icon green" aria-hidden="true">🏠</div>
+      <div>
+        <div class="section-number">Section 5</div>
+        <h2 class="section-title" id="s5-title">Entering an Empty House</h2>
+      </div>
+    </div>
+
+    <p class="body-text">What if you know the house is empty — do you still need to say anything? Yes! The Quran and Sunnah give us guidance even for this situation.</p>
+
+    <div class="callout quran">
+      <div class="callout-icon">📖</div>
+      <div class="callout-body">
+        <div class="callout-title">Surah An-Nur 24:28</div>
+        <p><em>"And if you find no one therein, still do not enter until permission has been given to you. And if you are asked to go back, go back — it is purer for you."</em></p>
+      </div>
+    </div>
+
+    <p class="body-text" style="margin-top: var(--space-5);">Even for an empty house, the following should be said upon entering:</p>
+
+    <div class="dua-box" role="article" aria-label="Dua for entering an empty house">
+      <div style="font-size: var(--text-xs); font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color: var(--color-primary); margin-bottom: var(--space-3);">What to Say When Entering an Empty House</div>
+      <div class="dua-arabic" dir="rtl" lang="ar">السَّلَامُ عَلَيْنَا وَعَلَى عِبَادِ اللهِ الصَّالِحِينَ</div>
+      <div class="dua-transliteration">As-salamu ʿalayna wa ʿala ʿibadillahis-saliheen</div>
+      <div class="dua-translation">"Peace be upon us and upon the righteous servants of Allah."</div>
+      <div style="font-size:var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-3);">Narrated by Abdullah ibn Umar · Collected in Adab al-Mufrad (1055) · Graded Hasan</div>
+    </div>
+
+    <p class="body-text" style="margin-top: var(--space-5);">Al-Albani explained: This practice fulfils the Quranic command to <em>"greet one another with peace when you enter houses"</em> (An-Nur 24:61). The house is not truly "empty" — there may be angels present, and this greeting acknowledges that we are guests even in our own space under Allah's watchful eye.</p>
+
+    <p class="body-text">Additionally, saying <strong>Bismillah</strong> when entering any home (empty or not) protects the house from Shaytan, as the Prophet ﷺ taught: <em>"If a man enters his home and says 'Bismillah', Shaytan says: 'You have no place to stay tonight and no dinner.'"</em> (Muslim)</p>
+
+    <div class="callout tip">
+      <div class="callout-icon">💡</div>
+      <div class="callout-body">
+        <div class="callout-title">For Your Own Home</div>
+        <p>When entering your own home, say <strong>Bismillah</strong> and greet with Salam even if no one seems to be there. This is Sunnah and keeps Shaytan away. If family is home, greet them warmly — it brings blessings to the whole household.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ─── SECTION 6: THREE TIMES ─── -->
+  <section class="lesson-section" id="section-three" aria-labelledby="s6-title">
+    <div class="section-header">
+      <div class="section-icon gold" aria-hidden="true">3️⃣</div>
+      <div>
+        <div class="section-number">Section 6 · Surah An-Nur 24:58</div>
+        <h2 class="section-title" id="s6-title">Asking Permission Three Times</h2>
+      </div>
+    </div>
+
+    <div class="callout quran">
+      <div class="callout-icon">📖</div>
+      <div class="callout-body">
+        <div class="callout-title">Surah An-Nur 24:58</div>
+        <p><em>"O you who have believed, let those whom your right hands possess and those who have not yet reached puberty among you ask permission of you at three times: before the dawn prayer (Fajr), and when you put aside your clothing at noon, and after the night prayer (ʿIsha). These are three times of privacy for you..."</em></p>
+      </div>
+    </div>
+
+    <p class="body-text" style="margin-top: var(--space-5);">The rule of asking permission three times comes from the Prophet ﷺ himself:</p>
+    <div class="hadith-card" style="margin-top: var(--space-4);" role="article">
+      <div class="hadith-card-header">Hadith — Bukhari 6245</div>
+      <div class="hadith-card-body">
+        <p class="hadith-translation">"If one of you seeks permission to enter three times but is not given permission, let him go back."</p>
+        <div class="hadith-source">Narrated by al-Bukhari (6245) and Muslim</div>
+      </div>
+    </div>
+
+    <p class="body-text" style="margin-top: var(--space-6);">The three special times of privacy mentioned in verse 24:58 apply especially within the household (to servants and children who have not yet reached puberty):</p>
+
+    <table class="times-table" role="table" aria-label="Three times of privacy in Islam">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Time</th>
+          <th scope="col">Arabic Name</th>
+          <th scope="col">Why Private?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge green">1st</span></td>
+          <td>Before Fajr (Dawn prayer)</td>
+          <td>قَبْلَ صَلَاةِ الْفَجْرِ</td>
+          <td>People may still be asleep or dressing for the early prayer</td>
+        </tr>
+        <tr>
+          <td><span class="badge gold">2nd</span></td>
+          <td>Midday rest (Qaylula)</td>
+          <td>حِينَ تَضَعُونَ ثِيَابَكُمْ مِنَ الظَّهِيرَةِ</td>
+          <td>People remove extra clothing and rest; couples may be together</td>
+        </tr>
+        <tr>
+          <td><span class="badge blue">3rd</span></td>
+          <td>After ʿIsha (Night prayer)</td>
+          <td>مِنْ بَعْدِ صَلَاةِ الْعِشَاءِ</td>
+          <td>Bedtime — people are changing into sleep clothes and resting</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout info" style="margin-top: var(--space-6);">
+      <div class="callout-icon">ℹ️</div>
+      <div class="callout-body">
+        <div class="callout-title">What "Three Times" of Knocking Means</div>
+        <p>There are two separate "three" rules: (1) Knock or ring the bell a maximum of three times each visit before leaving if no answer. (2) The three specific times of day when even household members must ask before entering private rooms. Both are based on the same principle: privacy is a right Islam protects at all times.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ─── SECTION 7: TEXTING ─── -->
+  <section class="lesson-section" id="section-texting" aria-labelledby="s7-title">
+    <div class="section-header">
+      <div class="section-icon orange" aria-hidden="true">📱</div>
+      <div>
+        <div class="section-number">Section 7</div>
+        <h2 class="section-title" id="s7-title">Modern Manners: Texting & Messaging</h2>
+      </div>
+    </div>
+
+    <p class="body-text">The same Islamic principles that apply to visiting a home also apply to our digital lives today. Our phones and messages are an extension of our personal space.</p>
+
+    <p class="body-text">Scholars note: <em>"The same goes for texting. If you send someone a text and they did not respond, follow up — that is expressive of care and concern."</em> But this must be done with wisdom and respect.</p>
+
+    <div class="phone-section">
+      <p class="body-text" style="text-align:center; margin-bottom: var(--space-4);">Tap to see examples of <strong>wrong</strong> vs <strong>right</strong> messaging etiquette:</p>
+      <div class="chat-tabs" role="tablist" style="justify-content:center;" aria-label="Chat examples">
+        <button class="chat-tab active" onclick="showChat('wrong')" role="tab" aria-selected="true" aria-controls="chat-wrong" id="tab-wrong">❌ Bad Manners</button>
+        <button class="chat-tab" onclick="showChat('right')" role="tab" aria-selected="false" aria-controls="chat-right" id="tab-right">✅ Good Manners</button>
+      </div>
+
+      <div class="chat-mockup" role="region" aria-live="polite">
+        <div class="chat-topbar">
+          <div class="chat-avatar" aria-hidden="true">👤</div>
+          <div>
+            <div class="chat-name">Ahmad</div>
+            <div class="chat-status">Online</div>
+          </div>
+        </div>
+        <div class="chat-body">
+          <div class="chat-scene active" id="chat-wrong" role="tabpanel" aria-labelledby="tab-wrong">
+            <div class="bubble wrong">Hey</div>
+            <div class="bubble wrong">???</div>
+            <div class="bubble wrong">Answer me!!!</div>
+            <div class="bubble wrong">WHY ARE YOU IGNORING ME 😡</div>
+            <div class="bubble recv">I was praying 🤦<div class="label">Ahmad</div></div>
+            <div class="bubble wrong">Oh. Whatever.</div>
+            <div style="font-size:var(--text-xs); color: var(--color-rose); text-align:center; font-weight:600; padding: var(--space-2);">❌ Impatient, disrespectful, no Salam, assumed the worst</div>
+          </div>
+          <div class="chat-scene" id="chat-right" role="tabpanel" aria-labelledby="tab-right">
+            <div class="bubble correct">Assalamu ʿalaykum Ahmad, hope you're well. Are you free to talk? 😊<div class="label">Sent ✓✓</div></div>
+            <div class="bubble recv">Wa ʿalaykum assalam! I was just finishing salah. What's up?<div class="label">Ahmad</div></div>
+            <div class="bubble correct">No rush at all! Just wanted to ask about the homework 📚</div>
+            <div class="bubble recv">Of course! Happy to help 😊<div class="label">Ahmad</div></div>
+            <div style="font-size:var(--text-xs); color: var(--color-primary); text-align:center; font-weight:600; padding: var(--space-2);">✅ Greeted with Salam, gave context, was patient</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion" style="margin-top: var(--space-8);" role="list" aria-label="Digital messaging etiquette rules">
+      <div class="accordion-item" role="listitem">
+        <button class="accordion-btn" aria-expanded="false" aria-controls="dacc1">
+          <span class="accordion-btn-text"><span class="accordion-btn-icon" aria-hidden="true">🌟</span> Start Every Message with Salam</span>
+          <svg class="accordion-chevron" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body" id="dacc1" role="region">
+          <p>Just as you say "As-salamu ʿalaykum" before entering a house, start every text conversation with Salam. It is Sunnah, it creates goodwill, and it signals that your message comes with good intentions. Never jump straight into demands or questions without this greeting.</p>
+        </div>
+      </div>
+      <div class="accordion-item" role="listitem">
+        <button class="accordion-btn" aria-expanded="false" aria-controls="dacc2">
+          <span class="accordion-btn-text"><span class="accordion-btn-icon" aria-hidden="true">⏳</span> Be Patient — Don't Bombard with Messages</span>
+          <svg class="accordion-chevron" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body" id="dacc2" role="region">
+          <p>Sending message after message when someone doesn't reply immediately is like banging on someone's door repeatedly. Scholars draw a direct parallel: <strong>knocking three times = following up three times maximum.</strong> The person may be praying, studying, eating, or simply resting. Give them the benefit of the doubt.</p>
+        </div>
+      </div>
+      <div class="accordion-item" role="listitem">
+        <button class="accordion-btn" aria-expanded="false" aria-controls="dacc3">
+          <span class="accordion-btn-text"><span class="accordion-btn-icon" aria-hidden="true">🕐</span> Respect Prayer Times and Rest Hours</span>
+          <svg class="accordion-chevron" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body" id="dacc3" role="region">
+          <p>Just as Surah An-Nur 24:58 mentions three private times of day, be mindful of when you message people. Avoid sending urgent messages late at night, at Fajr time, or during known prayer times. If it is not an emergency, it can wait. This shows you care about the other person's worship and rest.</p>
+        </div>
+      </div>
+      <div class="accordion-item" role="listitem">
+        <button class="accordion-btn" aria-expanded="false" aria-controls="dacc4">
+          <span class="accordion-btn-text"><span class="accordion-btn-icon" aria-hidden="true">🔒</span> Respect Digital Privacy</span>
+          <svg class="accordion-chevron" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body" id="dacc4" role="region">
+          <p>Just as you should not peek into someone's house, do not read others' private messages without permission, share screenshots of private conversations, or access someone else's phone or accounts without consent. The hadith principle of "permission because of the eyesight" applies equally to digital spaces — what people share privately is their private space.</p>
+        </div>
+      </div>
+      <div class="accordion-item" role="listitem">
+        <button class="accordion-btn" aria-expanded="false" aria-controls="dacc5">
+          <span class="accordion-btn-text"><span class="accordion-btn-icon" aria-hidden="true">💬</span> Introduce Yourself Clearly</span>
+          <svg class="accordion-chevron" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body" id="dacc5" role="region">
+          <p>Just as the Prophet ﷺ disliked someone saying "It's me" without identifying themselves, don't assume the person knows your number. If you are messaging someone who may not have your number saved, introduce yourself: "Assalamu ʿalaykum, this is [your name] from class."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ─── QUIZ ─── -->
+  <section class="lesson-section" id="section-quiz" aria-labelledby="quiz-heading">
+    <div class="section-header">
+      <div class="section-icon gold" aria-hidden="true">🎯</div>
+      <div>
+        <div class="section-number">Knowledge Check</div>
+        <h2 class="section-title" id="quiz-heading">Quick Quiz</h2>
+      </div>
+    </div>
+    <p class="body-text">Test your understanding of today's lesson!</p>
+
+    <div class="quiz-card" role="form" aria-label="Knowledge check quiz">
+      <div class="quiz-header">
+        <div class="quiz-title" id="quiz-question-title">Question <span id="qnum">1</span> of 6</div>
+        <div class="quiz-score">Score: <span id="score">0</span>/6</div>
+      </div>
+      <div class="quiz-question" id="quiz-q" aria-live="polite"></div>
+      <div class="quiz-options" id="quiz-opts" role="group" aria-labelledby="quiz-question-title"></div>
+      <div class="quiz-feedback" id="quiz-fb" role="alert"></div>
+      <div class="quiz-nav">
+        <div class="quiz-indicator" id="quiz-ind" aria-hidden="true"></div>
+        <button class="quiz-btn" id="quiz-next" onclick="nextQuestion()" disabled>Next →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUMMARY -->
+  <div class="summary-box" role="complementary" aria-label="Lesson summary">
+    <h3>📌 Key Takeaways</h3>
+    <ul class="summary-list" role="list">
+      <li>Kaladah ibn Hanbal was corrected by the Prophet ﷺ for entering without greeting or asking permission — the proper way is "As-salamu ʿalaykum, may I enter?"</li>
+      <li>Asking permission protects privacy, preserves dignity, and spreads Salam — all core values in Islam.</li>
+      <li>Stand to the side, knock gently, identify yourself, and wait patiently — these are the manners of visiting.</li>
+      <li>Exceptions exist for genuine emergencies where life or property is at serious risk.</li>
+      <li>When entering an empty house, say: "As-salamu ʿalayna wa ʿala ʿibadillahis-saliheen."</li>
+      <li>The rule of three knocks (Bukhari 6245): if no answer after three attempts, leave. Surah An-Nur 24:58 identifies three private times of day within the household.</li>
+      <li>Islamic digital etiquette = same principles online: start with Salam, be patient, respect privacy, and give others the benefit of the doubt.</li>
+    </ul>
+  </div>
+
+  <footer class="page-footer" role="contentinfo">
+    <p>Grade 7 Islamic Studies · International Islamic School Malaysia · Prepared by Teacher Ahmad Muʿaz</p>
+    <p style="margin-top:var(--space-2);">References: Surah An-Nur 24:27–28, 24:58–59 · Bukhari 6245 · Sunan Abi Dawud 5133 · Adab al-Mufrad 1055</p>
+  </footer>
+
+</main>
+
+<script>
+// ─── THEME TOGGLE ───
+(function(){
+  const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;
+  let d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+  r.setAttribute('data-theme',d);
+  if(t){
+    const icon=()=>d==='dark'
+      ?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+      :'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    t.innerHTML=icon();
+    t.addEventListener('click',()=>{
+      d=d==='dark'?'light':'dark';
+      r.setAttribute('data-theme',d);
+      t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode');
+      t.innerHTML=icon();
+    });
+  }
+})();
+
+// ─── PROGRESS BAR ───
+window.addEventListener('scroll',()=>{
+  const doc=document.documentElement;
+  const scrolled=(doc.scrollTop||document.body.scrollTop);
+  const total=(doc.scrollHeight||document.body.scrollHeight)-doc.clientHeight;
+  const pct=total>0?Math.round((scrolled/total)*100):0;
+  document.getElementById('progress-bar').style.width=pct+'%';
+  document.getElementById('progress-label').textContent=pct+'%';
+  const pb=document.querySelector('.progress-bar-outer');
+  if(pb) pb.setAttribute('aria-valuenow',pct);
+},{ passive:true });
+
+// ─── ACCORDION ───
+document.querySelectorAll('.accordion-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const expanded=btn.getAttribute('aria-expanded')==='true';
+    btn.setAttribute('aria-expanded',!expanded);
+    const body=document.getElementById(btn.getAttribute('aria-controls'));
+    if(body){ body.classList.toggle('open',!expanded); }
+  });
+});
+
+// ─── CHAT TABS ───
+function showChat(scene){
+  document.querySelectorAll('.chat-scene').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.chat-tab').forEach(t=>{ t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+  document.getElementById('chat-'+scene).classList.add('active');
+  const tab=document.getElementById('tab-'+scene);
+  tab.classList.add('active');
+  tab.setAttribute('aria-selected','true');
+}
+
+// ─── QUIZ ───
+const questions=[
+  {
+    q:"According to the hadith of Kaladah ibn Hanbal, what did the Prophet ﷺ tell him to do?",
+    opts:["Go back and say: 'As-salamu ʿalaykum, may I come in?'","Bring more gifts next time","Knock three times loudly","Wait outside the door"],
+    ans:0,
+    fb:"Correct! The Prophet ﷺ sent him back to greet properly with Salam and ask permission.",
+    wfb:"The Prophet ﷺ said: 'Go back and say: As-salamu ʿalaykum, may I come in?' — teaching the proper way to enter."
+  },
+  {
+    q:"Why did the Prophet ﷺ say permission was made obligatory? (Hadith — Bukhari)",
+    opts:["To be polite to neighbours","Because of the eyesight — to protect privacy","To show respect for wealth","So people would not arrive at meal times"],
+    ans:1,
+    fb:"Excellent! 'Seeking permission was only made obligatory because of the eyesight' — to prevent people from seeing others in private moments.",
+    wfb:"The Prophet ﷺ said it was 'because of the eyesight' — so that people do not accidentally see others in private situations."
+  },
+  {
+    q:"When entering an empty house, what should you say according to the teaching of Ibn Umar?",
+    opts:["Bismillah only","Allahu Akbar","As-salamu ʿalayna wa ʿala ʿibadillahis-saliheen","La ilaha illallah"],
+    ans:2,
+    fb:"Perfect! Ibn Umar reported we should say: 'Peace be upon us and upon the righteous servants of Allah.'",
+    wfb:"The correct saying is 'As-salamu ʿalayna wa ʿala ʿibadillahis-saliheen', as taught by Ibn Umar and graded Hasan."
+  },
+  {
+    q:"According to Surah An-Nur 24:58, which is NOT one of the three special private times mentioned?",
+    opts:["Before Fajr (dawn prayer)","After Zuhr (afternoon prayer)","At midday rest","After ʿIsha (night prayer)"],
+    ans:1,
+    fb:"Correct! The three times are: before Fajr, at midday rest (when changing clothes), and after ʿIsha. After Zuhr is not specifically mentioned.",
+    wfb:"The three times in 24:58 are: before Fajr prayer, midday rest (when people change clothes), and after ʿIsha prayer."
+  },
+  {
+    q:"You knock on a friend's door three times and get no answer. What should you do according to the Sunnah?",
+    opts:["Keep knocking until they answer","Peek through the window to check","Go back and leave","Call loudly from the street"],
+    ans:2,
+    fb:"Exactly right! The Prophet ﷺ said: 'If you seek permission three times and are not given it, then go back.' (Bukhari 6245)",
+    wfb:"The Prophet ﷺ instructed us to leave after three unanswered attempts. Peeking would also violate their privacy."
+  },
+  {
+    q:"Applying Islamic texting etiquette: your friend hasn't replied to your message in 20 minutes. What is the best approach?",
+    opts:["Send 10 follow-up messages in a row","Assume they are ignoring you and get angry","Send one polite follow-up and wait patiently","Post on social media that they ignored you"],
+    ans:2,
+    fb:"Great! Just like the three-knock rule, be patient and follow up once politely — they may be praying or busy.",
+    wfb:"Islamic etiquette teaches patience. One polite follow-up is appropriate — the person may be praying, eating, or resting."
+  }
+];
+
+let current=0, score=0, answered=false;
+
+function renderQuestion(){
+  const q=questions[current];
+  document.getElementById('qnum').textContent=current+1;
+  document.getElementById('quiz-q').textContent=q.q;
+  const opts=document.getElementById('quiz-opts');
+  opts.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const btn=document.createElement('button');
+    btn.className='quiz-option';
+    btn.textContent=o;
+    btn.setAttribute('aria-label', `Option ${i+1}: ${o}`);
+    btn.onclick=()=>selectAnswer(i);
+    opts.appendChild(btn);
+  });
+  document.getElementById('quiz-fb').className='quiz-feedback';
+  document.getElementById('quiz-fb').textContent='';
+  document.getElementById('quiz-next').disabled=true;
+  answered=false;
+  renderIndicator();
+}
+
+function selectAnswer(i){
+  if(answered) return;
+  answered=true;
+  const q=questions[current];
+  const opts=document.querySelectorAll('.quiz-option');
+  const fb=document.getElementById('quiz-fb');
+  opts.forEach(o=>o.disabled=true);
+  if(i===q.ans){
+    opts[i].classList.add('correct');
+    score++;
+    document.getElementById('score').textContent=score;
+    fb.textContent='✅ '+q.fb;
+    fb.className='quiz-feedback correct show';
+  } else {
+    opts[i].classList.add('wrong');
+    opts[q.ans].classList.add('correct');
+    fb.textContent='❌ '+q.wfb;
+    fb.className='quiz-feedback wrong show';
+  }
+  document.getElementById('quiz-next').disabled=false;
+  renderIndicator();
+}
+
+function nextQuestion(){
+  if(current<questions.length-1){
+    current++;
+    renderQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function showResult(){
+  const pct=Math.round((score/questions.length)*100);
+  const msg=pct>=80?"Excellent work! MashaAllah! 🌟":pct>=50?"Good effort! Keep reviewing. 📖":"Keep studying — you can do it! 💪";
+  document.getElementById('quiz-q').innerHTML=`<strong>Quiz Complete!</strong><br>You scored ${score} out of ${questions.length} (${pct}%).<br><br>${msg}`;
+  document.getElementById('quiz-opts').innerHTML='';
+  document.getElementById('quiz-fb').className='quiz-feedback';
+  document.getElementById('quiz-next').textContent='Restart Quiz';
+  document.getElementById('quiz-next').disabled=false;
+  document.getElementById('quiz-next').onclick=restartQuiz;
+}
+
+function restartQuiz(){
+  current=0; score=0; answered=false;
+  document.getElementById('score').textContent='0';
+  document.getElementById('quiz-next').textContent='Next →';
+  document.getElementById('quiz-next').onclick=nextQuestion;
+  renderQuestion();
+}
+
+function renderIndicator(){
+  const ind=document.getElementById('quiz-ind');
+  ind.innerHTML='';
+  questions.forEach((_,i)=>{
+    const d=document.createElement('div');
+    d.className='qind'+(i<current?' done':i===current?' current':'');
+    ind.appendChild(d);
+  });
+}
+
+renderQuestion();
+</script>
+</body>
+</html>
