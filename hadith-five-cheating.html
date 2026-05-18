@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hadeeth Five: Cheating — Grade 7 Islamic Studies</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Nunito:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root, [data-theme="light"] {
+  --color-bg:             #faf8f3;
+  --color-surface:        #fefcf7;
+  --color-surface-2:      #f5f0e8;
+  --color-surface-offset: #ede7d8;
+  --color-divider:        #ddd5c2;
+  --color-border:         #c9bfa8;
+  --color-text:           #2a2416;
+  --color-text-muted:     #7a6e58;
+  --color-text-faint:     #b8ad99;
+  --color-text-inverse:   #fefcf7;
+
+  /* Islamic Green Primary */
+  --color-primary:        #1a6b3a;
+  --color-primary-hover:  #135430;
+  --color-primary-active: #0d3d22;
+  --color-primary-highlight: #c8e6d4;
+  --color-primary-light:  #e8f5ed;
+
+  /* Gold Accent */
+  --color-gold:           #c49a00;
+  --color-gold-light:     #fdf3cc;
+  --color-gold-border:    #e8cf6e;
+
+  /* Warning / Red */
+  --color-warning:        #b03a1a;
+  --color-warning-light:  #fdeee9;
+  --color-warning-border: #e8a090;
+
+  /* Quiz correct/wrong */
+  --color-correct:        #1a6b3a;
+  --color-correct-bg:     #e8f5ed;
+  --color-wrong:          #b03a1a;
+  --color-wrong-bg:       #fdeee9;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Nunito', system-ui, sans-serif;
+  --font-arabic:  'Amiri', 'Traditional Arabic', 'Arial Unicode MS', serif;
+
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 3px oklch(0.2 0.03 80 / 0.08);
+  --shadow-md: 0 4px 14px oklch(0.2 0.03 80 / 0.10);
+  --shadow-lg: 0 12px 36px oklch(0.2 0.03 80 / 0.14);
+
+  --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"] {
+  --color-bg:             #181510;
+  --color-surface:        #1e1b14;
+  --color-surface-2:      #252018;
+  --color-surface-offset: #2c2720;
+  --color-divider:        #3a3428;
+  --color-border:         #4a4438;
+  --color-text:           #e8dfc8;
+  --color-text-muted:     #8a7e6a;
+  --color-text-faint:     #5a5448;
+  --color-text-inverse:   #181510;
+  --color-primary:        #4fa870;
+  --color-primary-hover:  #3a9060;
+  --color-primary-active: #2a7850;
+  --color-primary-highlight: #1e3829;
+  --color-primary-light:  #1a2e20;
+  --color-gold:           #e8b830;
+  --color-gold-light:     #2a2008;
+  --color-gold-border:    #6a5820;
+  --color-warning:        #d46040;
+  --color-warning-light:  #2a1808;
+  --color-warning-border: #6a3020;
+  --color-correct:        #4fa870;
+  --color-correct-bg:     #1a2e20;
+  --color-wrong:          #d46040;
+  --color-wrong-bg:       #2a1808;
+  --shadow-sm: 0 1px 3px oklch(0 0 0 / 0.25);
+  --shadow-md: 0 4px 14px oklch(0 0 0 / 0.35);
+  --shadow-lg: 0 12px 36px oklch(0 0 0 / 0.45);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #181510;
+    --color-surface: #1e1b14;
+    --color-surface-2: #252018;
+    --color-surface-offset: #2c2720;
+    --color-divider: #3a3428;
+    --color-border: #4a4438;
+    --color-text: #e8dfc8;
+    --color-text-muted: #8a7e6a;
+    --color-text-faint: #5a5448;
+  }
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; -webkit-text-size-adjust: none; text-size-adjust: none; }
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.7;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; height: auto; }
+button { cursor: pointer; border: none; background: none; font: inherit; }
+a, button { transition: color var(--transition), background var(--transition), border-color var(--transition), box-shadow var(--transition); }
+
+/* ============================================================
+   ARABIC TEXT
+   ============================================================ */
+.arabic {
+  font-family: var(--font-arabic);
+  direction: rtl;
+  text-align: right;
+  line-height: 2.2;
+  font-size: 1.35em;
+}
+.arabic-lg {
+  font-family: var(--font-arabic);
+  direction: rtl;
+  text-align: center;
+  line-height: 2.4;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+.arabic-inline {
+  font-family: var(--font-arabic);
+  direction: rtl;
+  display: inline;
+  font-size: 1.1em;
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container {
+  max-width: 880px;
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+}
+.container-narrow {
+  max-width: 680px;
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+}
+
+/* ============================================================
+   STICKY HEADER
+   ============================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-divider);
+  box-shadow: var(--shadow-sm);
+}
+.header-inner {
+  max-width: 880px;
+  margin-inline: auto;
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.header-logo svg { color: var(--color-primary); flex-shrink: 0; }
+.header-title-group { line-height: 1.2; }
+.header-subject {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+.header-lesson {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+.header-actions { display: flex; align-items: center; gap: var(--space-2); }
+.theme-toggle {
+  width: 40px; height: 40px;
+  border-radius: var(--radius-full);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-text-muted);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+}
+.theme-toggle:hover { color: var(--color-text); background: var(--color-surface-offset); }
+.progress-bar-wrap {
+  height: 3px;
+  background: var(--color-divider);
+  position: relative;
+}
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-gold));
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.hero {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #0d4a28 100%);
+  color: #fff;
+  padding: clamp(var(--space-10), 7vw, var(--space-16)) var(--space-4);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M30 30 L30 0 L0 0 Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-4);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-4);
+  backdrop-filter: blur(8px);
+}
+.hero-number {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: var(--space-2);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  margin-bottom: var(--space-6);
+  opacity: 0.92;
+}
+.hero-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  opacity: 0.8;
+}
+.hero-meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+/* ============================================================
+   NAV TABS (TOC)
+   ============================================================ */
+.toc-nav {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-divider);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.toc-nav::-webkit-scrollbar { display: none; }
+.toc-list {
+  display: flex;
+  list-style: none;
+  max-width: 880px;
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+  gap: 0;
+}
+.toc-item a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: color var(--transition), border-color var(--transition);
+}
+.toc-item a:hover { color: var(--color-primary); }
+.toc-item a.active { color: var(--color-primary); border-bottom-color: var(--color-primary); }
+.toc-num {
+  width: 20px; height: 20px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+.toc-item a.active .toc-num {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+main { padding-bottom: var(--space-16); }
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+.lesson-section {
+  padding: clamp(var(--space-8), 5vw, var(--space-12)) 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+.section-icon {
+  width: 44px; height: 44px;
+  border-radius: var(--radius-lg);
+  background: var(--color-primary-light);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+.section-tag {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-1);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+/* ============================================================
+   HADITH CARD
+   ============================================================ */
+.hadith-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--space-6);
+}
+.hadith-card-top {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #0d4a28 100%);
+  padding: var(--space-6) var(--space-6) var(--space-4);
+  position: relative;
+}
+.hadith-arabic-wrap {
+  background: rgba(255,255,255,0.08);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6) var(--space-6) var(--space-4);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.hadith-arabic-text {
+  font-family: var(--font-arabic);
+  direction: rtl;
+  text-align: right;
+  line-height: 2.5;
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  color: #fff;
+}
+.hadith-card-bottom {
+  padding: var(--space-6);
+}
+.hadith-translation {
+  font-size: var(--text-base);
+  color: var(--color-text);
+  line-height: 1.8;
+  font-style: italic;
+  border-left: 3px solid var(--color-primary);
+  padding-left: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+.hadith-source {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+.source-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+/* ============================================================
+   NARRATOR CARD
+   ============================================================ */
+.narrator-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--space-6);
+}
+.narrator-avatar {
+  width: 56px; height: 56px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #0d4a28 100%);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  font-family: var(--font-arabic);
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.narrator-info { flex: 1; }
+.narrator-label {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-1);
+}
+.narrator-name {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-1);
+}
+.narrator-arabic {
+  font-family: var(--font-arabic);
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
+  direction: rtl;
+}
+.narrator-fact {
+  background: var(--color-primary-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+}
+.narrator-fact strong { color: var(--color-primary); }
+
+/* ============================================================
+   INFO BLOCKS
+   ============================================================ */
+.info-block {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5) var(--space-6);
+  margin-bottom: var(--space-4);
+  box-shadow: var(--shadow-sm);
+}
+.info-block p { color: var(--color-text); line-height: 1.8; max-width: 72ch; }
+.info-block p + p { margin-top: var(--space-4); }
+
+/* ============================================================
+   QURAN VERSE CARD
+   ============================================================ */
+.quran-card {
+  background: var(--color-surface);
+  border: 2px solid var(--color-gold-border);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  margin-bottom: var(--space-5);
+  box-shadow: var(--shadow-md);
+}
+.quran-card-header {
+  background: linear-gradient(135deg, var(--color-gold) 0%, #a07a00 100%);
+  padding: var(--space-3) var(--space-5);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: #fff;
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+.quran-arabic {
+  padding: var(--space-6) var(--space-6) var(--space-4);
+  background: var(--color-gold-light);
+}
+.quran-translation {
+  padding: var(--space-4) var(--space-6);
+  font-size: var(--text-base);
+  font-style: italic;
+  color: var(--color-text);
+  border-left: 3px solid var(--color-gold);
+  margin: 0 var(--space-6) var(--space-4);
+  line-height: 1.8;
+}
+.quran-ref {
+  padding: var(--space-3) var(--space-5) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ============================================================
+   KEY LESSONS / POINTS
+   ============================================================ */
+.lessons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+.lesson-point {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.lesson-point:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.lesson-point-num {
+  width: 32px; height: 32px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+  font-size: var(--text-sm);
+  flex-shrink: 0;
+}
+.lesson-point h4 {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-1);
+}
+.lesson-point p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   REAL LIFE EXAMPLES
+   ============================================================ */
+.examples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+.example-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.example-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.example-card-icon {
+  background: var(--color-primary-light);
+  padding: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  border-bottom: 1px solid var(--color-primary-highlight);
+}
+.example-emoji { font-size: 1.8rem; line-height: 1; }
+.example-title { font-weight: 700; font-size: var(--text-sm); color: var(--color-primary); }
+.example-body { padding: var(--space-4); font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; }
+.example-warning {
+  background: var(--color-warning-light);
+  border: 1px solid var(--color-warning-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--color-warning);
+  font-weight: 600;
+  margin-top: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ============================================================
+   VOCAB / GLOSSARY
+   ============================================================ */
+.vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+.vocab-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-sm);
+}
+.vocab-arabic { font-family: var(--font-arabic); font-size: 1.3rem; color: var(--color-primary); direction: rtl; margin-bottom: var(--space-2); }
+.vocab-term { font-weight: 700; font-size: var(--text-sm); color: var(--color-text); margin-bottom: var(--space-1); }
+.vocab-def { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.5; }
+
+/* ============================================================
+   PROPHET'S CHARACTER HIGHLIGHT
+   ============================================================ */
+.prophet-highlight {
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-gold-light) 100%);
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+.prophet-icon { font-size: 2.5rem; flex-shrink: 0; }
+.prophet-highlight h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+.prophet-highlight p { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.7; max-width: 60ch; }
+.prophet-highlight p + p { margin-top: var(--space-3); }
+
+/* ============================================================
+   WARNING BANNER
+   ============================================================ */
+.warning-banner {
+  background: var(--color-warning-light);
+  border: 1px solid var(--color-warning-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5) var(--space-6);
+  margin-bottom: var(--space-5);
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+.warning-banner .icon { font-size: 1.6rem; flex-shrink: 0; line-height: 1; }
+.warning-banner h4 { font-weight: 700; color: var(--color-warning); font-size: var(--text-base); margin-bottom: var(--space-2); }
+.warning-banner p { font-size: var(--text-sm); color: var(--color-text); line-height: 1.7; max-width: 65ch; }
+
+/* ============================================================
+   ACCORDION (STORY TIMELINE)
+   ============================================================ */
+.timeline { display: flex; flex-direction: column; gap: 0; position: relative; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 22px;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  background: var(--color-primary-highlight);
+}
+.timeline-step {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  padding-bottom: var(--space-5);
+  position: relative;
+}
+.timeline-dot {
+  width: 46px; height: 46px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+  font-size: var(--text-sm);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 0 4px var(--color-bg);
+}
+.timeline-content {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4) var(--space-5);
+  flex: 1;
+  box-shadow: var(--shadow-sm);
+}
+.timeline-content h4 {
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+.timeline-content p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   QUIZ SECTION
+   ============================================================ */
+.quiz-wrap {
+  background: var(--color-surface);
+  border: 2px solid var(--color-primary-highlight);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+.quiz-header {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #0d4a28 100%);
+  padding: var(--space-5) var(--space-6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.quiz-header h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+}
+.quiz-header p { font-size: var(--text-sm); opacity: 0.85; margin-top: var(--space-1); }
+.quiz-icon { font-size: 2rem; }
+.quiz-progress-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+  background: var(--color-surface-2);
+  border-bottom: 1px solid var(--color-divider);
+}
+.quiz-progress-label { font-size: var(--text-sm); font-weight: 600; color: var(--color-text-muted); white-space: nowrap; }
+.quiz-progress-track {
+  flex: 1;
+  height: 8px;
+  background: var(--color-surface-offset);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.quiz-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-gold));
+  border-radius: var(--radius-full);
+  transition: width 0.5s cubic-bezier(0.16,1,0.3,1);
+  width: 0%;
+}
+.quiz-score-badge {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 800;
+}
+
+.questions-container { padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-8); }
+
+.question-block { display: flex; flex-direction: column; gap: var(--space-4); }
+.question-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+.question-num {
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius-full);
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--text-xs);
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.question-type {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.question-text {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+/* MCQ Options */
+.options-list { display: flex; flex-direction: column; gap: var(--space-2); }
+.option-btn {
+  width: 100%;
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  transition: border-color var(--transition), background var(--transition), color var(--transition);
+}
+.option-btn:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+.option-btn.correct {
+  border-color: var(--color-correct);
+  background: var(--color-correct-bg);
+  color: var(--color-correct);
+}
+.option-btn.wrong {
+  border-color: var(--color-wrong);
+  background: var(--color-wrong-bg);
+  color: var(--color-wrong);
+}
+.option-btn:disabled { cursor: not-allowed; }
+.option-letter {
+  width: 26px; height: 26px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--text-xs);
+  font-weight: 800;
+  flex-shrink: 0;
+  transition: background var(--transition), color var(--transition);
+}
+.option-btn.correct .option-letter { background: var(--color-correct); color: #fff; }
+.option-btn.wrong .option-letter { background: var(--color-wrong); color: #fff; }
+
+/* True/False */
+.tf-options { display: flex; gap: var(--space-3); }
+.tf-btn {
+  flex: 1;
+  padding: var(--space-3) var(--space-4);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  cursor: pointer;
+  text-align: center;
+  transition: all var(--transition);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+.tf-btn.true-btn:hover:not(:disabled) { border-color: var(--color-correct); background: var(--color-correct-bg); color: var(--color-correct); }
+.tf-btn.false-btn:hover:not(:disabled) { border-color: var(--color-wrong); background: var(--color-wrong-bg); color: var(--color-wrong); }
+.tf-btn.correct { border-color: var(--color-correct); background: var(--color-correct-bg); color: var(--color-correct); }
+.tf-btn.wrong { border-color: var(--color-wrong); background: var(--color-wrong-bg); color: var(--color-wrong); }
+.tf-btn:disabled { cursor: not-allowed; }
+
+/* Fill in blank */
+.fill-wrap { display: flex; gap: var(--space-2); }
+.fill-input {
+  flex: 1;
+  padding: var(--space-3) var(--space-4);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  font: inherit;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  background: var(--color-surface);
+  transition: border-color var(--transition);
+}
+.fill-input:focus { outline: none; border-color: var(--color-primary); }
+.fill-input.correct { border-color: var(--color-correct); background: var(--color-correct-bg); color: var(--color-correct); }
+.fill-input.wrong { border-color: var(--color-wrong); background: var(--color-wrong-bg); }
+.check-btn {
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: var(--text-sm);
+  transition: background var(--transition);
+}
+.check-btn:hover { background: var(--color-primary-hover); }
+.check-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Feedback */
+.feedback {
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  display: none;
+  align-items: flex-start;
+  gap: var(--space-2);
+  line-height: 1.5;
+}
+.feedback.show { display: flex; }
+.feedback.correct { background: var(--color-correct-bg); color: var(--color-correct); border: 1px solid var(--color-correct); }
+.feedback.wrong { background: var(--color-wrong-bg); color: var(--color-wrong); border: 1px solid var(--color-wrong); }
+.feedback-icon { flex-shrink: 0; }
+
+/* Quiz result */
+.quiz-result {
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+.quiz-result.show { display: flex; }
+.result-trophy { font-size: 4rem; line-height: 1; }
+.result-score {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.result-label { font-size: var(--text-base); color: var(--color-text-muted); }
+.result-msg { font-size: var(--text-sm); color: var(--color-text-muted); max-width: 40ch; }
+.restart-btn {
+  padding: var(--space-3) var(--space-8);
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  transition: background var(--transition);
+}
+.restart-btn:hover { background: var(--color-primary-hover); }
+
+/* Submit quiz */
+.quiz-submit-row {
+  padding: var(--space-5) var(--space-6);
+  border-top: 1px solid var(--color-divider);
+  display: flex;
+  justify-content: flex-end;
+}
+.submit-quiz-btn {
+  padding: var(--space-3) var(--space-8);
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: var(--text-base);
+  transition: background var(--transition);
+}
+.submit-quiz-btn:hover { background: var(--color-primary-hover); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-divider);
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+}
+.footer-text { font-size: var(--text-sm); color: var(--color-text-muted); }
+.footer-arabic { font-family: var(--font-arabic); font-size: 1.4rem; color: var(--color-primary); margin-bottom: var(--space-2); direction: rtl; }
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+.fade-in {
+  opacity: 1;
+}
+@supports (animation-timeline: scroll()) {
+  .fade-in {
+    opacity: 0;
+    animation: revealFade linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 80%;
+  }
+}
+@keyframes revealFade { to { opacity: 1; } }
+
+/* Confetti canvas */
+#confetti-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+  display: none;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 600px) {
+  .narrator-card { flex-direction: column; }
+  .prophet-highlight { flex-direction: column; }
+  .warning-banner { flex-direction: column; gap: var(--space-2); }
+  .fill-wrap { flex-direction: column; }
+  .header-lesson { display: none; }
+  .timeline::before { left: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+</style>
+</head>
+<body>
+
+<canvas id="confetti-canvas"></canvas>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-logo">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-label="Lesson Logo">
+        <rect width="32" height="32" rx="8" fill="currentColor" opacity="0.12"/>
+        <path d="M16 6 L16 26 M8 11 C8 11 12 9 16 11 C20 13 24 11 24 11 L24 21 C24 21 20 23 16 21 C12 19 8 21 8 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
+      </svg>
+      <div class="header-title-group">
+        <div class="header-subject">Islamic Studies — Grade 7</div>
+        <div class="header-lesson">Hadeeth Five: Cheating</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="progress-bar-wrap">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" role="banner">
+  <div class="container-narrow" style="position:relative;z-index:1;">
+    <div class="hero-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Hadeeth Five
+    </div>
+    <h1 class="hero-number">الغِشّ</h1>
+    <div class="hero-title">Cheating — A Major Sin in Islam</div>
+    <div class="hero-meta">
+      <span class="hero-meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Grade 7 Islamic Studies
+      </span>
+      <span class="hero-meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Narrated by: Abu Hurayrah
+      </span>
+      <span class="hero-meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Collected by Muslim, Tirmidhee, Abu Daawood
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- NAV TABS -->
+<nav class="toc-nav" aria-label="Lesson sections">
+  <ul class="toc-list" role="list">
+    <li class="toc-item"><a href="#hadith-text" class="active"><span class="toc-num">1</span>The Hadeeth</a></li>
+    <li class="toc-item"><a href="#narrator"><span class="toc-num">2</span>Narrator</a></li>
+    <li class="toc-item"><a href="#story"><span class="toc-num">3</span>The Story</a></li>
+    <li class="toc-item"><a href="#lessons"><span class="toc-num">4</span>Key Lessons</a></li>
+    <li class="toc-item"><a href="#quran-refs"><span class="toc-num">5</span>Qur'an</a></li>
+    <li class="toc-item"><a href="#real-life"><span class="toc-num">6</span>Real Life</a></li>
+    <li class="toc-item"><a href="#vocab"><span class="toc-num">7</span>Vocabulary</a></li>
+    <li class="toc-item"><a href="#quiz"><span class="toc-num">8</span>Quiz</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- ============================================================ -->
+<!-- SECTION 1: THE HADEETH -->
+<!-- ============================================================ -->
+<section class="lesson-section" id="hadith-text">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      </div>
+      <div>
+        <div class="section-tag">Section 1</div>
+        <h2 class="section-title">The Hadeeth Text</h2>
+      </div>
+    </div>
+
+    <div class="hadith-card fade-in">
+      <div class="hadith-card-top">
+        <div class="hadith-arabic-wrap">
+          <p class="hadith-arabic-text">
+            عَنْ أَبِي هُرَيْرَةَ أَنَّ رَسُولَ اللهِ ﷺ مَرَّ فِي السُّوقِ عَلَى حُبْرَةِ طَعَامٍ ، أَدْخَلَ يَدَهُ فِيهَا، فَنَالَتْ أَصَابِعُهُ بَلَلًا، فَقَالَ: مَا هَذَا يَا صَاحِبَ الطَّعَامِ؟ قَالَ: يَا رَسُولَ اللَّهُ أَصَابَتْهُ السَّمَاءُ. قَالَ: «أَفَلَا جَعَلْتَهُ فَوْقَ الطَّعَامِ حَتَّى يَرَاهُ النَّاسُ؟» وَقَالَ: «مَنْ غَشَّنَا فَلَيْسَ مِنَّا»
+          </p>
+        </div>
+      </div>
+      <div class="hadith-card-bottom">
+        <p class="hadith-translation">
+          "Abu Hurayrah reported that Allaah's Messenger ﷺ passed by a pile of food and stuck his hand into it. When he found it wet, he asked its owner, 'What is this?' The trader replied, 'Rain fell on it, O Messenger of Allaah.' The Prophet then said, 'Why didn't you put it on top so that the people could see it? Whoever cheats us is not of us.'"
+        </p>
+        <div class="hadith-source">
+          <span class="source-dot"></span>
+          Collected by: Imaam Muslim, at-Tirmidhee, and Abu Daawood
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 2: THE NARRATOR -->
+<!-- ============================================================ -->
+<section class="lesson-section" id="narrator">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <div>
+        <div class="section-tag">Section 2</div>
+        <h2 class="section-title">The Narrator</h2>
+      </div>
+    </div>
+
+    <div class="narrator-card fade-in">
+      <div class="narrator-avatar">ابو</div>
+      <div class="narrator-info">
+        <div class="narrator-label">Companion of the Prophet ﷺ</div>
+        <div class="narrator-name">Abu Hurayrah (رضي الله عنه)</div>
+        <div class="narrator-arabic">أبو هُرَيْرَة الدَّوْسِيّ الأَزْدِيّ</div>
+      </div>
+    </div>
+
+    <div class="narrator-fact fade-in">
+      <strong>🌟 Did You Know?</strong> Abu Hurayrah is the <strong>most prolific narrator of Hadeeth</strong> — he narrated over <strong>5,374 hadeeth</strong>! He accepted Islam in 7 AH and dedicated his life to learning from the Prophet ﷺ. He is known as the "Father of the Kitten" because of his love for cats. He passed away in 59 AH.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 3: THE STORY — TIMELINE -->
+<!-- ============================================================ -->
+<section class="lesson-section" id="story">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <div>
+        <div class="section-tag">Section 3</div>
+        <h2 class="section-title">The Story — Step by Step</h2>
+      </div>
+    </div>
+
+    <div class="timeline fade-in">
+      <div class="timeline-step">
+        <div class="timeline-dot">1</div>
+        <div class="timeline-content">
+          <h4>🕌 The Prophet ﷺ Walks Through the Market</h4>
+          <p>One day, the Prophet Muhammad ﷺ was walking through the marketplace (السوق). Markets were busy, public places — the centre of commerce and trade in early Islamic Madinah.</p>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-dot">2</div>
+        <div class="timeline-content">
+          <h4>🌾 He Notices a Pile of Grain</h4>
+          <p>The Prophet ﷺ passed by a large heap of wheat or food grain (حُبْرَة طَعَامٍ). Something caught his attention — perhaps the dry outer appearance concealing something underneath.</p>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-dot">3</div>
+        <div class="timeline-content">
+          <h4>✋ He Puts His Hand Into the Pile</h4>
+          <p>The Prophet ﷺ reached in and inserted his blessed hand deep into the pile. His fingers felt wetness — the grain inside was damp and potentially damaged, while the surface appeared dry and fine.</p>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-dot">4</div>
+        <div class="timeline-content">
+          <h4>❓ He Questions the Trader</h4>
+          <p>The Prophet ﷺ asked the owner: <em>"What is this, O owner of the food?"</em> Note: he already knew the answer — but he asked <strong>publicly</strong> to expose the practice and make the man an example to all traders in the market.</p>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-dot">5</div>
+        <div class="timeline-content">
+          <h4>🌧️ The Trader's Excuse</h4>
+          <p>The trader replied: <em>"Rain fell on it, O Messenger of Allaah."</em> The grain got wet the previous night. Instead of telling buyers, he hid the wet grain under dry grain on top — a deliberate act of deception.</p>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-dot">6</div>
+        <div class="timeline-content">
+          <h4>⚠️ The Prophet ﷺ Corrects Him</h4>
+          <p>The Prophet said: <em>"Why didn't you put the wet grain on top so that the people could see it?"</em> This teaches that a seller MUST disclose defects. Hiding damage is cheating — regardless of the reason.</p>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-dot">7</div>
+        <div class="timeline-content">
+          <h4>📣 The General Warning</h4>
+          <p>Addressing all traders present, the Prophet ﷺ declared: <strong>"Whoever cheats us is NOT of us."</strong> This powerful statement means a cheater has distanced themselves from true Islamic behaviour and the Muslim community.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 4: KEY LESSONS -->
+<!-- ============================================================ -->
+<section class="lesson-section" id="lessons">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <div>
+        <div class="section-tag">Section 4</div>
+        <h2 class="section-title">Key Lessons from This Hadeeth</h2>
+      </div>
+    </div>
+
+    <div class="lessons-grid">
+      <div class="lesson-point fade-in">
+        <div class="lesson-point-num">1</div>
+        <div>
+          <h4>Honesty in All Dealings</h4>
+          <p>A Muslim must be truthful in business, school, and daily life. Hiding faults to gain an advantage is cheating.</p>
+        </div>
+      </div>
+      <div class="lesson-point fade-in">
+        <div class="lesson-point-num">2</div>
+        <div>
+          <h4>Transparency is Obligatory</h4>
+          <p>Sellers must disclose defects. Students must not hide cheating. Employees must not falsify reports. Transparency protects everyone.</p>
+        </div>
+      </div>
+      <div class="lesson-point fade-in">
+        <div class="lesson-point-num">3</div>
+        <div>
+          <h4>Allah is Always Watching</h4>
+          <p>Even if no teacher or authority catches you, Allaah sees every act. Every sin is recorded and will be accounted for.</p>
+        </div>
+      </div>
+      <div class="lesson-point fade-in">
+        <div class="lesson-point-num">4</div>
+        <div>
+          <h4>Cheating Harms the Community</h4>
+          <p>A cheating trader destroys trust in the marketplace. A cheating student undermines fairness for honest students.</p>
+        </div>
+      </div>
+      <div class="lesson-point fade-in">
+        <div class="lesson-point-num">5</div>
+        <div>
+          <h4>Helping Others Cheat is Also a Sin</h4>
+          <p>Providing answers, allowing copying, or covering for a cheater makes you equally responsible. True help means stopping them.</p>
+        </div>
+      </div>
+      <div class="lesson-point fade-in">
+        <div class="lesson-point-num">6</div>
+        <div>
+          <h4>The Prophet ﷺ was Al-Ameen</h4>
+          <p>Even before prophethood, his tribe called him "Al-Ameen" (الأمين — The Trustworthy). Honesty was his defining quality.</p>
+        </div>
+      </div>
+      <div class="lesson-point fade-in">
+        <div class="lesson-point-num">7</div>
+        <div>
+          <h4>Cheaters Lose the Prophet's Companionship</h4>
+          <p>"Not of us" (لَيْسَ مِنَّا) is a severe warning — it means the cheater has abandoned the character and community of Muslims.</p>
+        </div>
+      </div>
+      <div class="lesson-point fade-in">
+        <div class="lesson-point-num">8</div>
+        <div>
+          <h4>Honest Sales are Blessed</h4>
+          <p>The Prophet ﷺ said: "If buyer and seller are honest, their sale is blessed. If they deceive, the blessing is removed." Honesty attracts barakah.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="prophet-highlight fade-in">
+      <div class="prophet-icon">🌟</div>
+      <div>
+        <h3>Al-Ameen — The Trustworthy</h3>
+        <p>Long before the Prophet Muhammad ﷺ received revelation, the people of Makkah — including his enemies — called him <strong><span class="arabic-inline">الأَمِين</span> (Al-Ameen — The Trustworthy)</strong> because of his unmatched honesty. They trusted him with their valuables and secrets.</p>
+        <p>This shows that honesty is a universal virtue — and for a Muslim, it is even more important because it connects to our belief in Allaah and the Day of Judgement. Our character must reflect our faith.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 5: QUR'AN REFERENCES -->
+<!-- ============================================================ -->
+<section class="lesson-section" id="quran-refs">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      </div>
+      <div>
+        <div class="section-tag">Section 5</div>
+        <h2 class="section-title">Supporting Qur'anic Verses</h2>
+      </div>
+    </div>
+
+    <div class="quran-card fade-in">
+      <div class="quran-card-header">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/></svg>
+        Surah Al-Maa'idah (5):2 — On Helping in Good
+      </div>
+      <div class="quran-arabic">
+        <p class="arabic-lg">وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ وَلَا تَعَاوَنُوا عَلَى الْإِثْمِ وَالْعُدْوَانِ</p>
+      </div>
+      <div class="quran-translation">
+        "Help one another in righteousness and piety, but do not help one another in sin and transgression."
+      </div>
+      <div class="quran-ref">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Soorah Al-Maa'idah (5): Verse 2
+      </div>
+    </div>
+
+    <div class="info-block fade-in" style="margin-bottom: var(--space-5);">
+      <p>This verse is directly connected to cheating. When a student passes answers to another, or when a trader hides defects with the help of an assistant, both are guilty. Allaah commands cooperation in <em>goodness</em> (البِرّ) and <em>piety</em> (التَّقوى) — but strictly forbids cooperation in <em>sin</em> (الإثم). Helping someone cheat is itself a sin.</p>
+    </div>
+
+    <div class="quran-card fade-in">
+      <div class="quran-card-header">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/></svg>
+        Surah Al-Zalzalah (99):8 — Every Deed is Recorded
+      </div>
+      <div class="quran-arabic">
+        <p class="arabic-lg">وَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ شَرًّا يَرَهُۥ</p>
+      </div>
+      <div class="quran-translation">
+        "And whoever does an atom's weight of evil will see it."
+      </div>
+      <div class="quran-ref">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Soorah Al-Zalzalah (99): Verse 8
+      </div>
+    </div>
+
+    <div class="info-block fade-in" style="margin-bottom: var(--space-5);">
+      <p>This powerful verse reminds us that <strong>nothing escapes Allaah's record</strong>. Even the smallest act of cheating — glancing at a classmate's answer, sending a WhatsApp message during an exam, or hiding a defective product — will be presented to us on the Day of Judgement. There is no escape from divine accountability.</p>
+    </div>
+
+    <div class="quran-card fade-in">
+      <div class="quran-card-header">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/></svg>
+        Surah Al-Maa'idah (5):1 — Fulfill Your Obligations
+      </div>
+      <div class="quran-arabic">
+        <p class="arabic-lg">يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ أَوْفُوا۟ بِٱلْعُقُودِ</p>
+      </div>
+      <div class="quran-translation">
+        "O you who have believed, fulfil your contracts (obligations)."
+      </div>
+      <div class="quran-ref">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Soorah Al-Maa'idah (5): Verse 1
+      </div>
+    </div>
+
+    <div class="info-block fade-in">
+      <p>When a student sits for an exam, there is an <strong>implicit agreement</strong> (عَقْد) with the school, the teacher, and society — to demonstrate their own knowledge honestly. When a trader sells goods, there is a contract with the buyer to provide what was agreed upon. Fulfilling these obligations is an Islamic duty. Cheating violates them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 6: REAL LIFE EXAMPLES -->
+<!-- ============================================================ -->
+<section class="lesson-section" id="real-life">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <div>
+        <div class="section-tag">Section 6</div>
+        <h2 class="section-title">Real & Modern Life Examples</h2>
+      </div>
+    </div>
+
+    <div class="info-block fade-in" style="margin-bottom: var(--space-5);">
+      <p>The Prophet's ﷺ lesson about the grain trader applies directly to our lives today. Cheating takes many forms — some obvious, some subtle. Islam considers all of them forbidden.</p>
+    </div>
+
+    <div class="examples-grid">
+      <div class="example-card fade-in">
+        <div class="example-card-icon">
+          <span class="example-emoji">📝</span>
+          <span class="example-title">Exam Cheating</span>
+        </div>
+        <div class="example-body">
+          Hiding a "cheat sheet" in your pencil case, looking at a classmate's paper during an exam, or sending photos of exam questions via WhatsApp to friends in another class.
+          <div class="example-warning">⚠️ This is haraam — equivalent to the wet grain hidden under dry grain.</div>
+        </div>
+      </div>
+      <div class="example-card fade-in">
+        <div class="example-card-icon">
+          <span class="example-emoji">🛒</span>
+          <span class="example-title">Online Selling</span>
+        </div>
+        <div class="example-body">
+          Selling a secondhand phone on Shopee or Carousell without mentioning a cracked screen, or posting only good-angle photos while hiding dents or damage.
+          <div class="example-warning">⚠️ Like putting wet grain under dry grain — hiding the defect.</div>
+        </div>
+      </div>
+      <div class="example-card fade-in">
+        <div class="example-card-icon">
+          <span class="example-emoji">🤳</span>
+          <span class="example-title">Social Media Deception</span>
+        </div>
+        <div class="example-body">
+          Posting heavily edited photos to sell products while the actual items look nothing like the pictures. Common in food delivery, fashion, and skincare businesses.
+          <div class="example-warning">⚠️ Deliberately misleading customers is a form of ghish (غِشّ).</div>
+        </div>
+      </div>
+      <div class="example-card fade-in">
+        <div class="example-card-icon">
+          <span class="example-emoji">💼</span>
+          <span class="example-title">Workplace Dishonesty</span>
+        </div>
+        <div class="example-body">
+          An employee submitting a falsified attendance record, claiming overtime hours not actually worked, or padding an expense report with personal costs.
+          <div class="example-warning">⚠️ This betrays the trust (amanah) of the employer.</div>
+        </div>
+      </div>
+      <div class="example-card fade-in">
+        <div class="example-card-icon">
+          <span class="example-emoji">🎮</span>
+          <span class="example-title">Online Gaming / Apps</span>
+        </div>
+        <div class="example-body">
+          Using hacks, mods, or bots in competitive online games to gain unfair advantages over other honest players. Faking screenshots of achievements.
+          <div class="example-warning">⚠️ Cheating in games trains dishonest habits.</div>
+        </div>
+      </div>
+      <div class="example-card fade-in">
+        <div class="example-card-icon">
+          <span class="example-emoji">🚗</span>
+          <span class="example-title">Buying / Selling Cars</span>
+        </div>
+        <div class="example-body">
+          A used car seller who rolls back the odometer (tampering with mileage readings) or covers up engine problems with paint so the buyer doesn't know the real condition.
+          <div class="example-warning">⚠️ Exactly like hiding the wet grain — forbidden in Islam.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="warning-banner fade-in">
+      <span class="icon">🚫</span>
+      <div>
+        <h4>Helping Others Cheat is NOT "Kindness"</h4>
+        <p>Some students say: "I'm just helping my friend!" — but the Prophet ﷺ was asked the same question. He replied: <strong>"Help your brother by PREVENTING him"</strong> from doing wrong. The only true help is stopping someone from sinning. Giving answers, allowing copying, or covering up cheating makes you equally responsible before Allaah.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 7: VOCABULARY -->
+<!-- ============================================================ -->
+<section class="lesson-section" id="vocab">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      </div>
+      <div>
+        <div class="section-tag">Section 7</div>
+        <h2 class="section-title">Key Vocabulary</h2>
+      </div>
+    </div>
+
+    <div class="vocab-grid">
+      <div class="vocab-card fade-in">
+        <div class="vocab-arabic">الغِشّ</div>
+        <div class="vocab-term">Al-Ghish (Cheating / Deception)</div>
+        <div class="vocab-def">Deliberately hiding the truth or defects to gain an unfair advantage. The main topic of this hadeeth.</div>
+      </div>
+      <div class="vocab-card fade-in">
+        <div class="vocab-arabic">الأَمَانَة</div>
+        <div class="vocab-term">Al-Amaanah (Trustworthiness)</div>
+        <div class="vocab-def">The quality of being honest, reliable, and faithful. The opposite of cheating. A core Islamic virtue.</div>
+      </div>
+      <div class="vocab-card fade-in">
+        <div class="vocab-arabic">الأَمِين</div>
+        <div class="vocab-term">Al-Ameen (The Trustworthy)</div>
+        <div class="vocab-def">The title given to Prophet Muhammad ﷺ by the Quraysh tribe, even before he became a prophet.</div>
+      </div>
+      <div class="vocab-card fade-in">
+        <div class="vocab-arabic">السُّوق</div>
+        <div class="vocab-term">Al-Souq (The Market)</div>
+        <div class="vocab-def">The marketplace or bazaar — where the incident of this hadeeth took place. The public setting made the lesson more powerful.</div>
+      </div>
+      <div class="vocab-card fade-in">
+        <div class="vocab-arabic">الصِّدْق</div>
+        <div class="vocab-term">As-Sidq (Honesty / Truthfulness)</div>
+        <div class="vocab-def">Being truthful in speech and action. Highly praised in Islam; the Prophet ﷺ called it a path to Paradise.</div>
+      </div>
+      <div class="vocab-card fade-in">
+        <div class="vocab-arabic">البَرَكَة</div>
+        <div class="vocab-term">Al-Barakah (Blessing)</div>
+        <div class="vocab-def">Divine blessing in one's wealth, time, and deeds. Honest transactions are blessed; dishonest ones lose their barakah.</div>
+      </div>
+      <div class="vocab-card fade-in">
+        <div class="vocab-arabic">التَّعَاوُن</div>
+        <div class="vocab-term">At-Ta'aawun (Cooperation)</div>
+        <div class="vocab-def">Working together. The Qur'an commands cooperation in goodness (al-birr), but forbids cooperation in sin (ithm).</div>
+      </div>
+      <div class="vocab-card fade-in">
+        <div class="vocab-arabic">الإِثْم</div>
+        <div class="vocab-term">Al-Ithm (Sin)</div>
+        <div class="vocab-def">An act that is forbidden by Allaah. Cheating is a sin; helping someone cheat is also a sin.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 8: QUIZ -->
+<!-- ============================================================ -->
+<section class="lesson-section" id="quiz" style="border-bottom:none;">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-icon" style="background: var(--color-gold-light); color: var(--color-gold);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      </div>
+      <div>
+        <div class="section-tag" style="color: var(--color-gold);">Section 8</div>
+        <h2 class="section-title">Knowledge Check — Quiz</h2>
+      </div>
+    </div>
+
+    <div class="quiz-wrap fade-in">
+      <div class="quiz-header">
+        <div class="quiz-icon">📋</div>
+        <div>
+          <h2>Test Your Knowledge</h2>
+          <p>10 questions • Multiple choice, True/False, Fill in the blank</p>
+        </div>
+      </div>
+      <div class="quiz-progress-row">
+        <span class="quiz-progress-label" id="progressLabel">0 of 10 answered</span>
+        <div class="quiz-progress-track">
+          <div class="quiz-progress-fill" id="quizProgressFill"></div>
+        </div>
+        <span class="quiz-score-badge" id="scoreBadge">Score: 0</span>
+      </div>
+
+      <div class="questions-container" id="questionsContainer">
+
+        <!-- Q1 -->
+        <div class="question-block" data-question="1">
+          <div class="question-meta">
+            <div class="question-num">1</div>
+            <span class="question-type">Multiple Choice</span>
+          </div>
+          <p class="question-text">Who narrated the hadeeth about cheating in the marketplace?</p>
+          <div class="options-list">
+            <button class="option-btn" data-q="1" data-val="A" onclick="checkMCQ(this,1,'C')">
+              <span class="option-letter">A</span> Abdullah ibn Umar (رضي الله عنه)
+            </button>
+            <button class="option-btn" data-q="1" data-val="B" onclick="checkMCQ(this,1,'C')">
+              <span class="option-letter">B</span> Anas ibn Malik (رضي الله عنه)
+            </button>
+            <button class="option-btn" data-q="1" data-val="C" onclick="checkMCQ(this,1,'C')">
+              <span class="option-letter">C</span> Abu Hurayrah (رضي الله عنه)
+            </button>
+            <button class="option-btn" data-q="1" data-val="D" onclick="checkMCQ(this,1,'C')">
+              <span class="option-letter">D</span> Umar ibn al-Khattaab (رضي الله عنه)
+            </button>
+          </div>
+          <div class="feedback" id="feedback-1"></div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="question-block" data-question="2">
+          <div class="question-meta">
+            <div class="question-num">2</div>
+            <span class="question-type">Multiple Choice</span>
+          </div>
+          <p class="question-text">What did the Prophet ﷺ discover when he inserted his hand into the pile of food?</p>
+          <div class="options-list">
+            <button class="option-btn" data-q="2" data-val="A" onclick="checkMCQ(this,2,'B')">
+              <span class="option-letter">A</span> The grain was mixed with sand
+            </button>
+            <button class="option-btn" data-q="2" data-val="B" onclick="checkMCQ(this,2,'B')">
+              <span class="option-letter">B</span> The grain inside was wet/damp
+            </button>
+            <button class="option-btn" data-q="2" data-val="C" onclick="checkMCQ(this,2,'B')">
+              <span class="option-letter">C</span> The grain was rotten
+            </button>
+            <button class="option-btn" data-q="2" data-val="D" onclick="checkMCQ(this,2,'B')">
+              <span class="option-letter">D</span> There were stones hidden inside
+            </button>
+          </div>
+          <div class="feedback" id="feedback-2"></div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="question-block" data-question="3">
+          <div class="question-meta">
+            <div class="question-num">3</div>
+            <span class="question-type">True or False</span>
+          </div>
+          <p class="question-text">The Prophet ﷺ already knew why the grain was wet before he asked the trader.</p>
+          <div class="tf-options">
+            <button class="tf-btn true-btn" onclick="checkTF(this,3,true)">✅ True</button>
+            <button class="tf-btn false-btn" onclick="checkTF(this,3,false)">❌ False</button>
+          </div>
+          <div class="feedback" id="feedback-3"></div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="question-block" data-question="4">
+          <div class="question-meta">
+            <div class="question-num">4</div>
+            <span class="question-type">Multiple Choice</span>
+          </div>
+          <p class="question-text">What is the exact Arabic phrase the Prophet ﷺ used about cheaters?</p>
+          <div class="options-list">
+            <button class="option-btn" data-q="4" data-val="A" onclick="checkMCQ(this,4,'A')">
+              <span class="option-letter">A</span>
+              <span><span class="arabic-inline">مَنْ غَشَّنَا فَلَيْسَ مِنَّا</span> — "Whoever cheats us is not of us"</span>
+            </button>
+            <button class="option-btn" data-q="4" data-val="B" onclick="checkMCQ(this,4,'A')">
+              <span class="option-letter">B</span>
+              <span><span class="arabic-inline">مَنْ كَذَبَ فَلَيْسَ مِنَّا</span> — "Whoever lies is not of us"</span>
+            </button>
+            <button class="option-btn" data-q="4" data-val="C" onclick="checkMCQ(this,4,'A')">
+              <span class="option-letter">C</span>
+              <span><span class="arabic-inline">مَنْ سَرَقَ فَلَيْسَ مِنَّا</span> — "Whoever steals is not of us"</span>
+            </button>
+            <button class="option-btn" data-q="4" data-val="D" onclick="checkMCQ(this,4,'A')">
+              <span class="option-letter">D</span>
+              <span><span class="arabic-inline">مَنْ ظَلَمَ فَلَيْسَ مِنَّا</span> — "Whoever oppresses is not of us"</span>
+            </button>
+          </div>
+          <div class="feedback" id="feedback-4"></div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="question-block" data-question="5">
+          <div class="question-meta">
+            <div class="question-num">5</div>
+            <span class="question-type">Multiple Choice</span>
+          </div>
+          <p class="question-text">According to the Qur'an (Surah Al-Maa'idah 5:2), Muslims are commanded to cooperate in:</p>
+          <div class="options-list">
+            <button class="option-btn" data-q="5" data-val="A" onclick="checkMCQ(this,5,'C')">
+              <span class="option-letter">A</span> Sin and transgression only
+            </button>
+            <button class="option-btn" data-q="5" data-val="B" onclick="checkMCQ(this,5,'C')">
+              <span class="option-letter">B</span> Whatever benefits your friends
+            </button>
+            <button class="option-btn" data-q="5" data-val="C" onclick="checkMCQ(this,5,'C')">
+              <span class="option-letter">C</span> Righteousness and piety, NOT sin and transgression
+            </button>
+            <button class="option-btn" data-q="5" data-val="D" onclick="checkMCQ(this,5,'C')">
+              <span class="option-letter">D</span> Whatever the majority agrees upon
+            </button>
+          </div>
+          <div class="feedback" id="feedback-5"></div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="question-block" data-question="6">
+          <div class="question-meta">
+            <div class="question-num">6</div>
+            <span class="question-type">True or False</span>
+          </div>
+          <p class="question-text">According to this lesson, if a student helps their friend by giving them exam answers, this is considered an act of kindness (not a sin) in Islam.</p>
+          <div class="tf-options">
+            <button class="tf-btn true-btn" onclick="checkTF(this,6,false)">✅ True</button>
+            <button class="tf-btn false-btn" onclick="checkTF(this,6,false)">❌ False</button>
+          </div>
+          <div class="feedback" id="feedback-6"></div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="question-block" data-question="7">
+          <div class="question-meta">
+            <div class="question-num">7</div>
+            <span class="question-type">Fill in the Blank</span>
+          </div>
+          <p class="question-text">Complete: The Prophet Muhammad ﷺ was known as <strong>Al-___________</strong> (The Trustworthy) by his tribe, the Quraysh, even before prophethood.</p>
+          <div class="fill-wrap">
+            <input class="fill-input" type="text" id="fill-7" placeholder="Type your answer..." />
+            <button class="check-btn" onclick="checkFill(7, ['ameen','al-ameen','al ameen','amin','الامين'])">Check</button>
+          </div>
+          <div class="feedback" id="feedback-7"></div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="question-block" data-question="8">
+          <div class="question-meta">
+            <div class="question-num">8</div>
+            <span class="question-type">Multiple Choice</span>
+          </div>
+          <p class="question-text">In the context of modern life, which of the following is MOST similar to what the grain trader did?</p>
+          <div class="options-list">
+            <button class="option-btn" data-q="8" data-val="A" onclick="checkMCQ(this,8,'B')">
+              <span class="option-letter">A</span> A student who studies hard and scores well
+            </button>
+            <button class="option-btn" data-q="8" data-val="B" onclick="checkMCQ(this,8,'B')">
+              <span class="option-letter">B</span> Selling a damaged phone online without mentioning the cracked screen
+            </button>
+            <button class="option-btn" data-q="8" data-val="C" onclick="checkMCQ(this,8,'B')">
+              <span class="option-letter">C</span> A teacher who marks exams carefully
+            </button>
+            <button class="option-btn" data-q="8" data-val="D" onclick="checkMCQ(this,8,'B')">
+              <span class="option-letter">D</span> A shop that clearly labels all sale items
+            </button>
+          </div>
+          <div class="feedback" id="feedback-8"></div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="question-block" data-question="9">
+          <div class="question-meta">
+            <div class="question-num">9</div>
+            <span class="question-type">True or False</span>
+          </div>
+          <p class="question-text">According to Surah Al-Zalzalah (99:8), even the smallest evil act will be seen on the Day of Judgement.</p>
+          <div class="tf-options">
+            <button class="tf-btn true-btn" onclick="checkTF(this,9,true)">✅ True</button>
+            <button class="tf-btn false-btn" onclick="checkTF(this,9,false)">❌ False</button>
+          </div>
+          <div class="feedback" id="feedback-9"></div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="question-block" data-question="10">
+          <div class="question-meta">
+            <div class="question-num">10</div>
+            <span class="question-type">Fill in the Blank</span>
+          </div>
+          <p class="question-text">The Prophet ﷺ said: "If buyer and seller are honest, their sale will be ___________. But if they deceive, the blessing will be removed."</p>
+          <div class="fill-wrap">
+            <input class="fill-input" type="text" id="fill-10" placeholder="One word..." />
+            <button class="check-btn" onclick="checkFill(10, ['blessed','barakah','blessed (barakah)'])">Check</button>
+          </div>
+          <div class="feedback" id="feedback-10"></div>
+        </div>
+
+      </div>
+
+      <div class="quiz-submit-row" id="submitRow">
+        <button class="submit-quiz-btn" onclick="showResult()">Submit Quiz →</button>
+      </div>
+
+      <div class="quiz-result" id="quizResult">
+        <div class="result-trophy" id="resultTrophy">🏆</div>
+        <div class="result-score" id="resultScore">—</div>
+        <div class="result-label">out of 10 questions</div>
+        <div class="result-msg" id="resultMsg"></div>
+        <button class="restart-btn" onclick="restartQuiz()">Try Again 🔄</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+  <p class="footer-text">Grade 7 Islamic Studies — Hadeeth Five: Cheating &nbsp;|&nbsp; <em>"Whoever cheats us is not of us"</em> — Prophet Muhammad ﷺ</p>
+</footer>
+
+<!-- ============================================================
+   JAVASCRIPT
+   ============================================================ -->
+<script>
+/* Theme toggle */
+(function(){
+  const t = document.querySelector('[data-theme-toggle]');
+  const r = document.documentElement;
+  let d = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  r.setAttribute('data-theme', d);
+  const sunIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+  const moonIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  if(t) {
+    t.innerHTML = d === 'dark' ? sunIcon : moonIcon;
+    t.addEventListener('click', () => {
+      d = d === 'dark' ? 'light' : 'dark';
+      r.setAttribute('data-theme', d);
+      t.innerHTML = d === 'dark' ? sunIcon : moonIcon;
+      t.setAttribute('aria-label', 'Switch to ' + (d === 'dark' ? 'light' : 'dark') + ' mode');
+    });
+  }
+})();
+
+/* Reading progress bar */
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrollTop = doc.scrollTop || document.body.scrollTop;
+  const scrollHeight = doc.scrollHeight - doc.clientHeight;
+  const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+  document.getElementById('progressBar').style.width = progress + '%';
+});
+
+/* TOC active link */
+const tocLinks = document.querySelectorAll('.toc-item a');
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if(window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id');
+  });
+  tocLinks.forEach(link => {
+    link.classList.remove('active');
+    if(link.getAttribute('href') === '#' + current) link.classList.add('active');
+  });
+}, { passive: true });
+
+/* ============================================================
+   QUIZ LOGIC
+   ============================================================ */
+let score = 0;
+let answered = {};
+const totalQ = 10;
+
+function updateProgress() {
+  const count = Object.keys(answered).length;
+  const fill = (count / totalQ) * 100;
+  document.getElementById('quizProgressFill').style.width = fill + '%';
+  document.getElementById('progressLabel').textContent = count + ' of ' + totalQ + ' answered';
+  document.getElementById('scoreBadge').textContent = 'Score: ' + score;
+}
+
+function showFeedback(qNum, isCorrect, explanation) {
+  const fb = document.getElementById('feedback-' + qNum);
+  fb.className = 'feedback show ' + (isCorrect ? 'correct' : 'wrong');
+  fb.innerHTML = (isCorrect
+    ? '<span class="feedback-icon">✅</span><span><strong>Correct!</strong> ' + explanation + '</span>'
+    : '<span class="feedback-icon">❌</span><span><strong>Incorrect.</strong> ' + explanation + '</span>');
+}
+
+const correctAnswers = {
+  1: { ans: 'C', exp: 'Abu Hurayrah (رضي الله عنه) narrated this hadeeth. He is the most prolific narrator with over 5,374 hadeeth.' },
+  2: { ans: 'B', exp: 'The Prophet ﷺ felt that the grain inside was wet/damp, while the surface appeared dry — a deliberate deception.' },
+  3: { ans: true, exp: 'Yes! The Prophet ﷺ already knew. He asked publicly to expose the practice and warn all traders in the market.' },
+  4: { ans: 'A', exp: '"مَنْ غَشَّنَا فَلَيْسَ مِنَّا" — "Whoever cheats us is not of us." This is the exact wording of the hadeeth.' },
+  5: { ans: 'C', exp: 'Surah Al-Maa\'idah (5:2) commands cooperation in righteousness (birr) and piety (taqwa), and FORBIDS cooperation in sin (ithm) and transgression (udwan).' },
+  6: { ans: false, exp: 'False. Helping someone cheat is itself a sin. The Prophet ﷺ said the ONLY way to truly help is to PREVENT them from cheating.' },
+  7: { words: ['ameen','al-ameen','al ameen','amin','الامين'], exp: 'Al-Ameen (الأمين — The Trustworthy). This title was given to him by the Quraysh even before prophethood.' },
+  8: { ans: 'B', exp: 'Selling a damaged phone without disclosing the cracked screen is exactly like hiding wet grain under dry grain — concealing defects from the buyer.' },
+  9: { ans: true, exp: 'Correct! Surah Al-Zalzalah (99:8) states: "Whoever does an atom\'s weight of evil will see it." Nothing escapes divine accounting.' },
+  10: { words: ['blessed','barakah','blessed (barakah)'], exp: 'The Prophet ﷺ said honest transactions are "blessed" (مُبَارَك). Dishonest ones lose their blessing (barakah).' }
+};
+
+function checkMCQ(btn, qNum, correct) {
+  if(answered[qNum]) return;
+  answered[qNum] = true;
+  const chosen = btn.getAttribute('data-val');
+  const isCorrect = chosen === correct;
+
+  const allBtns = document.querySelectorAll('[data-q="' + qNum + '"]');
+  allBtns.forEach(b => {
+    b.disabled = true;
+    if(b.getAttribute('data-val') === correct) b.classList.add('correct');
+  });
+  if(!isCorrect) btn.classList.add('wrong');
+
+  if(isCorrect) score++;
+  showFeedback(qNum, isCorrect, correctAnswers[qNum].exp);
+  updateProgress();
+}
+
+function checkTF(btn, qNum, chosen) {
+  if(answered[qNum]) return;
+  answered[qNum] = true;
+  const correct = correctAnswers[qNum].ans;
+  const isCorrect = chosen === correct;
+
+  const allBtns = btn.parentElement.querySelectorAll('button');
+  allBtns.forEach(b => { b.disabled = true; });
+
+  if(isCorrect) { btn.classList.add('correct'); score++; }
+  else {
+    btn.classList.add('wrong');
+    allBtns.forEach(b => {
+      if((b.classList.contains('true-btn') && correct === true) ||
+         (b.classList.contains('false-btn') && correct === false)) {
+        b.classList.add('correct');
+      }
+    });
+  }
+  showFeedback(qNum, isCorrect, correctAnswers[qNum].exp);
+  updateProgress();
+}
+
+function checkFill(qNum, acceptedArr) {
+  if(answered[qNum]) return;
+  const input = document.getElementById('fill-' + qNum);
+  const val = input.value.trim().toLowerCase();
+  const isCorrect = acceptedArr.some(a => val === a.toLowerCase() || val.includes(a.toLowerCase()));
+  answered[qNum] = true;
+
+  input.disabled = true;
+  input.classList.add(isCorrect ? 'correct' : 'wrong');
+  const btn = input.nextElementSibling;
+  btn.disabled = true;
+
+  if(isCorrect) score++;
+  showFeedback(qNum, isCorrect, correctAnswers[qNum].exp);
+  updateProgress();
+}
+
+function showResult() {
+  const qc = document.getElementById('questionsContainer');
+  const sr = document.getElementById('submitRow');
+  const qr = document.getElementById('quizResult');
+  qc.style.display = 'none';
+  sr.style.display = 'none';
+  qr.classList.add('show');
+
+  const pct = score / totalQ;
+  let trophy, msg;
+  if(pct === 1) { trophy = '🏆'; msg = 'Excellent! Perfect score! You have understood this hadeeth very well. May Allaah bless your learning!'; }
+  else if(pct >= 0.8) { trophy = '🌟'; msg = 'Very good! You have a strong understanding. Review the questions you missed and aim for perfection.'; }
+  else if(pct >= 0.6) { trophy = '📚'; msg = 'Good effort! Read through the lesson again, especially the key lessons and Qur\'an references.'; }
+  else { trophy = '💪'; msg = 'Keep trying! Go back and re-read the lesson carefully. Allaah rewards sincere effort!'; }
+
+  document.getElementById('resultTrophy').textContent = trophy;
+  document.getElementById('resultScore').textContent = score + ' / ' + totalQ;
+  document.getElementById('resultMsg').textContent = msg;
+
+  if(pct >= 0.8) launchConfetti();
+}
+
+function restartQuiz() {
+  score = 0;
+  answered = {};
+  const qc = document.getElementById('questionsContainer');
+  const sr = document.getElementById('submitRow');
+  const qr = document.getElementById('quizResult');
+  qc.style.display = '';
+  sr.style.display = '';
+  qr.classList.remove('show');
+
+  document.querySelectorAll('.option-btn').forEach(b => {
+    b.disabled = false;
+    b.classList.remove('correct','wrong');
+  });
+  document.querySelectorAll('.tf-btn').forEach(b => {
+    b.disabled = false;
+    b.classList.remove('correct','wrong');
+  });
+  document.querySelectorAll('.fill-input').forEach(i => {
+    i.disabled = false;
+    i.value = '';
+    i.classList.remove('correct','wrong');
+  });
+  document.querySelectorAll('.check-btn').forEach(b => b.disabled = false);
+  document.querySelectorAll('.feedback').forEach(f => {
+    f.className = 'feedback';
+    f.innerHTML = '';
+  });
+  updateProgress();
+}
+
+/* Confetti */
+function launchConfetti() {
+  const canvas = document.getElementById('confetti-canvas');
+  canvas.style.display = 'block';
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const particles = [];
+  const colors = ['#1a6b3a','#c49a00','#4fa870','#e8b830','#fff','#4a9e6a'];
+  for(let i = 0; i < 150; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height - canvas.height,
+      r: Math.random() * 6 + 3,
+      d: Math.random() * 150 + 10,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      tilt: Math.random() * 10 - 10,
+      tiltAngle: 0,
+      tiltAngleIncremental: Math.random() * 0.07 + 0.05
+    });
+  }
+  let angle = 0;
+  let frames = 0;
+  function draw() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    angle += 0.01;
+    frames++;
+    particles.forEach((p,i) => {
+      p.tiltAngle += p.tiltAngleIncremental;
+      p.y += (Math.cos(angle + p.d) + 2 + p.r/2) * 1.5;
+      p.x += Math.sin(angle) * 2;
+      p.tilt = Math.sin(p.tiltAngle - i/3) * 12;
+      ctx.beginPath();
+      ctx.fillStyle = p.color;
+      ctx.ellipse(p.x + p.tilt + p.r/2, p.y, p.r, p.r*0.5, p.tiltAngle, 0, 2*Math.PI);
+      ctx.fill();
+    });
+    if(frames < 200) requestAnimationFrame(draw);
+    else { canvas.style.display = 'none'; ctx.clearRect(0,0,canvas.width,canvas.height); }
+  }
+  draw();
+}
+</script>
+</body>
+</html>
