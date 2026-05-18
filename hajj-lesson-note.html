@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hajj (الحج) — Lesson Note | Islamic Studies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Sans+SC:wght@300;400;500;700&family=Work+Sans:wght@300..700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+/* ===========================
+   DESIGN TOKENS
+=========================== */
+:root, [data-theme="light"] {
+  --color-bg:             #f5f3ee;
+  --color-surface:        #faf8f4;
+  --color-surface-2:      #ffffff;
+  --color-surface-offset: #ede9e2;
+  --color-surface-dynamic:#e3ddd5;
+  --color-divider:        #d8d2c9;
+  --color-border:         #ccc6bc;
+  --color-text:           #1e1b14;
+  --color-text-muted:     #6b6560;
+  --color-text-faint:     #aaa49e;
+  --color-text-inverse:   #f8f6f1;
+  --color-primary:        #1a6b3c;
+  --color-primary-hover:  #145430;
+  --color-primary-active: #0d3d22;
+  --color-primary-highlight: #c8dfd2;
+  --color-gold:           #b8890a;
+  --color-gold-light:     #fdf3d8;
+  --color-blue:           #1a4a8a;
+  --color-blue-light:     #dae5f5;
+  --color-orange:         #b85c1a;
+  --color-orange-light:   #fde8d8;
+  --color-purple:         #5a2d8a;
+  --color-purple-light:   #e8d8f5;
+  --color-red:            #8a1a1a;
+  --color-red-light:      #f5d8d8;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --text-xs:   clamp(0.75rem,  0.7rem + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem, 1.5rem + 2vw, 3rem);
+  --font-display: 'Amiri', 'Georgia', serif;
+  --font-body: 'Work Sans', 'Helvetica Neue', sans-serif;
+  --font-chinese: 'Noto Sans SC', sans-serif;
+  --shadow-sm: 0 1px 3px oklch(0.2 0.02 80 / 0.07);
+  --shadow-md: 0 4px 12px oklch(0.2 0.02 80 / 0.09);
+  --shadow-lg: 0 12px 32px oklch(0.2 0.02 80 / 0.13);
+  --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-theme="dark"] {
+  --color-bg:             #131210;
+  --color-surface:        #191714;
+  --color-surface-2:      #1e1c18;
+  --color-surface-offset: #201e1a;
+  --color-surface-dynamic:#2a2824;
+  --color-divider:        #2e2c28;
+  --color-border:         #3a3832;
+  --color-text:           #e8e4dc;
+  --color-text-muted:     #8a867e;
+  --color-text-faint:     #5a5852;
+  --color-text-inverse:   #1e1c18;
+  --color-primary:        #4fa86e;
+  --color-primary-hover:  #2e8f54;
+  --color-primary-active: #1a6b3c;
+  --color-primary-highlight:#1e3328;
+  --color-gold:           #e0aa28;
+  --color-gold-light:     #2a2410;
+  --color-blue:           #5a8ad8;
+  --color-blue-light:     #151e2e;
+  --color-orange:         #e07a3a;
+  --color-orange-light:   #261810;
+  --color-purple:         #9a5ad8;
+  --color-purple-light:   #1c1228;
+  --color-red:            #d85a5a;
+  --color-red-light:      #261010;
+  --shadow-sm: 0 1px 3px oklch(0 0 0 / 0.25);
+  --shadow-md: 0 4px 12px oklch(0 0 0 / 0.35);
+  --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.45);
+}
+
+/* ===========================
+   BASE RESET
+=========================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+body {
+  min-height: 100dvh;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.65;
+  transition: background var(--transition), color var(--transition);
+}
+img { display: block; max-width: 100%; height: auto; }
+button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+a { color: var(--color-primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+table { border-collapse: collapse; width: 100%; }
+h1,h2,h3,h4 { text-wrap: balance; }
+p, li { text-wrap: pretty; max-width: 72ch; }
+:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* ===========================
+   NAV / HEADER
+=========================== */
+.top-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: color-mix(in oklab, var(--color-surface) 90%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-divider);
+  padding: var(--space-3) var(--space-6);
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);
+  transition: background var(--transition), border-color var(--transition);
+}
+.top-bar-logo {
+  display: flex; align-items: center; gap: var(--space-3);
+  font-family: var(--font-display); font-size: var(--text-lg);
+  color: var(--color-text); font-weight: 700;
+}
+.top-bar-logo svg { color: var(--color-primary); }
+.top-bar-right { display: flex; align-items: center; gap: var(--space-2); }
+
+.nav-pill {
+  display: flex; gap: var(--space-1);
+  background: var(--color-surface-offset);
+  border-radius: var(--radius-full);
+  padding: var(--space-1);
+  border: 1px solid var(--color-border);
+}
+.nav-pill a {
+  font-size: var(--text-xs); font-weight: 500;
+  color: var(--color-text-muted);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  transition: background var(--transition), color var(--transition);
+  white-space: nowrap;
+}
+.nav-pill a:hover { background: var(--color-surface-2); color: var(--color-text); text-decoration: none; }
+.nav-pill a.active { background: var(--color-primary); color: white; }
+
+.btn-icon {
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  transition: background var(--transition), color var(--transition);
+}
+.btn-icon:hover { background: var(--color-surface-offset); color: var(--color-text); }
+
+/* Lang toggle */
+.lang-toggle {
+  display: flex; align-items: center; gap: var(--space-1);
+  background: var(--color-surface-offset);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-xs); font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.lang-toggle:hover { background: var(--color-surface-dynamic); }
+.lang-toggle .lang-label { color: var(--color-text-muted); transition: color var(--transition); }
+.lang-toggle .lang-label.active { color: var(--color-primary); font-weight: 700; }
+
+/* ===========================
+   HERO
+=========================== */
+.hero {
+  padding: calc(var(--space-20) + 60px) var(--space-6) var(--space-16);
+  max-width: 900px; margin: 0 auto;
+  text-align: center;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  background: var(--color-primary-highlight);
+  color: var(--color-primary);
+  font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: var(--space-1) var(--space-4);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-6);
+  border: 1px solid color-mix(in oklab, var(--color-primary) 20%, transparent);
+}
+.hero-arabic {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  color: var(--color-primary);
+  line-height: 1;
+  margin-bottom: var(--space-3);
+  letter-spacing: -0.01em;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+  font-weight: 700;
+}
+.hero-subtitle-cn {
+  font-family: var(--font-chinese);
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+  font-weight: 300;
+}
+.hero-meta {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+.hero-chip {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-4);
+  font-size: var(--text-xs); color: var(--color-text-muted);
+}
+.hero-chip i { width: 14px; height: 14px; color: var(--color-primary); }
+.hero-scroll-hint {
+  display: flex; flex-direction: column; align-items: center; gap: var(--space-2);
+  color: var(--color-text-faint); font-size: var(--text-xs);
+  animation: bounce 2s ease-in-out infinite;
+}
+@keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+
+/* ===========================
+   LAYOUT
+=========================== */
+.page-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: var(--space-8);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-6) var(--space-20);
+}
+.sidebar {
+  position: sticky; top: 80px;
+  align-self: start;
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+  padding-bottom: var(--space-8);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: var(--radius-full); }
+.sidebar-label {
+  font-size: var(--text-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--color-text-faint); margin-bottom: var(--space-3); padding-left: var(--space-3);
+}
+.sidebar-nav { list-style: none; }
+.sidebar-nav li a {
+  display: flex; align-items: center; gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm); color: var(--color-text-muted);
+  transition: background var(--transition), color var(--transition);
+  text-decoration: none;
+}
+.sidebar-nav li a:hover { background: var(--color-surface-offset); color: var(--color-text); }
+.sidebar-nav li a.active { background: var(--color-primary-highlight); color: var(--color-primary); font-weight: 600; }
+.sidebar-nav li a i { width: 16px; height: 16px; flex-shrink: 0; }
+.sidebar-progress {
+  margin-top: var(--space-6); padding: var(--space-4); 
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+.progress-label { font-size: var(--text-xs); color: var(--color-text-muted); margin-bottom: var(--space-2); }
+.progress-bar { height: 6px; background: var(--color-surface-offset); border-radius: var(--radius-full); overflow: hidden; }
+.progress-fill { height: 100%; background: var(--color-primary); border-radius: var(--radius-full); width: 0%; transition: width 0.4s ease; }
+.progress-count { font-size: var(--text-xs); color: var(--color-text-faint); margin-top: var(--space-2); text-align: right; }
+
+.main-content { min-width: 0; }
+
+/* ===========================
+   SECTIONS
+=========================== */
+.lesson-section {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  margin-bottom: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  opacity: 1;
+}
+@supports (animation-timeline: scroll()) {
+  .lesson-section {
+    opacity: 0;
+    animation: reveal-fade linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
+  }
+  @keyframes reveal-fade { to { opacity: 1; } }
+}
+
+.section-header {
+  display: flex; align-items: flex-start; gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--color-divider);
+}
+.section-icon {
+  width: 48px; height: 48px; flex-shrink: 0;
+  border-radius: var(--radius-lg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+}
+.section-header-text { flex: 1; min-width: 0; }
+.section-number {
+  font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--color-text-faint); margin-bottom: var(--space-1);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--color-text);
+  margin-bottom: var(--space-1);
+  line-height: 1.2;
+}
+.section-title-cn {
+  font-family: var(--font-chinese);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted); font-weight: 400;
+}
+
+/* ===========================
+   CONTENT BLOCKS
+=========================== */
+.definition-box {
+  background: var(--color-primary-highlight);
+  border-left: 3px solid var(--color-primary);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  padding: var(--space-4) var(--space-6);
+  margin-bottom: var(--space-6);
+}
+[data-theme="dark"] .definition-box { background: var(--color-primary-highlight); }
+.definition-box p { color: var(--color-text); font-size: var(--text-base); max-width: none; }
+.definition-box .cn-text { font-family: var(--font-chinese); color: var(--color-text-muted); font-size: var(--text-sm); margin-top: var(--space-2); }
+
+.quran-verse {
+  background: var(--color-gold-light);
+  border: 1px solid color-mix(in oklab, var(--color-gold) 25%, transparent);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  margin: var(--space-5) 0;
+}
+[data-theme="dark"] .quran-verse { background: var(--color-gold-light); }
+.quran-arabic {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  text-align: right; direction: rtl;
+  color: var(--color-text);
+  line-height: 2;
+  margin-bottom: var(--space-3);
+}
+.quran-translation { font-size: var(--text-sm); color: var(--color-text-muted); font-style: italic; }
+.quran-source { font-size: var(--text-xs); color: var(--color-text-faint); margin-top: var(--space-2); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* Tabs */
+.tabs {
+  display: flex; gap: var(--space-1);
+  background: var(--color-surface-offset);
+  border-radius: var(--radius-lg);
+  padding: var(--space-1);
+  border: 1px solid var(--color-border);
+  margin-bottom: var(--space-5);
+  flex-wrap: wrap;
+}
+.tab-btn {
+  flex: 1; padding: var(--space-2) var(--space-4);
+  border-radius: calc(var(--radius-lg) - 2px);
+  font-size: var(--text-sm); font-weight: 500;
+  color: var(--color-text-muted);
+  transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+  min-width: 80px;
+}
+.tab-btn:hover { color: var(--color-text); background: var(--color-surface); }
+.tab-btn.active {
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+  font-weight: 600;
+}
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* Tables */
+.table-wrapper { overflow-x: auto; border-radius: var(--radius-lg); border: 1px solid var(--color-border); }
+.data-table { font-size: var(--text-sm); }
+.data-table thead { background: var(--color-surface-offset); }
+.data-table th {
+  padding: var(--space-3) var(--space-4);
+  text-align: left; font-weight: 600;
+  color: var(--color-text-muted);
+  font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+.data-table td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-divider);
+  color: var(--color-text);
+  vertical-align: top;
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: var(--color-surface-offset); }
+.td-arabic { font-family: var(--font-display); font-size: 1.1em; direction: rtl; }
+.td-cn { font-family: var(--font-chinese); color: var(--color-text-muted); font-size: 0.95em; }
+
+/* Pillar/Rukun cards */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
+  gap: var(--space-4);
+  margin: var(--space-5) 0;
+}
+.pillar-card {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.pillar-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.pillar-num {
+  font-size: var(--text-xs); font-weight: 800; letter-spacing: 0.1em;
+  color: var(--color-text-faint); margin-bottom: var(--space-3);
+}
+.pillar-arabic {
+  font-family: var(--font-display);
+  font-size: 1.8rem; color: var(--color-primary);
+  margin-bottom: var(--space-2); line-height: 1.2;
+}
+.pillar-en { font-weight: 700; font-size: var(--text-base); color: var(--color-text); margin-bottom: var(--space-1); }
+.pillar-cn { font-family: var(--font-chinese); font-size: var(--text-sm); color: var(--color-text-muted); }
+.pillar-desc { font-size: var(--text-xs); color: var(--color-text-faint); margin-top: var(--space-3); line-height: 1.5; }
+.pillar-accent-bar { position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+
+/* Timeline */
+.timeline { position: relative; padding-left: var(--space-10); }
+.timeline::before {
+  content: '';
+  position: absolute; left: 16px; top: 8px; bottom: 8px;
+  width: 2px; background: var(--color-divider); border-radius: var(--radius-full);
+}
+.timeline-item { position: relative; margin-bottom: var(--space-6); }
+.timeline-dot {
+  position: absolute; left: calc(-1 * var(--space-10) + var(--space-1));
+  top: 4px; width: 24px; height: 24px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  border: 2px solid var(--color-primary);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 800; color: var(--color-primary);
+  z-index: 1;
+}
+.timeline-day {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  background: var(--color-primary);
+  color: white; font-size: var(--text-xs); font-weight: 700;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-3);
+}
+.timeline-content {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+}
+.timeline-content h4 { font-size: var(--text-base); font-weight: 700; margin-bottom: var(--space-3); }
+.step-list { list-style: none; }
+.step-list li {
+  display: flex; gap: var(--space-3); align-items: flex-start;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+.step-list li:last-child { border-bottom: none; }
+.step-num {
+  min-width: 24px; height: 24px;
+  background: var(--color-primary-highlight);
+  color: var(--color-primary);
+  border-radius: var(--radius-full);
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--text-xs); font-weight: 700;
+  flex-shrink: 0; margin-top: 2px;
+}
+.step-text { font-size: var(--text-sm); color: var(--color-text); }
+.step-cn { font-family: var(--font-chinese); font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-1); }
+
+/* Type cards for hajj types */
+.types-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+  gap: var(--space-4);
+  margin: var(--space-5) 0;
+}
+.type-card {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  transition: box-shadow var(--transition);
+  cursor: default;
+}
+.type-card:hover { box-shadow: var(--shadow-md); }
+.type-tag {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+  margin-bottom: var(--space-3);
+}
+.type-arabic { font-family: var(--font-display); font-size: 1.5rem; color: var(--color-text); margin-bottom: var(--space-2); }
+.type-meaning { font-weight: 700; font-size: var(--text-base); margin-bottom: var(--space-1); }
+.type-cn { font-family: var(--font-chinese); font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: var(--space-3); }
+.type-desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; }
+.type-badge {
+  display: inline-flex; align-items: center; gap: var(--space-1);
+  font-size: var(--text-xs); margin-top: var(--space-3);
+  padding: 2px var(--space-2); border-radius: var(--radius-sm);
+}
+
+/* Benefits grid */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
+  gap: var(--space-4);
+}
+.benefit-card {
+  padding: var(--space-5);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  transition: box-shadow var(--transition);
+}
+.benefit-card:hover { box-shadow: var(--shadow-md); }
+.benefit-icon { font-size: 1.5rem; margin-bottom: var(--space-3); }
+.benefit-title { font-weight: 700; font-size: var(--text-base); margin-bottom: var(--space-1); }
+.benefit-title-cn { font-family: var(--font-chinese); font-size: var(--text-xs); color: var(--color-text-muted); margin-bottom: var(--space-2); }
+.benefit-hadith { font-size: var(--text-xs); color: var(--color-text-muted); font-style: italic; line-height: 1.5; }
+
+/* Vocab table */
+.vocab-search {
+  display: flex; align-items: center; gap: var(--space-3);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2) var(--space-4);
+  margin-bottom: var(--space-4);
+}
+.vocab-search i { color: var(--color-text-faint); flex-shrink: 0; }
+.vocab-search input {
+  flex: 1; background: none; border: none; outline: none;
+  font: inherit; font-size: var(--text-sm); color: var(--color-text);
+}
+.vocab-search input::placeholder { color: var(--color-text-faint); }
+.vocab-card {
+  display: grid; grid-template-columns: auto 1fr 1fr;
+  align-items: center; gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-divider);
+  transition: background var(--transition);
+}
+.vocab-card:last-child { border-bottom: none; }
+.vocab-card:hover { background: var(--color-surface-offset); }
+.vocab-arabic { font-family: var(--font-display); font-size: 1.4rem; color: var(--color-primary); direction: rtl; min-width: 80px; text-align: right; }
+.vocab-en { font-weight: 600; font-size: var(--text-sm); }
+.vocab-en small { font-weight: 400; color: var(--color-text-muted); display: block; font-size: var(--text-xs); margin-top: 2px; }
+.vocab-cn { font-family: var(--font-chinese); font-size: var(--text-sm); color: var(--color-text-muted); }
+
+/* Quiz section */
+.quiz-wrapper { display: flex; flex-direction: column; gap: var(--space-5); }
+.quiz-card {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+.quiz-question {
+  padding: var(--space-5) var(--space-5) var(--space-3);
+  font-weight: 600; font-size: var(--text-base);
+}
+.quiz-question-cn { font-family: var(--font-chinese); font-size: var(--text-sm); color: var(--color-text-muted); padding: 0 var(--space-5) var(--space-4); }
+.quiz-options { padding: 0 var(--space-4) var(--space-4); display: flex; flex-direction: column; gap: var(--space-2); }
+.quiz-option {
+  display: flex; align-items: center; gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  font-size: var(--text-sm);
+  transition: all var(--transition);
+  text-align: left;
+  width: 100%;
+  background: var(--color-surface);
+}
+.quiz-option:hover { border-color: var(--color-primary); background: var(--color-primary-highlight); }
+.quiz-option.correct { border-color: #2e7d32; background: #e8f5e9; color: #1b5e20; }
+.quiz-option.wrong { border-color: #c62828; background: #ffebee; color: #b71c1c; }
+[data-theme="dark"] .quiz-option.correct { border-color: #4caf50; background: #1b3a1c; color: #81c784; }
+[data-theme="dark"] .quiz-option.wrong { border-color: #f44336; background: #3a1b1b; color: #ef9a9a; }
+.quiz-opt-letter {
+  min-width: 28px; height: 28px;
+  background: var(--color-surface-offset);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: var(--text-xs); color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+.quiz-option.correct .quiz-opt-letter { background: #2e7d32; color: white; }
+.quiz-option.wrong .quiz-opt-letter { background: #c62828; color: white; }
+.quiz-explanation {
+  display: none;
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  background: var(--color-surface-offset);
+  font-size: var(--text-sm); color: var(--color-text-muted);
+  border-top: 1px solid var(--color-divider);
+}
+.quiz-explanation.visible { display: block; }
+.quiz-score {
+  text-align: center; padding: var(--space-8);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+.score-circle {
+  width: 80px; height: 80px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: white;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  margin: 0 auto var(--space-4);
+  font-weight: 800;
+}
+.score-num { font-size: var(--text-xl); line-height: 1; }
+.score-total { font-size: var(--text-xs); opacity: 0.8; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  background: var(--color-primary); color: white;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm); font-weight: 600;
+  transition: background var(--transition), box-shadow var(--transition);
+  margin-top: var(--space-4);
+}
+.btn-primary:hover { background: var(--color-primary-hover); box-shadow: var(--shadow-md); }
+
+/* Prohibited acts */
+.prohibited-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+  gap: var(--space-3);
+}
+.prohibited-item {
+  display: flex; align-items: flex-start; gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--color-red-light);
+  border: 1px solid color-mix(in oklab, var(--color-red) 20%, transparent);
+  border-radius: var(--radius-lg);
+}
+[data-theme="dark"] .prohibited-item { background: var(--color-red-light); }
+.prohibited-item i { color: var(--color-red); flex-shrink: 0; margin-top: 2px; }
+.prohibited-text { font-size: var(--text-sm); font-weight: 600; color: var(--color-text); }
+.prohibited-cn { font-family: var(--font-chinese); font-size: var(--text-xs); color: var(--color-text-muted); margin-top: 2px; }
+
+/* Wajibat list */
+.wajibat-list { display: flex; flex-direction: column; gap: var(--space-3); }
+.wajib-item {
+  display: flex; align-items: flex-start; gap: var(--space-4);
+  padding: var(--space-4);
+  background: var(--color-blue-light);
+  border: 1px solid color-mix(in oklab, var(--color-blue) 20%, transparent);
+  border-radius: var(--radius-lg);
+}
+[data-theme="dark"] .wajib-item { background: var(--color-blue-light); }
+.wajib-num {
+  min-width: 32px; height: 32px;
+  background: var(--color-blue);
+  color: white;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: var(--text-sm); flex-shrink: 0;
+}
+.wajib-text { font-size: var(--text-sm); }
+.wajib-text strong { color: var(--color-text); font-weight: 700; }
+.wajib-text .wajib-arabic { font-family: var(--font-display); color: var(--color-blue); font-size: 1.1em; display: block; margin-bottom: 2px; }
+.wajib-text .wajib-cn { font-family: var(--font-chinese); color: var(--color-text-muted); font-size: var(--text-xs); margin-top: 2px; display: block; }
+
+/* Story timeline */
+.story-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
+  gap: var(--space-4);
+}
+.story-step {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  position: relative;
+}
+.story-step-num {
+  width: 36px; height: 36px;
+  background: var(--color-gold);
+  color: white; border-radius: var(--radius-full);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: var(--text-sm); margin-bottom: var(--space-3);
+}
+.story-step h4 { font-size: var(--text-sm); font-weight: 700; margin-bottom: var(--space-2); }
+.story-step p { font-size: var(--text-xs); color: var(--color-text-muted); line-height: 1.6; max-width: none; }
+.story-step .step-cn { font-family: var(--font-chinese); color: var(--color-text-faint); }
+
+/* Print button */
+.print-btn {
+  display: flex; align-items: center; gap: var(--space-2);
+  background: var(--color-surface-offset);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--text-sm); font-weight: 500; color: var(--color-text-muted);
+  transition: all var(--transition);
+}
+.print-btn:hover { background: var(--color-surface-dynamic); color: var(--color-text); }
+
+/* footer */
+.page-footer {
+  max-width: 1200px; margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+  border-top: 1px solid var(--color-divider);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-4);
+  font-size: var(--text-xs); color: var(--color-text-faint);
+}
+
+/* Chinese hide/show */
+body.hide-chinese .cn-text,
+body.hide-chinese .td-cn,
+body.hide-chinese .step-cn,
+body.hide-chinese .type-cn,
+body.hide-chinese .pillar-cn,
+body.hide-chinese .benefit-title-cn,
+body.hide-chinese .vocab-cn,
+body.hide-chinese .quiz-question-cn,
+body.hide-chinese .wajib-cn,
+body.hide-chinese .prohibited-cn,
+body.hide-chinese .hero-subtitle-cn { display: none; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .top-bar { padding: var(--space-3) var(--space-4); }
+  .nav-pill { display: none; }
+  .page-layout { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .hero { padding: calc(var(--space-16) + 60px) var(--space-4) var(--space-10); }
+  .lesson-section { padding: var(--space-6) var(--space-4); }
+  .section-title { font-size: var(--text-lg); }
+  .pillars-grid, .types-grid { grid-template-columns: 1fr 1fr; }
+  .vocab-card { grid-template-columns: auto 1fr; }
+  .vocab-cn { display: none; }
+}
+@media (max-width: 480px) {
+  .pillars-grid, .types-grid, .benefits-grid, .story-steps, .prohibited-grid { grid-template-columns: 1fr; }
+}
+
+/* Print */
+@media print {
+  .top-bar, .sidebar, .quiz-wrapper, .print-btn { display: none !important; }
+  .page-layout { grid-template-columns: 1fr; }
+  .lesson-section { box-shadow: none; break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<header class="top-bar">
+  <div class="top-bar-logo">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-label="Crescent and star logo">
+      <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5" opacity="0.2"/>
+      <path d="M20 8a9 9 0 1 0 0 16 7 7 0 1 1 0-16z" fill="currentColor"/>
+      <path d="M22 9l1 2 2 .5-1.5 1.5.3 2.2L22 14l-1.8 1.2.3-2.2L19 11.5l2-.5z" fill="currentColor"/>
+    </svg>
+    <span>Hajj Lesson Note</span>
+  </div>
+
+  <nav class="nav-pill" aria-label="Section navigation">
+    <a href="#definition" class="active">Definition</a>
+    <a href="#history">History</a>
+    <a href="#conditions">Conditions</a>
+    <a href="#types">Types</a>
+    <a href="#pillars">Pillars</a>
+    <a href="#wajibat">Wajibat</a>
+    <a href="#rituals">Rituals</a>
+    <a href="#vocab">Vocab</a>
+    <a href="#quiz">Quiz</a>
+  </nav>
+
+  <div class="top-bar-right">
+    <button class="lang-toggle" id="langToggle" title="Toggle Chinese translations" aria-pressed="false">
+      <span class="lang-label" id="cnLabel" style="color:var(--color-primary);font-weight:700">中文</span>
+      <span style="color:var(--color-border)">|</span>
+      <span class="lang-label" id="enLabel">EN</span>
+    </button>
+    <button class="btn-icon" data-theme-toggle aria-label="Toggle dark mode">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="btn-icon print-btn-small" onclick="window.print()" aria-label="Print">
+      <i data-lucide="printer"></i>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <i data-lucide="book-open" style="width:14px;height:14px"></i>
+    Islamic Studies — Grade 7 & 9
+  </div>
+  <div class="hero-arabic">الحج</div>
+  <h1 class="hero-title">Hajj — The Fifth Pillar of Islam</h1>
+  <p class="hero-subtitle-cn cn-text" style="font-family:var(--font-chinese)">朝觐 — 伊斯兰第五功</p>
+  <div class="hero-meta">
+    <span class="hero-chip"><i data-lucide="map-pin"></i> Makkah, Saudi Arabia</span>
+    <span class="hero-chip"><i data-lucide="calendar"></i> Dhul-Hijjah (Month 12)</span>
+    <span class="hero-chip"><i data-lucide="users"></i> ~1.8M Pilgrims Annually</span>
+    <span class="hero-chip"><i data-lucide="book"></i> Surah Ali-Imran 3:97</span>
+  </div>
+  <div class="hero-scroll-hint">
+    <i data-lucide="chevrons-down" style="width:20px;height:20px"></i>
+    Scroll to explore
+  </div>
+</section>
+
+<!-- MAIN LAYOUT -->
+<div class="page-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" aria-label="Page navigation">
+    <p class="sidebar-label">Contents</p>
+    <ul class="sidebar-nav" id="sidebarNav">
+      <li><a href="#definition" class="active"><i data-lucide="info"></i>Definition</a></li>
+      <li><a href="#history"><i data-lucide="clock"></i>History</a></li>
+      <li><a href="#conditions"><i data-lucide="check-circle"></i>Conditions</a></li>
+      <li><a href="#types"><i data-lucide="layers"></i>Types of Hajj</a></li>
+      <li><a href="#pillars"><i data-lucide="columns"></i>Pillars (Arkān)</a></li>
+      <li><a href="#wajibat"><i data-lucide="list-checks"></i>Wajibat</a></li>
+      <li><a href="#rituals"><i data-lucide="map"></i>Step-by-Step Rituals</a></li>
+      <li><a href="#prohibited"><i data-lucide="ban"></i>Prohibited Acts</a></li>
+      <li><a href="#benefits"><i data-lucide="star"></i>Spiritual Benefits</a></li>
+      <li><a href="#vocab"><i data-lucide="book-marked"></i>Vocabulary</a></li>
+      <li><a href="#quiz"><i data-lucide="help-circle"></i>Quiz</a></li>
+    </ul>
+    <div class="sidebar-progress">
+      <p class="progress-label">Reading Progress</p>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <p class="progress-count" id="progressCount">0%</p>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- 1. DEFINITION -->
+    <section class="lesson-section" id="definition">
+      <div class="section-header">
+        <div class="section-icon" style="background:var(--color-primary-highlight)">🕋</div>
+        <div class="section-header-text">
+          <div class="section-number">Section 1</div>
+          <h2 class="section-title">Definition of Hajj</h2>
+          <p class="section-title-cn cn-text">朝觐的定义</p>
+        </div>
+      </div>
+      <div class="definition-box">
+        <p><strong>Hajj (الحج)</strong> literally means <em>"to make a resolve to visit a holy place."</em> It refers to the annual pilgrimage to the holy city of <strong>Makkah (Mecca)</strong>, Saudi Arabia, performed during the Islamic month of <strong>Dhul-Hijjah (ذو الحجة)</strong> — the 12th month of the Islamic calendar. Hajj is the <strong>Fifth Pillar of Islam</strong>, obligatory upon every sane, adult Muslim who is financially and physically capable, at least once in their lifetime.</p>
+        <p class="cn-text">朝觐（الحج）字面意思是"下定决心前往圣地"。它指每年在伊斯兰历十二月（朝觐月）前往沙特阿拉伯<strong>麦加</strong>圣城进行的年度朝圣。朝觐是<strong>伊斯兰五功的第五功</strong>，是每一位具有理智、已达青春期、且在经济和体力上有能力的穆斯林，一生中至少必须履行一次的义务。</p>
+      </div>
+
+      <div class="quran-verse">
+        <div class="quran-arabic">وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا</div>
+        <p class="quran-translation">"And [due] to Allah from the people is a pilgrimage to the House — for whoever is able to find thereto a way."</p>
+        <p class="quran-translation cn-text" style="font-family:var(--font-chinese)">"凡能前往天房者，为真主而朝觐天房，是人民对真主应尽的义务。"</p>
+        <p class="quran-source">Al-Quran, Surah Ali-Imran (3:97) — 阿里·伊姆兰章</p>
+      </div>
+
+      <div class="quran-verse" style="background:var(--color-blue-light); border-color: color-mix(in oklab, var(--color-blue) 20%, transparent);">
+        <p style="font-size:var(--text-sm); font-style:italic; color:var(--color-text-muted); margin-bottom:var(--space-2)">The Prophet Muhammad ﷺ said (Hadith):</p>
+        <p style="font-size:var(--text-sm); color:var(--color-text)">"Verily, al-Islam is founded on five pillars: testifying that there is no god but Allah, establishing prayer, payment of Zakah, fasting Ramadan, and <strong>Pilgrimage to the House</strong>."</p>
+        <p class="cn-text" style="font-family:var(--font-chinese);font-size:var(--text-xs);color:var(--color-text-muted);margin-top:var(--space-2)">"伊斯兰建立在五大支柱之上：作证除真主外无神；立礼；纳天课；斋月封斋；<strong>朝觐天房</strong>。"</p>
+        <p class="quran-source">Sahih Bukhari & Muslim — 布哈里与穆斯林圣训集</p>
+      </div>
+    </section>
+
+    <!-- 2. HISTORY -->
+    <section class="lesson-section" id="history">
+      <div class="section-header">
+        <div class="section-icon" style="background:var(--color-gold-light)">📜</div>
+        <div class="section-header-text">
+          <div class="section-number">Section 2</div>
+          <h2 class="section-title">History & Origin of Hajj</h2>
+          <p class="section-title-cn cn-text">朝觐的历史与起源</p>
+        </div>
+      </div>
+      <p style="margin-bottom:var(--space-5)">The spiritual origins of Hajj trace back thousands of years to <strong>Prophet Ibrahim (Abraham) عليه السلام</strong> and his family. The present pattern of Hajj was established and purified by <strong>Prophet Muhammad ﷺ</strong> around 632 CE during his Farewell Pilgrimage. <span class="cn-text" style="font-family:var(--font-chinese);color:var(--color-text-muted);font-size:0.9em">朝觐的精神起源可追溯到数千年前的<strong>先知易卜拉欣（亚伯拉罕）عليه السلام</strong>及其家人。现行朝觐形式由<strong>先知穆罕默德ﷺ</strong>于公元632年的"告别朝觐"中建立并净化。</span></p>
+      <div class="story-steps">
+        <div class="story-step">
+          <div class="story-step-num">1</div>
+          <h4>Allah's Command</h4>
+          <p>Allah commanded Prophet Ibrahim to bring his wife Hajar and infant son Ismail to the barren valley of Makkah.</p>
+          <p class="step-cn cn-text">真主命令易卜拉欣先知将其妻子哈吉尔和婴儿伊斯玛仪带到麦加的荒凉峡谷。</p>
+        </div>
+        <div class="story-step">
+          <div class="story-step-num">2</div>
+          <h4>Miracle of Zamzam 渗渗泉</h4>
+          <p>Hajar ran 7 times between Safa & Marwah searching for water. Allah caused the sacred Zamzam spring to gush forth — commemorated in <em>Sa'i</em>.</p>
+          <p class="step-cn cn-text">哈吉尔在萨法和麦尔沃之间奔跑七次寻找水源。真主使渗渗泉涌现——在赛跑仪式中被纪念。</p>
+        </div>
+        <div class="story-step">
+          <div class="story-step-num">3</div>
+          <h4>Building the Ka'abah 克尔白</h4>
+          <p>Allah instructed Ibrahim and his son Ismail (now grown) to construct the Ka'abah as the first House of Worship.</p>
+          <p class="step-cn cn-text">真主命令易卜拉欣和其子伊斯玛仪共同建造克尔白，作为第一座礼拜场所（天房）。</p>
+        </div>
+        <div class="story-step">
+          <div class="story-step-num">4</div>
+          <h4>Test of Sacrifice 牺牲的考验</h4>
+          <p>Ibrahim was tested to sacrifice Ismail. At the last moment, a ram was sent as substitute — commemorated in Eid al-Adha.</p>
+          <p class="step-cn cn-text">易卜拉欣受考验宰杀伊斯玛仪。在最后一刻，一只公羊被派来作为代替——在宰牲节中被纪念。</p>
+        </div>
+        <div class="story-step">
+          <div class="story-step-num">5</div>
+          <h4>Proclamation of Hajj 宣告朝觐</h4>
+          <p>After building the Ka'abah, Ibrahim received revelation to proclaim pilgrimage to all of mankind.</p>
+          <p class="step-cn cn-text">建造克尔白后，易卜拉欣接受启示，向全人类宣告朝觐的义务。</p>
+        </div>
+        <div class="story-step">
+          <div class="story-step-num">6</div>
+          <h4>Prophet's Reformation 先知的改革</h4>
+          <p>Prophet Muhammad ﷺ purified Hajj from pre-Islamic pagan practices and restored it to pure monotheism during 632 CE.</p>
+          <p class="step-cn cn-text">先知穆罕默德ﷺ净化了前伊斯兰异教习俗，于公元632年将朝觐恢复为纯粹的一神教形式。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. CONDITIONS -->
+    <section class="lesson-section" id="conditions">
+      <div class="section-header">
+        <div class="section-icon" style="background:var(--color-orange-light)">✅</div>
+        <div class="section-header-text">
+          <div class="section-number">Section 3</div>
+          <h2 class="section-title">Conditions of Hajj (Syarat Wajib)</h2>
+          <p class="section-title-cn cn-text">朝觐的条件（شروط وجوب الحج）</p>
+        </div>
+      </div>
+      <p style="margin-bottom:var(--space-5)">Hajj becomes obligatory when ALL of these conditions are met. <span class="cn-text" style="font-family:var(--font-chinese);color:var(--color-text-muted)">满足所有以下条件时，朝觐成为义务。</span></p>
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Arabic Term</th>
+              <th>English</th>
+              <th class="td-cn">中文</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1</strong></td>
+              <td><span class="td-arabic">إسلام</span></td>
+              <td><strong>Islam</strong></td>
+              <td class="td-cn">必须是穆斯林</td>
+              <td style="font-size:var(--text-xs)">Only obligatory for Muslims</td>
+            </tr>
+            <tr>
+              <td><strong>2</strong></td>
+              <td><span class="td-arabic">عقل</span></td>
+              <td><strong>'Aql — Sanity</strong></td>
+              <td class="td-cn">精神正常，理智健全</td>
+              <td style="font-size:var(--text-xs)">Sound mind (not insane)</td>
+            </tr>
+            <tr>
+              <td><strong>3</strong></td>
+              <td><span class="td-arabic">بلوغ</span></td>
+              <td><strong>Bulugh — Puberty</strong></td>
+              <td class="td-cn">已达青春期（成年）</td>
+              <td style="font-size:var(--text-xs)">Must have reached puberty</td>
+            </tr>
+            <tr>
+              <td><strong>4</strong></td>
+              <td><span class="td-arabic">حرية</span></td>
+              <td><strong>Hurriyyah — Freedom</strong></td>
+              <td class="td-cn">自由身（非奴隶）</td>
+              <td style="font-size:var(--text-xs)">Must be a free person</td>
+            </tr>
+            <tr>
+              <td><strong>5</strong></td>
+              <td><span class="td-arabic">استطاعة</span></td>
+              <td><strong>Istita'ah — Capability</strong></td>
+              <td class="td-cn">具备能力（体力+财力）</td>
+              <td style="font-size:var(--text-xs)">Financial & physical ability; safety of journey; Mahram for women</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="definition-box" style="margin-top:var(--space-5); background: var(--color-orange-light); border-left-color: var(--color-orange)">
+        <p><strong>Istita'ah (Capability) includes:</strong> Sufficient provisions for travel; ability to support dependents; physical health; and for women — a <strong>Mahram (محرم)</strong> male guardian to accompany her.</p>
+        <p class="cn-text"><strong>能力（استطاعة）包括：</strong>有足够的旅行费用；能够在旅途中维持家人的生活；身体健康；对于女性，还需有<strong>男性监护人（马赫兰姆）</strong>陪同。</p>
+      </div>
+    </section>
+
+    <!-- 4. TYPES -->
+    <section class="lesson-section" id="types">
+      <div class="section-header">
+        <div class="section-icon" style="background:var(--color-purple-light)">🔀</div>
+        <div class="section-header-text">
+          <div class="section-number">Section 4</div>
+          <h2 class="section-title">Types of Hajj (أنواع الحج)</h2>
+          <p class="section-title-cn cn-text">朝觐的三种类型</p>
+        </div>
+      </div>
+      <div class="types-grid">
+        <div class="type-card">
+          <span class="type-tag" style="background:var(--color-primary-highlight);color:var(--color-primary)">Most Recommended</span>
+          <div class="type-arabic">حج التمتع</div>
+          <div class="type-meaning">Hajj al-Tamattu'</div>
+          <div class="type-cn cn-text">享受朝觐</div>
+          <p class="type-desc">Perform Umrah first during Hajj months, exit Ihram, then re-enter Ihram for Hajj on 8th Dhul-Hijjah. Best for distant pilgrims. Requires a sacrifice (dam).</p>
+          <p class="type-desc cn-text" style="font-family:var(--font-chinese)">先进行副朝，之后解除戒戒，在朝觐月八日重新进入戒戒状态。推荐给远方朝觐者。需献祭。</p>
+          <span class="type-badge" style="background:var(--color-primary-highlight);color:var(--color-primary)"><i data-lucide="check" style="width:12px;height:12px"></i> Dam required 需献祭</span>
+        </div>
+        <div class="type-card">
+          <span class="type-tag" style="background:var(--color-blue-light);color:var(--color-blue)">Combined</span>
+          <div class="type-arabic">حج القِران</div>
+          <div class="type-meaning">Hajj al-Qiran</div>
+          <div class="type-cn cn-text">联合朝觐</div>
+          <p class="type-desc">Enter Ihram for both Umrah and Hajj together without breaking Ihram. Stay in Ihram throughout. Requires a sacrifice (dam).</p>
+          <p class="type-desc cn-text" style="font-family:var(--font-chinese)">同时为副朝和朝觐进入戒戒状态，自始至终不解除戒戒。需献祭。</p>
+          <span class="type-badge" style="background:var(--color-blue-light);color:var(--color-blue)"><i data-lucide="check" style="width:12px;height:12px"></i> Dam required 需献祭</span>
+        </div>
+        <div class="type-card">
+          <span class="type-tag" style="background:var(--color-orange-light);color:var(--color-orange)">Singular</span>
+          <div class="type-arabic">حج الإفراد</div>
+          <div class="type-meaning">Hajj al-Ifrad</div>
+          <div class="type-cn cn-text">单独朝觐</div>
+          <p class="type-desc">Enter Ihram for Hajj only, no Umrah. Common for residents near Makkah. No sacrifice required.</p>
+          <p class="type-desc cn-text" style="font-family:var(--font-chinese)">仅为朝觐进入戒戒状态，不进行副朝，通常适用于麦加附近的居民，无需献祭。</p>
+          <span class="type-badge" style="background:var(--color-orange-light);color:var(--color-orange)"><i data-lucide="x" style="width:12px;height:12px"></i> No dam required 无需献祭</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. PILLARS -->
+    <section class="lesson-section" id="pillars">
+      <div class="section-header">
+        <div class="section-icon" style="background:var(--color-primary-highlight)">🏛️</div>
+        <div class="section-header-text">
+          <div class="section-number">Section 5</div>
+          <h2 class="section-title">Pillars of Hajj (أركان الحج)</h2>
+          <p class="section-title-cn cn-text">朝觐的支柱（若遗漏则朝觐无效）</p>
+        </div>
+      </div>
+      <div class="definition-box" style="margin-bottom:var(--space-5)">
+        <p>⚠️ <strong>Important:</strong> If any pillar is missed, the Hajj is <strong>INVALID</strong> and cannot be compensated by a sacrifice. They must be observed in order.</p>
+        <p class="cn-text">⚠️ <strong>重要：</strong>若遗漏任何支柱，朝觐将<strong>无效</strong>，且不能以任何祭品弥补。必须按顺序履行。</p>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-accent-bar" style="background:var(--color-primary)"></div>
+          <div class="pillar-num">PILLAR 01</div>
+          <div class="pillar-arabic">الإحرام</div>
+          <div class="pillar-en">Ihram</div>
+          <div class="pillar-cn cn-text">戒戒（进入神圣状态）</div>
+          <p class="pillar-desc">Forming the intention (niyyah) and entering the sacred state at the Miqat boundary. Wearing white seamless cloth (for men) and reciting Talbiyah.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-accent-bar" style="background:var(--color-gold)"></div>
+          <div class="pillar-num">PILLAR 02 ⭐ Most Critical</div>
+          <div class="pillar-arabic">الوقوف بعرفة</div>
+          <div class="pillar-en">Wuquf at 'Arafah</div>
+          <div class="pillar-cn cn-text">站立于阿拉法特</div>
+          <p class="pillar-desc">Standing at the plain of 'Arafah on the 9th of Dhul-Hijjah from noon to sunset. The Prophet ﷺ said: "Hajj is 'Arafah." (Ahmad)</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-accent-bar" style="background:var(--color-blue)"></div>
+          <div class="pillar-num">PILLAR 03</div>
+          <div class="pillar-arabic">طواف الإفاضة</div>
+          <div class="pillar-en">Tawaf al-Ifadah</div>
+          <div class="pillar-cn cn-text">绕行天房（正式环游）</div>
+          <p class="pillar-desc">Circumambulating (walking around) the Ka'abah seven times counter-clockwise as the main obligatory Tawaf of Hajj.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-accent-bar" style="background:var(--color-orange)"></div>
+          <div class="pillar-num">PILLAR 04</div>
+          <div class="pillar-arabic">السعي</div>
+          <div class="pillar-en">Sa'i</div>
+          <div class="pillar-cn cn-text">赛跑（萨法与麦尔沃之间）</div>
+          <p class="pillar-desc">Walking/running seven times between the hills of Safa and Marwah, commemorating Hajar's search for water for baby Ismail.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. WAJIBAT -->
+    <section class="lesson-section" id="wajibat">
+      <div class="section-header">
+        <div class="section-icon" style="background:var(--color-blue-light)">📋</div>
+        <div class="section-header-text">
+          <div class="section-number">Section 6</div>
+          <h2 class="section-title">Obligatory Acts — Wajibat (واجبات الحج)</h2>
+          <p class="section-title-cn cn-text">朝觐的义务行为（遗漏需献祭补偿）</p>
+        </div>
+      </div>
+      <div class="definition-box" style="background:var(--color-blue-light); border-left-color:var(--color-blue); margin-bottom:var(--space-5)">
+        <p>Wajibat are required acts. If missed, the Hajj is <strong>still valid</strong>, but a <strong>penalty sacrifice (Dam / دم)</strong> must be offered.</p>
+        <p class="cn-text">朝觐义务行为若被遗漏，朝觐<strong>仍然有效</strong>，但必须以<strong>惩罚性祭品（Dam/血赎）</strong>作为补偿。</p>
+      </div>
+      <div class="wajibat-list">
+        <div class="wajib-item">
+          <div class="wajib-num">1</div>
+          <div class="wajib-text"><span class="wajib-arabic">الإحرام من الميقات</span><strong>Enter Ihram at the Miqat</strong> — designated boundary point<span class="wajib-cn cn-text">在指定边界（米卡特）处进入戒戒状态</span></div>
+        </div>
+        <div class="wajib-item">
+          <div class="wajib-num">2</div>
+          <div class="wajib-text"><span class="wajib-arabic">المبيت بمزدلفة</span><strong>Mabit in Muzdalifah</strong> — overnight stay on 9th night<span class="wajib-cn cn-text">在穆兹达利法过夜（在此收集石子）</span></div>
+        </div>
+        <div class="wajib-item">
+          <div class="wajib-num">3</div>
+          <div class="wajib-text"><span class="wajib-arabic">المبيت بمنى</span><strong>Mabit in Mina</strong> — overnight stay during Tashreeq nights (11–13 Dhul-Hijjah)<span class="wajib-cn cn-text">在米纳（塔什里克之夜11–13日）过夜</span></div>
+        </div>
+        <div class="wajib-item">
+          <div class="wajib-num">4</div>
+          <div class="wajib-text"><span class="wajib-arabic">رمي الجمرات</span><strong>Rami al-Jamarat</strong> — stoning all three pillars in Mina<span class="wajib-cn cn-text">向米纳三根石柱投掷石子（投石礼）</span></div>
+        </div>
+        <div class="wajib-item">
+          <div class="wajib-num">5</div>
+          <div class="wajib-text"><span class="wajib-arabic">الحلق أو التقصير</span><strong>Halq or Taqsir</strong> — shaving the head (men) or cutting a lock of hair (women)<span class="wajib-cn cn-text">剃发（男性）或剪一缕头发（女性）</span></div>
+        </div>
+        <div class="wajib-item">
+          <div class="wajib-num">6</div>
+          <div class="wajib-text"><span class="wajib-arabic">طواف الوداع</span><strong>Tawaf al-Wada'</strong> — Farewell Tawaf before departing Makkah<span class="wajib-cn cn-text">离开麦加前的告别环游天房</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. RITUALS TIMELINE -->
+    <section class="lesson-section" id="rituals">
+      <div class="section-header">
+        <div class="section-icon" style="background:var(--color-gold-light)">🗺️</div>
+        <div class="section-header-text">
+          <div class="section-number">Section 7</div>
+          <h2 class="section-title">Step-by-Step Rituals</h2>
+          <p class="section-title-cn cn-text">朝觐仪式逐步指南（日程安排）</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <!-- Day 1 -->
+        <div class="timeline-item">
+          <div class="timeline-dot">8</div>
+          <div class="timeline-day">8th Dhul-Hijjah — Yawm al-Tarwiyah 第一天</div>
+          <div class="timeline-content">
+            <h4>Preparation Day 准备日</h4>
+            <ul class="step-list">
+              <li>
+                <div class="step-num">1</div>
+                <div>
+                  <div class="step-text"><strong>Enter Ihram</strong> — Perform ghusl (ritual bath), wear ihram garments (white seamless cloth for men), form niyyah, recite Talbiyah: <em>"Labbayk Allāhumma Labbayk…"</em></div>
+                  <div class="step-cn cn-text">进入戒戒状态——进行净浴，穿上朝觐服，做出意图，诵念特比亚颂词</div>
+                </div>
+              </li>
+              <li>
+                <div class="step-num">2</div>
+                <div>
+                  <div class="step-text"><strong>Travel to Mina</strong> — Spend the day and night in prayer and worship</div>
+                  <div class="step-cn cn-text">前往米纳——在那里度过白天和夜晚，进行礼拜</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="timeline-item">
+          <div class="timeline-dot">9</div>
+          <div class="timeline-day">9th Dhul-Hijjah — Yawm 'Arafah ⭐ 第二天：阿拉法特日</div>
+          <div class="timeline-content">
+            <h4>The Heart of Hajj 朝觐核心</h4>
+            <ul class="step-list">
+              <li>
+                <div class="step-num">3</div>
+                <div>
+                  <div class="step-text"><strong>Wuquf at 'Arafah</strong> — Travel to the plain of 'Arafah; stay from noon to sunset in supplication, dhikr, and prayer; listen to the Hajj sermon (Khutbah); combine Dhuhr and Asr prayers</div>
+                  <div class="step-cn cn-text">在阿拉法特站立——从正午至日落进行祈祷、赞念；聆听朝觐布道词；合并晌礼与晡礼</div>
+                </div>
+              </li>
+              <li>
+                <div class="step-num">4</div>
+                <div>
+                  <div class="step-text"><strong>Travel to Muzdalifah</strong> — After sunset; spend the night under the open sky; collect pebbles for stoning; pray Maghrib and Isha combined</div>
+                  <div class="step-cn cn-text">日落后前往穆兹达利法——在露天过夜；收集石子；合并昏礼和宵礼</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="timeline-item">
+          <div class="timeline-dot">10</div>
+          <div class="timeline-day">10th Dhul-Hijjah — Eid al-Adha 🐑 宰牲节</div>
+          <div class="timeline-content">
+            <h4>Day of Sacrifice 献祭日</h4>
+            <ul class="step-list">
+              <li><div class="step-num">5</div><div><div class="step-text"><strong>Rami</strong> — Stone the large pillar (Jamrat al-'Aqabah) 7 times in Mina</div><div class="step-cn cn-text">投石礼——向最大的雅各白石柱投掷七颗石子</div></div></li>
+              <li><div class="step-num">6</div><div><div class="step-text"><strong>Nahr (Sacrifice/Qurbani)</strong> — Slaughter an animal in remembrance of Prophet Ibrahim's sacrifice</div><div class="step-cn cn-text">宰牲——宰杀牲畜，纪念先知易卜拉欣的牺牲精神</div></div></li>
+              <li><div class="step-num">7</div><div><div class="step-text"><strong>Halq or Taqsir</strong> — Shave the head (men) or cut a lock of hair (women)</div><div class="step-cn cn-text">剃发或剪发——男性剃头，女性剪一缕头发</div></div></li>
+              <li><div class="step-num">8</div><div><div class="step-text"><strong>Tawaf al-Ifadah</strong> — Main obligatory circumambulation of the Ka'abah (7 rounds counter-clockwise)</div><div class="step-cn cn-text">正式绕行天房（逆时针环游七圈）</div></div></li>
+              <li><div class="step-num">9</div><div><div class="step-text"><strong>Sa'i</strong> — Walk/run 7 times between the hills of Safa and Marwah</div><div class="step-cn cn-text">在萨法和麦尔沃之间奔走七次</div></div></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Days 4-6 -->
+        <div class="timeline-item">
+          <div class="timeline-dot">⋯</div>
+          <div class="timeline-day">11th–13th Dhul-Hijjah — Ayyam al-Tashreeq 塔什里克之日</div>
+          <div class="timeline-content">
+            <h4>Days of Remembrance 纪念之日</h4>
+            <ul class="step-list">
+              <li><div class="step-num">10</div><div><div class="step-text"><strong>Mabit in Mina</strong> — Spend nights in Mina; days for worship and supplication</div><div class="step-cn cn-text">在米纳过夜，白天进行礼拜和祈祷</div></div></li>
+              <li><div class="step-num">11</div><div><div class="step-text"><strong>Rami al-Jamarat</strong> — Stone ALL three pillars (small, medium, large) — 7 pebbles each, on 11th, 12th and optionally 13th</div><div class="step-cn cn-text">向三根石柱（小、中、大）各投掷七颗石子——十一、十二日（可含十三日）</div></div></li>
+              <li><div class="step-num">12</div><div><div class="step-text"><strong>Tawaf al-Wada'</strong> — Farewell Tawaf (circumambulate Ka'abah 7 times) before departing Makkah</div><div class="step-cn cn-text">离开麦加前进行告别环游天房（七圈）</div></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. PROHIBITED ACTS -->
+    <section class="lesson-section" id="prohibited">
+      <div class="section-header">
+        <div class="section-icon" style="background:var(--color-red-light)">🚫</div>
+        <div class="section-header-text">
+          <div class="section-number">Section 8</div>
+          <h2 class="section-title">Prohibited Acts During Ihram</h2>
+          <p class="section-title-cn cn-text">戒戒期间的禁止行为（محظورات الإحرام）</p>
+        </div>
+      </div>
+      <div class="prohibited-grid">
+        <div class="prohibited-item">
+          <i data-lucide="shirt" style="width:18px;height:18px"></i>
+          <div>
+            <div class="prohibited-text">Sewn/tailored clothing (men)</div>
+            <div class="prohibited-cn cn-text">穿缝制衣物（男性）</div>
+          </div>
+        </div>
+        <div class="prohibited-item">
+          <i data-lucide="hat" style="width:18px;height:18px"></i>
+          <div>
+            <div class="prohibited-text">Covering the head (men)</div>
+            <div class="prohibited-cn cn-text">覆盖头部（男性）</div>
+          </div>
+        </div>
+        <div class="prohibited-item">
+          <i data-lucide="scissors" style="width:18px;height:18px"></i>
+          <div>
+            <div class="prohibited-text">Cutting/shaving hair or nails</div>
+            <div class="prohibited-cn cn-text">剪发、剃发或剪指甲</div>
+          </div>
+        </div>
+        <div class="prohibited-item">
+          <i data-lucide="wind" style="width:18px;height:18px"></i>
+          <div>
+            <div class="prohibited-text">Applying perfume or fragrance</div>
+            <div class="prohibited-cn cn-text">使用香水或香料</div>
+          </div>
+        </div>
+        <div class="prohibited-item">
+          <i data-lucide="heart-off" style="width:18px;height:18px"></i>
+          <div>
+            <div class="prohibited-text">Sexual intercourse or lustful acts</div>
+            <div class="prohibited-cn cn-text">性交或带有情欲的触摸</div>
+          </div>
+        </div>
+        <div class="prohibited-item">
+          <i data-lucide="rings" style="width:18px;height:18px"></i>
+          <div>
+            <div class="prohibited-text">Marriage proposals or contracts</div>
+            <div class="prohibited-cn cn-text">求婚或订婚</div>
+          </div>
+        </div>
+        <div class="prohibited-item">
+          <i data-lucide="crosshair" style="width:18px;height:18px"></i>
+          <div>
+            <div class="prohibited-text">Hunting or killing animals</div>
+            <div class="prohibited-cn cn-text">狩猎、杀害或伤害动物</div>
+          </div>
+        </div>
+        <div class="prohibited-item">
+          <i data-lucide="tree-pine" style="width:18px;height:18px"></i>
+          <div>
+            <div class="prohibited-text">Cutting trees within the Haram</div>
+            <div class="prohibited-cn cn-text">在禁地范围内砍伐树木</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. SPIRITUAL BENEFITS -->
+    <section class="lesson-section" id="benefits">
+      <div class="section-header">
+        <div class="section-icon" style="background:var(--color-gold-light)">✨</div>
+        <div class="section-header-text">
+          <div class="section-number">Section 9</div>
+          <h2 class="section-title">Spiritual Significance & Benefits</h2>
+          <p class="section-title-cn cn-text">朝觐的精神意义与益处</p>
+        </div>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">🌿</div>
+          <div class="benefit-title">Forgiveness of Sins</div>
+          <div class="benefit-title-cn cn-text">罪孽的宽恕</div>
+          <p class="benefit-hadith">"Whoever performs Hajj and does not sin will return home as sinless as the day his mother gave birth to him." (Sahih Bukhari)</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🌙</div>
+          <div class="benefit-title">Attaining Jannah</div>
+          <div class="benefit-title-cn cn-text">获得天园的奖励</div>
+          <p class="benefit-hadith">"The reward for an accepted Hajj is nothing less than Paradise." (Sahih Bukhari)</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🤝</div>
+          <div class="benefit-title">Unity of the Ummah</div>
+          <div class="benefit-title-cn cn-text">穆斯林民族的统一</div>
+          <p class="benefit-hadith">Muslims from all races, nationalities, and classes gather as equals, wearing the same white Ihram garments — symbolizing brotherhood.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🙏</div>
+          <div class="benefit-title">Submission & Humility</div>
+          <div class="benefit-title-cn cn-text">顺从与谦逊</div>
+          <p class="benefit-hadith">Hajj reinforces total submission to Allah's will and cultivates deep humility and gratitude in the pilgrim's heart.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">💎</div>
+          <div class="benefit-title">Spiritual Purification</div>
+          <div class="benefit-title-cn cn-text">精神净化</div>
+          <p class="benefit-hadith">Hajj serves as a powerful training course cultivating self-restraint, patience, and moral character through its rigorous rituals.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">⚖️</div>
+          <div class="benefit-title">Reminder of the Hereafter</div>
+          <div class="benefit-title-cn cn-text">对后世的提醒</div>
+          <p class="benefit-hadith">The rituals remind pilgrims of the Day of Judgment — the vast gathering at 'Arafah symbolizes standing before Allah equally.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. VOCABULARY -->
+    <section class="lesson-section" id="vocab">
+      <div class="section-header">
+        <div class="section-icon" style="background:var(--color-surface-offset)">📖</div>
+        <div class="section-header-text">
+          <div class="section-number">Section 10</div>
+          <h2 class="section-title">Key Vocabulary</h2>
+          <p class="section-title-cn cn-text">关键词汇（Arabic — English — 中文）</p>
+        </div>
+      </div>
+      <div class="vocab-search">
+        <i data-lucide="search" style="width:18px;height:18px"></i>
+        <input type="text" id="vocabSearch" placeholder="Search vocabulary… 搜索词汇…" aria-label="Search vocabulary">
+      </div>
+      <div id="vocabList">
+        <div class="vocab-card" data-terms="hajj pilgrimage 朝觐"><div class="vocab-arabic">الحج</div><div class="vocab-en">Al-Hajj<small>The Pilgrimage</small></div><div class="vocab-cn cn-text">朝觐</div></div>
+        <div class="vocab-card" data-terms="ihram sacred state garment 戒戒"><div class="vocab-arabic">الإحرام</div><div class="vocab-en">Al-Ihram<small>Sacred State / Garment</small></div><div class="vocab-cn cn-text">戒戒状态/朝觐服</div></div>
+        <div class="vocab-card" data-terms="wuquf standing arafah 站立"><div class="vocab-arabic">الوقوف</div><div class="vocab-en">Al-Wuquf<small>Standing (at 'Arafah)</small></div><div class="vocab-cn cn-text">站立（于阿拉法特）</div></div>
+        <div class="vocab-card" data-terms="tawaf circumambulation kaabah 绕行"><div class="vocab-arabic">الطواف</div><div class="vocab-en">Al-Tawaf<small>Circumambulation of Ka'abah</small></div><div class="vocab-cn cn-text">绕行天房</div></div>
+        <div class="vocab-card" data-terms="sai walking safa marwah 赛跑"><div class="vocab-arabic">السعي</div><div class="vocab-en">Al-Sa'i<small>Walking between Safa & Marwah</small></div><div class="vocab-cn cn-text">在萨法麦尔沃间奔走</div></div>
+        <div class="vocab-card" data-terms="rami stoning jamarat 投石"><div class="vocab-arabic">رمي الجمرات</div><div class="vocab-en">Rami al-Jamarat<small>Stoning the pillars</small></div><div class="vocab-cn cn-text">投石礼</div></div>
+        <div class="vocab-card" data-terms="nahr sacrifice animal 宰牲"><div class="vocab-arabic">النحر</div><div class="vocab-en">Al-Nahr<small>Animal Sacrifice</small></div><div class="vocab-cn cn-text">宰牲</div></div>
+        <div class="vocab-card" data-terms="tawaf wada farewell 告别"><div class="vocab-arabic">طواف الوداع</div><div class="vocab-en">Tawaf al-Wada'<small>Farewell Tawaf</small></div><div class="vocab-cn cn-text">告别环游</div></div>
+        <div class="vocab-card" data-terms="talbiyah labbayk chant 特比亚"><div class="vocab-arabic">التلبية</div><div class="vocab-en">Al-Talbiyah<small>Hajj Chant: Labbayk Allāhumma Labbayk</small></div><div class="vocab-cn cn-text">特比亚颂词</div></div>
+        <div class="vocab-card" data-terms="miqat boundary 米卡特"><div class="vocab-arabic">الميقات</div><div class="vocab-en">Al-Miqat<small>Ihram Boundary Point</small></div><div class="vocab-cn cn-text">进入戒戒状态的指定边界</div></div>
+        <div class="vocab-card" data-terms="kaabah house 克尔白 天房"><div class="vocab-arabic">الكعبة</div><div class="vocab-en">Al-Ka'abah<small>The Sacred Cube House</small></div><div class="vocab-cn cn-text">克尔白（天房）</div></div>
+        <div class="vocab-card" data-terms="istita capability ability 能力"><div class="vocab-arabic">الاستطاعة</div><div class="vocab-en">Al-Istita'ah<small>Capability / Ability</small></div><div class="vocab-cn cn-text">能力、财力</div></div>
+        <div class="vocab-card" data-terms="dhul hijjah month 十二月 朝觐月"><div class="vocab-arabic">ذو الحجة</div><div class="vocab-en">Dhul-Hijjah<small>12th Islamic Month (Hajj Month)</small></div><div class="vocab-cn cn-text">伊斯兰历十二月（朝觐月）</div></div>
+        <div class="vocab-card" data-terms="zamzam well water 渗渗泉"><div class="vocab-arabic">زمزم</div><div class="vocab-en">Zamzam<small>Sacred Well in Makkah</small></div><div class="vocab-cn cn-text">渗渗泉（麦加圣泉）</div></div>
+        <div class="vocab-card" data-terms="mabit overnight stay muzdalifah mina 过夜"><div class="vocab-arabic">المبيت</div><div class="vocab-en">Al-Mabit<small>Overnight Stay</small></div><div class="vocab-cn cn-text">过夜（在穆兹达利法/米纳）</div></div>
+        <div class="vocab-card" data-terms="dam penalty blood sacrifice compensation 血赎"><div class="vocab-arabic">الدم</div><div class="vocab-en">Al-Dam<small>Penalty Sacrifice (Blood Compensation)</small></div><div class="vocab-cn cn-text">血赎（惩罚性祭品）</div></div>
+      </div>
+    </section>
+
+    <!-- 11. QUIZ -->
+    <section class="lesson-section" id="quiz">
+      <div class="section-header">
+        <div class="section-icon" style="background:var(--color-purple-light)">🧠</div>
+        <div class="section-header-text">
+          <div class="section-number">Section 11</div>
+          <h2 class="section-title">Interactive Quiz</h2>
+          <p class="section-title-cn cn-text">互动测验 — Test Your Knowledge</p>
+        </div>
+      </div>
+      <div class="quiz-wrapper" id="quizWrapper">
+
+        <div class="quiz-card" data-correct="b">
+          <p class="quiz-question">Q1. Hajj is the _____ Pillar of Islam.</p>
+          <p class="quiz-question-cn cn-text">Q1. 朝觐是伊斯兰的第_____功。</p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="a"><span class="quiz-opt-letter">A</span> Third — 第三功</button>
+            <button class="quiz-option" data-value="b"><span class="quiz-opt-letter">B</span> Fifth — 第五功</button>
+            <button class="quiz-option" data-value="c"><span class="quiz-opt-letter">C</span> Fourth — 第四功</button>
+            <button class="quiz-option" data-value="d"><span class="quiz-opt-letter">D</span> Second — 第二功</button>
+          </div>
+          <div class="quiz-explanation">✅ Correct! Hajj is the Fifth and final Pillar of Islam. 正确！朝觐是伊斯兰的第五功，也是最后一功。</div>
+        </div>
+
+        <div class="quiz-card" data-correct="c">
+          <p class="quiz-question">Q2. Which pillar of Hajj is considered the MOST critical, where the Prophet ﷺ said "Hajj is ______"?</p>
+          <p class="quiz-question-cn cn-text">Q2. 先知ﷺ说"朝觐就是_____"，哪一个支柱被认为最关键？</p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="a"><span class="quiz-opt-letter">A</span> Ihram — 戒戒</button>
+            <button class="quiz-option" data-value="b"><span class="quiz-opt-letter">B</span> Tawaf — 绕行天房</button>
+            <button class="quiz-option" data-value="c"><span class="quiz-opt-letter">C</span> 'Arafah — 阿拉法特</button>
+            <button class="quiz-option" data-value="d"><span class="quiz-opt-letter">D</span> Sa'i — 赛跑</button>
+          </div>
+          <div class="quiz-explanation">✅ Correct! "Al-Hajju 'Arafah" — The Prophet ﷺ said Hajj is 'Arafah. Standing there is the most critical pillar. 正确！先知ﷺ说"朝觐就是阿拉法特"，在阿拉法特站立是最关键的支柱。</div>
+        </div>
+
+        <div class="quiz-card" data-correct="a">
+          <p class="quiz-question">Q3. What is the difference between a Pillar (Rukn) and a Wajib of Hajj?</p>
+          <p class="quiz-question-cn cn-text">Q3. 朝觐的支柱（Rukn）和义务（Wajib）有何区别？</p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="a"><span class="quiz-opt-letter">A</span> Missing a Pillar invalidates Hajj; missing Wajib requires a penalty sacrifice (Dam) 遗漏支柱使朝觐无效；遗漏义务需献祭补偿</button>
+            <button class="quiz-option" data-value="b"><span class="quiz-opt-letter">B</span> Both make Hajj invalid if missed 两者遗漏都使朝觐无效</button>
+            <button class="quiz-option" data-value="c"><span class="quiz-opt-letter">C</span> Missing a Wajib invalidates Hajj; Pillar can be replaced 遗漏义务使朝觐无效；支柱可被替代</button>
+            <button class="quiz-option" data-value="d"><span class="quiz-opt-letter">D</span> There is no difference 两者没有区别</button>
+          </div>
+          <div class="quiz-explanation">✅ Correct! Missing a Pillar makes Hajj invalid with no compensation. Missing a Wajib keeps Hajj valid but requires offering a Dam (sacrifice). 正确！遗漏支柱使朝觐无效且无法补偿。遗漏义务则朝觐仍有效，但需献上血赎（祭品）。</div>
+        </div>
+
+        <div class="quiz-card" data-correct="d">
+          <p class="quiz-question">Q4. Which type of Hajj is MOST recommended for pilgrims coming from distant countries?</p>
+          <p class="quiz-question-cn cn-text">Q4. 哪种朝觐类型最推荐给来自远方国家的朝觐者？</p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="a"><span class="quiz-opt-letter">A</span> Hajj al-Ifrad — 单独朝觐</button>
+            <button class="quiz-option" data-value="b"><span class="quiz-opt-letter">B</span> Hajj al-Qiran — 联合朝觐</button>
+            <button class="quiz-option" data-value="c"><span class="quiz-opt-letter">C</span> All types are equal — 三种同等</button>
+            <button class="quiz-option" data-value="d"><span class="quiz-opt-letter">D</span> Hajj al-Tamattu' — 享受朝觐</button>
+          </div>
+          <div class="quiz-explanation">✅ Correct! Hajj al-Tamattu' is most recommended for pilgrims from distant lands as it allows rest between Umrah and Hajj. 正确！享受朝觐（Tamattu'）最推荐给远方朝觐者，因为它允许在副朝和朝觐之间有休息时间。</div>
+        </div>
+
+        <div class="quiz-card" data-correct="b">
+          <p class="quiz-question">Q5. The Sa'i ritual commemorates whose search for water for her infant child?</p>
+          <p class="quiz-question-cn cn-text">Q5. 赛跑仪式纪念的是谁为其婴儿寻找水源？</p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="a"><span class="quiz-opt-letter">A</span> Prophet Ibrahim's wife Sarah — 先知易卜拉欣的妻子萨拉</button>
+            <button class="quiz-option" data-value="b"><span class="quiz-opt-letter">B</span> Hajar (Hagar) searching for water for Ismail — 哈吉尔为伊斯玛仪寻水</button>
+            <button class="quiz-option" data-value="c"><span class="quiz-opt-letter">C</span> Khadijah bint Khuwaylid — 赫迪彻</button>
+            <button class="quiz-option" data-value="d"><span class="quiz-opt-letter">D</span> Prophet Ismail himself — 先知伊斯玛仪本人</button>
+          </div>
+          <div class="quiz-explanation">✅ Correct! Hajar ran 7 times between Safa and Marwah searching for water for her infant son Ismail. Allah caused the Zamzam spring to flow. 正确！哈吉尔在萨法和麦尔沃之间奔跑七次，为其婴儿伊斯玛仪寻找水源。真主使渗渗泉涌现。</div>
+        </div>
+
+        <!-- Score display -->
+        <div class="quiz-score" id="quizScore" style="display:none">
+          <div class="score-circle">
+            <span class="score-num" id="scoreNum">0</span>
+            <span class="score-total">/5</span>
+          </div>
+          <h3 id="scoreTitle" style="margin-bottom:var(--space-2)">Quiz Complete!</h3>
+          <p id="scoreMessage" style="color:var(--color-text-muted);font-size:var(--text-sm)"></p>
+          <button class="btn-primary" onclick="resetQuiz()"><i data-lucide="refresh-cw" style="width:16px;height:16px"></i> Try Again 重新测验</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer of content -->
+    <div style="padding:var(--space-5) 0; display:flex; flex-wrap:wrap; gap:var(--space-4); align-items:center; justify-content:space-between; border-top: 1px solid var(--color-divider)">
+      <p style="font-size:var(--text-xs); color:var(--color-text-faint)">International Islamic School Malaysia · Islamic Studies · Teacher Ahmad Mu'az</p>
+      <button class="print-btn" onclick="window.print()">
+        <i data-lucide="printer" style="width:16px;height:16px"></i> Print Lesson Note
+      </button>
+    </div>
+
+  </main>
+</div>
+
+<footer class="page-footer">
+  <span>© 2026 Hajj Lesson Note — Islamic Studies</span>
+  <span class="cn-text" style="font-family:var(--font-chinese)">伊斯兰研究课堂笔记 · 马来西亚国际伊斯兰学校</span>
+</footer>
+
+<script>
+// ===== DARK MODE TOGGLE =====
+(function(){
+  const t = document.querySelector('[data-theme-toggle]');
+  const r = document.documentElement;
+  let d = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  r.setAttribute('data-theme', d);
+  updateThemeIcon(t, d);
+  if (t) t.addEventListener('click', () => {
+    d = d === 'dark' ? 'light' : 'dark';
+    r.setAttribute('data-theme', d);
+    updateThemeIcon(t, d);
+  });
+  function updateThemeIcon(btn, theme) {
+    if (!btn) return;
+    btn.innerHTML = theme === 'dark'
+      ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+      : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  }
+})();
+
+// ===== CHINESE TOGGLE =====
+(function(){
+  const btn = document.getElementById('langToggle');
+  const cnLabel = document.getElementById('cnLabel');
+  const enLabel = document.getElementById('enLabel');
+  let showCn = true;
+  btn.addEventListener('click', () => {
+    showCn = !showCn;
+    document.body.classList.toggle('hide-chinese', !showCn);
+    cnLabel.style.color = showCn ? 'var(--color-primary)' : 'var(--color-text-muted)';
+    cnLabel.style.fontWeight = showCn ? '700' : '400';
+    enLabel.style.color = !showCn ? 'var(--color-primary)' : 'var(--color-text-muted)';
+    enLabel.style.fontWeight = !showCn ? '700' : '400';
+  });
+})();
+
+// ===== READING PROGRESS =====
+(function(){
+  const fill = document.getElementById('progressFill');
+  const count = document.getElementById('progressCount');
+  window.addEventListener('scroll', () => {
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = Math.round((window.scrollY / total) * 100);
+    fill.style.width = pct + '%';
+    count.textContent = pct + '%';
+  });
+})();
+
+// ===== ACTIVE SIDEBAR/NAV =====
+(function(){
+  const sections = document.querySelectorAll('.lesson-section[id]');
+  const sideLinks = document.querySelectorAll('#sidebarNav a');
+  const navLinks = document.querySelectorAll('.nav-pill a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        sideLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+})();
+
+// ===== VOCAB SEARCH =====
+(function(){
+  const input = document.getElementById('vocabSearch');
+  const cards = document.querySelectorAll('.vocab-card');
+  input.addEventListener('input', () => {
+    const q = input.value.toLowerCase();
+    cards.forEach(c => {
+      const terms = (c.dataset.terms + ' ' + c.textContent).toLowerCase();
+      c.style.display = terms.includes(q) ? '' : 'none';
+    });
+  });
+})();
+
+// ===== QUIZ =====
+(function(){
+  let answered = 0, score = 0;
+  const total = 5;
+
+  document.querySelectorAll('.quiz-card').forEach(card => {
+    const correct = card.dataset.correct;
+    const options = card.querySelectorAll('.quiz-option');
+    const explanation = card.querySelector('.quiz-explanation');
+
+    options.forEach(opt => {
+      opt.addEventListener('click', () => {
+        if (card.dataset.done) return;
+        card.dataset.done = 'true';
+        answered++;
+        const val = opt.dataset.value;
+        options.forEach(o => o.disabled = true);
+        if (val === correct) {
+          opt.classList.add('correct');
+          score++;
+        } else {
+          opt.classList.add('wrong');
+          options[['a','b','c','d'].indexOf(correct)].classList.add('correct');
+        }
+        explanation.classList.add('visible');
+        if (answered === total) showScore();
+      });
+    });
+  });
+
+  function showScore() {
+    const scoreEl = document.getElementById('quizScore');
+    const numEl = document.getElementById('scoreNum');
+    const titleEl = document.getElementById('scoreTitle');
+    const msgEl = document.getElementById('scoreMessage');
+    numEl.textContent = score;
+    if (score === 5) {
+      titleEl.textContent = '🌟 Excellent! ممتاز! 优秀！';
+      msgEl.textContent = 'Perfect score! You have mastered Hajj. 满分！你已精通朝觐知识。';
+    } else if (score >= 3) {
+      titleEl.textContent = '✅ Good Job! جيد! 做得好！';
+      msgEl.textContent = `You got ${score}/5. Review the sections you missed. 你答对了${score}/5题。复习一下错误的部分。`;
+    } else {
+      titleEl.textContent = '📚 Keep Studying! تابع الدراسة! 继续学习！';
+      msgEl.textContent = `You got ${score}/5. Please review the lesson again. 你答对了${score}/5题。请再次复习课程。`;
+    }
+    scoreEl.style.display = 'block';
+    setTimeout(() => lucide.createIcons(), 100);
+  }
+
+  window.resetQuiz = function() {
+    answered = 0; score = 0;
+    document.getElementById('quizScore').style.display = 'none';
+    document.querySelectorAll('.quiz-card').forEach(card => {
+      delete card.dataset.done;
+      card.querySelectorAll('.quiz-option').forEach(o => {
+        o.disabled = false;
+        o.classList.remove('correct', 'wrong');
+      });
+      card.querySelector('.quiz-explanation').classList.remove('visible');
+    });
+  };
+})();
+
+// ===== INIT LUCIDE ICONS =====
+lucide.createIcons();
+</script>
+</body>
+</html>
