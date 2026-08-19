@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prophet Adam (AS): History and Lessons to Learn</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+--emerald:#0f5132;
+--emerald-dark:#083a23;
+--teal:#146c63;
+--gold:#d4af37;
+--gold-soft:#fbf3d2;
+--cream:#f8f9fa;
+--paper:#ffffff;
+--slate:#212529;
+--muted:#5c6670;
+--border:#d9e2dd;
+--success:#198754;
+--danger:#c83f49;
+--shadow:0 10px 30px rgba(15,81,50,.10);
+--radius:18px;
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+margin:0;
+color:var(--slate);
+background:
+radial-gradient(circle at 10% 5%, rgba(212,175,55,.13), transparent 28%),
+radial-gradient(circle at 93% 25%, rgba(15,81,50,.09), transparent 23%),
+var(--cream);
+font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+line-height:1.7;
+}
+
+.page{
+width:min(1120px,calc(100% - 32px));
+margin:0 auto;
+padding:32px 0 56px;
+}
+
+.hero{
+overflow:hidden;
+position:relative;
+padding:52px clamp(24px,6vw,72px);
+color:#fff;
+background:linear-gradient(135deg,var(--emerald-dark),var(--emerald) 65%,var(--teal));
+border:1px solid rgba(212,175,55,.55);
+border-radius:28px;
+box-shadow:var(--shadow);
+}
+
+.hero::before,
+.hero::after{
+content:"✦";
+position:absolute;
+color:rgba(212,175,55,.24);
+font-size:10rem;
+line-height:1;
+}
+
+.hero::before{right:3%;top:-24px}
+.hero::after{left:-1%;bottom:-65px;font-size:12rem}
+
+.eyebrow{
+position:relative;
+z-index:1;
+display:inline-flex;
+align-items:center;
+gap:9px;
+margin:0 0 14px;
+padding:7px 12px;
+color:#fff1b8;
+background:rgba(255,255,255,.09);
+border:1px solid rgba(255,255,255,.18);
+border-radius:100px;
+font-size:.84rem;
+font-weight:700;
+letter-spacing:.06em;
+text-transform:uppercase;
+}
+
+h1,h2,h3{
+line-height:1.2;
+margin-top:0;
+}
+
+h1{
+position:relative;
+z-index:1;
+max-width:750px;
+margin-bottom:14px;
+font-size:clamp(2rem,5vw,3.45rem);
+letter-spacing:-.04em;
+}
+
+.subtitle{
+position:relative;
+z-index:1;
+max-width:720px;
+margin:0;
+color:#e7f1eb;
+font-size:1.06rem;
+}
+
+.arabic{
+font-family:"Amiri","Traditional Arabic",serif;
+font-size:1.38em;
+line-height:2;
+}
+
+.hero-arabic{
+position:relative;
+z-index:1;
+margin:22px 0 0;
+color:#ffe9a0;
+font-size:1.65rem;
+}
+
+.section{
+margin-top:28px;
+padding:clamp(22px,4vw,38px);
+background:var(--paper);
+border:1px solid var(--border);
+border-radius:var(--radius);
+box-shadow:0 4px 16px rgba(15,81,50,.045);
+}
+
+.section-heading{
+display:flex;
+align-items:center;
+gap:12px;
+margin-bottom:18px;
+color:var(--emerald);
+font-size:clamp(1.35rem,3vw,1.85rem);
+}
+
+.section-heading::before{
+content:"";
+display:inline-block;
+width:10px;
+height:32px;
+background:linear-gradient(var(--gold),#f0d56f);
+border-radius:99px;
+}
+
+.set-scene{
+padding:22px;
+background:linear-gradient(135deg,#fffdf5,#f6f0d5);
+border-left:5px solid var(--gold);
+border-radius:12px;
+font-size:1.03rem;
+}
+
+.objective-grid,
+.lesson-grid{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:16px;
+margin-top:22px;
+}
+
+.objective,
+.lesson-card{
+padding:20px;
+background:#fbfcfb;
+border:1px solid var(--border);
+border-radius:14px;
+}
+
+.objective-number{
+display:inline-grid;
+place-items:center;
+width:30px;
+height:30px;
+margin-bottom:10px;
+color:#fff;
+background:var(--emerald);
+border-radius:50%;
+font-weight:800;
+font-size:.88rem;
+}
+
+.objective strong,
+.lesson-card h3{
+color:var(--emerald);
+}
+
+.timeline{
+position:relative;
+margin:26px 0;
+padding-left:24px;
+border-left:3px solid #d9c76a;
+}
+
+.timeline-item{
+position:relative;
+margin:0 0 22px;
+padding:16px 18px;
+background:#fcfdfc;
+border:1px solid var(--border);
+border-radius:12px;
+}
+
+.timeline-item:last-child{margin-bottom:0}
+
+.timeline-item::before{
+content:"";
+position:absolute;
+width:13px;
+height:13px;
+left:-32px;
+top:22px;
+background:var(--gold);
+border:3px solid #fff;
+border-radius:50%;
+box-shadow:0 0 0 2px var(--gold);
+}
+
+.timeline-item h3{
+margin-bottom:7px;
+color:var(--emerald);
+font-size:1.08rem;
+}
+
+.timeline-item p{margin:0}
+
+.callout{
+margin:22px 0;
+padding:22px;
+background:linear-gradient(135deg,#eff8f1,#fffdf3);
+border:1px solid #bdd7c3;
+border-radius:14px;
+}
+
+.callout-label{
+display:inline-block;
+margin-bottom:10px;
+padding:4px 10px;
+color:#fff;
+background:var(--emerald);
+border-radius:999px;
+font-size:.78rem;
+font-weight:800;
+letter-spacing:.06em;
+text-transform:uppercase;
+}
+
+.quran-text{
+margin:6px 0 12px;
+padding:12px 14px;
+color:var(--emerald-dark);
+background:rgba(255,255,255,.68);
+border-right:4px solid var(--gold);
+border-radius:8px;
+text-align:right;
+}
+
+.translation{
+margin:0;
+color:#33413a;
+font-style:italic;
+}
+
+.reference{
+margin:10px 0 0;
+color:var(--muted);
+font-size:.9rem;
+font-weight:700;
+}
+
+.note{
+margin-top:18px;
+padding:16px 18px;
+color:#574814;
+background:var(--gold-soft);
+border:1px solid #ead883;
+border-radius:12px;
+}
+
+ul{padding-left:22px}
+li{margin:7px 0}
+
+.word-bank{
+overflow-x:auto;
+margin-top:12px;
+border:1px solid var(--border);
+border-radius:14px;
+}
+
+table{
+width:100%;
+min-width:680px;
+border-collapse:collapse;
+background:#fff;
+}
+
+th,td{
+padding:15px 16px;
+text-align:left;
+vertical-align:top;
+border-bottom:1px solid var(--border);
+}
+
+th{
+color:#fff;
+background:var(--emerald);
+font-size:.92rem;
+}
+
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:#fbfcfb}
+
+.flashcard-grid{
+display:grid;
+grid-template-columns:repeat(3,minmax(0,1fr));
+gap:18px;
+margin-top:22px;
+}
+
+.flashcard{
+height:210px;
+cursor:pointer;
+perspective:1000px;
+outline:none;
+}
+
+.flashcard:focus-visible .flashcard-inner{
+box-shadow:0 0 0 4px rgba(212,175,55,.5);
+}
+
+.flashcard-inner{
+position:relative;
+width:100%;
+height:100%;
+transition:transform .65s cubic-bezier(.2,.7,.2,1);
+transform-style:preserve-3d;
+}
+
+.flashcard.flipped .flashcard-inner,
+.flashcard:hover .flashcard-inner{
+transform:rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back{
+position:absolute;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+width:100%;
+height:100%;
+padding:20px;
+text-align:center;
+backface-visibility:hidden;
+border-radius:15px;
+}
+
+.flashcard-front{
+color:#fff;
+background:linear-gradient(145deg,var(--emerald),var(--teal));
+border:1px solid rgba(212,175,55,.7);
+}
+
+.flashcard-back{
+color:var(--slate);
+background:linear-gradient(145deg,#fffdf5,#f6f0d7);
+border:1px solid #e5d78e;
+transform:rotateY(180deg);
+}
+
+.flashcard .hint{
+position:absolute;
+bottom:13px;
+color:rgba(255,255,255,.78);
+font-size:.76rem;
+}
+
+.flashcard h3{margin:0;font-size:1.28rem}
+.flashcard p{margin:10px 0 0;font-size:.91rem}
+
+.reflection-box{
+margin-top:24px;
+padding:22px;
+background:#f4f9f5;
+border:1px solid #bfdbc6;
+border-radius:14px;
+}
+
+textarea{
+display:block;
+width:100%;
+min-height:150px;
+margin-top:14px;
+padding:14px;
+color:var(--slate);
+background:#fff;
+border:1px solid #aac7b0;
+border-radius:10px;
+font:inherit;
+resize:vertical;
+}
+
+textarea:focus{
+outline:3px solid rgba(212,175,55,.35);
+border-color:var(--gold);
+}
+
+.quiz-question{
+margin:22px 0;
+padding:20px;
+background:#fcfdfc;
+border:1px solid var(--border);
+border-radius:14px;
+}
+
+.quiz-question:last-child{margin-bottom:0}
+
+.quiz-question h3{
+margin-bottom:14px;
+color:var(--emerald);
+font-size:1.05rem;
+}
+
+.choices{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:10px;
+}
+
+.choice{
+padding:12px 14px;
+color:var(--slate);
+background:#fff;
+border:1px solid #cbd8cf;
+border-radius:9px;
+font:inherit;
+text-align:left;
+cursor:pointer;
+transition:transform .15s ease,background .2s ease,border .2s ease;
+}
+
+.choice:hover{
+transform:translateY(-1px);
+border-color:var(--emerald);
+}
+
+.choice.correct{
+color:#fff;
+background:var(--success);
+border-color:var(--success);
+}
+
+.choice.incorrect{
+color:#fff;
+background:var(--danger);
+border-color:var(--danger);
+}
+
+.choice:disabled{
+cursor:not-allowed;
+opacity:.94;
+}
+
+.feedback{
+display:none;
+margin:13px 0 0;
+padding:11px 13px;
+border-radius:8px;
+font-size:.91rem;
+}
+
+.feedback.show{display:block}
+.feedback.good{color:#0d4e2d;background:#daf2e2}
+.feedback.try{color:#7a1720;background:#fbe1e3}
+
+.references{
+padding-left:22px;
+}
+
+.references li{
+margin:12px 0;
+color:#3c4850;
+}
+
+.source-note{
+margin-top:18px;
+padding:14px 16px;
+color:#45545b;
+background:#f3f5f6;
+border-radius:10px;
+font-size:.9rem;
+}
+
+.footer{
+margin-top:24px;
+color:var(--muted);
+text-align:center;
+font-size:.86rem;
+}
+
+@media (max-width:760px){
+.page{width:min(100% - 20px,1120px);padding-top:10px}
+.hero{border-radius:20px}
+.section{padding:22px 18px}
+.objective-grid,.lesson-grid,.flashcard-grid,.choices{grid-template-columns:1fr}
+.flashcard{height:190px}
+}
+
+@media (prefers-reduced-motion:reduce){
+,::before,*::after{
+scroll-behavior:auto !important;
+transition-duration:.01ms !important;
+animation-duration:.01ms !important;
+}
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+<header class="hero">
+<p class="eyebrow">Islamic Studies - Secondary Level</p>
+<h1>Prophet Adam (AS): History and Lessons to Learn</h1>
+<p class="subtitle">
+The account of Prophet Adam (AS), the first human and first prophet, teaches humanity about dignity, responsibility, temptation, error, repentance, and Allah’s limitless mercy.
+</p>
+<p class="hero-arabic arabic" dir="rtl" lang="ar">آدَمُ عَلَيْهِ السَّلَامُ أَبُو الْبَشَرِ وَأَوَّلُ الْأَنْبِيَاءِ</p>
+</header>
+
+<section class="section" id="set-induction">
+<h2 class="section-heading">A. Set Induction: Set the Scene</h2>
+
+<div class="set-scene">
+Imagine making a mistake that you deeply regret: perhaps you ignored good advice, followed pressure from someone else, and immediately wished you could take it back. Would you hide, blame someone else, or admit your mistake and sincerely ask forgiveness? The story of Prophet Adam (AS) gives Muslims the first and greatest model of how a believer returns to Allah after falling into error.
+</div>
+
+<div class="objective-grid">
+<article class="objective">
+<span class="objective-number">1</span>
+<p><strong>Analyze</strong> the main events in the life of Prophet Adam (AS), including his creation, the test in Paradise, repentance, and life on Earth.</p>
+</article>
+
+<article class="objective">
+<span class="objective-number">2</span>
+<p><strong>Evaluate</strong> how the lessons of temptation, <em>tawbah</em>, and <em>khilafah</em> can guide a Muslim’s choices in modern life.</p>
+</article>
+</div>
+</section>
+
+<section class="section" id="core-content">
+<h2 class="section-heading">B. Core Content & Detailed Notes</h2>
+
+<h3>1. Adam (AS): The First Human and First Prophet</h3>
+<ul>
+<li>Allah created Prophet Adam (AS) by His wisdom and power. The Qur’an repeatedly describes the origin of human creation as clay, soil, or sounding clay.</li>
+<li>Adam (AS) was not an accidental creation. Allah announced to the angels that He would establish a human <em>khalifah</em> on Earth.</li>
+<li>The word <em>khalifah</em> refers to humanity’s entrusted responsibility on Earth: to worship Allah, uphold justice, care for creation, and avoid corruption.</li>
+<li>Allah taught Adam (AS) “the names of all things,” showing Adam’s special capacity for knowledge, language, learning, and moral responsibility.</li>
+</ul>
+
+<div class="callout">
+<span class="callout-label">Qur'an: Human Stewardship</span>
+<p class="quran-text arabic" dir="rtl" lang="ar">
+وَإِذْ قَالَ رَبُّكَ لِلْمَلَائِكَةِ إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً ۖ
+قَالُوا أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمَاءَ وَنَحْنُ نُسَبِّحُ بِحَمْدِكَ وَنُقَدِّسُ لَكَ ۖ
+قَالَ إِنِّي أَعْلَمُ مَا لَا تَعْلَمُونَ
+</p>
+<p class="translation">“And when your Lord said to the angels, ‘Indeed, I will place upon the earth a successive authority.’ They said, ‘Will You place upon it one who causes corruption therein and sheds blood, while we declare Your praise and sanctify You?’ Allah said, ‘Indeed, I know that which you do not know.’”</p>
+<p class="reference">Surah al-Baqarah, 2:30.</p>
+</div>
+
+<h3>2. The Angels’ Prostration and Iblis’s Pride</h3>
+<ul>
+<li>Allah commanded the angels to prostrate to Adam (AS). This was a prostration of honour by Allah’s command, not an act of worship of Adam.</li>
+<li>The angels obeyed immediately. Their obedience demonstrates humility and complete submission to Allah.</li>
+<li>Iblis refused because of arrogance. He considered himself superior because he was created from fire while Adam (AS) was created from clay.</li>
+<li>The central problem was not merely Iblis’s refusal; it was his pride, rejection of Allah’s command, and refusal to repent.</li>
+</ul>
+
+<div class="callout">
+<span class="callout-label">Qur'an: The Danger of Arrogance</span>
+<p class="quran-text arabic" dir="rtl" lang="ar">
+وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ أَبَىٰ وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِرِينَ
+</p>
+<p class="translation">“And when We said to the angels, ‘Prostrate before Adam,’ they all did so, except Iblis, who refused and acted arrogantly, becoming one of the disbelievers.”</p>
+<p class="reference">Surah al-Baqarah, 2:34.</p>
+</div>
+
+<h3>3. Adam (AS), Hawwa, and the Test in Paradise</h3>
+<ul>
+<li>Allah placed Adam (AS) and his wife in Paradise and allowed them to enjoy its blessings freely.</li>
+<li>Allah gave them one clear command: they were not to approach a particular tree.</li>
+<li>Iblis became their enemy and used deception, whispers, and false promises to tempt them.</li>
+<li>Adam (AS) and Hawwa made a mistake by eating from the tree. The Qur’an presents this as human error and forgetfulness, not as an inherited sin passed to all later human beings.</li>
+<li>After disobeying, they became aware of their nakedness and covered themselves with leaves from Paradise. This teaches modesty, shame before wrongdoing, and moral awareness.</li>
+</ul>
+
+<div class="callout">
+<span class="callout-label">Qur'an: Warning Against Satan</span>
+<p class="quran-text arabic" dir="rtl" lang="ar">
+فَوَسْوَسَ لَهُمَا الشَّيْطَانُ لِيُبْدِيَ لَهُمَا مَا وُورِيَ عَنْهُمَا مِنْ سَوْآتِهِمَا
+وَقَالَ مَا نَهَاكُمَا رَبُّكُمَا عَنْ هَٰذِهِ الشَّجَرَةِ إِلَّا أَنْ تَكُونَا مَلَكَيْنِ أَوْ تَكُونَا مِنَ الْخَالِدِينَ
+</p>
+<p class="translation">“Then Satan whispered to them to expose what had been hidden from them of their nakedness. He said, ‘Your Lord has not forbidden you this tree except so that you may become angels or become of the immortal.’”</p>
+<p class="reference">Surah al-A‘raf, 7:20.</p>
+</div>
+
+<h3>4. Sincere Repentance: Adam’s Greatest Lesson</h3>
+<ul>
+<li>Adam (AS) and Hawwa did not persist in sin, make excuses, or blame Allah.</li>
+<li>They admitted their wrongdoing and begged Allah for forgiveness and mercy.</li>
+<li>Allah taught Adam (AS) words of repentance and accepted his <em>tawbah</em>.</li>
+<li>The contrast is important: Adam (AS) made an error but repented; Iblis committed rebellion and continued in pride. A believer’s honour lies not in never making mistakes, but in returning sincerely to Allah.</li>
+</ul>
+
+<div class="callout">
+<span class="callout-label">Qur'an: The Dua of Tawbah</span>
+<p class="quran-text arabic" dir="rtl" lang="ar">
+قَالَا رَبَّنَا ظَلَمْنَا أَنْفُسَنَا وَإِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ
+</p>
+<p class="translation">“They said, ‘Our Lord, we have wronged ourselves. If You do not forgive us and have mercy upon us, we will certainly be among the losers.’”</p>
+<p class="reference">Surah al-A‘raf, 7:23.</p>
+</div>
+
+<div class="callout">
+<span class="callout-label">Qur'an: Allah Accepts Repentance</span>
+<p class="quran-text arabic" dir="rtl" lang="ar">
+فَتَلَقَّىٰ آدَمُ مِنْ رَبِّهِ كَلِمَاتٍ فَتَابَ عَلَيْهِ ۚ إِنَّهُ هُوَ التَّوَّابُ الرَّحِيمُ
+</p>
+<p class="translation">“Then Adam received from his Lord words, and He accepted his repentance. Surely He is the Accepter of Repentance, the Most Merciful.”</p>
+<p class="reference">Surah al-Baqarah, 2:37.</p>
+</div>
+
+<h3>5. Adam (AS) on Earth and the Beginning of Humanity</h3>
+<ul>
+<li>After accepting Adam’s repentance, Allah sent Adam (AS), Hawwa, and Iblis down to Earth. Earth became humanity’s temporary dwelling place and place of testing.</li>
+<li>Being sent to Earth was not proof that Allah had abandoned Adam (AS). Allah forgave him, chose him, and guided him.</li>
+<li>Adam (AS) became the father of humankind. His descendants were to live according to divine guidance and resist Satan’s efforts to mislead them.</li>
+<li>Adam (AS) experienced family life on Earth. The Qur’an records the account of his two sons, often identified in Islamic tradition as Qabil and Habil, whose conflict teaches the danger of envy, uncontrolled anger, and injustice.</li>
+<li>Prophet Adam (AS) taught his family to worship Allah, obey His guidance, and recognise that Satan is a clear enemy of humankind.</li>
+</ul>
+
+<div class="callout">
+<span class="callout-label">Hadith: The Origin of Human Diversity</span>
+<p class="quran-text arabic" dir="rtl" lang="ar">
+إِنَّ اللَّهَ تَعَالَى خَلَقَ آدَمَ مِنْ قَبْضَةٍ قَبَضَهَا مِنْ جَمِيعِ الْأَرْضِ،
+فَجَاءَ بَنُو آدَمَ عَلَىٰ قَدْرِ الْأَرْضِ، جَاءَ مِنْهُمُ الْأَحْمَرُ وَالْأَبْيَضُ وَالْأَسْوَدُ وَبَيْنَ ذَٰلِكَ
+</p>
+<p class="translation">“Indeed, Allah created Adam from a handful which He took from all of the earth. Thus, the children of Adam came according to the earth: among them are the red, white, black, and those in between…”</p>
+<p class="reference">Sunan Abi Dawud, no. 4693; Jami‘ al-Tirmidhi, no. 2955. Grade: Hasan Sahih.</p>
+</div>
+
+<div class="timeline">
+<article class="timeline-item">
+<h3>1. Creation of Adam (AS)</h3>
+<p>Allah created Adam (AS) from clay and gave him knowledge, honour, and responsibility.</p>
+</article>
+
+<article class="timeline-item">
+<h3>2. Command to the Angels</h3>
+<p>The angels obeyed Allah’s command to prostrate in honour before Adam (AS); Iblis refused because of pride.</p>
+</article>
+
+<article class="timeline-item">
+<h3>3. Life in Paradise</h3>
+<p>Adam (AS) and Hawwa lived in Paradise, enjoying its blessings while being tested through one prohibition.</p>
+</article>
+
+<article class="timeline-item">
+<h3>4. Satan’s Deception</h3>
+<p>Iblis tempted them with misleading promises until they ate from the forbidden tree.</p>
+</article>
+
+<article class="timeline-item">
+<h3>5. Repentance and Forgiveness</h3>
+<p>Adam (AS) and Hawwa confessed their wrong and sought Allah’s mercy; Allah accepted Adam’s repentance.</p>
+</article>
+
+<article class="timeline-item">
+<h3>6. Life on Earth</h3>
+<p>Adam (AS) began human life on Earth as a prophet, father, teacher, and example of repentance.</p>
+</article>
+</div>
+
+<h3>6. Major Lessons from the Story</h3>
+<div class="lesson-grid">
+<article class="lesson-card">
+<h3>Human Fallibility</h3>
+<p>Human beings can forget, become weak, and make mistakes. Islam does not teach inherited guilt; each person is responsible for their own choices and can seek Allah’s forgiveness.</p>
+</article>
+
+<article class="lesson-card">
+<h3>Sincere Tawbah</h3>
+<p>True repentance includes recognising the sin, feeling regret, stopping the wrongdoing, asking Allah to forgive, and intending not to return to it.</p>
+</article>
+
+<article class="lesson-card">
+<h3>Resisting Temptation</h3>
+<p>Satan often uses whispers, attractive promises, and false reasoning. Muslims resist through knowledge, prayer, self-control, righteous friends, and seeking Allah’s protection.</p>
+</article>
+
+<article class="lesson-card">
+<h3>Living as Khalifah</h3>
+<p>Every person has a responsibility to worship Allah and act responsibly: protect life, pursue justice, care for the environment, and use knowledge for good.</p>
+</article>
+</div>
+
+<div class="note">
+<strong>Teacher note:</strong> Avoid presenting details that are not clearly established in the Qur’an or authentic Sunnah as certain facts. The Qur’an gives the central guidance: Adam’s creation, honour, test, repentance, forgiveness, and mission on Earth.
+</div>
+</section>
+
+<section class="section" id="word-bank">
+<h2 class="section-heading">C. Essential Word Bank</h2>
+<div class="word-bank">
+<table>
+<thead>
+<tr>
+<th>Arabic Term</th>
+<th>Transliteration</th>
+<th>Concise Pedagogical Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="arabic" dir="rtl" lang="ar">آدَمُ</td>
+<td>Ādam</td>
+<td>The first human being and first prophet in Islam.</td>
+</tr>
+<tr>
+<td class="arabic" dir="rtl" lang="ar">حَوَّاءُ</td>
+<td>Ḥawwā’</td>
+<td>The wife and companion of Prophet Adam (AS), known in English as Eve.</td>
+</tr>
+<tr>
+<td class="arabic" dir="rtl" lang="ar">إِبْلِيسُ</td>
+<td>Iblīs</td>
+<td>The being who refused Allah’s command out of pride and became an enemy of humankind.</td>
+</tr>
+<tr>
+<td class="arabic" dir="rtl" lang="ar">شَيْطَانٌ</td>
+<td>Shayṭān</td>
+<td>Satan; a source of whispers and temptation that calls people away from Allah’s guidance.</td>
+</tr>
+<tr>
+<td class="arabic" dir="rtl" lang="ar">تَوْبَةٌ</td>
+<td>Tawbah</td>
+<td>Sincere repentance: turning back to Allah after committing a sin.</td>
+</tr>
+<tr>
+<td class="arabic" dir="rtl" lang="ar">خَلِيفَةٌ</td>
+<td>Khalīfah</td>
+<td>A responsible steward or successor on Earth who fulfils Allah’s guidance.</td>
+</tr>
+<tr>
+<td class="arabic" dir="rtl" lang="ar">كِبْرٌ</td>
+<td>Kibr</td>
+<td>Arrogance or pride that makes a person reject truth and look down on others.</td>
+</tr>
+<tr>
+<td class="arabic" dir="rtl" lang="ar">وَسْوَسَةٌ</td>
+<td>Waswasah</td>
+<td>A whisper or suggestion that encourages doubt, sin, or disobedience.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="section" id="flashcards">
+<h2 class="section-heading">D. Interactive Digital Flashcards</h2>
+<p>Click a card, or hover over it on a computer, to reveal the answer.</p>
+
+<div class="flashcard-grid">
+<div class="flashcard" tabindex="0" role="button" aria-label="Flashcard: Khalifah">
+<div class="flashcard-inner">
+<div class="flashcard-front">
+<h3 class="arabic" dir="rtl" lang="ar">خَلِيفَةٌ</h3>
+<p>Khalīfah</p>
+<span class="hint">Click or hover to reveal</span>
+</div>
+<div class="flashcard-back">
+<h3>Stewardship</h3>
+<p>A human responsibility to worship Allah and care for Earth with justice, knowledge, and moral discipline.</p>
+</div>
+</div>
+</div>
+
+<div class="flashcard" tabindex="0" role="button" aria-label="Flashcard: Tawbah">
+<div class="flashcard-inner">
+<div class="flashcard-front">
+<h3 class="arabic" dir="rtl" lang="ar">تَوْبَةٌ</h3>
+<p>Tawbah</p>
+<span class="hint">Click or hover to reveal</span>
+</div>
+<div class="flashcard-back">
+<h3>Returning to Allah</h3>
+<p>Sincere repentance: admit the wrong, feel regret, stop the sin, ask forgiveness, and resolve to improve.</p>
+</div>
+</div>
+</div>
+
+<div class="flashcard" tabindex="0" role="button" aria-label="Flashcard: Iblis">
+<div class="flashcard-inner">
+<div class="flashcard-front">
+<h3 class="arabic" dir="rtl" lang="ar">إِبْلِيسُ</h3>
+<p>Iblīs</p>
+<span class="hint">Click or hover to reveal</span>
+</div>
+<div class="flashcard-back">
+<h3>The Lesson of Pride</h3>
+<p>Iblis refused Allah’s command because of arrogance. He teaches us never to let pride prevent obedience or repentance.</p>
+</div>
+</div>
+</div>
+
+<div class="flashcard" tabindex="0" role="button" aria-label="Flashcard: Adam">
+<div class="flashcard-inner">
+<div class="flashcard-front">
+<h3 class="arabic" dir="rtl" lang="ar">آدَمُ عَلَيْهِ السَّلَامُ</h3>
+<p>Who was Adam (AS)?</p>
+<span class="hint">Click or hover to reveal</span>
+</div>
+<div class="flashcard-back">
+<h3>First Human and Prophet</h3>
+<p>Allah created Adam (AS), taught him knowledge, forgave his sincere repentance, and sent him to Earth with divine guidance.</p>
+</div>
+</div>
+</div>
+
+<div class="flashcard" tabindex="0" role="button" aria-label="Flashcard: Adam's repentance">
+<div class="flashcard-inner">
+<div class="flashcard-front">
+<h3>Adam’s Dua</h3>
+<p>Surah al-A‘raf 7:23</p>
+<span class="hint">Click or hover to reveal</span>
+</div>
+<div class="flashcard-back">
+<h3>Key Meaning</h3>
+<p>“Our Lord, we have wronged ourselves...” This dua models honesty, humility, and hope in Allah’s mercy.</p>
+</div>
+</div>
+</div>
+
+<div class="flashcard" tabindex="0" role="button" aria-label="Flashcard: Waswasah">
+<div class="flashcard-inner">
+<div class="flashcard-front">
+<h3 class="arabic" dir="rtl" lang="ar">وَسْوَسَةٌ</h3>
+<p>Waswasah</p>
+<span class="hint">Click or hover to reveal</span>
+</div>
+<div class="flashcard-back">
+<h3>Satanic Whispering</h3>
+<p>Temptation may appear as an attractive suggestion or false promise. Recognise it and seek Allah’s protection.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="hots">
+<h2 class="section-heading">E. HOTS & Reflection</h2>
+
+<h3>Higher-Order Thinking Questions</h3>
+<ol>
+<li>Compare the responses of Adam (AS) and Iblis after they disobeyed Allah. How did humility and pride lead to completely different outcomes?</li>
+<li>Allah appointed human beings as <em>khalifah</em> on Earth. What responsibilities does this give Muslims toward other people, animals, natural resources, and the environment?</li>
+<li>In modern life, what forms can Satan’s “whispers” take through social media, peer pressure, consumer culture, anger, or harmful habits? Suggest practical Islamic strategies to resist them.</li>
+</ol>
+
+<div class="reflection-box">
+<h3>Two-Minute Personal Reflection</h3>
+<p>
+Think of a time when you made a mistake. Without sharing private details, write about the following: What would it mean to respond like Adam (AS)—with honesty, regret, dua, and a practical plan to improve?
+</p>
+<label for="reflection"><strong>My reflection:</strong></label>
+<textarea id="reflection" placeholder="I can learn from Adam (AS) by..."></textarea>
+</div>
+</section>
+
+<section class="section" id="quiz">
+<h2 class="section-heading">F. Knowledge Check: Interactive MCQ Quiz</h2>
+<p>Select one answer for each question. Your response will be checked immediately.</p>
+
+<article class="quiz-question" data-correct="b">
+<h3>1. What role did Allah announce for humanity on Earth?</h3>
+<div class="choices">
+<button class="choice" data-answer="a">A. To become angels</button>
+<button class="choice" data-answer="b">B. To act as khalifah (stewards)</button>
+<button class="choice" data-answer="c">C. To live without guidance</button>
+<button class="choice" data-answer="d">D. To replace the prophets</button>
+</div>
+<p class="feedback" data-correct-feedback="Correct. In Surah al-Baqarah 2:30, Allah announces that He will place a khalifah on Earth." data-wrong-feedback="Not quite. Allah described humanity’s entrusted role on Earth as khalifah: responsible stewardship."></p>
+</article>
+
+<article class="quiz-question" data-correct="c">
+<h3>2. Why did Iblis refuse Allah’s command to prostrate before Adam (AS)?</h3>
+<div class="choices">
+<button class="choice" data-answer="a">A. He did not hear the command</button>
+<button class="choice" data-answer="b">B. He was afraid of Adam (AS)</button>
+<button class="choice" data-answer="c">C. He became arrogant and thought himself superior</button>
+<button class="choice" data-answer="d">D. He wanted to leave Paradise</button>
+</div>
+<p class="feedback" data-correct-feedback="Correct. Iblis refused out of arrogance, which is a central warning in the story." data-wrong-feedback="Try again. Iblis’s refusal came from kibr—arrogance—and rejection of Allah’s command."></p>
+</article>
+
+<article class="quiz-question" data-correct="a">
+<h3>3. What did Adam (AS) and Hawwa do after recognising their mistake?</h3>
+<div class="choices">
+<button class="choice" data-answer="a">A. They confessed their wrongdoing and asked Allah for forgiveness</button>
+<button class="choice" data-answer="b">B. They blamed the angels</button>
+<button class="choice" data-answer="c">C. They denied that they had disobeyed</button>
+<button class="choice" data-answer="d">D. They refused to return to Allah</button>
+</div>
+<p class="feedback" data-correct-feedback="Correct. Their dua in Surah al-A‘raf 7:23 is a model of sincere tawbah." data-wrong-feedback="Not quite. Adam (AS) and Hawwa admitted their error and sincerely asked Allah for forgiveness and mercy."></p>
+</article>
+
+<article class="quiz-question" data-correct="d">
+<h3>4. Which statement best describes the Islamic lesson from Adam’s mistake?</h3>
+<div class="choices">
+<button class="choice" data-answer="a">A. People cannot be forgiven after sinning</button>
+<button class="choice" data-answer="b">B. Adam’s sin is inherited by every human being</button>
+<button class="choice" data-answer="c">C. Temptation does not affect believers</button>
+<button class="choice" data-answer="d">D. Human beings can make mistakes and must return sincerely to Allah</button>
+</div>
+<p class="feedback" data-correct-feedback="Correct. The story teaches human fallibility, personal responsibility, sincere repentance, and Allah’s mercy." data-wrong-feedback="Try again. The Qur’anic account emphasises repentance and Allah’s acceptance of Adam’s tawbah."></p>
+</article>
+</section>
+
+<section class="section" id="references">
+<h2 class="section-heading">G. Citation & References</h2>
+
+<ol class="references">
+<li><strong>The Qur’an.</strong> Surah al-Baqarah 2:30–39; Surah al-A‘raf 7:11–27; Surah Taha 20:115–123; Surah al-Ma’idah 5:27–31; Surah Sad 38:71–85; Surah al-Hijr 15:26–44; Surah al-Rahman 55:14.</li>
+<li><strong>Al-Bukhari, Muhammad ibn Isma‘il.</strong> <em>Sahih al-Bukhari</em>, Book of Prophets, hadith on the debate between Adam and Musa (AS), no. 6614.</li>
+<li><strong>Abu Dawud, Sulayman ibn al-Ash‘ath.</strong> <em>Sunan Abi Dawud</em>, no. 4693, hadith narrated by Abu Musa al-Ash‘ari concerning Adam’s creation from a handful taken from the earth. Graded Hasan Sahih by al-Tirmidhi in related narration.</li>
+<li><strong>Al-Tirmidhi, Muhammad ibn ‘Isa.</strong> <em>Jami‘ al-Tirmidhi</em>, no. 2955, narration concerning the creation of Adam (AS) from the earth.</li>
+<li><strong>Ibn Kathir, Isma‘il ibn ‘Umar.</strong> <em>Tafsir al-Qur’an al-‘Azim</em>, commentary on Surah al-Baqarah 2:30–39 and Surah al-A‘raf 7:11–27.</li>
+<li><strong>Al-Tabari, Muhammad ibn Jarir.</strong> <em>Jami‘ al-Bayan ‘an Ta’wil Ay al-Qur’an</em>, commentary on the narratives of Adam (AS), Iblis, and human stewardship.</li>
+</ol>
+
+<p class="source-note">
+Qur’anic wording and references for Adam’s appointment as khalifah, the angels’ prostration, Adam’s repentance, and the warning concerning Satan are grounded in Surah al-Baqarah 2:30–37 and Surah al-A‘raf 7:20–23. The hadith about Adam’s creation from a handful taken from the earth is reported in Sunan Abi Dawud and Jami‘ al-Tirmidhi.
+
+</p>
+</section>
+
+<p class="footer">Prepared as an interactive Islamic Studies learning resource - Prophet Adam (AS)</p>
+</main>
+
+<script>
+document.querySelectorAll('.flashcard').forEach(function(card) {
+card.addEventListener('click', function() {
+this.classList.toggle('flipped');
+});
+
+card.addEventListener('keydown', function(event) {
+if (event.key === 'Enter' || event.key === ' ') {
+event.preventDefault();
+this.classList.toggle('flipped');
+}
+});
+});
+
+document.querySelectorAll('.quiz-question').forEach(function(question) {
+const correctAnswer = question.dataset.correct;
+const buttons = question.querySelectorAll('.choice');
+const feedback = question.querySelector('.feedback');
+
+buttons.forEach(function(button) {
+button.addEventListener('click', function() {
+const selectedAnswer = this.dataset.answer;
+const isCorrect = selectedAnswer === correctAnswer;
+
+buttons.forEach(function(item) {
+item.disabled = true;
+if (item.dataset.answer === correctAnswer) {
+item.classList.add('correct');
+}
+});
+
+if (isCorrect) {
+feedback.textContent = feedback.dataset.correctFeedback;
+feedback.classList.add('good');
+} else {
+this.classList.remove('correct');
+this.classList.add('incorrect');
+feedback.textContent = feedback.dataset.wrongFeedback;
+feedback.classList.add('try');
+}
+
+feedback.classList.add('show');
+});
+});
+});
+</script>
+</body>
+</html>
