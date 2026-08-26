@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grade 10 Islamic Studies</title>
+  <style>
+    :root {
+      --bg-cream: #fcfcf9;
+      --turquoise: #208095;
+      --soft-brown: #8a6b4f;
+      --light-border: #d7d7cf;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--bg-cream);
+      color: #222222;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      border: 1px solid var(--light-border);
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 2.2rem;
+      color: var(--turquoise);
+    }
+
+    header p {
+      margin: 0;
+      font-size: 1rem;
+      color: #666666;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+
+    .gallery-card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      border: 1px solid var(--light-border);
+      padding: 24px 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 180px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(32, 128, 149, 0.15);
+      border-color: var(--turquoise);
+    }
+
+    .gallery-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--turquoise), var(--soft-brown));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--turquoise);
+      margin: 0 0 8px;
+      line-height: 1.4;
+    }
+
+    .card-subtitle {
+      font-size: 0.9rem;
+      color: #888888;
+      margin: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.85rem;
+      color: #888888;
+    }
+
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📚 Grade 10 Islamic Studies</h1>
+      <p>Lesson Notes &amp; Resources Gallery</p>
+    </header>
+
+    <div class="gallery-grid">
+      <a href="G10ProphetAdam.html" class="gallery-card">
+        <div class="card-icon">👤</div>
+        <h3 class="card-title">Topic 1: The Story of Prophet Adam</h3>
+        <p class="card-subtitle">Creation, lessons, and guidance from the first human and prophet</p>
+      </a>
+
+      <a href="#" class="gallery-card" style="opacity: 0.6; pointer-events: none;">
+        <div class="card-icon">📿</div>
+        <h3 class="card-title">More Topics Coming Soon</h3>
+        <p class="card-subtitle">Additional lessons will be added here</p>
+      </a>
+    </div>
+
+    <footer>
+      Grade 10 Islamic Studies | IISM | 2026
+    </footer>
+  </div>
+</body>
+</html>
