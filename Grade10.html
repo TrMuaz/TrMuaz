@@ -76,10 +76,12 @@
       overflow: hidden;
     }
 
-    .gallery-card:hover {
+    .gallery-card:hover,
+    .gallery-card:focus-visible {
       transform: translateY(-4px);
       box-shadow: 0 6px 20px rgba(32, 128, 149, 0.15);
       border-color: var(--turquoise);
+      outline: none;
     }
 
     .gallery-card::before {
@@ -94,7 +96,8 @@
       transition: transform 0.3s ease;
     }
 
-    .gallery-card:hover::before {
+    .gallery-card:hover::before,
+    .gallery-card:focus-visible::before {
       transform: scaleX(1);
     }
 
@@ -115,6 +118,11 @@
       font-size: 0.9rem;
       color: #888888;
       margin: 0;
+    }
+
+    .coming-soon {
+      opacity: 0.6;
+      cursor: not-allowed;
     }
 
     footer {
@@ -142,19 +150,31 @@
       <p>Lesson Notes &amp; Resources Gallery</p>
     </header>
 
-    <div class="gallery-grid">
+    <main class="gallery-grid">
+      <a href="G10SyllabusOverview.html" class="gallery-card">
+        <div class="card-icon">🗂️</div>
+        <h2 class="card-title">Syllabus Overview</h2>
+        <p class="card-subtitle">Cambridge O Level Islamic Studies 2068: topics, assessment structure, and course guide</p>
+      </a>
+
       <a href="G10ProphetAdam.html" class="gallery-card">
         <div class="card-icon">👤</div>
-        <h3 class="card-title">Topic 1: The Story of Prophet Adam</h3>
+        <h2 class="card-title">Topic 1: The Story of Prophet Adam (AS)</h2>
         <p class="card-subtitle">Creation, lessons, and guidance from the first human and prophet</p>
       </a>
 
-      <a href="#" class="gallery-card" style="opacity: 0.6; pointer-events: none;">
-        <div class="card-icon">📿</div>
-        <h3 class="card-title">More Topics Coming Soon</h3>
-        <p class="card-subtitle">Additional lessons will be added here</p>
+      <a href="G10ProphetIbrahim.html" class="gallery-card">
+        <div class="card-icon">🕋</div>
+        <h2 class="card-title">Topic 2: The Story of Prophet Ibrahim (AS)</h2>
+        <p class="card-subtitle">Tawḥīd, courage, migration, sacrifice, the Kaʿbah, and a lasting legacy of faith</p>
       </a>
-    </div>
+
+      <div class="gallery-card coming-soon" aria-disabled="true">
+        <div class="card-icon">📿</div>
+        <h2 class="card-title">More Topics Coming Soon</h2>
+        <p class="card-subtitle">Additional lessons and learning resources will be added here</p>
+      </div>
+    </main>
 
     <footer>
       Grade 10 Islamic Studies | IISM | 2026
