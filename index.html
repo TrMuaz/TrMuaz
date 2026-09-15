@@ -1,622 +1,179 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Islamic Studies Learning Portal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --bg:           #f4f6f2;
-      --surface:      #ffffff;
-      --surface2:     #f0f4ec;
-      --text:         #1c2116;
-      --muted:        #6b7562;
-      --accent:       #3d6b45;
-      --accent-light: #5a9467;
-      --accent-soft:  #ddeedd;
-      --accent-soft2: #eef4e8;
-      --gold:         #b07d3a;
-      --gold-soft:    #f5ecd8;
-      --border:       #dde4d6;
-      --border2:      #c9d4be;
-      --shadow:       0 2px 8px rgba(30,50,20,0.07), 0 8px 24px rgba(30,50,20,0.05);
-      --radius:       16px;
-      --radius-sm:    10px;
-      --sans:         "DM Sans", system-ui, sans-serif;
-      --serif:        "DM Serif Display", Georgia, serif;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--sans);
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* ── Hero ── */
-    .hero {
-      background: linear-gradient(145deg, #1e3a22 0%, #3d6b45 50%, #6a8f4a 100%);
-      padding: 3.5rem 2rem 3rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.04) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.06) 0%, transparent 40%);
-      pointer-events: none;
-    }
-
-    .hero-inner { position: relative; z-index: 1; }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.22);
-      border-radius: 999px;
-      padding: 0.3rem 1rem;
-      font-size: 0.75rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 1rem;
-    }
-
-    .hero h1 {
-      font-family: var(--serif);
-      font-size: 2.6rem;
-      font-weight: 400;
-      color: #fff;
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.01em;
-    }
-
-    .hero p {
-      color: rgba(255,255,255,0.75);
-      font-size: 1rem;
-      letter-spacing: 0.06em;
-    }
-
-    .hero-dots {
-      display: flex;
-      justify-content: center;
-      gap: 6px;
-      margin-top: 1.4rem;
-    }
-
-    .hero-dots span {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.3);
-    }
-
-    .hero-dots span:nth-child(2) { background: rgba(255,255,255,0.7); width: 18px; }
-
-    /* ── Main ── */
-    main {
-      flex: 1;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem 2rem;
-      width: 100%;
-    }
-
-    .section-label {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .section-label .label-tag {
-      display: inline-block;
-      background: var(--accent-soft);
-      color: var(--accent);
-      border-radius: 999px;
-      font-size: 0.73rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-weight: 600;
-      padding: 0.25rem 0.85rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-label h2 {
-      font-family: var(--serif);
-      font-size: 1.85rem;
-      font-weight: 400;
-      color: var(--text);
-    }
-
-    /* ── Cards grid ── */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 1.4rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.8rem 1.6rem;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(to right, var(--accent), var(--accent-light));
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 16px rgba(30,50,20,0.1), 0 16px 40px rgba(30,50,20,0.07);
-    }
-
-    .card-icon-wrap {
-      width: 48px;
-      height: 48px;
-      background: var(--accent-soft2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-    }
-
-    .card h3 {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.3;
-    }
-
-    .card-desc {
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.5rem;
-      padding: 0.65rem 1.1rem;
-      border-radius: var(--radius-sm);
-      background: var(--accent);
-      color: #fff;
-      font-size: 0.88rem;
-      font-weight: 500;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: background 0.15s, transform 0.1s;
-      width: 100%;
-      font-family: var(--sans);
-    }
-
-    .btn-primary:hover {
-      background: #2d5234;
-      transform: translateX(3px);
-    }
-
-    .btn-primary .arrow {
-      font-size: 1rem;
-      opacity: 0.8;
-    }
-
-    /* ── Feedback button ── */
-    .feedback-row {
-      display: flex;
-      justify-content: center;
-      margin-top: 0.5rem;
-    }
-
-    .btn-feedback {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.65rem 1.6rem;
-      border-radius: 999px;
-      background: var(--gold-soft);
-      color: var(--gold);
-      border: 1px solid #d4a96a;
-      font-size: 0.9rem;
-      font-weight: 500;
-      cursor: pointer;
-      font-family: var(--sans);
-      transition: all 0.15s ease;
-    }
-
-    .btn-feedback:hover {
-      background: #ecdabb;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(176,125,58,0.15);
-    }
-
-    /* ── Popup ── */
-    .popup-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(10, 20, 10, 0.55);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      backdrop-filter: blur(4px);
-      padding: 1rem;
-    }
-
-    .popup-overlay.active { display: flex; }
-
-    .popup {
-      background: var(--surface);
-      border-radius: var(--radius);
-      padding: 2rem 1.8rem 1.8rem;
-      max-width: 480px;
-      width: 100%;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.18);
-      border: 1px solid var(--border);
-      position: relative;
-      animation: popIn 0.2s ease;
-    }
-
-    @keyframes popIn {
-      from { opacity: 0; transform: scale(0.95) translateY(10px); }
-      to   { opacity: 1; transform: scale(1) translateY(0); }
-    }
-
-    .popup-top {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .popup-icon {
-      width: 40px;
-      height: 40px;
-      background: var(--accent-soft2);
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-
-    .popup-top h2 {
-      font-family: var(--serif);
-      font-size: 1.3rem;
-      font-weight: 400;
-      color: var(--text);
-      flex: 1;
-    }
-
-    .popup-close {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      cursor: pointer;
-      color: var(--muted);
-      transition: background 0.15s;
-      flex-shrink: 0;
-    }
-
-    .popup-close:hover { background: var(--accent-soft); color: var(--accent); }
-
-    .popup-note {
-      font-size: 0.82rem;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      padding-bottom: 0.8rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .popup form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .field-label {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.25rem;
-      display: block;
-    }
-
-    .popup input,
-    .popup select,
-    .popup textarea {
-      width: 100%;
-      padding: 0.6rem 0.8rem;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border2);
-      font-family: var(--sans);
-      font-size: 0.9rem;
-      background: var(--surface2);
-      color: var(--text);
-      transition: border-color 0.15s, box-shadow 0.15s;
-      outline: none;
-    }
-
-    .popup input:focus,
-    .popup select:focus,
-    .popup textarea:focus {
-      border-color: var(--accent-light);
-      box-shadow: 0 0 0 3px rgba(90,148,103,0.12);
-      background: #fff;
-    }
-
-    .popup textarea {
-      resize: vertical;
-      min-height: 64px;
-    }
-
-    .popup-submit {
-      margin-top: 0.3rem;
-      background: var(--accent);
-      color: white;
-      border: none;
-      border-radius: var(--radius-sm);
-      padding: 0.7rem 1rem;
-      font-size: 0.95rem;
-      font-weight: 500;
-      cursor: pointer;
-      font-family: var(--sans);
-      transition: background 0.15s, transform 0.1s;
-    }
-
-    .popup-submit:hover {
-      background: #2d5234;
-      transform: translateY(-1px);
-    }
-
-    .success-message {
-      display: none;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-      color: var(--accent);
-      background: var(--accent-soft2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 0.6rem 0.8rem;
-      margin-top: 0.5rem;
-    }
-
-    /* ── Footer ── */
-    footer {
-      text-align: center;
-      padding: 1.5rem 1rem;
-      font-size: 0.83rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      background: var(--surface);
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 680px) {
-      .hero h1 { font-size: 2rem; }
-      main { padding: 2rem 1rem 1.5rem; }
-      .cards-grid { grid-template-columns: 1fr; }
-    }
-  </style>
-</head>
-<body>
-
-<!-- Hero -->
-<header class="hero">
-  <div class="hero-inner">
-    <div class="hero-badge">🌿 IISM · Islamic Studies</div>
-    <h1>Learning Portal</h1>
-    <p>Activities &nbsp;•&nbsp; Lessons &nbsp;•&nbsp; Quizzes</p>
-    <div class="hero-dots">
-      <span></span><span></span><span></span>
-    </div>
-  </div>
-</header>
-
-<!-- Main -->
-<main>
-  <div class="section-label">
-    <div class="label-tag">📂 Resources</div>
-    <h2>Select Your Grade</h2>
-  </div>
-
-  <div class="cards-grid">
-
-    <!-- Grade 7 -->
-    <div class="card">
-      <div class="card-icon-wrap">📚</div>
-      <div>
-        <h3>Islamic Studies — Grade 7</h3>
-        <p class="card-desc">Lesson notes organised by topic for Grade 7 students.</p>
-      </div>
-      <a href="Grade7.html" class="btn-primary">
-        Lesson Notes by Topic <span class="arrow">→</span>
-      </a>
-    </div>
-
-    <!-- Grade 9 -->
-    <div class="card">
-      <div class="card-icon-wrap">📚</div>
-      <div>
-        <h3>Islamic Studies — Grade 9</h3>
-        <p class="card-desc">Lesson notes organised by topic for Grade 9 students.</p>
-      </div>
-      <a href="Grade9.html" class="btn-primary">
-        Lesson Notes by Topic <span class="arrow">→</span>
-      </a>
-    </div>
-
-    <!-- Grade 10 -->
-    <div class="card">
-      <div class="card-icon-wrap">📚</div>
-      <div>
-        <h3>Islamic Studies — Grade 10</h3>
-        <p class="card-desc">Lesson notes organised by topic for Grade 10 students.</p>
-      </div>
-      <a href="Grade10.html" class="btn-primary">
-        Lesson Notes by Topic <span class="arrow">→</span>
-      </a>
-    </div>
-
-    <!-- Fardhu Ain -->
-    <div class="card">
-      <div class="card-icon-wrap">🕌</div>
-      <div>
-        <h3>Fardhu Ain — Grade 7, 8 & 9</h3>
-        <p class="card-desc">Lesson notes on Fardhu Ain topics for all secondary grades.</p>
-      </div>
-      <a href="FardhuAin.html" class="btn-primary">
-        Lesson Notes by Topic <span class="arrow">→</span>
-      </a>
-    </div>
-
-  </div>
-
-  <!-- Feedback button -->
-  <div class="feedback-row">
-    <button class="btn-feedback" id="openFeedback">
-      💬 Feedback &amp; Suggestions
-    </button>
-  </div>
-</main>
-
-<footer>
-  © 2026 &nbsp;|&nbsp; Created by Tr. Muaz
-</footer>
-
-<!-- Feedback Popup -->
-<div class="popup-overlay" id="feedbackOverlay">
-  <div class="popup">
-    <div class="popup-top">
-      <div class="popup-icon">💬</div>
-      <h2>Feedback &amp; Suggestions</h2>
-      <button class="popup-close" id="closeFeedback">&times;</button>
-    </div>
-    <p class="popup-note">This form is anonymous. Please be respectful and honest.</p>
-
-    <form id="feedbackForm">
-      <div>
-        <label class="field-label" for="grade">Grade</label>
-        <select id="grade" name="grade" required>
-          <option value="">Select grade</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-        </select>
-      </div>
-
-      <div>
-        <label class="field-label" for="class">Class</label>
-        <input type="text" id="class" name="class" placeholder="e.g. Razi, Ghazali, Farabi" required />
-      </div>
-
-      <div>
-        <label class="field-label" for="feedback">Feedback</label>
-        <textarea id="feedback" name="feedback" placeholder="What do you think about the lessons / portal?" required></textarea>
-      </div>
-
-      <div>
-        <label class="field-label" for="suggestion">Suggestion</label>
-        <textarea id="suggestion" name="suggestion" placeholder="How can we improve?"></textarea>
-      </div>
-
-      <div>
-        <label class="field-label" for="question">Question</label>
-        <textarea id="question" name="question" placeholder="Any question you want to ask?"></textarea>
-      </div>
-
-      <button type="submit" class="popup-submit">Submit Feedback</button>
-      <div class="success-message" id="successMessage">✅ Thank you for your feedback!</div>
-    </form>
-  </div>
-</div>
-
-<script>
-  const openBtn = document.getElementById('openFeedback');
-  const closeBtn = document.getElementById('closeFeedback');
-  const overlay = document.getElementById('feedbackOverlay');
-  const form = document.getElementById('feedbackForm');
-  const successMsg = document.getElementById('successMessage');
-
-  openBtn.addEventListener('click', () => {
-    overlay.classList.add('active');
-    successMsg.style.display = 'none';
-    form.reset();
-  });
-
-  closeBtn.addEventListener('click', () => overlay.classList.remove('active'));
-
-  overlay.addEventListener('click', e => {
-    if (e.target === overlay) overlay.classList.remove('active');
-  });
-
-  form.addEventListener('submit', async e => {
-    e.preventDefault();
-
-    const data = {
-      grade: form.grade.value,
-      className: form.class.value,
-      feedback: form.feedback.value,
-      suggestion: form.suggestion.value,
-      question: form.question.value,
-      timestamp: new Date().toISOString()
-    };
-
-    try {
-      await fetch('https://script.google.com/macros/s/AKfycbyaClmXXcAzsn3P1mixqyv5QTAaOJPZ-OrVyyoh6gLUjkplUxm3GhiTqYuVIazbfxnr/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-
-      successMsg.style.display = 'flex';
-      setTimeout(() => overlay.classList.remove('active'), 1800);
-    } catch {
-      alert('There was a problem sending your feedback. Please try again later.');
-    }
-  });
-</script>
-
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A chronological bilingual study note on Prophet Yusuf in Surah Yusuf, with Ibn Kathir and authentic hadith."><title>The Story of Prophet Yusuf عليه السلام</title><style>
+:root{--navy:#071b2b;--deep:#0d2d3e;--gold:#c99b45;--cream:#fffaf0;--ink:#17242c;--teal:#167d73;--line:#d7c7a4;--soft:#f4efe4}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#e9e4d8;color:var(--ink);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.65}.hero{background:radial-gradient(circle at 80% 10%,#1d5360,var(--navy) 50%);color:white;padding:64px max(5vw,24px) 48px;border-bottom:7px solid var(--gold)}.hero-inner{max-width:1150px;margin:auto}.eyebrow{color:#f2ce86;text-transform:uppercase;letter-spacing:.16em;font-weight:800;font-size:.8rem}.hero h1{font-family:Georgia,serif;font-size:clamp(2.4rem,6vw,5rem);line-height:1.04;margin:.2em 0}.hero .subtitle{max-width:850px;font-size:1.14rem;color:#dcebed}.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.badge{border:1px solid #d7b668;border-radius:99px;padding:6px 13px;color:#fff3ce;font-size:.86rem}.notice{max-width:1150px;margin:26px auto;background:#fff8e7;border-left:5px solid var(--gold);padding:16px 20px;box-shadow:0 3px 16px #0001}.toc{max-width:1150px;margin:28px auto;padding:0 18px}.toc h2{font-family:Georgia,serif}.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}.toc a{display:grid;grid-template-columns:32px 1fr auto;align-items:center;gap:8px;padding:11px;background:white;color:var(--ink);text-decoration:none;border:1px solid #ddd4c3;border-radius:8px}.toc a b{color:var(--gold)}.toc a small{color:#63737a}.sourcebox{max-width:1150px;margin:24px auto;padding:22px;background:var(--deep);color:#eaf7f5;border-radius:12px}.sourcebox h2{color:#f0cb80;margin-top:0}.sourcebox a{color:#a8e3db}main{max-width:1150px;margin:36px auto;padding:0 18px}.story-part{background:var(--cream);margin:0 0 46px;border-radius:15px;overflow:hidden;box-shadow:0 10px 30px #071b2b18;border-top:6px solid var(--gold)}.part-head{padding:26px 30px 14px}.part-no{color:var(--teal);font-size:.78rem;text-transform:uppercase;letter-spacing:.15em;font-weight:900}.part-head h2{font-family:Georgia,serif;font-size:clamp(1.8rem,4vw,2.7rem);margin:.05em 0}.range{color:#66747a;margin:0;font-weight:600}.overview{display:grid;grid-template-columns:minmax(300px,42%) 1fr;gap:0;background:#eef3ef}.overview img{width:100%;height:100%;min-height:320px;object-fit:cover}.note{padding:26px 30px}.note h3,.verses>h3{font-family:Georgia,serif;color:#8e6420;margin:0 0 6px}.note p{margin:0 0 18px}.verses{padding:30px}.verses>h3{font-size:1.45rem;border-bottom:2px solid var(--line);padding-bottom:9px}.ayah{position:relative;padding:22px 58px 20px 0;border-bottom:1px solid #ded7c9}.ayah:last-child{border-bottom:0}.ref{position:absolute;right:0;top:24px;background:var(--deep);color:#fff4d6;font-weight:800;font-size:.78rem;padding:5px 8px;border-radius:5px}.arabic{font-family:"Amiri Quran","Noto Naskh Arabic","Traditional Arabic",serif;font-size:clamp(1.55rem,3.2vw,2.05rem);line-height:2;text-align:right;margin:0 0 9px;color:#102d32}.translation{font-family:Georgia,serif;font-size:1.04rem;margin:0;color:#3a464b}.vnum{color:#997024;font-size:.78em;white-space:nowrap}.hadith{max-width:1150px;margin:0 auto 44px;padding:0 18px}.hadith-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.hadith-card{background:#fff;padding:20px;border-radius:11px;border-top:4px solid var(--teal)}.hadith-card h3{font-family:Georgia,serif}.arabic-h{font-family:"Noto Naskh Arabic",serif;font-size:1.35rem;text-align:right;direction:rtl;color:#123b3b}.refs{max-width:1150px;margin:30px auto;padding:26px;background:#fff;border-radius:12px}.refs li{margin:8px 0}.refs a{color:#086e67}.footer{background:var(--navy);color:#cbdcdd;padding:28px;text-align:center}.back{position:fixed;right:18px;bottom:18px;background:var(--gold);color:#071b2b;text-decoration:none;padding:10px 14px;border-radius:99px;font-weight:bold;box-shadow:0 5px 18px #0004}@media(max-width:760px){.overview{grid-template-columns:1fr}.overview img{height:260px;min-height:0}.hadith-grid{grid-template-columns:1fr}.verses,.part-head,.note{padding-left:20px;padding-right:20px}.ayah{padding-right:0;padding-top:54px}.ref{left:0;right:auto;top:14px}.hero{padding-top:44px}}@media print{body{background:#fff}.hero{padding:22mm 16mm}.toc,.notice,.sourcebox,.back{display:none}main{margin:0;max-width:none;padding:0}.story-part{box-shadow:none;border:1px solid #bbb;border-top:5px solid #777;border-radius:0;break-before:page;margin:0}.overview{grid-template-columns:38% 1fr}.overview img{min-height:220px}.ayah{break-inside:avoid}.footer{display:none}@page{size:A4;margin:12mm}}
+</style></head><body id="top">
+<header class="hero"><div class="hero-inner"><div class="eyebrow">Bilingual Qur’anic Study Note</div><h1>The Story of Prophet Yusuf <span lang="ar">عليه السلام</span></h1><p class="subtitle">A chronological journey through every verse of Surah Yusuf, with Arabic placed directly above an English translation, concise explanation from Tafsir Ibn Kathir, authentic hadith, and respectful symbolic illustrations.</p><div class="badges"><span class="badge">Surah 12</span><span class="badge">111 verses</span><span class="badge">18 story parts</span><span class="badge">Mobile friendly</span><span class="badge">A4 print ready</span></div></div></header>
+<aside class="notice"><b>Method and safeguarding:</b> The narrative follows Surah Yusuf alone. Explanatory notes are restricted to Ibn Kathir’s tafsir, while added hadith are from Sahih al-Bukhari and Sahih Muslim. Disputed names, precise ages, invented dialogue and unsupported visual depictions are excluded. Illustrations are symbolic and do not portray prophets.</aside>
+<nav class="toc"><h2>Chronological contents</h2><div class="toc-grid"><a href="#part-1"><b>1</b><span>The Best of Stories</span><small>1–3</small></a><a href="#part-2"><b>2</b><span>Yusuf’s True Dream</span><small>4–6</small></a><a href="#part-3"><b>3</b><span>Jealousy Becomes a Plot</span><small>7–10</small></a><a href="#part-4"><b>4</b><span>Permission from Ya‘qub</span><small>11–14</small></a><a href="#part-5"><b>5</b><span>The Well and False Tears</span><small>15–18</small></a><a href="#part-6"><b>6</b><span>Rescued and Sold</span><small>19–22</small></a><a href="#part-7"><b>7</b><span>The Closed Doors</span><small>23–29</small></a><a href="#part-8"><b>8</b><span>Women of the City</span><small>30–34</small></a><a href="#part-9"><b>9</b><span>Faith inside Prison</span><small>35–42</small></a><a href="#part-10"><b>10</b><span>The King’s Dream</span><small>43–49</small></a><a href="#part-11"><b>11</b><span>Innocence Before Freedom</span><small>50–57</small></a><a href="#part-12"><b>12</b><span>Brothers Seek Grain</span><small>58–68</small></a><a href="#part-13"><b>13</b><span>The Cup and Brother</span><small>69–79</small></a><a href="#part-14"><b>14</b><span>Ya‘qub’s Grief and Hope</span><small>80–87</small></a><a href="#part-15"><b>15</b><span>Recognition and Forgiveness</span><small>88–93</small></a><a href="#part-16"><b>16</b><span>Sight Restored</span><small>94–98</small></a><a href="#part-17"><b>17</b><span>The Dream Fulfilled</span><small>99–101</small></a><a href="#part-18"><b>18</b><span>Lessons for Believers</span><small>102–111</small></a></div></nav>
+<section class="sourcebox"><h2>How to use this note</h2><p>Read each Arabic verse first, then compare it with the English line immediately beneath it. Next, use the story note to follow the chronology and the Ibn Kathir paragraph to understand the main interpretive point. The English rendering is the public-domain translation of M. M. Pickthall; wording such as “Joseph” in the translation refers to Yusuf عليه السلام.</p></section>
+<section class="hadith" id="hadith"><h2>Authentic hadith connections</h2><div class="hadith-grid">
+<article class="hadith-card"><h3>A noble prophetic lineage</h3><p class="arabic-h">الْكَرِيمُ ابْنُ الْكَرِيمِ ابْنِ الْكَرِيمِ ابْنِ الْكَرِيمِ يُوسُفُ بْنُ يَعْقُوبَ بْنِ إِسْحَاقَ بْنِ إِبْرَاهِيمَ عَلَيْهِمِ السَّلاَمُ</p><p>“The honourable, son of the honourable, son of the honourable, son of the honourable: Yusuf son of Ya‘qub son of Ishaq son of Ibrahim, peace be upon them.”</p><p><b>Source:</b> Sahih al-Bukhari 3390.</p></article>
+<article class="hadith-card"><h3>Extraordinary beauty</h3><p class="arabic-h">فَإِذَا أَنَا بِيُوسُفَ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ إِذَا هُوَ قَدْ أُعْطِيَ شَطْرَ الْحُسْنِ</p><p>During the Night Journey, the Prophet ﷺ saw Yusuf عليه السلام, who “had been given half of beauty.”</p><p><b>Source:</b> Sahih Muslim 162a.</p></article>
+<article class="hadith-card"><h3>Patience and honour</h3><p class="arabic-h">وَلَوْ لَبِثْتُ فِي السِّجْنِ طُولَ مَا لَبِثَ يُوسُفُ لأَجَبْتُ الدَّاعِيَ</p><p>The Prophet ﷺ said that had he remained in prison as long as Yusuf and then received the invitation, he would have answered it.</p><p><b>Source:</b> Sahih al-Bukhari 3372; Sahih Muslim 151a. Scholars understand this as praise for Yusuf’s remarkable patience in seeking public vindication first.</p></article>
+</div></section><main><section class="story-part" id="part-1">
+<div class="part-head"><div><span class="part-no">Part 1</span><h2>The Best of Stories</h2><p class="range">Surah Yusuf, verses 1–3</p></div></div>
+<div class="overview"><img src="images/part-01.png" alt="Symbolic illustration: Open Book" loading="lazy"><div class="note"><h3>Story note</h3><p>Revelation introduces Surah Yusuf as a clear Arabic Qur’an and “the best of stories.” The account is not folklore; it is knowledge revealed to Prophet Muhammad ﷺ.</p><h3>Ibn Kathir explains</h3><p>Ibn Kathir explains that the Qur’an makes truth plain and that Arabic conveys its meanings with exceptional clarity. These opening verses frame the story as guidance, not entertainment.</p></div></div>
+<div class="verses"><h3>Arabic and English</h3><article class="ayah" id="ayah-1"><div class="ref">12:1</div><p class="arabic" lang="ar" dir="rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ الٓر ۚ تِلْكَ ءَايَٰتُ ٱلْكِتَٰبِ ٱلْمُبِينِ <span class="vnum">﴿1﴾</span></p><p class="translation" lang="en">Alif. Lam. Ra. These are verse of the Scripture that maketh plain.</p></article>
+<article class="ayah" id="ayah-2"><div class="ref">12:2</div><p class="arabic" lang="ar" dir="rtl">إِنَّآ أَنزَلْنَٰهُ قُرْءَٰنًا عَرَبِيًّۭا لَّعَلَّكُمْ تَعْقِلُونَ <span class="vnum">﴿2﴾</span></p><p class="translation" lang="en">Lo! We have revealed it, a Lecture in Arabic, that ye may understand.</p></article>
+<article class="ayah" id="ayah-3"><div class="ref">12:3</div><p class="arabic" lang="ar" dir="rtl">نَحْنُ نَقُصُّ عَلَيْكَ أَحْسَنَ ٱلْقَصَصِ بِمَآ أَوْحَيْنَآ إِلَيْكَ هَٰذَا ٱلْقُرْءَانَ وَإِن كُنتَ مِن قَبْلِهِۦ لَمِنَ ٱلْغَٰفِلِينَ <span class="vnum">﴿3﴾</span></p><p class="translation" lang="en">We narrate unto thee (Muhammad) the best of narratives in that We have inspired in thee this Qur&#x27;an, though aforetime thou wast of the heedless.</p></article></div>
+</section><section class="story-part" id="part-2">
+<div class="part-head"><div><span class="part-no">Part 2</span><h2>Yusuf’s True Dream</h2><p class="range">Surah Yusuf, verses 4–6</p></div></div>
+<div class="overview"><img src="images/part-02.png" alt="Symbolic illustration: Stars and Moon" loading="lazy"><div class="note"><h3>Story note</h3><p>Young Yusuf عليه السلام tells his father Ya‘qub عليه السلام that he saw eleven stars, the sun and the moon prostrating to him. Ya‘qub recognises a great future and warns him not to tell his brothers.</p><h3>Ibn Kathir explains</h3><p>Ibn Kathir identifies the eleven stars as Yusuf’s brothers and the sun and moon as his parents. Ya‘qub understood that Allah would choose Yusuf, teach him the interpretation of dreams and complete His favour upon the family.</p></div></div>
+<div class="verses"><h3>Arabic and English</h3><article class="ayah" id="ayah-4"><div class="ref">12:4</div><p class="arabic" lang="ar" dir="rtl">إِذْ قَالَ يُوسُفُ لِأَبِيهِ يَٰٓأَبَتِ إِنِّى رَأَيْتُ أَحَدَ عَشَرَ كَوْكَبًۭا وَٱلشَّمْسَ وَٱلْقَمَرَ رَأَيْتُهُمْ لِى سَٰجِدِينَ <span class="vnum">﴿4﴾</span></p><p class="translation" lang="en">When Joseph said unto his father: O my father! Lo! I saw in a dream eleven planets and the sun and the moon, I saw them prostrating themselves unto me.</p></article>
+<article class="ayah" id="ayah-5"><div class="ref">12:5</div><p class="arabic" lang="ar" dir="rtl">قَالَ يَٰبُنَىَّ لَا تَقْصُصْ رُءْيَاكَ عَلَىٰٓ إِخْوَتِكَ فَيَكِيدُوا۟ لَكَ كَيْدًا ۖ إِنَّ ٱلشَّيْطَٰنَ لِلْإِنسَٰنِ عَدُوٌّۭ مُّبِينٌۭ <span class="vnum">﴿5﴾</span></p><p class="translation" lang="en">He said: O my dear son! Tell not thy brethren of thy vision, lest they plot a plot against thee. Lo! Satan is for man an open foe.</p></article>
+<article class="ayah" id="ayah-6"><div class="ref">12:6</div><p class="arabic" lang="ar" dir="rtl">وَكَذَٰلِكَ يَجْتَبِيكَ رَبُّكَ وَيُعَلِّمُكَ مِن تَأْوِيلِ ٱلْأَحَادِيثِ وَيُتِمُّ نِعْمَتَهُۥ عَلَيْكَ وَعَلَىٰٓ ءَالِ يَعْقُوبَ كَمَآ أَتَمَّهَا عَلَىٰٓ أَبَوَيْكَ مِن قَبْلُ إِبْرَٰهِيمَ وَإِسْحَٰقَ ۚ إِنَّ رَبَّكَ عَلِيمٌ حَكِيمٌۭ <span class="vnum">﴿6﴾</span></p><p class="translation" lang="en">Thus thy Lord will prefer thee and will teach thee the interpretation of events, and will perfect His grace upon thee and upon the family of Jacob as He perfected it upon thy forefathers, Abraham and Isaac. Lo! thy Lord is Knower, Wise.</p></article></div>
+</section><section class="story-part" id="part-3">
+<div class="part-head"><div><span class="part-no">Part 3</span><h2>Jealousy Becomes a Plot</h2><p class="range">Surah Yusuf, verses 7–10</p></div></div>
+<div class="overview"><img src="images/part-03.png" alt="Symbolic illustration: Brothers’ Plot" loading="lazy"><div class="note"><h3>Story note</h3><p>The brothers resent the special love shown to Yusuf and his brother. They discuss killing Yusuf or removing him so that their father’s attention will belong to them alone; one brother proposes the well instead.</p><h3>Ibn Kathir explains</h3><p>Ibn Kathir highlights envy, broken family ties and the contradiction of planning repentance before committing sin. The Qur’an does not name the brother who objected to murder, so the note avoids uncertain names.</p></div></div>
+<div class="verses"><h3>Arabic and English</h3><article class="ayah" id="ayah-7"><div class="ref">12:7</div><p class="arabic" lang="ar" dir="rtl">۞ لَّقَدْ كَانَ فِى يُوسُفَ وَإِخْوَتِهِۦٓ ءَايَٰتٌۭ لِّلسَّآئِلِينَ <span class="vnum">﴿7﴾</span></p><p class="translation" lang="en">Verily in Joseph and his brethren are signs (of Allah&#x27;s Sovereignty) for the inquiring.</p></article>
+<article class="ayah" id="ayah-8"><div class="ref">12:8</div><p class="arabic" lang="ar" dir="rtl">إِذْ قَالُوا۟ لَيُوسُفُ وَأَخُوهُ أَحَبُّ إِلَىٰٓ أَبِينَا مِنَّا وَنَحْنُ عُصْبَةٌ إِنَّ أَبَانَا لَفِى ضَلَٰلٍۢ مُّبِينٍ <span class="vnum">﴿8﴾</span></p><p class="translation" lang="en">When they said: Verily Joseph and his brother are dearer to our father than we are, many though we be. Lo! our father is in plain aberration.</p></article>
+<article class="ayah" id="ayah-9"><div class="ref">12:9</div><p class="arabic" lang="ar" dir="rtl">ٱقْتُلُوا۟ يُوسُفَ أَوِ ٱطْرَحُوهُ أَرْضًۭا يَخْلُ لَكُمْ وَجْهُ أَبِيكُمْ وَتَكُونُوا۟ مِنۢ بَعْدِهِۦ قَوْمًۭا صَٰلِحِينَ <span class="vnum">﴿9﴾</span></p><p class="translation" lang="en">(One said): Kill Joseph or cast him to some (other) land, so that your father&#x27;s favour may be all for you, and (that) ye may afterward be righteous folk.</p></article>
+<article class="ayah" id="ayah-10"><div class="ref">12:10</div><p class="arabic" lang="ar" dir="rtl">قَالَ قَآئِلٌۭ مِّنْهُمْ لَا تَقْتُلُوا۟ يُوسُفَ وَأَلْقُوهُ فِى غَيَٰبَتِ ٱلْجُبِّ يَلْتَقِطْهُ بَعْضُ ٱلسَّيَّارَةِ إِن كُنتُمْ فَٰعِلِينَ <span class="vnum">﴿10﴾</span></p><p class="translation" lang="en">One among them said: Kill not Joseph but, if ye must be doing, fling him into the depth of the pit; some caravan will find him.</p></article></div>
+</section><section class="story-part" id="part-4">
+<div class="part-head"><div><span class="part-no">Part 4</span><h2>Permission from Ya‘qub</h2><p class="range">Surah Yusuf, verses 11–14</p></div></div>
+<div class="overview"><img src="images/part-04.png" alt="Symbolic illustration: Journey Begins" loading="lazy"><div class="note"><h3>Story note</h3><p>The brothers claim to be sincere guardians and ask to take Yusuf out to play. Ya‘qub is saddened by separation and fears a wolf may attack while they are inattentive.</p><h3>Ibn Kathir explains</h3><p>Their outward promise concealed their inward plan. Ibn Kathir notes that they later reused their father’s stated fear as the explanation for Yusuf’s disappearance.</p></div></div>
+<div class="verses"><h3>Arabic and English</h3><article class="ayah" id="ayah-11"><div class="ref">12:11</div><p class="arabic" lang="ar" dir="rtl">قَالُوا۟ يَٰٓأَبَانَا مَا لَكَ لَا تَأْمَ۫نَّا عَلَىٰ يُوسُفَ وَإِنَّا لَهُۥ لَنَٰصِحُونَ <span class="vnum">﴿11﴾</span></p><p class="translation" lang="en">They said: O our father! Why wilt thou not trust us with Joseph, when lo! we are good friends to him?</p></article>
+<article class="ayah" id="ayah-12"><div class="ref">12:12</div><p class="arabic" lang="ar" dir="rtl">أَرْسِلْهُ مَعَنَا غَدًۭا يَرْتَعْ وَيَلْعَبْ وَإِنَّا لَهُۥ لَحَٰفِظُونَ <span class="vnum">﴿12﴾</span></p><p class="translation" lang="en">Send him with us to-morrow that he may enjoy himself and play. And lo! we shall take good care of him.</p></article>
+<article class="ayah" id="ayah-13"><div class="ref">12:13</div><p class="arabic" lang="ar" dir="rtl">قَالَ إِنِّى لَيَحْزُنُنِىٓ أَن تَذْهَبُوا۟ بِهِۦ وَأَخَافُ أَن يَأْكُلَهُ ٱلذِّئْبُ وَأَنتُمْ عَنْهُ غَٰفِلُونَ <span class="vnum">﴿13﴾</span></p><p class="translation" lang="en">He said: Lo! in truth it saddens me that ye should take him with you, and I fear less the wolf devour him while ye are heedless of him.</p></article>
+<article class="ayah" id="ayah-14"><div class="ref">12:14</div><p class="arabic" lang="ar" dir="rtl">قَالُوا۟ لَئِنْ أَكَلَهُ ٱلذِّئْبُ وَنَحْنُ عُصْبَةٌ إِنَّآ إِذًۭا لَّخَٰسِرُونَ <span class="vnum">﴿14﴾</span></p><p class="translation" lang="en">They said: If the wolf should devour him when we are (so strong) a band, then surely we should have already perished.</p></article></div>
+</section><section class="story-part" id="part-5">
+<div class="part-head"><div><span class="part-no">Part 5</span><h2>The Well and False Tears</h2><p class="range">Surah Yusuf, verses 15–18</p></div></div>
+<div class="overview"><img src="images/part-05.png" alt="Symbolic illustration: The Well" loading="lazy"><div class="note"><h3>Story note</h3><p>They agree to cast Yusuf into the hidden depth of a well. Allah comforts him with revelation that one day he will tell them about this deed; the brothers return at night with false tears and false blood.</p><h3>Ibn Kathir explains</h3><p>The untorn shirt exposed the weakness of their claim in Ibn Kathir’s explanation. Ya‘qub responds with ṣabrun jamīl—beautiful patience—and seeks Allah’s help without surrendering to despair.</p></div></div>
+<div class="verses"><h3>Arabic and English</h3><article class="ayah" id="ayah-15"><div class="ref">12:15</div><p class="arabic" lang="ar" dir="rtl">فَلَمَّا ذَهَبُوا۟ بِهِۦ وَأَجْمَعُوٓا۟ أَن يَجْعَلُوهُ فِى غَيَٰبَتِ ٱلْجُبِّ ۚ وَأَوْحَيْنَآ إِلَيْهِ لَتُنَبِّئَنَّهُم بِأَمْرِهِمْ هَٰذَا وَهُمْ لَا يَشْعُرُونَ <span class="vnum">﴿15﴾</span></p><p class="translation" lang="en">Then, when they led him off, and were of one mind that they should place him in the depth of the pit, We inspired in him: Thou wilt tell them of this deed of theirs when they know (thee) not.</p></article>
+<article class="ayah" id="ayah-16"><div class="ref">12:16</div><p class="arabic" lang="ar" dir="rtl">وَجَآءُوٓ أَبَاهُمْ عِشَآءًۭ يَبْكُونَ <span class="vnum">﴿16﴾</span></p><p class="translation" lang="en">And they came weeping to their father in the evening.</p></article>
+<article class="ayah" id="ayah-17"><div class="ref">12:17</div><p class="arabic" lang="ar" dir="rtl">قَالُوا۟ يَٰٓأَبَانَآ إِنَّا ذَهَبْنَا نَسْتَبِقُ وَتَرَكْنَا يُوسُفَ عِندَ مَتَٰعِنَا فَأَكَلَهُ ٱلذِّئْبُ ۖ وَمَآ أَنتَ بِمُؤْمِنٍۢ لَّنَا وَلَوْ كُنَّا صَٰدِقِينَ <span class="vnum">﴿17﴾</span></p><p class="translation" lang="en">Saying: O our father! We went racing one with another, and left Joseph by our things, and the wolf devoured him, and thou believest not our saying even when we speak the truth.</p></article>
+<article class="ayah" id="ayah-18"><div class="ref">12:18</div><p class="arabic" lang="ar" dir="rtl">وَجَآءُو عَلَىٰ قَمِيصِهِۦ بِدَمٍۢ كَذِبٍۢ ۚ قَالَ بَلْ سَوَّلَتْ لَكُمْ أَنفُسُكُمْ أَمْرًۭا ۖ فَصَبْرٌۭ جَمِيلٌۭ ۖ وَٱللَّهُ ٱلْمُسْتَعَانُ عَلَىٰ مَا تَصِفُونَ <span class="vnum">﴿18﴾</span></p><p class="translation" lang="en">And they came with false blood on his shirt. He said: Nay, but your minds have beguiled you into something. (My course is) comely patience. And Allah it is Whose help is to be sought in that (predicament) which ye describe.</p></article></div>
+</section><section class="story-part" id="part-6">
+<div class="part-head"><div><span class="part-no">Part 6</span><h2>Rescued and Sold</h2><p class="range">Surah Yusuf, verses 19–22</p></div></div>
+<div class="overview"><img src="images/part-06.png" alt="Symbolic illustration: Caravan to Egypt" loading="lazy"><div class="note"><h3>Story note</h3><p>A caravan’s water-drawer discovers Yusuf. He is treated as merchandise, sold cheaply and taken to Egypt, where the buyer tells his wife to honour his stay.</p><h3>Ibn Kathir explains</h3><p>Allah was already establishing Yusuf in the land while people imagined him powerless. Ibn Kathir reads “wisdom and knowledge” at maturity as Allah’s gift of sound judgement, knowledge and prophethood.</p></div></div>
+<div class="verses"><h3>Arabic and English</h3><article class="ayah" id="ayah-19"><div class="ref">12:19</div><p class="arabic" lang="ar" dir="rtl">وَجَآءَتْ سَيَّارَةٌۭ فَأَرْسَلُوا۟ وَارِدَهُمْ فَأَدْلَىٰ دَلْوَهُۥ ۖ قَالَ يَٰبُشْرَىٰ هَٰذَا غُلَٰمٌۭ ۚ وَأَسَرُّوهُ بِضَٰعَةًۭ ۚ وَٱللَّهُ عَلِيمٌۢ بِمَا يَعْمَلُونَ <span class="vnum">﴿19﴾</span></p><p class="translation" lang="en">And there came a caravan, and they sent their waterdrawer. He let down his pail (into the pit). He said: Good luck! Here is a youth. And they hid him as a treasure, and Allah was Aware of what they did.</p></article>
+<article class="ayah" id="ayah-20"><div class="ref">12:20</div><p class="arabic" lang="ar" dir="rtl">وَشَرَوْهُ بِثَمَنٍۭ بَخْسٍۢ دَرَٰهِمَ مَعْدُودَةٍۢ وَكَانُوا۟ فِيهِ مِنَ ٱلزَّٰهِدِينَ <span class="vnum">﴿20﴾</span></p><p class="translation" lang="en">And they sold him for a low price, a number of silver coins; and they attached no value to him.</p></article>
+<article class="ayah" id="ayah-21"><div class="ref">12:21</div><p class="arabic" lang="ar" dir="rtl">وَقَالَ ٱلَّذِى ٱشْتَرَىٰهُ مِن مِّصْرَ لِٱمْرَأَتِهِۦٓ أَكْرِمِى مَثْوَىٰهُ عَسَىٰٓ أَن يَنفَعَنَآ أَوْ نَتَّخِذَهُۥ وَلَدًۭا ۚ وَكَذَٰلِكَ مَكَّنَّا لِيُوسُفَ فِى ٱلْأَرْضِ وَلِنُعَلِّمَهُۥ مِن تَأْوِيلِ ٱلْأَحَادِيثِ ۚ وَٱللَّهُ غَالِبٌ عَلَىٰٓ أَمْرِهِۦ وَلَٰكِنَّ أَكْثَرَ ٱلنَّاسِ لَا يَعْلَمُونَ <span class="vnum">﴿21﴾</span></p><p class="translation" lang="en">And he of Egypt who purchased him said unto his wife: Receive him honourably. Perchance he may prove useful to us or we may adopt him as a son. Thus we established Joseph in the land that We might teach him the interpretation of events. And Allah was predominant in His career, but most of mankind know not.</p></article>
+<article class="ayah" id="ayah-22"><div class="ref">12:22</div><p class="arabic" lang="ar" dir="rtl">وَلَمَّا بَلَغَ أَشُدَّهُۥٓ ءَاتَيْنَٰهُ حُكْمًۭا وَعِلْمًۭا ۚ وَكَذَٰلِكَ نَجْزِى ٱلْمُحْسِنِينَ <span class="vnum">﴿22﴾</span></p><p class="translation" lang="en">And And when he reached his prime We gave him wisdom and knowledge. Thus We reward the good.</p></article></div>
+</section><section class="story-part" id="part-7">
+<div class="part-head"><div><span class="part-no">Part 7</span><h2>The Closed Doors</h2><p class="range">Surah Yusuf, verses 23–29</p></div></div>
+<div class="overview"><img src="images/part-07.png" alt="Symbolic illustration: Closed Door" loading="lazy"><div class="note"><h3>Story note</h3><p>The woman of the house attempts to seduce Yusuf, but he seeks Allah’s protection. He races to escape, his shirt is torn from behind, and the physical evidence establishes his truthfulness.</p><h3>Ibn Kathir explains</h3><p>Ibn Kathir stresses Yusuf’s chastity and chosen status. The Qur’an leaves the precise “proof of his Lord” unspecified; therefore, this note does not adopt colourful unverified stories about it.</p></div></div>
+<div class="verses"><h3>Arabic and English</h3><article class="ayah" id="ayah-23"><div class="ref">12:23</div><p class="arabic" lang="ar" dir="rtl">وَرَٰوَدَتْهُ ٱلَّتِى هُوَ فِى بَيْتِهَا عَن نَّفْسِهِۦ وَغَلَّقَتِ ٱلْأَبْوَٰبَ وَقَالَتْ هَيْتَ لَكَ ۚ قَالَ مَعَاذَ ٱللَّهِ ۖ إِنَّهُۥ رَبِّىٓ أَحْسَنَ مَثْوَاىَ ۖ إِنَّهُۥ لَا يُفْلِحُ ٱلظَّٰلِمُونَ <span class="vnum">﴿23﴾</span></p><p class="translation" lang="en">And she, in whose house he was, asked of him an evil act. She bolted the doors and said: Come! He said: I seek refuge in Allah! Lo! he is my lord, who hath treated me honourably. Lo! wrong-doers never prosper.</p></article>
+<article class="ayah" id="ayah-24"><div class="ref">12:24</div><p class="arabic" lang="ar" dir="rtl">وَلَقَدْ هَمَّتْ بِهِۦ ۖ وَهَمَّ بِهَا لَوْلَآ أَن رَّءَا بُرْهَٰنَ رَبِّهِۦ ۚ كَذَٰلِكَ لِنَصْرِفَ عَنْهُ ٱلسُّوٓءَ وَٱلْفَحْشَآءَ ۚ إِنَّهُۥ مِنْ عِبَادِنَا ٱلْمُخْلَصِينَ <span class="vnum">﴿24﴾</span></p><p class="translation" lang="en">She verily desired him, and he would have desired her if it had not been that he saw the argument of his Lord. Thus it was, that We might ward off from him evil and lewdness. Lo! he was of Our chosen slaves.</p></article>
+<article class="ayah" id="ayah-25"><div class="ref">12:25</div><p class="arabic" lang="ar" dir="rtl">وَٱسْتَبَقَا ٱلْبَابَ وَقَدَّتْ قَمِيصَهُۥ مِن دُبُرٍۢ وَأَلْفَيَا سَيِّدَهَا لَدَا ٱلْبَابِ ۚ قَالَتْ مَا جَزَآءُ مَنْ أَرَادَ بِأَهْلِكَ سُوٓءًا إِلَّآ أَن يُسْجَنَ أَوْ عَذَابٌ أَلِيمٌۭ <span class="vnum">﴿25﴾</span></p><p class="translation" lang="en">And they raced with one another to the door, and she tore his shirt from behind, and they met her lord and master at the door. She said: What shall be his reward, who wisheth evil to thy folk, save prison or a painful doom?</p></article>
+<article class="ayah" id="ayah-26"><div class="ref">12:26</div><p class="arabic" lang="ar" dir="rtl">قَالَ هِىَ رَٰوَدَتْنِى عَن نَّفْسِى ۚ وَشَهِدَ شَاهِدٌۭ مِّنْ أَهْلِهَآ إِن كَانَ قَمِيصُهُۥ قُدَّ مِن قُبُلٍۢ فَصَدَقَتْ وَهُوَ مِنَ ٱلْكَٰذِبِينَ <span class="vnum">﴿26﴾</span></p><p class="translation" lang="en">(Joseph) said: She it was who asked of me an evil act. And a witness of her own folk testified: If his shirt is torn from before, then she speaketh truth and he is of the liars.</p></article>
+<article class="ayah" id="ayah-27"><div class="ref">12:27</div><p class="arabic" lang="ar" dir="rtl">وَإِن كَانَ قَمِيصُهُۥ قُدَّ مِن دُبُرٍۢ فَكَذَبَتْ وَهُوَ مِنَ ٱلصَّٰدِقِينَ <span class="vnum">﴿27﴾</span></p><p class="translation" lang="en">And if his shirt is torn from behind, then she hath lied and he is of the truthful.</p></article>
+<article class="ayah" id="ayah-28"><div class="ref">12:28</div><p class="arabic" lang="ar" dir="rtl">فَلَمَّا رَءَا قَمِيصَهُۥ قُدَّ مِن دُبُرٍۢ قَالَ إِنَّهُۥ مِن كَيْدِكُنَّ ۖ إِنَّ كَيْدَكُنَّ عَظِيمٌۭ <span class="vnum">﴿28﴾</span></p><p class="translation" lang="en">So when he saw his shirt torn from behind, he said: Lo! this is of the guile of you women. Lo! the guile of you is very great.</p></article>
+<article class="ayah" id="ayah-29"><div class="ref">12:29</div><p class="arabic" lang="ar" dir="rtl">يُوسُفُ أَعْرِضْ عَنْ هَٰذَا ۚ وَٱسْتَغْفِرِى لِذَنۢبِكِ ۖ إِنَّكِ كُنتِ مِنَ ٱلْخَاطِـِٔينَ <span class="vnum">﴿29﴾</span></p><p class="translation" lang="en">O Joseph! Turn away from this, and thou, (O woman), ask forgiveness for thy sin. Lo! thou art of the faulty.</p></article></div>
+</section><section class="story-part" id="part-8">
+<div class="part-head"><div><span class="part-no">Part 8</span><h2>Women of the City</h2><p class="range">Surah Yusuf, verses 30–34</p></div></div>
+<div class="overview"><img src="images/part-08.png" alt="Symbolic illustration: Banquet Test" loading="lazy"><div class="note"><h3>Story note</h3><p>After city women gossip, the wife hosts them and orders Yusuf to appear. Astonished, they cut their hands; she admits her attempt and threatens prison, while Yusuf asks Allah to protect him.</p><h3>Ibn Kathir explains</h3><p>Yusuf prefers prison to disobedience. Ibn Kathir connects this scene to sincere fear of Allah: outward beauty did not overcome inward faith, and Allah answered Yusuf’s prayer.</p></div></div>
+<div class="verses"><h3>Arabic and English</h3><article class="ayah" id="ayah-30"><div class="ref">12:30</div><p class="arabic" lang="ar" dir="rtl">۞ وَقَالَ نِسْوَةٌۭ فِى ٱلْمَدِينَةِ ٱمْرَأَتُ ٱلْعَزِيزِ تُرَٰوِدُ فَتَىٰهَا عَن نَّفْسِهِۦ ۖ قَدْ شَغَفَهَا حُبًّا ۖ إِنَّا لَنَرَىٰهَا فِى ضَلَٰلٍۢ مُّبِينٍۢ <span class="vnum">﴿30﴾</span></p><p class="translation" lang="en">And women in the city said: The ruler&#x27;s wife is asking of her slave-boy an ill-deed. Indeed he has smitten her to the heart with love. We behold her in plain aberration.</p></article>
+<article class="ayah" id="ayah-31"><div class="ref">12:31</div><p class="arabic" lang="ar" dir="rtl">فَلَمَّا سَمِعَتْ بِمَكْرِهِنَّ أَرْسَلَتْ إِلَيْهِنَّ وَأَعْتَدَتْ لَهُنَّ مُتَّكَـًۭٔا وَءَاتَتْ كُلَّ وَٰحِدَةٍۢ مِّنْهُنَّ سِكِّينًۭا وَقَالَتِ ٱخْرُجْ عَلَيْهِنَّ ۖ فَلَمَّا رَأَيْنَهُۥٓ أَكْبَرْنَهُۥ وَقَطَّعْنَ أَيْدِيَهُنَّ وَقُلْنَ حَٰشَ لِلَّهِ مَا هَٰذَا بَشَرًا إِنْ هَٰذَآ إِلَّا مَلَكٌۭ كَرِيمٌۭ <span class="vnum">﴿31﴾</span></p><p class="translation" lang="en">And when she heard of their sly talk, she sent to them and prepared for them a cushioned couch (to lie on at the feast) and gave to every one of them a knife and said (to Joseph): Come out unto them! And when they saw him they exalted him and cut their hands, exclaiming: Allah Blameless! This is no a human being. This is not other than some gracious angel.</p></article>
+<article class="ayah" id="ayah-32"><div class="ref">12:32</div><p class="arabic" lang="ar" dir="rtl">قَالَتْ فَذَٰلِكُنَّ ٱلَّذِى لُمْتُنَّنِى فِيهِ ۖ وَلَقَدْ رَٰوَدتُّهُۥ عَن نَّفْسِهِۦ فَٱسْتَعْصَمَ ۖ وَلَئِن لَّمْ يَفْعَلْ مَآ ءَامُرُهُۥ لَيُسْجَنَنَّ وَلَيَكُونًۭا مِّنَ ٱلصَّٰغِرِينَ <span class="vnum">﴿32﴾</span></p><p class="translation" lang="en">She said: This is he on whose account ye blamed me. I asked of him an evil act, but he proved continent, but if he do not my behest he verily shall be imprisoned, and verily shall be of those brought low.</p></article>
+<article class="ayah" id="ayah-33"><div class="ref">12:33</div><p class="arabic" lang="ar" dir="rtl">قَالَ رَبِّ ٱلسِّجْنُ أَحَبُّ إِلَىَّ مِمَّا يَدْعُونَنِىٓ إِلَيْهِ ۖ وَإِلَّا تَصْرِفْ عَنِّى كَيْدَهُنَّ أَصْبُ إِلَيْهِنَّ وَأَكُن مِّنَ ٱلْجَٰهِلِينَ <span class="vnum">﴿33﴾</span></p><p class="translation" lang="en">He said: O my Lord! Prison is more dear than that unto which they urge me, and if Thou fend not off their wiles from me I shall incline unto them and become of the foolish.</p></article>
+<article class="ayah" id="ayah-34"><div class="ref">12:34</div><p class="arabic" lang="ar" dir="rtl">فَٱسْتَجَابَ لَهُۥ رَبُّهُۥ فَصَرَفَ عَنْهُ كَيْدَهُنَّ ۚ إِنَّهُۥ هُوَ ٱلسَّمِيعُ ٱلْعَلِيمُ <span class="vnum">﴿34﴾</span></p><p class="translation" lang="en">So his Lord heard his prayer and fended off their wiles from him. Lo! He is Hearer, Knower.</p></article></div>
+</section><section class="story-part" id="part-9">
+<div class="part-head"><div><span class="part-no">Part 9</span><h2>Faith inside Prison</h2><p class="range">Surah Yusuf, verses 35–42</p></div></div>
+<div class="overview"><img src="images/part-09.png" alt="Symbolic illustration: Prison and Dreams" loading="lazy"><div class="note"><h3>Story note</h3><p>Though his innocence is evident, Yusuf is imprisoned. Two inmates request dream interpretations; before answering, he teaches tawḥīd and rejects worship of invented names besides Allah.</p><h3>Ibn Kathir explains</h3><p>One prisoner will serve wine again; the other will be executed. Ibn Kathir explains that the released man forgot to mention Yusuf to his master, so Yusuf remained imprisoned for several years.</p></div></div>
+<div class="verses"><h3>Arabic and English</h3><article class="ayah" id="ayah-35"><div class="ref">12:35</div><p class="arabic" lang="ar" dir="rtl">ثُمَّ بَدَا لَهُم مِّنۢ بَعْدِ مَا رَأَوُا۟ ٱلْءَايَٰتِ لَيَسْجُنُنَّهُۥ حَتَّىٰ حِينٍۢ <span class="vnum">﴿35﴾</span></p><p class="translation" lang="en">And it seemed good to them (the men-folk) after they had seen the signs (of his innocence) to imprison him for a time.</p></article>
+<article class="ayah" id="ayah-36"><div class="ref">12:36</div><p class="arabic" lang="ar" dir="rtl">وَدَخَلَ مَعَهُ ٱلسِّجْنَ فَتَيَانِ ۖ قَالَ أَحَدُهُمَآ إِنِّىٓ أَرَىٰنِىٓ أَعْصِرُ خَمْرًۭا ۖ وَقَالَ ٱلْءَاخَرُ إِنِّىٓ أَرَىٰنِىٓ أَحْمِلُ فَوْقَ رَأْسِى خُبْزًۭا تَأْكُلُ ٱلطَّيْرُ مِنْهُ ۖ نَبِّئْنَا بِتَأْوِيلِهِۦٓ ۖ إِنَّا نَرَىٰكَ مِنَ ٱلْمُحْسِنِينَ <span class="vnum">﴿36﴾</span></p><p class="translation" lang="en">And two young men went to prison with him. One of them said: I dreamed that I was pressing wine. The other said: I dreamed that I was carrying upon my head bread whereof the birds were eating. Announce unto us the interpretation, for we see thee of those good (at interpretation).</p></article>
+<article class="ayah" id="ayah-37"><div class="ref">12:37</div><p class="arabic" lang="ar" dir="rtl">قَالَ لَا يَأْتِيكُمَا طَعَامٌۭ تُرْزَقَانِهِۦٓ إِلَّا نَبَّأْتُكُمَا بِتَأْوِيلِهِۦ قَبْلَ أَن يَأْتِيَكُمَا ۚ ذَٰلِكُمَا مِمَّا عَلَّمَنِى رَبِّىٓ ۚ إِنِّى تَرَكْتُ مِلَّةَ قَوْمٍۢ لَّا يُؤْمِنُونَ بِٱللَّهِ وَهُم بِٱلْءَاخِرَةِ هُمْ كَٰفِرُونَ <span class="vnum">﴿37﴾</span></p><p class="translation" lang="en">He said: The food which ye are given (daily) shall not come unto you but I shall tell you the interpretation ere it cometh unto you. This is of that which my Lord hath taught me. Lo! I have forsaken the religion of folk who believe not in Allah and are disbelievers in the Hereafter.</p></article>
+<article class="ayah" id="ayah-38"><div class="ref">12:38</div><p class="arabic" lang="ar" dir="rtl">وَٱتَّبَعْتُ مِلَّةَ ءَابَآءِىٓ إِبْرَٰهِيمَ وَإِسْحَٰقَ وَيَعْقُوبَ ۚ مَا كَانَ لَنَآ أَن نُّشْرِكَ بِٱللَّهِ مِن شَىْءٍۢ ۚ ذَٰلِكَ مِن فَضْلِ ٱللَّهِ عَلَيْنَا وَعَلَى ٱلنَّاسِ وَلَٰكِنَّ أَكْثَرَ ٱلنَّاسِ لَا يَشْكُرُونَ <span class="vnum">﴿38﴾</span></p><p class="translation" lang="en">And I have followed the religion of my fathers, Abraham and Isaac and Jacob. It never was for us to attribute aught as partner to Allah. This is of the bounty of Allah unto us (the seed of Abraham) and unto mankind; but most men give not thanks.</p></article>
+<article class="ayah" id="ayah-39"><div class="ref">12:39</div><p class="arabic" lang="ar" dir="rtl">يَٰصَىٰحِبَىِ ٱلسِّجْنِ ءَأَرْبَابٌۭ مُّتَفَرِّقُونَ خَيْرٌ أَمِ ٱللَّهُ ٱلْوَٰحِدُ ٱلْقَهَّارُ <span class="vnum">﴿39﴾</span></p><p class="translation" lang="en">O my fellow-prisoners! Are divers lords better, or Allah the One, Almighty?</p></article>
+<article class="ayah" id="ayah-40"><div class="ref">12:40</div><p class="arabic" lang="ar" dir="rtl">مَا تَعْبُدُونَ مِن دُونِهِۦٓ إِلَّآ أَسْمَآءًۭ سَمَّيْتُمُوهَآ أَنتُمْ وَءَابَآؤُكُم مَّآ أَنزَلَ ٱللَّهُ بِهَا مِن سُلْطَٰنٍ ۚ إِنِ ٱلْحُكْمُ إِلَّا لِلَّهِ ۚ أَمَرَ أَلَّا تَعْبُدُوٓا۟ إِلَّآ إِيَّاهُ ۚ ذَٰلِكَ ٱلدِّينُ ٱلْقَيِّمُ وَلَٰكِنَّ أَكْثَرَ ٱلنَّاسِ لَا يَعْلَمُونَ <span class="vnum">﴿40﴾</span></p><p class="translation" lang="en">Those whom ye worship beside Him are but names which ye have named, ye and your fathers. Allah hath revealed no sanction for them. The decision rests with Allah only, Who hath commanded you that ye worship none save Him. This is the right religion, but most men know not.</p></article>
+<article class="ayah" id="ayah-41"><div class="ref">12:41</div><p class="arabic" lang="ar" dir="rtl">يَٰصَىٰحِبَىِ ٱلسِّجْنِ أَمَّآ أَحَدُكُمَا فَيَسْقِى رَبَّهُۥ خَمْرًۭا ۖ وَأَمَّا ٱلْءَاخَرُ فَيُصْلَبُ فَتَأْكُلُ ٱلطَّيْرُ مِن رَّأْسِهِۦ ۚ قُضِىَ ٱلْأَمْرُ ٱلَّذِى فِيهِ تَسْتَفْتِيَانِ <span class="vnum">﴿41﴾</span></p><p class="translation" lang="en">O my two fellow-prisoners! As for one of you, he will pour out wine for his lord to drink; and as for the other, he will be crucified so that the birds will eat from his head. Thus is the case judged concerning which ye did inquire.</p></article>
+<article class="ayah" id="ayah-42"><div class="ref">12:42</div><p class="arabic" lang="ar" dir="rtl">وَقَالَ لِلَّذِى ظَنَّ أَنَّهُۥ نَاجٍۢ مِّنْهُمَا ٱذْكُرْنِى عِندَ رَبِّكَ فَأَنسَىٰهُ ٱلشَّيْطَٰنُ ذِكْرَ رَبِّهِۦ فَلَبِثَ فِى ٱلسِّجْنِ بِضْعَ سِنِينَ <span class="vnum">﴿42﴾</span></p><p class="translation" lang="en">And he said unto him of the twain who he knew would be released: Mention me in the presence of thy lord. But Satan caused him to forget to mention it to his lord, so he (Joseph) stayed in prison for some years.</p></article></div>
+</section><section class="story-part" id="part-10">
+<div class="part-head"><div><span class="part-no">Part 10</span><h2>The King’s Dream</h2><p class="range">Surah Yusuf, verses 43–49</p></div></div>
+<div class="overview"><img src="images/part-10.png" alt="Symbolic illustration: Seven-Year Plan" loading="lazy"><div class="note"><h3>Story note</h3><p>The king dreams of seven lean cows eating seven fat cows, and seven dry ears beside seven green ears. The court fails, but the former prisoner remembers Yusuf.</p><h3>Ibn Kathir explains</h3><p>Yusuf interprets seven productive years followed by seven severe years and then a year of relief. He adds practical policy: consume moderately and preserve grain in its ears.</p></div></div>
+<div class="verses"><h3>Arabic and English</h3><article class="ayah" id="ayah-43"><div class="ref">12:43</div><p class="arabic" lang="ar" dir="rtl">وَقَالَ ٱلْمَلِكُ إِنِّىٓ أَرَىٰ سَبْعَ بَقَرَٰتٍۢ سِمَانٍۢ يَأْكُلُهُنَّ سَبْعٌ عِجَافٌۭ وَسَبْعَ سُنۢبُلَٰتٍ خُضْرٍۢ وَأُخَرَ يَابِسَٰتٍۢ ۖ يَٰٓأَيُّهَا ٱلْمَلَأُ أَفْتُونِى فِى رُءْيَٰىَ إِن كُنتُمْ لِلرُّءْيَا تَعْبُرُونَ <span class="vnum">﴿43﴾</span></p><p class="translation" lang="en">And the king said: Lo! I saw in a dream seven fat kine which seven lean were eating, and seven green ears of corn and other (seven) dry. O notables! Expound for me my vision, if ye can interpret dreams.</p></article>
+<article class="ayah" id="ayah-44"><div class="ref">12:44</div><p class="arabic" lang="ar" dir="rtl">قَالُوٓا۟ أَضْغَٰثُ أَحْلَٰمٍۢ ۖ وَمَا نَحْنُ بِتَأْوِيلِ ٱلْأَحْلَٰمِ بِعَٰلِمِينَ <span class="vnum">﴿44﴾</span></p><p class="translation" lang="en">They answered: Jumbled dreams! And we are not knowing in the interpretation of dreams.</p></article>
+<article class="ayah" id="ayah-45"><div class="ref">12:45</div><p class="arabic" lang="ar" dir="rtl">وَقَالَ ٱلَّذِى نَجَا مِنْهُمَا وَٱدَّكَرَ بَعْدَ أُمَّةٍ أَنَا۠ أُنَبِّئُكُم بِتَأْوِيلِهِۦ فَأَرْسِلُونِ <span class="vnum">﴿45﴾</span></p><p class="translation" lang="en">And he of the two who was released, and (now) at length remembered, said: I am going to announce unto you the interpretation, therefore send me forth.</p></article>
+<article class="ayah" id="ayah-46"><div class="ref">12:46</div><p class="arabic" lang="ar" dir="rtl">يُوسُفُ أَيُّهَا ٱلصِّدِّيقُ أَفْتِنَا فِى سَبْعِ بَقَرَٰتٍۢ سِمَانٍۢ يَأْكُلُهُنَّ سَبْعٌ عِجَافٌۭ وَسَبْعِ سُنۢبُلَٰتٍ خُضْرٍۢ وَأُخَرَ يَابِسَٰتٍۢ لَّعَلِّىٓ أَرْجِعُ إِلَى ٱلنَّاسِ لَعَلَّهُمْ يَعْلَمُونَ <span class="vnum">﴿46﴾</span></p><p class="translation" lang="en">(And when he came to Joseph in the prison, he exclaimed): Joseph! O thou truthful one! Expound for us the seven fat kine which seven lean were eating and the seven green ears of corn and other (seven) dry, that I may return unto the people, so that they may know.</p></article>
+<article class="ayah" id="ayah-47"><div class="ref">12:47</div><p class="arabic" lang="ar" dir="rtl">قَالَ تَزْرَعُونَ سَبْعَ سِنِينَ دَأَبًۭا فَمَا حَصَدتُّمْ فَذَرُوهُ فِى سُنۢبُلِهِۦٓ إِلَّا قَلِيلًۭا مِّمَّا تَأْكُلُونَ <span class="vnum">﴿47﴾</span></p><p class="translation" lang="en">He said: Ye shall sow seven years as usual, but that which ye reap, leave it in the ear, all save a little which ye eat.</p></article>
+<article class="ayah" id="ayah-48"><div class="ref">12:48</div><p class="arabic" lang="ar" dir="rtl">ثُمَّ يَأْتِى مِنۢ بَعْدِ ذَٰلِكَ سَبْعٌۭ شِدَادٌۭ يَأْكُلْنَ مَا قَدَّمْتُمْ لَهُنَّ إِلَّا قَلِيلًۭا مِّمَّا تُحْصِنُونَ <span class="vnum">﴿48﴾</span></p><p class="translation" lang="en">Then after that will come seven hard years which will devour all that ye have prepared for them, save a little of that which ye have stored.</p></article>
+<article class="ayah" id="ayah-49"><div class="ref">12:49</div><p class="arabic" lang="ar" dir="rtl">ثُمَّ يَأْتِى مِنۢ بَعْدِ ذَٰلِكَ عَامٌۭ فِيهِ يُغَاثُ ٱلنَّاسُ وَفِيهِ يَعْصِرُونَ <span class="vnum">﴿49﴾</span></p><p class="translation" lang="en">Then, after that, will come a year when the people will have plenteous crops and when they will press (wine and oil).</p></article></div>
+</section><section class="story-part" id="part-11">
+<div class="part-head"><div><span class="part-no">Part 11</span><h2>Innocence Before Freedom</h2><p class="range">Surah Yusuf, verses 50–57</p></div></div>
+<div class="overview"><img src="images/part-11.png" alt="Symbolic illustration: Public Vindication" loading="lazy"><div class="note"><h3>Story note</h3><p>When summoned, Yusuf first asks for an investigation. The women affirm his innocence, the wife confesses, and the king appoints Yusuf, who asks to manage the storehouses.</p><h3>Ibn Kathir explains</h3><p>Ibn Kathir presents Yusuf’s refusal to leave immediately as protection of his honour and public reputation. His request for office was based on proven trustworthiness and knowledge needed for the coming crisis.</p></div></div>
+<div class="verses"><h3>Arabic and English</h3><article class="ayah" id="ayah-50"><div class="ref">12:50</div><p class="arabic" lang="ar" dir="rtl">وَقَالَ ٱلْمَلِكُ ٱئْتُونِى بِهِۦ ۖ فَلَمَّا جَآءَهُ ٱلرَّسُولُ قَالَ ٱرْجِعْ إِلَىٰ رَبِّكَ فَسْـَٔلْهُ مَا بَالُ ٱلنِّسْوَةِ ٱلَّٰتِى قَطَّعْنَ أَيْدِيَهُنَّ ۚ إِنَّ رَبِّى بِكَيْدِهِنَّ عَلِيمٌۭ <span class="vnum">﴿50﴾</span></p><p class="translation" lang="en">And the king said: Bring him unto me. And when the messenger came unto him, he (Joseph) said: Return unto thy lord and ask him what was the case of the women who cut their hands. Lo! my Lord knoweth their guile.</p></article>
+<article class="ayah" id="ayah-51"><div class="ref">12:51</div><p class="arabic" lang="ar" dir="rtl">قَالَ مَا خَطْبُكُنَّ إِذْ رَٰوَدتُّنَّ يُوسُفَ عَن نَّفْسِهِۦ ۚ قُلْنَ حَٰشَ لِلَّهِ مَا عَلِمْنَا عَلَيْهِ مِن سُوٓءٍۢ ۚ قَالَتِ ٱمْرَأَتُ ٱلْعَزِيزِ ٱلْـَٰٔنَ حَصْحَصَ ٱلْحَقُّ أَنَا۠ رَٰوَدتُّهُۥ عَن نَّفْسِهِۦ وَإِنَّهُۥ لَمِنَ ٱلصَّٰدِقِينَ <span class="vnum">﴿51﴾</span></p><p class="translation" lang="en">He (the king) (then sent for those women and) said: What happened when ye asked an evil act of Joseph? They answered: Allah Blameless! We know no evil of him. Said the wife of the ruler: Now the truth is out. I asked of him an evil act, and he is surely of the truthful.</p></article>
+<article class="ayah" id="ayah-52"><div class="ref">12:52</div><p class="arabic" lang="ar" dir="rtl">ذَٰلِكَ لِيَعْلَمَ أَنِّى لَمْ أَخُنْهُ بِٱلْغَيْبِ وَأَنَّ ٱللَّهَ لَا يَهْدِى كَيْدَ ٱلْخَآئِنِينَ <span class="vnum">﴿52﴾</span></p><p class="translation" lang="en">(Then Joseph said: I asked for) this, that he (my lord) may know that I betrayed him not in secret, and that surely Allah guideth not the snare of the betrayers.</p></article>
+<article class="ayah" id="ayah-53"><div class="ref">12:53</div><p class="arabic" lang="ar" dir="rtl">۞ وَمَآ أُبَرِّئُ نَفْسِىٓ ۚ إِنَّ ٱلنَّفْسَ لَأَمَّارَةٌۢ بِٱلسُّوٓءِ إِلَّا مَا رَحِمَ رَبِّىٓ ۚ إِنَّ رَبِّى غَفُورٌۭ رَّحِيمٌۭ <span class="vnum">﴿53﴾</span></p><p class="translation" lang="en">I do not exculpate myself. Lo! the (human) soul enjoineth unto evil, save that whereon my Lord hath mercy. Lo! my Lord is Forgiving, Merciful.</p></article>
+<article class="ayah" id="ayah-54"><div class="ref">12:54</div><p class="arabic" lang="ar" dir="rtl">وَقَالَ ٱلْمَلِكُ ٱئْتُونِى بِهِۦٓ أَسْتَخْلِصْهُ لِنَفْسِى ۖ فَلَمَّا كَلَّمَهُۥ قَالَ إِنَّكَ ٱلْيَوْمَ لَدَيْنَا مَكِينٌ أَمِينٌۭ <span class="vnum">﴿54﴾</span></p><p class="translation" lang="en">And the king said: Bring him unto me that I may attach him to my person. And when he had talked with him he said: Lo! thou art to-day in our presence established and trusted.</p></article>
+<article class="ayah" id="ayah-55"><div class="ref">12:55</div><p class="arabic" lang="ar" dir="rtl">قَالَ ٱجْعَلْنِى عَلَىٰ خَزَآئِنِ ٱلْأَرْضِ ۖ إِنِّى حَفِيظٌ عَلِيمٌۭ <span class="vnum">﴿55﴾</span></p><p class="translation" lang="en">He said: Set me over the storehouses of the land. Lo! I am a skilled custodian.</p></article>
+<article class="ayah" id="ayah-56"><div class="ref">12:56</div><p class="arabic" lang="ar" dir="rtl">وَكَذَٰلِكَ مَكَّنَّا لِيُوسُفَ فِى ٱلْأَرْضِ يَتَبَوَّأُ مِنْهَا حَيْثُ يَشَآءُ ۚ نُصِيبُ بِرَحْمَتِنَا مَن نَّشَآءُ ۖ وَلَا نُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ <span class="vnum">﴿56﴾</span></p><p class="translation" lang="en">Thus gave We power to Joseph in the land. He was the owner of it where he pleased. We reach with Our mercy whom We will. We lose not the reward of the good.</p></article>
+<article class="ayah" id="ayah-57"><div class="ref">12:57</div><p class="arabic" lang="ar" dir="rtl">وَلَأَجْرُ ٱلْءَاخِرَةِ خَيْرٌۭ لِّلَّذِينَ ءَامَنُوا۟ وَكَانُوا۟ يَتَّقُونَ <span class="vnum">﴿57﴾</span></p><p class="translation" lang="en">And the reward of the Hereafter is better, for those who believe and ward off (evil).</p></article></div>
+</section><section class="story-part" id="part-12">
+<div class="part-head"><div><span class="part-no">Part 12</span><h2>Brothers Seek Grain</h2><p class="range">Surah Yusuf, verses 58–68</p></div></div>
+<div class="overview"><img src="images/part-12.png" alt="Symbolic illustration: Grain Journey" loading="lazy"><div class="note"><h3>Story note</h3><p>Famine brings Yusuf’s brothers to Egypt. He recognises them, requires them to bring their younger brother, secretly returns their goods, and Ya‘qub later sends them under a solemn pledge.</p><h3>Ibn Kathir explains</h3><p>Ya‘qub advises entry through different gates while admitting that precautions cannot defeat Allah’s decree. Ibn Kathir relates this to concern over the evil eye and models reliance on Allah together with sensible means.</p></div></div>
+<div class="verses"><h3>Arabic and English</h3><article class="ayah" id="ayah-58"><div class="ref">12:58</div><p class="arabic" lang="ar" dir="rtl">وَجَآءَ إِخْوَةُ يُوسُفَ فَدَخَلُوا۟ عَلَيْهِ فَعَرَفَهُمْ وَهُمْ لَهُۥ مُنكِرُونَ <span class="vnum">﴿58﴾</span></p><p class="translation" lang="en">And Joseph&#x27;s brethren came and presented themselves before him, and he knew them but they knew him not.</p></article>
+<article class="ayah" id="ayah-59"><div class="ref">12:59</div><p class="arabic" lang="ar" dir="rtl">وَلَمَّا جَهَّزَهُم بِجَهَازِهِمْ قَالَ ٱئْتُونِى بِأَخٍۢ لَّكُم مِّنْ أَبِيكُمْ ۚ أَلَا تَرَوْنَ أَنِّىٓ أُوفِى ٱلْكَيْلَ وَأَنَا۠ خَيْرُ ٱلْمُنزِلِينَ <span class="vnum">﴿59﴾</span></p><p class="translation" lang="en">And when he provided them with their provision he said: Bring unto me a brother of yours from your father. See ye not that I fill up the measure and I am the best of hosts?</p></article>
+<article class="ayah" id="ayah-60"><div class="ref">12:60</div><p class="arabic" lang="ar" dir="rtl">فَإِن لَّمْ تَأْتُونِى بِهِۦ فَلَا كَيْلَ لَكُمْ عِندِى وَلَا تَقْرَبُونِ <span class="vnum">﴿60﴾</span></p><p class="translation" lang="en">And if ye bring him not unto me, then there shall be no measure for you with me, nor shall ye draw near.</p></article>
+<article class="ayah" id="ayah-61"><div class="ref">12:61</div><p class="arabic" lang="ar" dir="rtl">قَالُوا۟ سَنُرَٰوِدُ عَنْهُ أَبَاهُ وَإِنَّا لَفَٰعِلُونَ <span class="vnum">﴿61﴾</span></p><p class="translation" lang="en">They said: We will try to win him from his father: that we will surely do.</p></article>
+<article class="ayah" id="ayah-62"><div class="ref">12:62</div><p class="arabic" lang="ar" dir="rtl">وَقَالَ لِفِتْيَٰنِهِ ٱجْعَلُوا۟ بِضَٰعَتَهُمْ فِى رِحَالِهِمْ لَعَلَّهُمْ يَعْرِفُونَهَآ إِذَا ٱنقَلَبُوٓا۟ إِلَىٰٓ أَهْلِهِمْ لَعَلَّهُمْ يَرْجِعُونَ <span class="vnum">﴿62﴾</span></p><p class="translation" lang="en">He said unto his young men: Place their merchandise in their saddlebags, so that they may know it when they go back to their folk, and so will come again.</p></article>
+<article class="ayah" id="ayah-63"><div class="ref">12:63</div><p class="arabic" lang="ar" dir="rtl">فَلَمَّا رَجَعُوٓا۟ إِلَىٰٓ أَبِيهِمْ قَالُوا۟ يَٰٓأَبَانَا مُنِعَ مِنَّا ٱلْكَيْلُ فَأَرْسِلْ مَعَنَآ أَخَانَا نَكْتَلْ وَإِنَّا لَهُۥ لَحَٰفِظُونَ <span class="vnum">﴿63﴾</span></p><p class="translation" lang="en">So when they went back to their father they said: O our father! The measure is denied us, so send with us our brother that we may obtain the measure, surely we will guard him well.</p></article>
+<article class="ayah" id="ayah-64"><div class="ref">12:64</div><p class="arabic" lang="ar" dir="rtl">قَالَ هَلْ ءَامَنُكُمْ عَلَيْهِ إِلَّا كَمَآ أَمِنتُكُمْ عَلَىٰٓ أَخِيهِ مِن قَبْلُ ۖ فَٱللَّهُ خَيْرٌ حَٰفِظًۭا ۖ وَهُوَ أَرْحَمُ ٱلرَّٰحِمِينَ <span class="vnum">﴿64﴾</span></p><p class="translation" lang="en">He said: Can I entrust him to you save as I entrusted his brother to you aforetime? Allah is better at guarding, and He is the Most Merciful of those who show mercy.</p></article>
+<article class="ayah" id="ayah-65"><div class="ref">12:65</div><p class="arabic" lang="ar" dir="rtl">وَلَمَّا فَتَحُوا۟ مَتَٰعَهُمْ وَجَدُوا۟ بِضَٰعَتَهُمْ رُدَّتْ إِلَيْهِمْ ۖ قَالُوا۟ يَٰٓأَبَانَا مَا نَبْغِى ۖ هَٰذِهِۦ بِضَٰعَتُنَا رُدَّتْ إِلَيْنَا ۖ وَنَمِيرُ أَهْلَنَا وَنَحْفَظُ أَخَانَا وَنَزْدَادُ كَيْلَ بَعِيرٍۢ ۖ ذَٰلِكَ كَيْلٌۭ يَسِيرٌۭ <span class="vnum">﴿65﴾</span></p><p class="translation" lang="en">And when they opened their belongings they discovered that their merchandise had been returned to them. They said: O our father! What (more) can we ask? Here is our merchandise returned to us. We shall get provision for our folk and guard our brother, and we shall have the extra measure of a camel (load). This (that we bring now) is a light measure.</p></article>
+<article class="ayah" id="ayah-66"><div class="ref">12:66</div><p class="arabic" lang="ar" dir="rtl">قَالَ لَنْ أُرْسِلَهُۥ مَعَكُمْ حَتَّىٰ تُؤْتُونِ مَوْثِقًۭا مِّنَ ٱللَّهِ لَتَأْتُنَّنِى بِهِۦٓ إِلَّآ أَن يُحَاطَ بِكُمْ ۖ فَلَمَّآ ءَاتَوْهُ مَوْثِقَهُمْ قَالَ ٱللَّهُ عَلَىٰ مَا نَقُولُ وَكِيلٌۭ <span class="vnum">﴿66﴾</span></p><p class="translation" lang="en">He said: I will not send him with you till ye give me an undertaking in the name of Allah that ye will bring him back to me, unless ye are surrounded. And when they gave him their undertaking he said: Allah is the Warden over what we say.</p></article>
+<article class="ayah" id="ayah-67"><div class="ref">12:67</div><p class="arabic" lang="ar" dir="rtl">وَقَالَ يَٰبَنِىَّ لَا تَدْخُلُوا۟ مِنۢ بَابٍۢ وَٰحِدٍۢ وَٱدْخُلُوا۟ مِنْ أَبْوَٰبٍۢ مُّتَفَرِّقَةٍۢ ۖ وَمَآ أُغْنِى عَنكُم مِّنَ ٱللَّهِ مِن شَىْءٍ ۖ إِنِ ٱلْحُكْمُ إِلَّا لِلَّهِ ۖ عَلَيْهِ تَوَكَّلْتُ ۖ وَعَلَيْهِ فَلْيَتَوَكَّلِ ٱلْمُتَوَكِّلُونَ <span class="vnum">﴿67﴾</span></p><p class="translation" lang="en">And he said: O my sons! Go not in by one gate; go in by different gates. I can naught avail you as against Allah. Lo! the decision rests with Allah only. In Him do I put my trust, and in Him let all the trusting put their trust.</p></article>
+<article class="ayah" id="ayah-68"><div class="ref">12:68</div><p class="arabic" lang="ar" dir="rtl">وَلَمَّا دَخَلُوا۟ مِنْ حَيْثُ أَمَرَهُمْ أَبُوهُم مَّا كَانَ يُغْنِى عَنْهُم مِّنَ ٱللَّهِ مِن شَىْءٍ إِلَّا حَاجَةًۭ فِى نَفْسِ يَعْقُوبَ قَضَىٰهَا ۚ وَإِنَّهُۥ لَذُو عِلْمٍۢ لِّمَا عَلَّمْنَٰهُ وَلَٰكِنَّ أَكْثَرَ ٱلنَّاسِ لَا يَعْلَمُونَ <span class="vnum">﴿68﴾</span></p><p class="translation" lang="en">And when they entered in the manner which their father had enjoined, it would have naught availed them as against Allah; it was but a need of Jacob&#x27;s soul which he thus satisfied; and lo! he was a lord of knowledge because We had taught him; but most of mankind know not.</p></article></div>
+</section><section class="story-part" id="part-13">
+<div class="part-head"><div><span class="part-no">Part 13</span><h2>The Cup and Brother</h2><p class="range">Surah Yusuf, verses 69–79</p></div></div>
+<div class="overview"><img src="images/part-13.png" alt="Symbolic illustration: The Royal Cup" loading="lazy"><div class="note"><h3>Story note</h3><p>Yusuf privately reassures his full brother, then Allah’s plan enables him to keep him in Egypt. The royal cup is found in his bag under the brothers’ own stated rule of penalty.</p><h3>Ibn Kathir explains</h3><p>The search begins with the other bags before his brother’s bag. Ibn Kathir explains that this arrangement allowed Yusuf to retain his brother by Allah’s wisdom, not by injustice.</p></div></div>
+<div class="verses"><h3>Arabic and English</h3><article class="ayah" id="ayah-69"><div class="ref">12:69</div><p class="arabic" lang="ar" dir="rtl">وَلَمَّا دَخَلُوا۟ عَلَىٰ يُوسُفَ ءَاوَىٰٓ إِلَيْهِ أَخَاهُ ۖ قَالَ إِنِّىٓ أَنَا۠ أَخُوكَ فَلَا تَبْتَئِسْ بِمَا كَانُوا۟ يَعْمَلُونَ <span class="vnum">﴿69﴾</span></p><p class="translation" lang="en">And when they went in before Joseph, he took his brother unto him, saying: Lo! I, even I, am thy brother, therefore sorrow not for what they did.</p></article>
+<article class="ayah" id="ayah-70"><div class="ref">12:70</div><p class="arabic" lang="ar" dir="rtl">فَلَمَّا جَهَّزَهُم بِجَهَازِهِمْ جَعَلَ ٱلسِّقَايَةَ فِى رَحْلِ أَخِيهِ ثُمَّ أَذَّنَ مُؤَذِّنٌ أَيَّتُهَا ٱلْعِيرُ إِنَّكُمْ لَسَٰرِقُونَ <span class="vnum">﴿70﴾</span></p><p class="translation" lang="en">And when he provided them with their provision, he put the drinking-cup in his brother&#x27;s saddlebag, and then a crier cried: O camel-riders! Lo! ye are surely thieves!</p></article>
+<article class="ayah" id="ayah-71"><div class="ref">12:71</div><p class="arabic" lang="ar" dir="rtl">قَالُوا۟ وَأَقْبَلُوا۟ عَلَيْهِم مَّاذَا تَفْقِدُونَ <span class="vnum">﴿71﴾</span></p><p class="translation" lang="en">They cried, coming toward them: What is it ye have lost?</p></article>
+<article class="ayah" id="ayah-72"><div class="ref">12:72</div><p class="arabic" lang="ar" dir="rtl">قَالُوا۟ نَفْقِدُ صُوَاعَ ٱلْمَلِكِ وَلِمَن جَآءَ بِهِۦ حِمْلُ بَعِيرٍۢ وَأَنَا۠ بِهِۦ زَعِيمٌۭ <span class="vnum">﴿72﴾</span></p><p class="translation" lang="en">They said: We have lost the king&#x27;s cup, and he who bringeth it shall have a camel-load, and I (said Joseph) am answerable for it.</p></article>
+<article class="ayah" id="ayah-73"><div class="ref">12:73</div><p class="arabic" lang="ar" dir="rtl">قَالُوا۟ تَٱللَّهِ لَقَدْ عَلِمْتُم مَّا جِئْنَا لِنُفْسِدَ فِى ٱلْأَرْضِ وَمَا كُنَّا سَٰرِقِينَ <span class="vnum">﴿73﴾</span></p><p class="translation" lang="en">They said: By Allah, well ye know we came not to do evil in the land, and are no thieves.</p></article>
+<article class="ayah" id="ayah-74"><div class="ref">12:74</div><p class="arabic" lang="ar" dir="rtl">قَالُوا۟ فَمَا جَزَٰٓؤُهُۥٓ إِن كُنتُمْ كَٰذِبِينَ <span class="vnum">﴿74﴾</span></p><p class="translation" lang="en">They said: And what shall be the penalty for it, if ye prove liars?</p></article>
+<article class="ayah" id="ayah-75"><div class="ref">12:75</div><p class="arabic" lang="ar" dir="rtl">قَالُوا۟ جَزَٰٓؤُهُۥ مَن وُجِدَ فِى رَحْلِهِۦ فَهُوَ جَزَٰٓؤُهُۥ ۚ كَذَٰلِكَ نَجْزِى ٱلظَّٰلِمِينَ <span class="vnum">﴿75﴾</span></p><p class="translation" lang="en">They said: The penalty for it! He in whose bag (the cup) is found, he is the penalty for it. Thus we requite wrong-doers.</p></article>
+<article class="ayah" id="ayah-76"><div class="ref">12:76</div><p class="arabic" lang="ar" dir="rtl">فَبَدَأَ بِأَوْعِيَتِهِمْ قَبْلَ وِعَآءِ أَخِيهِ ثُمَّ ٱسْتَخْرَجَهَا مِن وِعَآءِ أَخِيهِ ۚ كَذَٰلِكَ كِدْنَا لِيُوسُفَ ۖ مَا كَانَ لِيَأْخُذَ أَخَاهُ فِى دِينِ ٱلْمَلِكِ إِلَّآ أَن يَشَآءَ ٱللَّهُ ۚ نَرْفَعُ دَرَجَٰتٍۢ مَّن نَّشَآءُ ۗ وَفَوْقَ كُلِّ ذِى عِلْمٍ عَلِيمٌۭ <span class="vnum">﴿76﴾</span></p><p class="translation" lang="en">Then he (Joseph) began the search with their bags before his brother&#x27;s bag, then he produced it from his brother&#x27;s bag. Thus did We contrive for Joseph. He could not have taken his brother according to the king&#x27;s law unless Allah willed. We raise by grades (of mercy) whom We will, and over every lord of knowledge there is one more knowing.</p></article>
+<article class="ayah" id="ayah-77"><div class="ref">12:77</div><p class="arabic" lang="ar" dir="rtl">۞ قَالُوٓا۟ إِن يَسْرِقْ فَقَدْ سَرَقَ أَخٌۭ لَّهُۥ مِن قَبْلُ ۚ فَأَسَرَّهَا يُوسُفُ فِى نَفْسِهِۦ وَلَمْ يُبْدِهَا لَهُمْ ۚ قَالَ أَنتُمْ شَرٌّۭ مَّكَانًۭا ۖ وَٱللَّهُ أَعْلَمُ بِمَا تَصِفُونَ <span class="vnum">﴿77﴾</span></p><p class="translation" lang="en">They said: If he stealeth, a brother of his stole before. But Joseph kept it secret in his soul and revealed it not unto them. He said (within himself): Ye are in worse case, and Allah knoweth best (the truth of) that which ye allege.</p></article>
+<article class="ayah" id="ayah-78"><div class="ref">12:78</div><p class="arabic" lang="ar" dir="rtl">قَالُوا۟ يَٰٓأَيُّهَا ٱلْعَزِيزُ إِنَّ لَهُۥٓ أَبًۭا شَيْخًۭا كَبِيرًۭا فَخُذْ أَحَدَنَا مَكَانَهُۥٓ ۖ إِنَّا نَرَىٰكَ مِنَ ٱلْمُحْسِنِينَ <span class="vnum">﴿78﴾</span></p><p class="translation" lang="en">They said: O ruler of the land! Lo! he hath a very aged father, so take one of us instead of him. Lo! we behold thee of those who do kindness.</p></article>
+<article class="ayah" id="ayah-79"><div class="ref">12:79</div><p class="arabic" lang="ar" dir="rtl">قَالَ مَعَاذَ ٱللَّهِ أَن نَّأْخُذَ إِلَّا مَن وَجَدْنَا مَتَٰعَنَا عِندَهُۥٓ إِنَّآ إِذًۭا لَّظَٰلِمُونَ <span class="vnum">﴿79﴾</span></p><p class="translation" lang="en">He said: Allah forbid that we should seize save him with whom we found our property; then truly we should be wrong-doers.</p></article></div>
+</section><section class="story-part" id="part-14">
+<div class="part-head"><div><span class="part-no">Part 14</span><h2>Ya‘qub’s Grief and Hope</h2><p class="range">Surah Yusuf, verses 80–87</p></div></div>
+<div class="overview"><img src="images/part-14.png" alt="Symbolic illustration: Patient Grief" loading="lazy"><div class="note"><h3>Story note</h3><p>Unable to secure the brother’s release, the eldest remains behind. Ya‘qub grieves until his eyes become white, yet directs his complaint only to Allah and commands another search.</p><h3>Ibn Kathir explains</h3><p>His grief is profound but never hopeless. The central instruction is not to despair of Allah’s relieving mercy—a distinction between patient sorrow and faithless despair.</p></div></div>
+<div class="verses"><h3>Arabic and English</h3><article class="ayah" id="ayah-80"><div class="ref">12:80</div><p class="arabic" lang="ar" dir="rtl">فَلَمَّا ٱسْتَيْـَٔسُوا۟ مِنْهُ خَلَصُوا۟ نَجِيًّۭا ۖ قَالَ كَبِيرُهُمْ أَلَمْ تَعْلَمُوٓا۟ أَنَّ أَبَاكُمْ قَدْ أَخَذَ عَلَيْكُم مَّوْثِقًۭا مِّنَ ٱللَّهِ وَمِن قَبْلُ مَا فَرَّطتُمْ فِى يُوسُفَ ۖ فَلَنْ أَبْرَحَ ٱلْأَرْضَ حَتَّىٰ يَأْذَنَ لِىٓ أَبِىٓ أَوْ يَحْكُمَ ٱللَّهُ لِى ۖ وَهُوَ خَيْرُ ٱلْحَٰكِمِينَ <span class="vnum">﴿80﴾</span></p><p class="translation" lang="en">So, When they despaired of (moving) him, they conferred together apart. The eldest of them said: Know ye not how your father took an undertaking from you in Allah&#x27;s name and how ye failed in the case of Joseph aforetime? Therefore I shall not go forth from the land until my father giveth leave or Allah judgeth for me. He is the Best of Judges.</p></article>
+<article class="ayah" id="ayah-81"><div class="ref">12:81</div><p class="arabic" lang="ar" dir="rtl">ٱرْجِعُوٓا۟ إِلَىٰٓ أَبِيكُمْ فَقُولُوا۟ يَٰٓأَبَانَآ إِنَّ ٱبْنَكَ سَرَقَ وَمَا شَهِدْنَآ إِلَّا بِمَا عَلِمْنَا وَمَا كُنَّا لِلْغَيْبِ حَٰفِظِينَ <span class="vnum">﴿81﴾</span></p><p class="translation" lang="en">Return unto your father and say: O our father! Lo! thy son hath stolen. We testify only to that which we know; we are not guardians of the Unseen.</p></article>
+<article class="ayah" id="ayah-82"><div class="ref">12:82</div><p class="arabic" lang="ar" dir="rtl">وَسْـَٔلِ ٱلْقَرْيَةَ ٱلَّتِى كُنَّا فِيهَا وَٱلْعِيرَ ٱلَّتِىٓ أَقْبَلْنَا فِيهَا ۖ وَإِنَّا لَصَٰدِقُونَ <span class="vnum">﴿82﴾</span></p><p class="translation" lang="en">Ask the township where we were, and the caravan with which we travelled hither. Lo! we speak the truth.</p></article>
+<article class="ayah" id="ayah-83"><div class="ref">12:83</div><p class="arabic" lang="ar" dir="rtl">قَالَ بَلْ سَوَّلَتْ لَكُمْ أَنفُسُكُمْ أَمْرًۭا ۖ فَصَبْرٌۭ جَمِيلٌ ۖ عَسَى ٱللَّهُ أَن يَأْتِيَنِى بِهِمْ جَمِيعًا ۚ إِنَّهُۥ هُوَ ٱلْعَلِيمُ ٱلْحَكِيمُ <span class="vnum">﴿83﴾</span></p><p class="translation" lang="en">(And when they came unto their father and had spoken thus to him) he said: Nay, but your minds have beguiled you into something. (My course is) comely patience! It may be that Allah will bring them all unto me. Lo! He, only He, is the Knower, the Wise.</p></article>
+<article class="ayah" id="ayah-84"><div class="ref">12:84</div><p class="arabic" lang="ar" dir="rtl">وَتَوَلَّىٰ عَنْهُمْ وَقَالَ يَٰٓأَسَفَىٰ عَلَىٰ يُوسُفَ وَٱبْيَضَّتْ عَيْنَاهُ مِنَ ٱلْحُزْنِ فَهُوَ كَظِيمٌۭ <span class="vnum">﴿84﴾</span></p><p class="translation" lang="en">And he turned away from them and said: Alas, my grief for Joseph! And his eyes were whitened with the sorrow that he was suppressing.</p></article>
+<article class="ayah" id="ayah-85"><div class="ref">12:85</div><p class="arabic" lang="ar" dir="rtl">قَالُوا۟ تَٱللَّهِ تَفْتَؤُا۟ تَذْكُرُ يُوسُفَ حَتَّىٰ تَكُونَ حَرَضًا أَوْ تَكُونَ مِنَ ٱلْهَٰلِكِينَ <span class="vnum">﴿85﴾</span></p><p class="translation" lang="en">They said: By Allah, thou wilt never cease remembering Joseph till thy health is ruined or thou art of those who perish!</p></article>
+<article class="ayah" id="ayah-86"><div class="ref">12:86</div><p class="arabic" lang="ar" dir="rtl">قَالَ إِنَّمَآ أَشْكُوا۟ بَثِّى وَحُزْنِىٓ إِلَى ٱللَّهِ وَأَعْلَمُ مِنَ ٱللَّهِ مَا لَا تَعْلَمُونَ <span class="vnum">﴿86﴾</span></p><p class="translation" lang="en">He said: I expose my distress and anguish only unto Allah, and I know from Allah that which ye know not.</p></article>
+<article class="ayah" id="ayah-87"><div class="ref">12:87</div><p class="arabic" lang="ar" dir="rtl">يَٰبَنِىَّ ٱذْهَبُوا۟ فَتَحَسَّسُوا۟ مِن يُوسُفَ وَأَخِيهِ وَلَا تَا۟يْـَٔسُوا۟ مِن رَّوْحِ ٱللَّهِ ۖ إِنَّهُۥ لَا يَا۟يْـَٔسُ مِن رَّوْحِ ٱللَّهِ إِلَّا ٱلْقَوْمُ ٱلْكَٰفِرُونَ <span class="vnum">﴿87﴾</span></p><p class="translation" lang="en">Go, O my sons, and ascertain concerning Joseph and his brother, and despair not of the Spirit of Allah. Lo! none despaireth of the Spirit of Allah save disbelieving folk.</p></article></div>
+</section><section class="story-part" id="part-15">
+<div class="part-head"><div><span class="part-no">Part 15</span><h2>Recognition and Forgiveness</h2><p class="range">Surah Yusuf, verses 88–93</p></div></div>
+<div class="overview"><img src="images/part-15.png" alt="Symbolic illustration: Merciful Reunion" loading="lazy"><div class="note"><h3>Story note</h3><p>The brothers return in hardship and ask for charity. Yusuf reveals himself, credits Allah’s favour, teaches that taqwā and patience are never wasted, and forgives them.</p><h3>Ibn Kathir explains</h3><p>“No reproach upon you today” displays power joined to mercy. Yusuf does not humiliate them; he sends his shirt as good news and asks them to bring the whole family.</p></div></div>
+<div class="verses"><h3>Arabic and English</h3><article class="ayah" id="ayah-88"><div class="ref">12:88</div><p class="arabic" lang="ar" dir="rtl">فَلَمَّا دَخَلُوا۟ عَلَيْهِ قَالُوا۟ يَٰٓأَيُّهَا ٱلْعَزِيزُ مَسَّنَا وَأَهْلَنَا ٱلضُّرُّ وَجِئْنَا بِبِضَٰعَةٍۢ مُّزْجَىٰةٍۢ فَأَوْفِ لَنَا ٱلْكَيْلَ وَتَصَدَّقْ عَلَيْنَآ ۖ إِنَّ ٱللَّهَ يَجْزِى ٱلْمُتَصَدِّقِينَ <span class="vnum">﴿88﴾</span></p><p class="translation" lang="en">And when they came (again) before him (Joseph) they said: O ruler! Misfortune hath touched us and our folk, and we bring but poor merchandise, so fill for us the measure and be charitable unto us. Lo! Allah will requite the charitable,</p></article>
+<article class="ayah" id="ayah-89"><div class="ref">12:89</div><p class="arabic" lang="ar" dir="rtl">قَالَ هَلْ عَلِمْتُم مَّا فَعَلْتُم بِيُوسُفَ وَأَخِيهِ إِذْ أَنتُمْ جَٰهِلُونَ <span class="vnum">﴿89﴾</span></p><p class="translation" lang="en">He said: Know ye what ye did unto Joseph and his brother in your ignorance?</p></article>
+<article class="ayah" id="ayah-90"><div class="ref">12:90</div><p class="arabic" lang="ar" dir="rtl">قَالُوٓا۟ أَءِنَّكَ لَأَنتَ يُوسُفُ ۖ قَالَ أَنَا۠ يُوسُفُ وَهَٰذَآ أَخِى ۖ قَدْ مَنَّ ٱللَّهُ عَلَيْنَآ ۖ إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ <span class="vnum">﴿90﴾</span></p><p class="translation" lang="en">They said: Is it indeed thou who art Joseph? He said: I am Joseph and this is my brother. Allah hath shown us favour. Lo! he who wardeth off (evil) and endureth (findeth favour); for lo! Allah loseth not the wages of the kindly.</p></article>
+<article class="ayah" id="ayah-91"><div class="ref">12:91</div><p class="arabic" lang="ar" dir="rtl">قَالُوا۟ تَٱللَّهِ لَقَدْ ءَاثَرَكَ ٱللَّهُ عَلَيْنَا وَإِن كُنَّا لَخَٰطِـِٔينَ <span class="vnum">﴿91﴾</span></p><p class="translation" lang="en">They said: By Allah, verily Allah hath preferred thee above us, and we were indeed sinful.</p></article>
+<article class="ayah" id="ayah-92"><div class="ref">12:92</div><p class="arabic" lang="ar" dir="rtl">قَالَ لَا تَثْرِيبَ عَلَيْكُمُ ٱلْيَوْمَ ۖ يَغْفِرُ ٱللَّهُ لَكُمْ ۖ وَهُوَ أَرْحَمُ ٱلرَّٰحِمِينَ <span class="vnum">﴿92﴾</span></p><p class="translation" lang="en">He said: Have no fear this day! May Allah forgive you, and He is the Most Merciful of those who show mercy.</p></article>
+<article class="ayah" id="ayah-93"><div class="ref">12:93</div><p class="arabic" lang="ar" dir="rtl">ٱذْهَبُوا۟ بِقَمِيصِى هَٰذَا فَأَلْقُوهُ عَلَىٰ وَجْهِ أَبِى يَأْتِ بَصِيرًۭا وَأْتُونِى بِأَهْلِكُمْ أَجْمَعِينَ <span class="vnum">﴿93﴾</span></p><p class="translation" lang="en">Go with this shirt of mine and lay it on my father&#x27;s face, he will become (again) a seer; and come to me with all your folk.</p></article></div>
+</section><section class="story-part" id="part-16">
+<div class="part-head"><div><span class="part-no">Part 16</span><h2>Sight Restored</h2><p class="range">Surah Yusuf, verses 94–98</p></div></div>
+<div class="overview"><img src="images/part-16.png" alt="Symbolic illustration: The Returning Shirt" loading="lazy"><div class="note"><h3>Story note</h3><p>Before the caravan arrives, Ya‘qub senses Yusuf’s scent. When the shirt reaches him, his sight returns; the sons confess their fault and request their father’s prayer for forgiveness.</p><h3>Ibn Kathir explains</h3><p>The fulfilment confirms Ya‘qub’s confidence in knowledge from Allah. He promises to seek forgiveness for them, keeping repentance and reconciliation centred on Allah.</p></div></div>
+<div class="verses"><h3>Arabic and English</h3><article class="ayah" id="ayah-94"><div class="ref">12:94</div><p class="arabic" lang="ar" dir="rtl">وَلَمَّا فَصَلَتِ ٱلْعِيرُ قَالَ أَبُوهُمْ إِنِّى لَأَجِدُ رِيحَ يُوسُفَ ۖ لَوْلَآ أَن تُفَنِّدُونِ <span class="vnum">﴿94﴾</span></p><p class="translation" lang="en">When the caravan departed their father had said: Truly I am conscious of the breath of Joseph, though ye call me dotard.</p></article>
+<article class="ayah" id="ayah-95"><div class="ref">12:95</div><p class="arabic" lang="ar" dir="rtl">قَالُوا۟ تَٱللَّهِ إِنَّكَ لَفِى ضَلَٰلِكَ ٱلْقَدِيمِ <span class="vnum">﴿95﴾</span></p><p class="translation" lang="en">(Those around him) said: By Allah, lo! thou art in thine old aberration.</p></article>
+<article class="ayah" id="ayah-96"><div class="ref">12:96</div><p class="arabic" lang="ar" dir="rtl">فَلَمَّآ أَن جَآءَ ٱلْبَشِيرُ أَلْقَىٰهُ عَلَىٰ وَجْهِهِۦ فَٱرْتَدَّ بَصِيرًۭا ۖ قَالَ أَلَمْ أَقُل لَّكُمْ إِنِّىٓ أَعْلَمُ مِنَ ٱللَّهِ مَا لَا تَعْلَمُونَ <span class="vnum">﴿96﴾</span></p><p class="translation" lang="en">Then, when the bearer of glad tidings came, he laid it on his face and he became a seer once more. He said: Said I not unto you that I know from Allah that which ye know not?</p></article>
+<article class="ayah" id="ayah-97"><div class="ref">12:97</div><p class="arabic" lang="ar" dir="rtl">قَالُوا۟ يَٰٓأَبَانَا ٱسْتَغْفِرْ لَنَا ذُنُوبَنَآ إِنَّا كُنَّا خَٰطِـِٔينَ <span class="vnum">﴿97﴾</span></p><p class="translation" lang="en">They said: O our father! Ask forgiveness of our sins for us, for lo! we were sinful.</p></article>
+<article class="ayah" id="ayah-98"><div class="ref">12:98</div><p class="arabic" lang="ar" dir="rtl">قَالَ سَوْفَ أَسْتَغْفِرُ لَكُمْ رَبِّىٓ ۖ إِنَّهُۥ هُوَ ٱلْغَفُورُ ٱلرَّحِيمُ <span class="vnum">﴿98﴾</span></p><p class="translation" lang="en">He said: I shall ask forgiveness for you of my Lord. Lo! He is the Forgiving, the Merciful.</p></article></div>
+</section><section class="story-part" id="part-17">
+<div class="part-head"><div><span class="part-no">Part 17</span><h2>The Dream Fulfilled</h2><p class="range">Surah Yusuf, verses 99–101</p></div></div>
+<div class="overview"><img src="images/part-17.png" alt="Symbolic illustration: Family Reunited" loading="lazy"><div class="note"><h3>Story note</h3><p>Yusuf welcomes his family safely into Egypt, raises his parents to the seat of honour, and sees the childhood dream fulfilled when the family bows in respect.</p><h3>Ibn Kathir explains</h3><p>Ibn Kathir explains that respectful prostration was permitted in earlier religious laws but is prohibited in Islam. Yusuf remembers Allah’s subtle kindness through prison, authority and reunion, then prays to die in submission and join the righteous.</p></div></div>
+<div class="verses"><h3>Arabic and English</h3><article class="ayah" id="ayah-99"><div class="ref">12:99</div><p class="arabic" lang="ar" dir="rtl">فَلَمَّا دَخَلُوا۟ عَلَىٰ يُوسُفَ ءَاوَىٰٓ إِلَيْهِ أَبَوَيْهِ وَقَالَ ٱدْخُلُوا۟ مِصْرَ إِن شَآءَ ٱللَّهُ ءَامِنِينَ <span class="vnum">﴿99﴾</span></p><p class="translation" lang="en">And when they came in before Joseph, he took his parents unto him, and said: Come into Egypt safe, if Allah will!</p></article>
+<article class="ayah" id="ayah-100"><div class="ref">12:100</div><p class="arabic" lang="ar" dir="rtl">وَرَفَعَ أَبَوَيْهِ عَلَى ٱلْعَرْشِ وَخَرُّوا۟ لَهُۥ سُجَّدًۭا ۖ وَقَالَ يَٰٓأَبَتِ هَٰذَا تَأْوِيلُ رُءْيَٰىَ مِن قَبْلُ قَدْ جَعَلَهَا رَبِّى حَقًّۭا ۖ وَقَدْ أَحْسَنَ بِىٓ إِذْ أَخْرَجَنِى مِنَ ٱلسِّجْنِ وَجَآءَ بِكُم مِّنَ ٱلْبَدْوِ مِنۢ بَعْدِ أَن نَّزَغَ ٱلشَّيْطَٰنُ بَيْنِى وَبَيْنَ إِخْوَتِىٓ ۚ إِنَّ رَبِّى لَطِيفٌۭ لِّمَا يَشَآءُ ۚ إِنَّهُۥ هُوَ ٱلْعَلِيمُ ٱلْحَكِيمُ <span class="vnum">﴿100﴾</span></p><p class="translation" lang="en">And he placed his parents on the dais and they fell down before him prostrate, and he said: O my father! This is the interpretation of my dream of old. My Lord hath made it true, and He hath shown me kindness, since He took me out of the prison and hath brought you from the desert after Satan had made strife between me and my brethren. Lo! my Lord is tender unto whom He will. He is the Knower, the Wise.</p></article>
+<article class="ayah" id="ayah-101"><div class="ref">12:101</div><p class="arabic" lang="ar" dir="rtl">۞ رَبِّ قَدْ ءَاتَيْتَنِى مِنَ ٱلْمُلْكِ وَعَلَّمْتَنِى مِن تَأْوِيلِ ٱلْأَحَادِيثِ ۚ فَاطِرَ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ أَنتَ وَلِىِّۦ فِى ٱلدُّنْيَا وَٱلْءَاخِرَةِ ۖ تَوَفَّنِى مُسْلِمًۭا وَأَلْحِقْنِى بِٱلصَّٰلِحِينَ <span class="vnum">﴿101﴾</span></p><p class="translation" lang="en">O my Lord! Thou hast given me (something) of sovereignty and hast taught me (something) of the interpretation of events - Creator of the heavens and the earth! Thou art my Protecting Guardian in the world and the Hereafter. Make me to die muslim (unto Thee), and join me to the righteous.</p></article></div>
+</section><section class="story-part" id="part-18">
+<div class="part-head"><div><span class="part-no">Part 18</span><h2>Lessons for Believers</h2><p class="range">Surah Yusuf, verses 102–111</p></div></div>
+<div class="overview"><img src="images/part-18.png" alt="Symbolic illustration: Path of Guidance" loading="lazy"><div class="note"><h3>Story note</h3><p>The closing verses address Prophet Muhammad ﷺ: this unseen history is revelation, yet many people remain heedless of signs. The messengers call to Allah with clear knowledge.</p><h3>Ibn Kathir explains</h3><p>The surah ends by declaring these accounts a lesson for people of understanding. The Qur’an is not invented; it confirms truth, explains what guidance requires and is mercy for believers.</p></div></div>
+<div class="verses"><h3>Arabic and English</h3><article class="ayah" id="ayah-102"><div class="ref">12:102</div><p class="arabic" lang="ar" dir="rtl">ذَٰلِكَ مِنْ أَنۢبَآءِ ٱلْغَيْبِ نُوحِيهِ إِلَيْكَ ۖ وَمَا كُنتَ لَدَيْهِمْ إِذْ أَجْمَعُوٓا۟ أَمْرَهُمْ وَهُمْ يَمْكُرُونَ <span class="vnum">﴿102﴾</span></p><p class="translation" lang="en">This is of the tidings of the Unseen which We inspire in thee (Muhammad). Thou wast not present with them when they fixed their plan and they were scheming.</p></article>
+<article class="ayah" id="ayah-103"><div class="ref">12:103</div><p class="arabic" lang="ar" dir="rtl">وَمَآ أَكْثَرُ ٱلنَّاسِ وَلَوْ حَرَصْتَ بِمُؤْمِنِينَ <span class="vnum">﴿103﴾</span></p><p class="translation" lang="en">And though thou try much, most men will not believe.</p></article>
+<article class="ayah" id="ayah-104"><div class="ref">12:104</div><p class="arabic" lang="ar" dir="rtl">وَمَا تَسْـَٔلُهُمْ عَلَيْهِ مِنْ أَجْرٍ ۚ إِنْ هُوَ إِلَّا ذِكْرٌۭ لِّلْعَٰلَمِينَ <span class="vnum">﴿104﴾</span></p><p class="translation" lang="en">Thou askest them no fee for it. It is naught else than a reminder unto the peoples.</p></article>
+<article class="ayah" id="ayah-105"><div class="ref">12:105</div><p class="arabic" lang="ar" dir="rtl">وَكَأَيِّن مِّنْ ءَايَةٍۢ فِى ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ يَمُرُّونَ عَلَيْهَا وَهُمْ عَنْهَا مُعْرِضُونَ <span class="vnum">﴿105﴾</span></p><p class="translation" lang="en">How many a portent is there in the heavens and the earth which they pass by with face averted!</p></article>
+<article class="ayah" id="ayah-106"><div class="ref">12:106</div><p class="arabic" lang="ar" dir="rtl">وَمَا يُؤْمِنُ أَكْثَرُهُم بِٱللَّهِ إِلَّا وَهُم مُّشْرِكُونَ <span class="vnum">﴿106﴾</span></p><p class="translation" lang="en">And most of them believe not in Allah except that they attribute partners (unto Him).</p></article>
+<article class="ayah" id="ayah-107"><div class="ref">12:107</div><p class="arabic" lang="ar" dir="rtl">أَفَأَمِنُوٓا۟ أَن تَأْتِيَهُمْ غَٰشِيَةٌۭ مِّنْ عَذَابِ ٱللَّهِ أَوْ تَأْتِيَهُمُ ٱلسَّاعَةُ بَغْتَةًۭ وَهُمْ لَا يَشْعُرُونَ <span class="vnum">﴿107﴾</span></p><p class="translation" lang="en">Deem they themselves secure from the coming on them of a pall of Allah&#x27;s punishment, or the coming of the Hour suddenly while they are unaware?</p></article>
+<article class="ayah" id="ayah-108"><div class="ref">12:108</div><p class="arabic" lang="ar" dir="rtl">قُلْ هَٰذِهِۦ سَبِيلِىٓ أَدْعُوٓا۟ إِلَى ٱللَّهِ ۚ عَلَىٰ بَصِيرَةٍ أَنَا۠ وَمَنِ ٱتَّبَعَنِى ۖ وَسُبْحَٰنَ ٱللَّهِ وَمَآ أَنَا۠ مِنَ ٱلْمُشْرِكِينَ <span class="vnum">﴿108﴾</span></p><p class="translation" lang="en">Say: This is my Way: I call on Allah with sure knowledge. I and whosoever followeth me - Glory be to Allah! - and I am not of the idolaters.</p></article>
+<article class="ayah" id="ayah-109"><div class="ref">12:109</div><p class="arabic" lang="ar" dir="rtl">وَمَآ أَرْسَلْنَا مِن قَبْلِكَ إِلَّا رِجَالًۭا نُّوحِىٓ إِلَيْهِم مِّنْ أَهْلِ ٱلْقُرَىٰٓ ۗ أَفَلَمْ يَسِيرُوا۟ فِى ٱلْأَرْضِ فَيَنظُرُوا۟ كَيْفَ كَانَ عَٰقِبَةُ ٱلَّذِينَ مِن قَبْلِهِمْ ۗ وَلَدَارُ ٱلْءَاخِرَةِ خَيْرٌۭ لِّلَّذِينَ ٱتَّقَوْا۟ ۗ أَفَلَا تَعْقِلُونَ <span class="vnum">﴿109﴾</span></p><p class="translation" lang="en">We sent not before thee (any messengers) save men whom We inspired from among the folk of the townships - Have they not travelled in the land and seen the nature of the consequence for those who were before them? And verily the abode of the Hereafter, for those who ward off (evil), is best. Have ye then no sense? -</p></article>
+<article class="ayah" id="ayah-110"><div class="ref">12:110</div><p class="arabic" lang="ar" dir="rtl">حَتَّىٰٓ إِذَا ٱسْتَيْـَٔسَ ٱلرُّسُلُ وَظَنُّوٓا۟ أَنَّهُمْ قَدْ كُذِبُوا۟ جَآءَهُمْ نَصْرُنَا فَنُجِّىَ مَن نَّشَآءُ ۖ وَلَا يُرَدُّ بَأْسُنَا عَنِ ٱلْقَوْمِ ٱلْمُجْرِمِينَ <span class="vnum">﴿110﴾</span></p><p class="translation" lang="en">Till, when the messengers despaired and thought that they were denied, then came unto them Our help, and whom We would was saved. And Our wrath cannot be warded from the guilty.</p></article>
+<article class="ayah" id="ayah-111"><div class="ref">12:111</div><p class="arabic" lang="ar" dir="rtl">لَقَدْ كَانَ فِى قَصَصِهِمْ عِبْرَةٌۭ لِّأُو۟لِى ٱلْأَلْبَٰبِ ۗ مَا كَانَ حَدِيثًۭا يُفْتَرَىٰ وَلَٰكِن تَصْدِيقَ ٱلَّذِى بَيْنَ يَدَيْهِ وَتَفْصِيلَ كُلِّ شَىْءٍۢ وَهُدًۭى وَرَحْمَةًۭ لِّقَوْمٍۢ يُؤْمِنُونَ <span class="vnum">﴿111﴾</span></p><p class="translation" lang="en">In their history verily there is a lesson for men of understanding. It is no invented story but a confirmation of the existing (Scripture) and a detailed explanation of everything, and a guidance and a mercy for folk who believe.</p></article></div>
+</section></main>
+<section class="refs"><h2>Primary references</h2><ol><li><a href="https://quran.com/yusuf" target="_blank" rel="noopener">Surah Yusuf, Arabic text and study access — Quran.com</a></li><li><a href="http://www.quran4u.com/Tafsir%20Ibn%20Kathir/012%20Yusuf.htm" target="_blank" rel="noopener">Tafsir Ibn Kathir: Surah Yusuf</a></li><li><a href="https://sunnah.com/bukhari:3390" target="_blank" rel="noopener">Sahih al-Bukhari 3390: Yusuf’s lineage</a></li><li><a href="https://sunnah.com/muslim:162a" target="_blank" rel="noopener">Sahih Muslim 162a: Yusuf’s beauty</a></li><li><a href="https://sunnah.com/bukhari:3372" target="_blank" rel="noopener">Sahih al-Bukhari 3372: Yusuf’s patience in prison</a></li><li><a href="https://sunnah.com/muslim:151a" target="_blank" rel="noopener">Sahih Muslim 151a: parallel narration</a></li></ol><p><b>Translation note:</b> The English Qur’an text is M. M. Pickthall’s public-domain translation. Translation conveys the meaning and is not itself the Arabic Qur’an.</p></section>
+<footer class="footer">Prepared as an educational study resource • Verify recitation from a qualified teacher and an approved muṣḥaf.</footer><a class="back" href="#top" aria-label="Back to top">↑ Top</a></body></html>
