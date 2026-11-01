@@ -1,0 +1,2688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Comprehensive learning notes on Hadith: its meaning, status, collection, authority, authenticity, classifications, and significance for Muslims today.">
+<title>Hadith — Status, Collection and Authority</title>
+
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@500,700&display=swap" rel="stylesheet">
+
+<style>
+/*
+  Art direction: a readable Islamic Studies textbook.
+  Palette: warm neutral paper with a restrained teal accent.
+  Typography: Boska for display headings; Satoshi for body text.
+  Density: balanced, with centred content and a hidden contents menu.
+*/
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  --color-bg: #f7f6f2;
+  --color-surface: #fffefa;
+  --color-surface-2: #f0eee8;
+  --color-text: #28251d;
+  --color-text-muted: #625f56;
+  --color-border: #d7d3ca;
+  --color-primary: #01696f;
+  --color-primary-hover: #064e53;
+  --color-highlight: #e1eeea;
+  --color-inverse: #ffffff;
+
+  --font-body: "Satoshi", Arial, sans-serif;
+  --font-display: "Boska", Georgia, serif;
+
+  --text-sm: clamp(.875rem, .84rem + .15vw, .95rem);
+  --text-base: clamp(1.125rem, 1.08rem + .2vw, 1.2rem);
+  --text-lg: clamp(1.25rem, 1.15rem + .4vw, 1.5rem);
+  --text-xl: clamp(1.65rem, 1.35rem + 1vw, 2.15rem);
+  --text-hero: clamp(2.35rem, 1.7rem + 2.6vw, 4rem);
+
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  --radius-sm: .375rem;
+  --radius-md: .625rem;
+  --radius-lg: 1rem;
+
+  --content-wide: 1020px;
+  --transition: 180ms ease;
+  --reading-scale: 1;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg: #181917;
+  --color-surface: #20221f;
+  --color-surface-2: #292c28;
+  --color-text: #eeede7;
+  --color-text-muted: #c0c1b8;
+  --color-border: #484d45;
+  --color-primary: #90d2ca;
+  --color-primary-hover: #b7e4de;
+  --color-highlight: #2b403b;
+  --color-inverse: #152822;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --color-bg: #181917;
+    --color-surface: #20221f;
+    --color-surface-2: #292c28;
+    --color-text: #eeede7;
+    --color-text-muted: #c0c1b8;
+    --color-border: #484d45;
+    --color-primary: #90d2ca;
+    --color-primary-hover: #b7e4de;
+    --color-highlight: #2b403b;
+    --color-inverse: #152822;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--space-6);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: calc(var(--text-base) * var(--reading-scale));
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button,
+summary {
+  cursor: pointer;
+}
+
+button,
+a,
+input {
+  transition:
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition);
+}
+
+button:active,
+.button:active {
+  transform: translateY(1px);
+}
+
+a {
+  color: var(--color-primary);
+  text-underline-offset: .18em;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: var(--color-highlight);
+  color: var(--color-text);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  font-weight: 700;
+  max-width: 20ch;
+  margin-block: var(--space-4) var(--space-6);
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-6);
+}
+
+h3 {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  margin-block: var(--space-8) var(--space-3);
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+p + p {
+  margin-top: var(--space-4);
+}
+
+ul,
+ol {
+  padding-left: var(--space-6);
+  margin-block: var(--space-4);
+}
+
+li + li {
+  margin-top: var(--space-3);
+}
+
+strong {
+  font-weight: 700;
+}
+
+.container {
+  width: min(
+    calc(100% - var(--space-8)),
+    var(--content-wide)
+  );
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: fixed;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: 100;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-primary);
+  color: var(--color-inverse);
+  transform: translateY(-180%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.site-header {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  padding-block: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: .035em;
+}
+
+.brand svg {
+  width: 30px;
+  height: 30px;
+  color: var(--color-primary);
+  flex: none;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+button,
+.button {
+  min-height: 44px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+button:hover,
+.button:hover {
+  background: var(--color-surface-2);
+}
+
+button.primary {
+  background: var(--color-primary);
+  color: var(--color-inverse);
+  border-color: var(--color-primary);
+}
+
+button.primary:hover {
+  background: var(--color-primary-hover);
+}
+
+.hero {
+  padding-block: var(--space-16) var(--space-10);
+}
+
+.eyebrow {
+  color: var(--color-primary);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.lead {
+  max-width: 65ch;
+  color: var(--color-text-muted);
+}
+
+.scope {
+  margin-top: var(--space-6);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+article {
+  margin-bottom: var(--space-16);
+}
+
+.chapter {
+  padding-block: var(--space-10);
+  border-top: 1px solid var(--color-border);
+}
+
+.chapter > p,
+.chapter > ul,
+.chapter > ol,
+.prose {
+  max-width: 76ch;
+}
+
+.chapter-label {
+  display: block;
+  color: var(--color-primary);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.panel {
+  padding: var(--space-6);
+  margin-block: var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.panel > :first-child {
+  margin-top: 0;
+}
+
+.panel > :last-child {
+  margin-bottom: 0;
+}
+
+.key-idea {
+  background: var(--color-highlight);
+  border-color: transparent;
+}
+
+.panel-label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  margin-block: var(--space-6);
+}
+
+.two-column > .panel {
+  margin: 0;
+}
+
+.source {
+  display: inline;
+  font-size: var(--text-sm);
+  white-space: normal;
+}
+
+.source a {
+  text-decoration-style: dotted;
+}
+
+.source-note {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  margin-top: var(--space-4);
+}
+
+details {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  margin-block: var(--space-4);
+}
+
+summary {
+  padding: var(--space-4) var(--space-5);
+  font-weight: 700;
+  min-height: 44px;
+}
+
+details[open] > summary {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.details-body {
+  padding: var(--space-5);
+}
+
+.toc {
+  margin-bottom: var(--space-10);
+}
+
+.toc nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2) var(--space-6);
+}
+
+.toc nav a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding-block: var(--space-2);
+  text-decoration: none;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin-block: var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.table-wrap:focus-visible {
+  outline-offset: 2px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: inherit;
+  text-align: left;
+}
+
+caption {
+  text-align: left;
+  padding: var(--space-4) var(--space-5);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text-muted);
+  background: var(--color-surface-2);
+}
+
+th,
+td {
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+thead th {
+  background: var(--color-surface-2);
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+tbody tr:last-child td,
+tbody tr:last-child th {
+  border-bottom: 0;
+}
+
+tbody th {
+  width: 20%;
+  font-weight: 700;
+}
+
+.table-hint {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.timeline {
+  list-style: none;
+  padding: 0;
+  counter-reset: stage;
+}
+
+.timeline li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-5);
+  padding-block: var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.timeline li::before {
+  counter-increment: stage;
+  content: "0" counter(stage);
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: var(--text-lg);
+}
+
+.timeline li:last-child {
+  border-bottom: none;
+}
+
+.timeline h3 {
+  margin: 0 0 var(--space-2);
+}
+
+.chain {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-block: var(--space-5);
+}
+
+.chain span {
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface-2);
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+}
+
+.chain .arrow {
+  padding: 0;
+  background: transparent;
+  color: var(--color-primary);
+}
+
+.hadith-block {
+  padding-block: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hadith-block:last-child {
+  border-bottom: 0;
+}
+
+.hadith-block h3 {
+  margin-top: 0;
+}
+
+.arabic {
+  font-family: "Noto Naskh Arabic", "Traditional Arabic", serif;
+  font-size: var(--text-xl);
+  line-height: 2;
+  text-align: right;
+  margin-block: var(--space-4);
+}
+
+.meaning {
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+}
+
+.application {
+  background: var(--color-surface-2);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-sm);
+  margin-top: var(--space-4);
+}
+
+.term-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4) var(--space-6);
+  margin-block: var(--space-6);
+}
+
+.term {
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.term dt {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.term dd {
+  margin-top: var(--space-2);
+}
+
+fieldset {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  padding: var(--space-5);
+  margin-block: var(--space-5);
+  min-width: 0;
+}
+
+legend {
+  padding-inline: var(--space-2);
+  font-weight: 700;
+  max-width: 100%;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: 44px;
+  padding-block: var(--space-2);
+  cursor: pointer;
+}
+
+.option input {
+  margin-top: var(--space-2);
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-primary);
+  flex: none;
+}
+
+.feedback {
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  background: var(--color-surface-2);
+  border-radius: var(--radius-sm);
+}
+
+.feedback:empty {
+  display: none;
+}
+
+.quiz-actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-block: var(--space-6);
+}
+
+#quiz-result {
+  font-weight: 700;
+  margin-block: var(--space-4);
+}
+
+textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font: inherit;
+  line-height: 1.7;
+  resize: vertical;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+footer {
+  padding-block: var(--space-8);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+footer a {
+  display: inline-block;
+  padding-block: var(--space-2);
+}
+
+@media (max-width: 700px) {
+  .container {
+    width: min(calc(100% - var(--space-8)), var(--content-wide));
+  }
+
+  .header-inner {
+    align-items: flex-start;
+  }
+
+  .toolbar {
+    width: 100%;
+  }
+
+  .toolbar button {
+    flex: 1 1 auto;
+  }
+
+  .hero {
+    padding-top: var(--space-10);
+  }
+
+  .two-column,
+  .term-list,
+  .toc nav {
+    grid-template-columns: 1fr;
+  }
+
+  .panel,
+  fieldset {
+    padding: var(--space-5);
+  }
+
+  th,
+  td {
+    padding: var(--space-3) var(--space-4);
+    min-width: 170px;
+  }
+
+  .chapter {
+    padding-block: var(--space-8);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+@media print {
+  :root,
+  [data-theme="dark"],
+  [data-theme="light"] {
+    --color-bg: #ffffff;
+    --color-surface: #ffffff;
+    --color-surface-2: #f1f1f1;
+    --color-text: #111111;
+    --color-text-muted: #333333;
+    --color-border: #bbbbbb;
+    --color-primary: #164e50;
+    --color-highlight: #eeeeee;
+  }
+
+  @page {
+    size: A4;
+    margin: 16mm;
+  }
+
+  body {
+    font-size: 11pt;
+    line-height: 1.55;
+  }
+
+  .container {
+    width: 100%;
+    max-width: none;
+  }
+
+  .no-print,
+  .skip-link,
+  .site-header,
+  .toc,
+  .quiz-actions,
+  .table-hint,
+  textarea {
+    display: none !important;
+  }
+
+  h1 {
+    font-size: 28pt;
+  }
+
+  h2 {
+    font-size: 20pt;
+  }
+
+  h3 {
+    font-size: 13pt;
+  }
+
+  .hero,
+  .chapter {
+    padding-block: 14pt;
+  }
+
+  .panel,
+  details,
+  fieldset,
+  .application {
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .panel,
+  .hadith-block,
+  fieldset,
+  .timeline li {
+    break-inside: avoid;
+  }
+
+  h2,
+  h3,
+  legend {
+    break-after: avoid;
+  }
+
+  .table-wrap {
+    overflow: visible;
+  }
+
+  table {
+    font-size: 10pt;
+  }
+
+  th,
+  td {
+    min-width: 0;
+    padding: 7pt;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr {
+    break-inside: avoid;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  .source,
+  .source-note,
+  .scope {
+    font-size: 9pt;
+  }
+
+  details > summary {
+    list-style: none;
+  }
+
+  .arabic {
+    font-size: 18pt;
+  }
+}
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to notes</a>
+
+<header class="site-header no-print">
+  <div class="container header-inner">
+    <div class="brand">
+      <svg
+        viewBox="0 0 32 32"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        role="img"
+        aria-label="Open book emblem">
+        <path d="M16 8C12 5 6 5 3 7v19c4-2 9-2 13 1 4-3 9-3 13-1V7c-3-2-9-2-13 1Z"/>
+        <path d="M16 8v19M7 11h5M7 15h5M20 11h5M20 15h5"/>
+      </svg>
+      <span>ISLAMIC STUDIES · LEARNING NOTES</span>
+    </div>
+
+    <div class="toolbar" aria-label="Reading controls">
+      <button type="button" id="smaller" aria-label="Decrease text size">A−</button>
+      <button type="button" id="larger" aria-label="Increase text size">A+</button>
+      <button type="button" id="theme-toggle" aria-label="Switch colour theme">Dark mode</button>
+      <button type="button" id="print-button">Print / Save PDF</button>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="container">
+
+  <section class="hero" aria-labelledby="page-title">
+    <p class="eyebrow">Comprehensive topic notes</p>
+    <h1 id="page-title">Hadith: status, collection and authority</h1>
+
+    <p class="lead">
+      Understanding the teachings, deeds and sayings of Prophet Muhammad
+      (peace be upon him), how reports about him were preserved and assessed,
+      and how his guidance shapes Muslim life.
+    </p>
+
+    <p class="scope">
+      <strong>Scope:</strong> These notes explain the mainstream Sunni framework
+      of Hadith classification. Other Muslim traditions also preserve and
+      evaluate Hadith, sometimes using different collections and technical
+      categories.
+      <span class="source">
+        <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Britannica]</a>
+      </span>
+    </p>
+  </section>
+
+  <details class="toc no-print">
+    <summary>Contents — choose a section</summary>
+    <nav class="details-body" aria-label="Topic contents">
+      <a href="#outcomes">Learning outcomes</a>
+      <a href="#meaning">What Hadith means</a>
+      <a href="#authority">The Prophet’s authority</a>
+      <a href="#collection">Collection and preservation</a>
+      <a href="#structure">Isnad and matn</a>
+      <a href="#authenticity">Testing authenticity</a>
+      <a href="#classification">The four classifications</a>
+      <a href="#interpretation">Understanding and applying Hadith</a>
+      <a href="#today">Significance for Muslims today</a>
+      <a href="#selected">Selected Hadith in practice</a>
+      <a href="#revision">Revision and key terms</a>
+      <a href="#practice">Written practice</a>
+      <a href="#quiz">Interactive self-check</a>
+    </nav>
+  </details>
+
+  <article>
+
+    <section class="chapter" id="outcomes">
+      <span class="chapter-label">Learning focus</span>
+      <h2>Learning outcomes</h2>
+
+      <p>By the end of this topic, you should be able to:</p>
+
+      <ul>
+        <li>Define Hadith and explain its relationship with the Sunnah.</li>
+        <li>Explain why the Prophet’s teachings and example have authority for Muslims.</li>
+        <li>Describe the main stages in the collection and preservation of Hadith.</li>
+        <li>Distinguish the isnad from the matn.</li>
+        <li>Explain the five main conditions used to identify a sahih report.</li>
+        <li>Compare sahih, hasan, daʿif and mawduʿ reports.</li>
+        <li>Explain how Hadith guides worship, character and relationships today.</li>
+        <li>Apply selected teachings to realistic situations.</li>
+      </ul>
+    </section>
+
+    <section class="chapter" id="meaning">
+      <span class="chapter-label">Part one · Meaning and status</span>
+      <h2>What Hadith means</h2>
+
+      <p>
+        The Arabic word <strong>hadith</strong> can mean a report, speech or
+        conversation. In Islamic studies, a Hadith is a transmitted report
+        attributed to the Prophet Muhammad (pbuh), including what he said,
+        did or approved.
+        <span class="source">
+          <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+        </span>
+      </p>
+
+      <p>
+        Hadith literature also preserves descriptions of his character and
+        personal qualities. The term can refer to one individual report or
+        collectively to the wider body of reports.
+        <span class="source">
+          <a href="https://scholarhub.ui.ac.id/cgi/viewcontent.cgi?article=1059&context=meis" target="_blank" rel="noopener noreferrer">[Source]</a>
+          <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+        </span>
+      </p>
+
+      <div class="panel key-idea">
+        <span class="panel-label">Central distinction</span>
+        <p>
+          A report being attributed to the Prophet does not automatically make
+          the attribution authentic. Hadith scholars investigate how the report
+          reached them before deciding how reliable it is.
+          <span class="source">
+            <a href="https://myhadith.islam.gov.my/jenis-hadith/11" target="_blank" rel="noopener noreferrer">[JAKIM]</a>
+          </span>
+        </p>
+      </div>
+
+      <h3>The main forms of Hadith</h3>
+
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Forms of Hadith">
+        <table>
+          <caption>Ways in which the Prophet’s guidance is reported</caption>
+          <thead>
+            <tr>
+              <th scope="col">Form</th>
+              <th scope="col">Meaning</th>
+              <th scope="col">Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Sayings</th>
+              <td>Words and verbal teachings attributed to the Prophet.</td>
+              <td>
+                His instruction to make religious teaching approachable rather
+                than unnecessarily difficult.
+                <a class="source" href="https://sunnah.com/bukhari/3" target="_blank" rel="noopener noreferrer">[Bukhari 69]</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Deeds</th>
+              <td>Reports describing what the Prophet did.</td>
+              <td>
+                ʿAʾishah reported that he helped his family at home.
+                <a class="source" href="https://sunnah.com/bukhari:676" target="_blank" rel="noopener noreferrer">[Bukhari 676]</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Approvals</th>
+              <td>
+                Actions or statements of others that he knowingly accepted,
+                verbally or by not objecting in the reported circumstances.
+              </td>
+              <td>
+                Khalid ibn al-Walid ate a desert lizard in his presence;
+                the Prophet explained that his own dislike did not make it
+                forbidden.
+                <a class="source" href="https://sunnah.com/malik/54/10" target="_blank" rel="noopener noreferrer">[Muwatta Malik]</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Descriptions</th>
+              <td>Accounts of his character, qualities and manner of life.</td>
+              <td>
+                A report describes his kindness towards young visitors who
+                missed their families.
+                <a class="source" href="https://sunnah.com/bukhari:631" target="_blank" rel="noopener noreferrer">[Bukhari 631]</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Hadith and Sunnah</h3>
+
+      <p>
+        <strong>Sunnah</strong> refers to the Prophet’s established way,
+        guidance and example. <strong>Hadith</strong> refers to reports through
+        which much of that example is transmitted, although scholars sometimes
+        use the terms in closely overlapping ways.
+        <span class="source">
+          <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+          <a href="https://scholarhub.ui.ac.id/cgi/viewcontent.cgi?article=1059&context=meis" target="_blank" rel="noopener noreferrer">[Source]</a>
+        </span>
+      </p>
+
+      <div class="panel">
+        <span class="panel-label">Do not confuse two uses</span>
+        <p>
+          In discussions of Islamic sources, “the Sunnah” means the Prophet’s
+          authoritative example. In legal classification, “a sunnah act” may
+          mean a recommended, rather than obligatory, action; therefore,
+          calling something part of the Sunnah does not mean that every
+          teaching it contains is merely optional.
+          <span class="source">
+            <a href="https://islamichistory.info/2021/11/03/brief-guide-to-hadeeth-and-sunnah-part-1/" target="_blank" rel="noopener noreferrer">[Source]</a>
+            <a href="https://scholarhub.ui.ac.id/cgi/viewcontent.cgi?article=1059&context=meis" target="_blank" rel="noopener noreferrer">[Source]</a>
+          </span>
+        </p>
+      </div>
+    </section>
+
+    <section class="chapter" id="authority">
+      <span class="chapter-label">Part two · Religious authority</span>
+      <h2>The Prophet’s authority</h2>
+
+      <p>
+        In mainstream Islamic teaching, the Prophet is not only the person who
+        delivered the Qur’an: he is also its teacher and a model of how to live
+        by it. Authentic Hadith therefore provides a major source of religious
+        guidance alongside the Qur’an.
+        <span class="source">
+          <a href="https://quran.com/an-nahl/44/tafsirs/en-tafsir-maarif-ul-quran" target="_blank" rel="noopener noreferrer">[Qur’an 16:44]</a>
+          <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+        </span>
+      </p>
+
+      <h3>Qur’anic foundations</h3>
+
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Quranic basis for prophetic authority">
+        <table>
+          <caption>Paraphrased meanings, not direct quotations</caption>
+          <thead>
+            <tr>
+              <th scope="col">Reference</th>
+              <th scope="col">Main teaching</th>
+              <th scope="col">Connection with Hadith</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">
+                <a href="https://myislam.org/surah-an-nisa/ayat-59/" target="_blank" rel="noopener noreferrer">Qur’an 4:59</a>
+              </th>
+              <td>Believers are instructed to obey Allah and His Messenger.</td>
+              <td>The Prophet’s guidance has religious authority.</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <a href="https://quran.com/4/80?translations=20,24" target="_blank" rel="noopener noreferrer">Qur’an 4:80</a>
+              </th>
+              <td>Obedience to the Messenger is connected with obedience to Allah.</td>
+              <td>Following him is part of commitment to Allah.</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <a href="https://legacy.quran.com/33/21" target="_blank" rel="noopener noreferrer">Qur’an 33:21</a>
+              </th>
+              <td>The Messenger is presented as an excellent example.</td>
+              <td>His conduct provides a model for Muslim character and practice.</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <a href="https://corpus.quran.com/translation.jsp?chapter=16&amp;verse=44" target="_blank" rel="noopener noreferrer">Qur’an 16:44</a>
+              </th>
+              <td>The Prophet is given the task of explaining revelation.</td>
+              <td>His explanations help Muslims understand and implement the Qur’an.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The Qur’an and Hadith</h3>
+
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Quran and Hadith distinctions">
+        <table>
+          <caption>Related sources with different status</caption>
+          <thead>
+            <tr>
+              <th scope="col">Aspect</th>
+              <th scope="col">Qur’an</th>
+              <th scope="col">Hadith</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Nature</th>
+              <td>Allah’s revealed scripture in Islamic belief.</td>
+              <td>Transmitted reports about the Prophet’s words, actions and guidance.</td>
+            </tr>
+            <tr>
+              <th scope="row">Position</th>
+              <td>The foundational scripture and highest textual authority.</td>
+              <td>A principal source for understanding the Prophet’s authoritative Sunnah.</td>
+            </tr>
+            <tr>
+              <th scope="row">Transmission</th>
+              <td>Preserved as the community’s scripture through recitation and writing.</td>
+              <td>Individual reports transmitted through identifiable routes and collections.</td>
+            </tr>
+            <tr>
+              <th scope="row">Evaluation</th>
+              <td>Not divided into sahih, hasan, daʿif and mawduʿ verses.</td>
+              <td>Reports are evaluated because their reliability varies.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="source-note">
+        Sources for these distinctions:
+        <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">Britannica, Hadith</a>;
+        <a href="https://myhadith.islam.gov.my/jenis-hadith/11" target="_blank" rel="noopener noreferrer">JAKIM, Hadith Sahih</a>.
+      </p>
+
+      <div class="panel key-idea">
+        <span class="panel-label">Example: performing prayer</span>
+        <p>
+          Hadith preserves the Prophet’s instruction that his followers should
+          learn prayer from his example. It therefore helps transmit practical
+          guidance about worship rather than leaving Muslims with only an
+          abstract command to pray.
+          <span class="source">
+            <a href="https://sunnah.com/bukhari:631" target="_blank" rel="noopener noreferrer">[Bukhari 631]</a>
+          </span>
+        </p>
+      </div>
+
+      <p>
+        The authority of the Prophet must be distinguished from the reliability
+        of a particular attribution to him: Muslims may accept his authority
+        while investigating whether an individual report genuinely represents
+        his teaching.
+        <span class="source">
+          <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+        </span>
+      </p>
+    </section>
+
+    <section class="chapter" id="collection">
+      <span class="chapter-label">Part three · Preservation and collection</span>
+      <h2>Collection and preservation</h2>
+
+      <p>
+        Hadith preservation developed gradually through overlapping practices:
+        remembering, teaching, writing, comparing reports and compiling books.
+        Later major collections did not mark the beginning of all Hadith
+        transmission.
+        <span class="source">
+          <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+        </span>
+      </p>
+
+      <ol class="timeline">
+        <li>
+          <div>
+            <h3>During the Prophet’s lifetime</h3>
+            <p>
+              The Companions listened to his teachings, observed his actions
+              and asked questions. They preserved what they learned through
+              memory, practice and, in some cases, written notes.
+              <span class="source">
+                <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+              </span>
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <h3>Companions and Successors</h3>
+            <p>
+              After his death, Companions transmitted reports to later learners,
+              including the Successors, or <em>Tabiʿun</em>. The movement of
+              teachers and students spread reports across different regions.
+              <span class="source">
+                <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+              </span>
+            </p>
+            <p>
+              Women also played an important role: ʿAʾishah and Umm Salamah
+              transmitted knowledge about the Prophet, and women continued
+              teaching Hadith in later generations.
+              <span class="source">
+                <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+              </span>
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <h3>More organised recording</h3>
+            <p>
+              In the early eighth century CE, Caliph ʿUmar ibn ʿAbd al-ʿAziz
+              encouraged systematic recording. Ibn Shihab al-Zuhri is closely
+              associated with this stage of collection.
+              <span class="source">
+                <a href="https://en.wikipedia.org/wiki/Ibn_Shihab_al-Zuhri" target="_blank" rel="noopener noreferrer">[Historical overview]</a>
+              </span>
+            </p>
+            <p>
+              This was a move towards organised preservation, not evidence that
+              no one had previously remembered or written Hadith.
+              <span class="source">
+                <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+              </span>
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <h3>Subject-based and narrator-based books</h3>
+            <p>
+              Collections developed different arrangements. Malik’s
+              <em>al-Muwattaʾ</em> brought together prophetic reports, reports
+              from early Muslims and legal discussion; musnad collections,
+              such as Ahmad ibn Hanbal’s, grouped material around narrating
+              Companions.
+              <span class="source">
+                <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+              </span>
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <h3>Major critical collections</h3>
+            <p>
+              In the ninth century CE, scholars such as al-Bukhari and Muslim
+              compiled influential collections after examining transmitted
+              reports. Their two Sahih collections acquired exceptional
+              authority in Sunni scholarship.
+              <span class="source">
+                <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+              </span>
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <h3>Continuing scholarship</h3>
+            <p>
+              Scholars continued analysing narrators, comparing versions,
+              writing commentaries and discussing disputed gradings.
+              Compilation did not end the work of criticism or interpretation.
+              <span class="source">
+                <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+              </span>
+            </p>
+          </div>
+        </li>
+      </ol>
+
+      <h3>Why collection became necessary</h3>
+
+      <ul>
+        <li>
+          <strong>Preservation:</strong> the deaths of earlier transmitters made
+          the careful passing on of knowledge increasingly important.
+          <span class="source">
+            <a href="https://islamonline.net/en/the-evolution-of-hadith-literature-through-time/" target="_blank" rel="noopener noreferrer">[Source]</a>
+          </span>
+        </li>
+        <li>
+          <strong>Geographical spread:</strong> reports were held by teachers
+          living in different places.
+          <span class="source">
+            <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+          </span>
+        </li>
+        <li>
+          <strong>Religious practice:</strong> Muslims needed dependable
+          guidance for worship, law and conduct.
+          <span class="source">
+            <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+          </span>
+        </li>
+        <li>
+          <strong>Errors and fabrication:</strong> scholars needed to distinguish
+          reliable reports from mistaken or invented attributions.
+          <span class="source">
+            <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+          </span>
+        </li>
+      </ul>
+
+      <h3>The Six Books</h3>
+
+      <p>
+        Six collections became especially prominent in Sunni Islam:
+        <strong>Sahih al-Bukhari, Sahih Muslim, Sunan Abi Dawud,
+        Jamiʿ al-Tirmidhi, Sunan al-Nasaʾi and Sunan Ibn Majah</strong>.
+        They are commonly called <em>al-Kutub al-Sittah</em>, meaning
+        “the Six Books.”
+        <span class="source">
+          <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+        </span>
+      </p>
+
+      <div class="panel">
+        <span class="panel-label">Important qualification</span>
+        <p>
+          Being included in a famous collection is not a substitute for
+          understanding a report’s grading. Al-Bukhari and Muslim hold a
+          distinctive position, while the wider Hadith literature contains
+          reports of different strengths.
+          <span class="source">
+            <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+            <a href="https://myhadith.islam.gov.my/jenis-hadith/11" target="_blank" rel="noopener noreferrer">[JAKIM]</a>
+          </span>
+        </p>
+      </div>
+    </section>
+
+    <section class="chapter" id="structure">
+      <span class="chapter-label">Part four · Anatomy of a report</span>
+      <h2>Isnad and matn</h2>
+
+      <p>
+        A transmitted Hadith normally has two main components:
+        the <strong>isnad</strong>, also called the <strong>sanad</strong>,
+        and the <strong>matn</strong>.
+        <span class="source">
+          <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+        </span>
+      </p>
+
+      <div class="two-column">
+        <div class="panel">
+          <span class="panel-label">Isnad / Sanad</span>
+          <h3>The transmission chain</h3>
+          <p>
+            The sequence of people through whom the report was transmitted.
+            It answers the question: <strong>Who received this from whom?</strong>
+            <span class="source">
+              <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+            </span>
+          </p>
+        </div>
+
+        <div class="panel">
+          <span class="panel-label">Matn</span>
+          <h3>The reported content</h3>
+          <p>
+            The actual wording or substance of the report. It answers:
+            <strong>What is being reported?</strong>
+            <span class="source">
+              <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <h3>A worked example</h3>
+
+      <p>
+        The report in Sahih al-Bukhari 69 transmits an instruction about making
+        religious teaching accessible and encouraging. Its chain can be
+        represented below in the direction of transmission.
+        <span class="source">
+          <a href="https://sunnah.com/bukhari/3" target="_blank" rel="noopener noreferrer">[Bukhari 69]</a>
+          <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Chain explained]</a>
+        </span>
+      </p>
+
+      <div class="panel">
+        <span class="panel-label">Isnad — direction of transmission</span>
+
+        <div class="chain" aria-label="Transmission from the Prophet through narrators to al-Bukhari">
+          <span>The Prophet (pbuh)</span>
+          <span class="arrow" aria-hidden="true">→</span>
+          <span>Anas ibn Malik</span>
+          <span class="arrow" aria-hidden="true">→</span>
+          <span>Abu al-Tayyah</span>
+          <span class="arrow" aria-hidden="true">→</span>
+          <span>Shuʿbah</span>
+          <span class="arrow" aria-hidden="true">→</span>
+          <span>Yahya</span>
+          <span class="arrow" aria-hidden="true">→</span>
+          <span>Muhammad ibn Bashshar</span>
+          <span class="arrow" aria-hidden="true">→</span>
+          <span>Al-Bukhari</span>
+        </div>
+
+        <p>
+          <strong>Matn, expressed as a paraphrase:</strong>
+          Help people approach religion with ease and encouragement rather
+          than driving them away through needless difficulty.
+          <span class="source">
+            <a href="https://sunnah.com/bukhari/3" target="_blank" rel="noopener noreferrer">[Bukhari 69]</a>
+          </span>
+        </p>
+      </div>
+
+      <p>
+        The chain and content must be considered together: an impressive-looking
+        list of names does not remove the need to investigate transmission,
+        accuracy and possible defects.
+        <span class="source">
+          <a href="https://myhadith.islam.gov.my/jenis-hadith/11" target="_blank" rel="noopener noreferrer">[JAKIM]</a>
+        </span>
+      </p>
+    </section>
+
+    <section class="chapter" id="authenticity">
+      <span class="chapter-label">Part five · Methods of assessment</span>
+      <h2>Testing authenticity</h2>
+
+      <p>
+        In the standard Sunni framework, a report classified as
+        <strong>sahih in itself</strong> must satisfy five main conditions.
+        These conditions examine both the transmission route and the
+        reliability of the resulting report.
+        <span class="source">
+          <a href="https://myhadith.islam.gov.my/jenis-hadith/11" target="_blank" rel="noopener noreferrer">[JAKIM]</a>
+          <a href="https://al-qanatir.com/aq/article/view/1320" target="_blank" rel="noopener noreferrer">[Academic discussion]</a>
+        </span>
+      </p>
+
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Five conditions of sahih Hadith">
+        <table>
+          <caption>The five main conditions</caption>
+          <thead>
+            <tr>
+              <th scope="col">Condition</th>
+              <th scope="col">What scholars investigate</th>
+              <th scope="col">Why it matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Connected chain<br><em>Ittisal al-sanad</em></th>
+              <td>
+                Whether each narrator actually received the report from the
+                person identified as the preceding transmitter.
+              </td>
+              <td>
+                A missing link creates uncertainty about the unrecorded source.
+                <a class="source" href="https://myhadith.islam.gov.my/jenis-hadith/11" target="_blank" rel="noopener noreferrer">[Source]</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Integrity<br><em>ʿAdalah</em></th>
+              <td>
+                The narrator’s trustworthiness, honesty and recognised moral
+                reliability.
+              </td>
+              <td>
+                Deliberate dishonesty undermines confidence in transmission.
+                <a class="source" href="https://myhadith.islam.gov.my/jenis-hadith/11" target="_blank" rel="noopener noreferrer">[Source]</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Precision<br><em>Dabt</em></th>
+              <td>
+                Accuracy in remembering, maintaining written records and
+                conveying what was received.
+              </td>
+              <td>
+                A sincere person can still make serious transmission mistakes.
+                <a class="source" href="https://myhadith.islam.gov.my/jenis-hadith/11" target="_blank" rel="noopener noreferrer">[Source]</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">No anomalous contradiction<br><em>No shudhudh</em></th>
+              <td>
+                Whether the narration conflicts with stronger, more reliable
+                transmission in a way that undermines it.
+              </td>
+              <td>
+                Comparing versions can reveal that a transmitter made an error.
+                <a class="source" href="https://myhadith.islam.gov.my/jenis-hadith/11" target="_blank" rel="noopener noreferrer">[Source]</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">No damaging hidden defect<br><em>No ʿillah</em></th>
+              <td>
+                Subtle problems that are not obvious from an initial reading,
+                but become visible through expert comparison.
+              </td>
+              <td>
+                A report may appear sound while containing an overlooked
+                problem in its chain or wording.
+                <a class="source" href="https://al-qanatir.com/aq/article/view/1320" target="_blank" rel="noopener noreferrer">[Source]</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>How narrators were investigated</h3>
+
+      <p>
+        Scholars assembled biographical information about transmitters,
+        including their teachers, students, locations, journeys and dates.
+        Such information helped establish whether an alleged teacher–student
+        link was historically possible.
+        <span class="source">
+          <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+        </span>
+      </p>
+
+      <p>
+        They also studied evaluations of a narrator’s character and accuracy.
+        This work is associated with <strong>ʿilm al-rijal</strong>, the study
+        of transmitters, and <strong>al-jarh wa al-taʿdil</strong>, critical
+        assessment of their reliability.
+        <span class="source">
+          <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+        </span>
+      </p>
+
+      <h3>How the text was examined</h3>
+
+      <p>
+        Scholars compared different versions, checked the attribution and
+        investigated contradictions or unusual additions. This means Hadith
+        criticism was not simply a test of whether a message sounded
+        inspiring or agreeable.
+        <span class="source">
+          <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+          <a href="https://myhadith.islam.gov.my/jenis-hadith/11" target="_blank" rel="noopener noreferrer">[JAKIM]</a>
+        </span>
+      </p>
+
+      <div class="panel key-idea">
+        <span class="panel-label">Study aid: connect, trust, preserve, compare, inspect</span>
+        <p>
+          <strong>Connect</strong> the chain;
+          <strong>trust</strong> the narrators’ integrity;
+          <strong>preserve</strong> accurate transmission;
+          <strong>compare</strong> stronger reports;
+          <strong>inspect</strong> hidden defects.
+        </p>
+      </div>
+
+      <details>
+        <summary>Illustrative case: why a list of names is not enough</summary>
+        <div class="details-body">
+          <p>
+            Imagine a report claims that Student A heard directly from Teacher B.
+            Reliable records show that Teacher B died before Student A was born.
+            The claimed direct link cannot be correct.
+          </p>
+          <p>
+            This invented classroom example illustrates the continuity test;
+            it is not a judgement about any actual Hadith.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Why can scholars disagree about a grading?</summary>
+        <div class="details-body">
+          <p>
+            Scholars may assess a narrator differently, possess different
+            supporting evidence or identify a defect that another scholar
+            does not consider decisive. Grading therefore involves informed
+            scholarly judgement, not an automatic scoring formula.
+            <span class="source">
+              <a href="http://muftiwp.gov.my/en/artikel/irsyad-al-hadith/3233-irsyad-al-hadith-siri-ke-358-hadith-hasan" target="_blank" rel="noopener noreferrer">[Mufti Department]</a>
+              <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+            </span>
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <section class="chapter" id="classification">
+      <span class="chapter-label">Part six · Reliability categories</span>
+      <h2>The four classifications</h2>
+
+      <p>
+        The categories below describe the reliability of reports attributed
+        to the Prophet. They are not four grades of the Prophet’s own
+        truthfulness.
+        <span class="source">
+          <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+        </span>
+      </p>
+
+      <p class="table-hint">On a small screen, swipe the table sideways.</p>
+
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Hadith authenticity classifications">
+        <table>
+          <caption>Sahih, hasan, daʿif and mawduʿ</caption>
+          <thead>
+            <tr>
+              <th scope="col">Category</th>
+              <th scope="col">Meaning and characteristics</th>
+              <th scope="col">Authority and use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Sahih<br><span lang="ar" dir="rtl">صحيح</span><br>Sound</th>
+              <td>
+                Meets the conditions of connected transmission, trustworthy
+                and precise narrators, and freedom from undermining
+                contradiction and hidden defect.
+              </td>
+              <td>
+                Accepted as reliable evidence, while its meaning and legal
+                application still require interpretation.
+                <a class="source" href="https://myhadith.islam.gov.my/jenis-hadith/11" target="_blank" rel="noopener noreferrer">[JAKIM]</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Hasan<br><span lang="ar" dir="rtl">حسن</span><br>Good</th>
+              <td>
+                In the standard definition of hasan in itself, the chain is
+                connected and the narrators are upright, but precision is
+                below the level required for sahih.
+              </td>
+              <td>
+                Generally accepted as evidence, although below sahih in strength.
+                <a class="source" href="http://muftiwp.gov.my/en/artikel/irsyad-al-hadith/3233-irsyad-al-hadith-siri-ke-358-hadith-hasan" target="_blank" rel="noopener noreferrer">[Mufti Department]</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Daʿif<br><span lang="ar" dir="rtl">ضعيف</span><br>Weak</th>
+              <td>
+                Does not satisfy the requirements for an accepted sahih or
+                hasan report; the problem may concern a missing link,
+                insufficient precision or another defect.
+              </td>
+              <td>
+                Its attribution is insufficiently established. The extent of
+                permissible use is disputed and depends on the nature of the
+                weakness and the purpose of use.
+                <a class="source" href="https://muftiwp.gov.my/en/artikel/irsyad-al-hadith/1552-irsyad-al-hadith-series-6-dhaif-weak-hadith-the-ruling-of-practising-and" target="_blank" rel="noopener noreferrer">[Mufti Department]</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Mawduʿ<br><span lang="ar" dir="rtl">موضوع</span><br>Fabricated</th>
+              <td>
+                A report judged to have been invented and falsely attributed
+                to the Prophet.
+              </td>
+              <td>
+                Rejected as prophetic evidence; it must not be presented as
+                an authentic teaching of the Prophet.
+                <a class="source" href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Sahih and hasan</h3>
+
+      <p>
+        Both categories belong to accepted reports. The usual distinction
+        between sahih in itself and hasan in itself concerns the degree of
+        the narrators’ precision, not an assumption that hasan narrators
+        are dishonest.
+        <span class="source">
+          <a href="http://muftiwp.gov.my/en/artikel/irsyad-al-hadith/3233-irsyad-al-hadith-siri-ke-358-hadith-hasan" target="_blank" rel="noopener noreferrer">[Mufti Department]</a>
+        </span>
+      </p>
+
+      <h3>Weak does not mean fabricated</h3>
+
+      <p>
+        A weak report has not met the required standard of reliability;
+        that does not by itself prove that someone deliberately invented it.
+        Fabrication is a more specific and serious judgement.
+        <span class="source">
+          <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+          <a href="https://baqillaniyya.com/2024/07/17/what-is-a-daif-hadith/" target="_blank" rel="noopener noreferrer">[Further explanation]</a>
+        </span>
+      </p>
+
+      <h3>Can weak reports be used?</h3>
+
+      <p>
+        Scholars have different positions. Some reject acting on weak reports;
+        many permit limited use in encouraging already-established virtuous
+        actions, subject to conditions.
+        <span class="source">
+          <a href="https://baqillaniyya.com/2024/07/17/what-is-a-daif-hadith/" target="_blank" rel="noopener noreferrer">[Discussion]</a>
+          <a href="https://www.jais.gov.my/wp-content/uploads/2023/12/2022_Penghujahan-Hadith-Daif-Menurut-Perspektif-Ulama-Fiqh-Dan-Ulama-Hadith.pdf" target="_blank" rel="noopener noreferrer">[Scholarly discussion]</a>
+        </span>
+      </p>
+
+      <p>
+        Common conditions include that the weakness is not severe, the action
+        already has a recognised basis, and the report is not treated as
+        certainly established from the Prophet.
+        <span class="source">
+          <a href="https://baqillaniyya.com/2024/07/17/what-is-a-daif-hadith/" target="_blank" rel="noopener noreferrer">[Conditions explained]</a>
+        </span>
+      </p>
+
+      <div class="panel">
+        <span class="panel-label">Responsible wording</span>
+        <p>
+          Avoid both extremes: “Every weak report is a lie” and “Any weak report
+          may be used without restriction.” The scholarly discussion is more
+          qualified than either statement.
+          <span class="source">
+            <a href="https://www.jais.gov.my/wp-content/uploads/2023/12/2022_Penghujahan-Hadith-Daif-Menurut-Perspektif-Ulama-Fiqh-Dan-Ulama-Hadith.pdf" target="_blank" rel="noopener noreferrer">[JAIS-hosted discussion]</a>
+          </span>
+        </p>
+      </div>
+
+      <details>
+        <summary>Extension: can supporting chains strengthen a report?</summary>
+        <div class="details-body">
+          <p>
+            Some mildly weak reports can be strengthened by suitable
+            supporting routes and classified as <em>hasan li-ghayrihi</em>,
+            meaning good because of supporting evidence.
+            <span class="source">
+              <a href="http://muftiwp.gov.my/en/artikel/irsyad-al-hadith/3233-irsyad-al-hadith-siri-ke-358-hadith-hasan" target="_blank" rel="noopener noreferrer">[Mufti Department]</a>
+            </span>
+          </p>
+          <p>
+            This is not automatic: many repetitions of a defective source do
+            not necessarily create independent evidence, and severe weakness
+            is not repaired simply by counting reports.
+            <span class="source">
+              <a href="https://arriqaaq.com/mustalah-hadith-sahih-hasan/" target="_blank" rel="noopener noreferrer">[Technical discussion]</a>
+            </span>
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <section class="chapter" id="interpretation">
+      <span class="chapter-label">Part seven · From evidence to understanding</span>
+      <h2>Understanding and applying Hadith</h2>
+
+      <p>
+        Establishing authenticity and establishing meaning are related but
+        different tasks. A report may be accepted as authentic while scholars
+        still discuss its context, scope and implications.
+        <span class="source">
+          <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+        </span>
+      </p>
+
+      <h3>Questions for careful reading</h3>
+
+      <ol>
+        <li><strong>Attribution:</strong> Where is the report recorded, and how has it been graded?</li>
+        <li><strong>Wording:</strong> Am I reading the complete report or an isolated sentence?</li>
+        <li><strong>Context:</strong> Who was addressed, and what situation prompted the teaching?</li>
+        <li><strong>Related evidence:</strong> How do other relevant reports and Qur’anic teachings affect its meaning?</li>
+        <li><strong>Scope:</strong> Does it establish a requirement, recommendation, permission or description?</li>
+        <li><strong>Application:</strong> What do qualified explanations say about applying it?</li>
+      </ol>
+
+      <p class="source-note">
+        This reading framework is a study aid based on the distinction between
+        transmission criticism and scholarly interpretation discussed in
+        <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">Britannica’s Hadith overview</a>.
+      </p>
+
+      <div class="panel key-idea">
+        <span class="panel-label">Authentic does not automatically mean obligatory</span>
+        <p>
+          A sound report can describe something permitted or recommended,
+          rather than command it as a duty. In the desert-lizard report,
+          the Prophet’s personal dislike did not make the food forbidden.
+          <span class="source">
+            <a href="https://sunnah.com/malik/54/10" target="_blank" rel="noopener noreferrer">[Muwatta Malik]</a>
+          </span>
+        </p>
+      </div>
+
+      <h3>Why interpretations may differ</h3>
+
+      <p>
+        Scholars may differ over how reports relate to one another, whether a
+        statement is general or specific, and how evidence should be applied.
+        A difference in legal interpretation is therefore not automatically
+        a rejection of the Prophet’s guidance.
+        <span class="source">
+          <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+        </span>
+      </p>
+
+      <h3>Checking a quotation online</h3>
+
+      <p>Use this practical verification routine before sharing a Hadith:</p>
+
+      <ol>
+        <li>Find its collection and reference rather than relying on a poster.</li>
+        <li>Read the full report and check the wording.</li>
+        <li>Identify a reliable scholarly grading where relevant.</li>
+        <li>Consult an explanation if the meaning or application is unclear.</li>
+        <li>Do not turn an uncertain attribution into a definite prophetic quotation.</li>
+        <li>Correct an inaccurate quotation if you have already shared it.</li>
+      </ol>
+
+      <p class="source-note">
+        Suggested starting points:
+        <a href="https://myhadith.islam.gov.my/search" target="_blank" rel="noopener noreferrer">JAKIM MyHadith</a>,
+        the <a href="https://muftiwp.gov.my/ms/artikel/irsyad-al-hadith" target="_blank" rel="noopener noreferrer">Mufti Department’s Hadith articles</a>,
+        and the collection links used throughout these notes.
+      </p>
+    </section>
+
+    <section class="chapter" id="today">
+      <span class="chapter-label">Part eight · Meaning for Muslim life</span>
+      <h2>Significance for Muslims today</h2>
+
+      <p>
+        Hadith connects religious understanding with practical conduct.
+        Its significance extends beyond knowing historical information:
+        it helps Muslims learn how to worship, treat people and form
+        their character.
+        <span class="source">
+          <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+        </span>
+      </p>
+
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Contemporary significance of Hadith">
+        <table>
+          <caption>From prophetic guidance to present-day practice</caption>
+          <thead>
+            <tr>
+              <th scope="col">Area</th>
+              <th scope="col">Significance</th>
+              <th scope="col">Suggested application today</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Worship</th>
+              <td>
+                Preserves the Prophet’s practical example of prayer.
+                <a class="source" href="https://sunnah.com/bukhari:631" target="_blank" rel="noopener noreferrer">[Bukhari 631]</a>
+              </td>
+              <td>Learn prayer carefully and seek correction from a knowledgeable teacher.</td>
+            </tr>
+            <tr>
+              <th scope="row">Sincerity</th>
+              <td>
+                Directs attention to the intention behind actions.
+                <a class="source" href="https://thehadithproject.com/h/actions-by-intentions/" target="_blank" rel="noopener noreferrer">[Bukhari 1]</a>
+              </td>
+              <td>Check whether study, service or charity is motivated by genuine good rather than praise alone.</td>
+            </tr>
+            <tr>
+              <th scope="row">Family life</th>
+              <td>
+                Shows the Prophet helping his household.
+                <a class="source" href="https://sunnah.com/bukhari:676" target="_blank" rel="noopener noreferrer">[Bukhari 676]</a>
+              </td>
+              <td>Share household responsibilities instead of treating service as beneath oneself.</td>
+            </tr>
+            <tr>
+              <th scope="row">Honesty</th>
+              <td>
+                Condemns concealing defects and deceiving others.
+                <a class="source" href="https://sunnah.com/muslim:102" target="_blank" rel="noopener noreferrer">[Muslim 102]</a>
+              </td>
+              <td>Disclose faults in online sales and avoid cheating or misleading claims.</td>
+            </tr>
+            <tr>
+              <th scope="row">Teaching</th>
+              <td>
+                Encourages an approachable, constructive manner.
+                <a class="source" href="https://sunnah.com/bukhari/3" target="_blank" rel="noopener noreferrer">[Bukhari 69]</a>
+              </td>
+              <td>Explain patiently and correct mistakes without unnecessary humiliation.</td>
+            </tr>
+            <tr>
+              <th scope="row">Care for creation</th>
+              <td>
+                Recognises benefit provided to humans, birds and animals through planting.
+                <a class="source" href="https://sunnah.com/bukhari:2320" target="_blank" rel="noopener noreferrer">[Bukhari 2320]</a>
+              </td>
+              <td>Support useful planting projects and care for living things.</td>
+            </tr>
+            <tr>
+              <th scope="row">Religious knowledge</th>
+              <td>
+                Requires distinguishing dependable evidence from weak or false attributions.
+                <a class="source" href="https://myhadith.islam.gov.my/jenis-hadith/11" target="_blank" rel="noopener noreferrer">[JAKIM]</a>
+              </td>
+              <td>Verify religious material before forwarding it or building a claim around it.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <span class="panel-label">Meaning, significance and implication</span>
+        <p>
+          <strong>Meaning:</strong> What does the teaching communicate?
+          <br>
+          <strong>Significance:</strong> Why does that teaching matter?
+          <br>
+          <strong>Implication:</strong> What should change in a person’s choices,
+          habits or relationships?
+        </p>
+      </div>
+    </section>
+
+    <section class="chapter" id="selected">
+      <span class="chapter-label">Part nine · Teachings in practice</span>
+      <h2>Selected Hadith in practice</h2>
+
+      <p>
+        The meanings below are short paraphrases, not full translations.
+        The suggested applications are learning examples rather than
+        quotations from the reports.
+      </p>
+
+      <div class="hadith-block">
+        <h3>Intention and sincerity</h3>
+        <p class="meaning">
+          Paraphrased meaning: Actions are evaluated in relation to the
+          intentions behind them.
+          <a class="source" href="https://thehadithproject.com/h/actions-by-intentions/" target="_blank" rel="noopener noreferrer">[Bukhari 1]</a>
+        </p>
+        <p>
+          The report connects the outward act with the purpose motivating it,
+          using migration to illustrate the importance of intention.
+          <span class="source">
+            <a href="https://thehadithproject.com/h/actions-by-intentions/" target="_blank" rel="noopener noreferrer">[Source]</a>
+          </span>
+        </p>
+        <div class="application">
+          <strong>Application:</strong> Before joining a charity activity,
+          consider whether you want to help or mainly want recognition.
+          Work on sincerity without abandoning the good action.
+        </div>
+      </div>
+
+      <div class="hadith-block">
+        <h3>Prayer through example</h3>
+        <p class="meaning">
+          Paraphrased meaning: Learn to pray by following the Prophet’s
+          demonstrated prayer.
+          <a class="source" href="https://sunnah.com/bukhari:631" target="_blank" rel="noopener noreferrer">[Bukhari 631]</a>
+        </p>
+        <p>
+          This teaching links religious learning with observation, practice
+          and the responsibility to teach others.
+          <span class="source">
+            <a href="https://sunnah.com/bukhari:631" target="_blank" rel="noopener noreferrer">[Source]</a>
+          </span>
+        </p>
+        <div class="application">
+          <strong>Application:</strong> Ask a teacher to check your prayer,
+          practise corrections and support younger learners patiently.
+        </div>
+      </div>
+
+      <div class="hadith-block">
+        <h3>Serving the household</h3>
+        <p class="meaning">
+          Paraphrased meaning: The Prophet helped his family at home and
+          attended prayer when its time came.
+          <a class="source" href="https://sunnah.com/bukhari:676" target="_blank" rel="noopener noreferrer">[Bukhari 676]</a>
+        </p>
+        <p>
+          The account presents domestic service as part of his ordinary
+          conduct rather than something incompatible with religious dignity.
+          <span class="source">
+            <a href="https://sunnah.com/bukhari:676" target="_blank" rel="noopener noreferrer">[Source]</a>
+          </span>
+        </p>
+        <div class="application">
+          <strong>Application:</strong> Help with cleaning, preparing meals or
+          caring for family members without assuming these tasks are beneath you.
+        </div>
+      </div>
+
+      <div class="hadith-block">
+        <h3>Honesty in transactions</h3>
+        <p class="meaning">
+          Paraphrased meaning: Deception is contrary to the Prophet’s guidance.
+          <a class="source" href="https://sunnah.com/muslim:102" target="_blank" rel="noopener noreferrer">[Muslim 102]</a>
+        </p>
+        <p>
+          The report describes hidden dampness in food offered for sale and
+          the Prophet’s objection to keeping that condition from buyers.
+          <span class="source">
+            <a href="https://sunnah.com/muslim:102" target="_blank" rel="noopener noreferrer">[Source]</a>
+          </span>
+        </p>
+        <div class="application">
+          <strong>Application:</strong> When selling a used phone, disclose
+          battery problems or damage instead of showing only flattering photographs.
+        </div>
+      </div>
+
+      <div class="hadith-block">
+        <h3>Encouragement in teaching</h3>
+        <p class="arabic" lang="ar" dir="rtl">
+          يَسِّرُوا وَلَا تُعَسِّرُوا، وَبَشِّرُوا وَلَا تُنَفِّرُوا
+        </p>
+        <p class="meaning">
+          Paraphrased meaning: Make learning approachable, offer encouragement
+          and do not repel people through unnecessary difficulty.
+          <a class="source" href="https://sunnah.com/bukhari/3" target="_blank" rel="noopener noreferrer">[Bukhari 69]</a>
+        </p>
+        <div class="application">
+          <strong>Application:</strong> When a classmate struggles to learn,
+          explain one step at a time instead of mocking the mistake.
+        </div>
+      </div>
+
+      <div class="hadith-block">
+        <h3>Benefit through planting</h3>
+        <p class="meaning">
+          Paraphrased meaning: Planting can count as charity when people,
+          birds or animals benefit from it.
+          <a class="source" href="https://sunnah.com/bukhari:2320" target="_blank" rel="noopener noreferrer">[Bukhari 2320]</a>
+        </p>
+        <div class="application">
+          <strong>Application:</strong> Take part in a school planting project,
+          care for the plants afterwards and consider who benefits from them.
+        </div>
+      </div>
+
+      <details>
+        <summary>Reflection: knowing a report or living its teaching?</summary>
+        <div class="details-body">
+          <p>
+            Choose one report above. Explain its meaning in your own words,
+            identify why it matters and describe one realistic action you
+            could take this week.
+          </p>
+          <label for="reflection"><strong>My reflection</strong></label>
+          <textarea
+            id="reflection"
+            placeholder="The teaching I chose… Its meaning… Why it matters… My next action…"></textarea>
+          <p class="source-note">
+            Your writing stays in this open page only. Copy it elsewhere
+            before closing or refreshing.
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <section class="chapter" id="revision">
+      <span class="chapter-label">Part ten · Revision</span>
+      <h2>Revision and key terms</h2>
+
+      <h3>Essential vocabulary</h3>
+
+      <dl class="term-list">
+        <div class="term">
+          <dt>Hadith</dt>
+          <dd>A transmitted report attributed to the Prophet.</dd>
+        </div>
+        <div class="term">
+          <dt>Sunnah</dt>
+          <dd>The Prophet’s established guidance and example.</dd>
+        </div>
+        <div class="term">
+          <dt>Isnad / Sanad</dt>
+          <dd>The chain through which a report was transmitted.</dd>
+        </div>
+        <div class="term">
+          <dt>Matn</dt>
+          <dd>The wording or substance of the report.</dd>
+        </div>
+        <div class="term">
+          <dt>Rawi</dt>
+          <dd>A narrator or transmitter.</dd>
+        </div>
+        <div class="term">
+          <dt>Muhaddith</dt>
+          <dd>A scholar specialising in Hadith.</dd>
+        </div>
+        <div class="term">
+          <dt>ʿAdalah</dt>
+          <dd>A narrator’s integrity and moral reliability.</dd>
+        </div>
+        <div class="term">
+          <dt>Dabt</dt>
+          <dd>Precision in preserving and transmitting a report.</dd>
+        </div>
+        <div class="term">
+          <dt>Shudhudh</dt>
+          <dd>An undermining conflict with stronger transmission.</dd>
+        </div>
+        <div class="term">
+          <dt>ʿIllah</dt>
+          <dd>A subtle defect that damages a report’s reliability.</dd>
+        </div>
+        <div class="term">
+          <dt>Sahih / Hasan</dt>
+          <dd>Sound / good: categories of accepted reports.</dd>
+        </div>
+        <div class="term">
+          <dt>Daʿif / Mawduʿ</dt>
+          <dd>Weak / fabricated: distinct forms of unreliable attribution.</dd>
+        </div>
+      </dl>
+
+      <p class="source-note">
+        Terminology:
+        <a href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">Britannica</a>,
+        <a href="https://myhadith.islam.gov.my/jenis-hadith/11" target="_blank" rel="noopener noreferrer">JAKIM</a>,
+        and
+        <a href="http://muftiwp.gov.my/en/artikel/irsyad-al-hadith/3233-irsyad-al-hadith-siri-ke-358-hadith-hasan" target="_blank" rel="noopener noreferrer">the Mufti Department</a>.
+      </p>
+
+      <h3>Common misunderstandings</h3>
+
+      <details>
+        <summary>“Hadith records only the Prophet’s sayings.”</summary>
+        <div class="details-body">
+          <p>
+            It also includes reports of his deeds, approvals and qualities.
+            <a class="source" href="https://scholarhub.ui.ac.id/cgi/viewcontent.cgi?article=1059&context=meis" target="_blank" rel="noopener noreferrer">[Source]</a>
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>“Al-Bukhari was the first person to preserve Hadith.”</summary>
+        <div class="details-body">
+          <p>
+            Transmission, written notes and earlier collections preceded his
+            Sahih. His contribution belongs to a later stage of critical
+            compilation.
+            <a class="source" href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>“A trustworthy narrator must always remember accurately.”</summary>
+        <div class="details-body">
+          <p>
+            Integrity and precision are separate conditions: an honest person
+            may still make mistakes.
+            <a class="source" href="https://myhadith.islam.gov.my/jenis-hadith/11" target="_blank" rel="noopener noreferrer">[JAKIM]</a>
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>“Hasan means the report should be rejected.”</summary>
+        <div class="details-body">
+          <p>
+            Hasan is generally accepted as evidence, although it is lower in
+            strength than sahih.
+            <a class="source" href="http://muftiwp.gov.my/en/artikel/irsyad-al-hadith/3233-irsyad-al-hadith-siri-ke-358-hadith-hasan" target="_blank" rel="noopener noreferrer">[Mufti Department]</a>
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>“Weak and fabricated mean the same thing.”</summary>
+        <div class="details-body">
+          <p>
+            Weakness means the required reliability has not been established;
+            fabrication means the report is judged to be invented.
+            <a class="source" href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>“A good message proves a quotation is authentic.”</summary>
+        <div class="details-body">
+          <p>
+            A message may sound good while its attribution remains false or
+            unproven. Authenticity depends on evidence about the report,
+            not appeal alone.
+            <a class="source" href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <section class="chapter" id="practice">
+      <span class="chapter-label">Part eleven · Explain and apply</span>
+      <h2>Written practice</h2>
+
+      <p>
+        Try each question before opening the suggested answer. These are
+        learning models, not an official examination marking scheme.
+      </p>
+
+      <details>
+        <summary>Define Hadith and distinguish it from Sunnah.</summary>
+        <div class="details-body">
+          <p>
+            Hadith is a transmitted report about the Prophet’s words, deeds,
+            approvals or qualities. Sunnah refers to his established guidance
+            and example; Hadith is a major means through which knowledge of
+            that example reaches later Muslims.
+            <a class="source" href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Explain why Hadith has authority for Muslims.</summary>
+        <div class="details-body">
+          <p>
+            The Qur’an directs believers to obey the Messenger and presents
+            him as an example. Reliable reports preserve his explanations
+            and practice, enabling Muslims to learn how revelation was
+            taught and lived.
+            <a class="source" href="https://quran.com/4/80?translations=20,24" target="_blank" rel="noopener noreferrer">[Qur’an 4:80]</a>
+            <a class="source" href="https://legacy.quran.com/33/21" target="_blank" rel="noopener noreferrer">[Qur’an 33:21]</a>
+            <a class="source" href="https://corpus.quran.com/translation.jsp?chapter=16&amp;verse=44" target="_blank" rel="noopener noreferrer">[Qur’an 16:44]</a>
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Describe the main stages of Hadith collection.</summary>
+        <div class="details-body">
+          <p>
+            Companions first learned through listening, observation, memory
+            and some writing. They transmitted reports to later learners;
+            organised recording and different types of collections developed,
+            followed by major critical compilations and continuing commentary.
+            <a class="source" href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Explain the five main conditions for a sahih report.</summary>
+        <div class="details-body">
+          <p>
+            The chain must be connected; narrators must have integrity and
+            sufficient precision; the report must not contain an undermining
+            conflict with stronger transmission or a damaging hidden defect.
+            Each condition addresses a different source of possible error.
+            <a class="source" href="https://myhadith.islam.gov.my/jenis-hadith/11" target="_blank" rel="noopener noreferrer">[JAKIM]</a>
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Compare sahih, hasan, daʿif and mawduʿ.</summary>
+        <div class="details-body">
+          <p>
+            Sahih and hasan are accepted categories, with sahih stronger.
+            Daʿif falls short of accepted reliability. Mawduʿ is judged to
+            be fabricated and cannot serve as genuine prophetic evidence.
+            <a class="source" href="https://www.britannica.com/topic/Hadith" target="_blank" rel="noopener noreferrer">[Source]</a>
+            <a class="source" href="http://muftiwp.gov.my/en/artikel/irsyad-al-hadith/3233-irsyad-al-hadith-siri-ke-358-hadith-hasan" target="_blank" rel="noopener noreferrer">[Mufti Department]</a>
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Scenario: a friend forwards an unattributed religious quotation.</summary>
+        <div class="details-body">
+          <p>
+            A sensible response is to pause before sharing, request the
+            collection and reference, check the complete wording and seek
+            a reliable grading or explanation. If verification is unavailable,
+            do not confidently label it a saying of the Prophet.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Scenario: a seller hides damage in an online listing.</summary>
+        <div class="details-body">
+          <p>
+            Muslim 102 condemns deception through concealed defects.
+            Applied to this scenario, the seller should disclose the damage
+            so the buyer can make an informed decision.
+            <a class="source" href="https://sunnah.com/muslim:102" target="_blank" rel="noopener noreferrer">[Muslim 102]</a>
+          </p>
+        </div>
+      </details>
+
+      <div class="panel key-idea">
+        <span class="panel-label">A useful explanation structure</span>
+        <p>
+          <strong>Point → Evidence → Explanation → Application.</strong>
+          State the idea, identify the relevant source, explain the connection
+          and give a realistic example.
+        </p>
+      </div>
+    </section>
+
+    <section class="chapter" id="quiz">
+      <span class="chapter-label">Part twelve · Self-check</span>
+      <h2>Check your understanding</h2>
+
+      <p>
+        Choose one answer for each question, then select “Check answers”.
+        Explanations appear after checking.
+      </p>
+
+      <noscript>
+        <div class="panel">
+          <p>
+            JavaScript is disabled. You can still read all notes and open the
+            written-practice answers, but automatic quiz marking and reading
+            controls are unavailable.
+          </p>
+        </div>
+      </noscript>
+
+      <form id="quiz-form">
+
+        <fieldset data-answer="b"
+          data-explanation="Hadith includes reports about the Prophet’s words, deeds, approvals and qualities.">
+          <legend>1. Which definition is the most complete?</legend>
+          <label class="option"><input type="radio" name="q1" value="a"> Hadith means only the Prophet’s spoken words.</label>
+          <label class="option"><input type="radio" name="q1" value="b"> Hadith includes reports about his words, deeds, approvals and qualities.</label>
+          <label class="option"><input type="radio" name="q1" value="c"> Hadith means every opinion held by a later scholar.</label>
+          <p class="feedback"></p>
+        </fieldset>
+
+        <fieldset data-answer="a"
+          data-explanation="The isnad is the chain of transmission. The matn is the reported content.">
+          <legend>2. What is the isnad?</legend>
+          <label class="option"><input type="radio" name="q2" value="a"> The chain of transmitters.</label>
+          <label class="option"><input type="radio" name="q2" value="b"> The content of the report.</label>
+          <label class="option"><input type="radio" name="q2" value="c"> The title of a collection.</label>
+          <p class="feedback"></p>
+        </fieldset>
+
+        <fieldset data-answer="c"
+          data-explanation="Dabt concerns precision in preserving and transmitting a report.">
+          <legend>3. Which term concerns transmission accuracy?</legend>
+          <label class="option"><input type="radio" name="q3" value="a"> Matn.</label>
+          <label class="option"><input type="radio" name="q3" value="b"> Mawduʿ.</label>
+          <label class="option"><input type="radio" name="q3" value="c"> Dabt.</label>
+          <p class="feedback"></p>
+        </fieldset>
+
+        <fieldset data-answer="b"
+          data-explanation="Both are accepted; hasan in itself usually has a lower degree of narrator precision than sahih in itself.">
+          <legend>4. How does hasan usually differ from sahih?</legend>
+          <label class="option"><input type="radio" name="q4" value="a"> Hasan requires a dishonest narrator.</label>
+          <label class="option"><input type="radio" name="q4" value="b"> Its narrator precision is below the sahih level, while it remains acceptable.</label>
+          <label class="option"><input type="radio" name="q4" value="c"> Hasan means the report is fabricated.</label>
+          <p class="feedback"></p>
+        </fieldset>
+
+        <fieldset data-answer="a"
+          data-explanation="Weakness means accepted reliability has not been established; it does not automatically prove fabrication.">
+          <legend>5. Which statement about daʿif is correct?</legend>
+          <label class="option"><input type="radio" name="q5" value="a"> It does not automatically mean deliberate invention.</label>
+          <label class="option"><input type="radio" name="q5" value="b"> It always means deliberate invention.</label>
+          <label class="option"><input type="radio" name="q5" value="c"> It is always stronger than hasan.</label>
+          <p class="feedback"></p>
+        </fieldset>
+
+        <fieldset data-answer="c"
+          data-explanation="Mawduʿ means fabricated: an invented report falsely attributed to the Prophet.">
+          <legend>6. What does mawduʿ mean?</legend>
+          <label class="option"><input type="radio" name="q6" value="a"> A sound report.</label>
+          <label class="option"><input type="radio" name="q6" value="b"> A report with the highest narrator precision.</label>
+          <label class="option"><input type="radio" name="q6" value="c"> A fabricated attribution.</label>
+          <p class="feedback"></p>
+        </fieldset>
+
+        <fieldset data-answer="b"
+          data-explanation="Memory, teaching and some writing existed before the major later compilations.">
+          <legend>7. Which statement about collection is accurate?</legend>
+          <label class="option"><input type="radio" name="q7" value="a"> No Hadith was transmitted before al-Bukhari.</label>
+          <label class="option"><input type="radio" name="q7" value="b"> Earlier oral transmission and writing preceded later major collections.</label>
+          <label class="option"><input type="radio" name="q7" value="c"> Every report was first written in the same book.</label>
+          <p class="feedback"></p>
+        </fieldset>
+
+        <fieldset data-answer="a"
+          data-explanation="A report can be authentic while describing a permitted or recommended act rather than an obligation.">
+          <legend>8. Does sahih automatically mean an act is obligatory?</legend>
+          <label class="option"><input type="radio" name="q8" value="a"> No; authenticity and legal implication are different questions.</label>
+          <label class="option"><input type="radio" name="q8" value="b"> Yes; every authentic description establishes a duty.</label>
+          <label class="option"><input type="radio" name="q8" value="c"> Yes; context is never relevant.</label>
+          <p class="feedback"></p>
+        </fieldset>
+
+        <fieldset data-answer="c"
+          data-explanation="An appealing message does not prove that its attribution is authentic. Check its source and grading.">
+          <legend>9. What is the best response to an unattributed Hadith poster?</legend>
+          <label class="option"><input type="radio" name="q9" value="a"> Forward it if it sounds inspiring.</label>
+          <label class="option"><input type="radio" name="q9" value="b"> Assume a large audience proves authenticity.</label>
+          <label class="option"><input type="radio" name="q9" value="c"> Verify its source, wording and reliability before sharing.</label>
+          <p class="feedback"></p>
+        </fieldset>
+
+        <fieldset data-answer="b"
+          data-explanation="The report about hidden dampness in food supports honesty and disclosure rather than concealing defects.">
+          <legend>10. Which action best applies Muslim 102?</legend>
+          <label class="option"><input type="radio" name="q10" value="a"> Concealing a product fault to obtain a higher price.</label>
+          <label class="option"><input type="radio" name="q10" value="b"> Clearly disclosing a known fault before selling.</label>
+          <label class="option"><input type="radio" name="q10" value="c"> Editing photographs to hide damage.</label>
+          <p class="feedback"></p>
+        </fieldset>
+
+        <div class="quiz-actions no-print">
+          <button type="submit" class="primary">Check answers</button>
+          <button type="reset">Reset quiz</button>
+        </div>
+
+        <p id="quiz-result" role="status" aria-live="polite"></p>
+      </form>
+
+      <p class="source-note">
+        Quiz content follows the explanations and linked evidence in the notes
+        above. Question 10 applies
+        <a href="https://sunnah.com/muslim:102" target="_blank" rel="noopener noreferrer">Sahih Muslim 102</a>.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<footer>
+  <div class="container">
+    <p>
+      <strong>Hadith — Status, Collection and Authority</strong>
+      <br>
+      Educational notes. Short English meanings are paraphrases unless stated
+      otherwise. Follow the linked sources for full reports and explanations.
+    </p>
+    <p class="no-print">
+      Core notes and activities remain available without an internet connection
+      once this HTML file is saved. External fonts and source pages require internet access.
+    </p>
+    <a href="#main" class="no-print">Back to the beginning ↑</a>
+  </div>
+</footer>
+
+<script>
+(() => {
+  "use strict";
+
+  const root = document.documentElement;
+  const themeButton = document.getElementById("theme-toggle");
+  const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
+  let manualTheme = false;
+  let theme = systemDark.matches ? "dark" : "light";
+  let readingScale = 1;
+
+  function applyTheme(nextTheme) {
+    theme = nextTheme;
+    root.dataset.theme = theme;
+
+    const action = theme === "dark" ? "Light mode" : "Dark mode";
+    themeButton.textContent = action;
+    themeButton.setAttribute("aria-label", "Switch to " + action.toLowerCase());
+    themeButton.setAttribute("aria-pressed", String(theme === "dark"));
+  }
+
+  applyTheme(theme);
+
+  themeButton.addEventListener("click", () => {
+    manualTheme = true;
+    applyTheme(theme === "dark" ? "light" : "dark");
+  });
+
+  const handleSystemTheme = event => {
+    if (!manualTheme) {
+      applyTheme(event.matches ? "dark" : "light");
+    }
+  };
+
+  if (systemDark.addEventListener) {
+    systemDark.addEventListener("change", handleSystemTheme);
+  } else if (systemDark.addListener) {
+    systemDark.addListener(handleSystemTheme);
+  }
+
+  const smaller = document.getElementById("smaller");
+  const larger = document.getElementById("larger");
+
+  function changeTextSize(change) {
+    readingScale = Math.max(
+      0.95,
+      Math.min(1.3, Math.round((readingScale + change) * 100) / 100)
+    );
+
+    root.style.setProperty("--reading-scale", readingScale);
+    smaller.disabled = readingScale <= 0.95;
+    larger.disabled = readingScale >= 1.3;
+  }
+
+  smaller.addEventListener("click", () => changeTextSize(-0.05));
+  larger.addEventListener("click", () => changeTextSize(0.05));
+
+  document.getElementById("print-button").addEventListener("click", () => {
+    window.print();
+  });
+
+  let printDetailsState = [];
+
+  window.addEventListener("beforeprint", () => {
+    printDetailsState = Array.from(
+      document.querySelectorAll("article details")
+    ).map(detail => ({
+      detail,
+      wasOpen: detail.open
+    }));
+
+    printDetailsState.forEach(item => {
+      item.detail.open = true;
+    });
+  });
+
+  window.addEventListener("afterprint", () => {
+    printDetailsState.forEach(item => {
+      item.detail.open = item.wasOpen;
+    });
+
+    printDetailsState = [];
+  });
+
+  const quizForm = document.getElementById("quiz-form");
+  const quizResult = document.getElementById("quiz-result");
+
+  quizForm.addEventListener("submit", event => {
+    event.preventDefault();
+
+    const questions = Array.from(
+      quizForm.querySelectorAll("fieldset[data-answer]")
+    );
+
+    let score = 0;
+    let answered = 0;
+
+    questions.forEach((question, index) => {
+      const selected = question.querySelector("input:checked");
+      const feedback = question.querySelector(".feedback");
+      const explanation = question.dataset.explanation;
+      const correctOption = question.querySelector(
+        'input[value="' + question.dataset.answer + '"]'
+      );
+
+      const correctText = correctOption
+        .closest("label")
+        .textContent
+        .trim();
+
+      if (selected) {
+        answered += 1;
+      }
+
+      const isCorrect =
+        Boolean(selected) &&
+        selected.value === question.dataset.answer;
+
+      if (isCorrect) {
+        score += 1;
+      }
+
+      const status = !selected
+        ? "Not answered."
+        : isCorrect
+          ? "Correct."
+          : "Not quite.";
+
+      feedback.textContent =
+        status +
+        " Answer: " +
+        correctText +
+        " " +
+        explanation;
+
+      feedback.id = "feedback-" + (index + 1);
+      question.setAttribute("aria-describedby", feedback.id);
+    });
+
+    let advice;
+
+    if (score === questions.length) {
+      advice = "All answers are correct. Try explaining the ideas without looking.";
+    } else if (score >= 7) {
+      advice = "Good progress. Review the explanations for the questions you missed.";
+    } else {
+      advice = "Revisit the relevant sections, then try the quiz again.";
+    }
+
+    quizResult.textContent =
+      "Score: " +
+      score +
+      " out of " +
+      questions.length +
+      ". Answered: " +
+      answered +
+      " out of " +
+      questions.length +
+      ". " +
+      advice;
+
+    quizResult.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
+      block: "center"
+    });
+  });
+
+  quizForm.addEventListener("reset", () => {
+    quizResult.textContent = "";
+
+    quizForm.querySelectorAll(".feedback").forEach(feedback => {
+      feedback.textContent = "";
+    });
+
+    quizForm.querySelectorAll("fieldset").forEach(question => {
+      question.removeAttribute("aria-describedby");
+    });
+  });
+})();
+</script>
+</body>
+</html>
